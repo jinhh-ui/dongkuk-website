@@ -1924,12 +1924,12 @@
                 width: 100% !important;
                 max-width: 100% !important;
                 height: auto !important;
-                padding: 40px 0 20px !important;
+                padding: 40px 16px 20px !important;
                 border-radius: 0 !important;
                 overflow: visible !important;
                 display: flex;
                 flex-direction: column;
-                gap: 60px;
+                gap: 20px;
                 transform: none !important;
             }
 
@@ -1940,6 +1940,7 @@
                 left: 0 !important;
                 top: 0 !important;
                 padding: 0 !important;
+                box-sizing: border-box !important;
             }
 
             .ps-label {
@@ -1997,9 +1998,9 @@
 
             /* 1행: 냉연코일세팅, 열처리, 정밀컷팅, 포장정리 */
             .ps-mob-icon[data-step="0"] {
-                left: 0%;
-                top: 10%;
-                width: 25%;
+                right: 75%;
+                top: calc(10% + 4px);
+                width: calc(25% - 10px);
             }
 
             .ps-mob-icon[data-step="1"] {
@@ -2009,13 +2010,13 @@
             }
 
             .ps-mob-icon[data-step="2"] {
-                left: 49%;
-                top: 7%;
-                width: 22%;
+                left: calc(49% - 1px);
+                top: calc(7% + 11px);
+                width: calc(22% - 10px);
             }
 
             .ps-mob-icon[data-step="3"] {
-                left: calc(74% - 10px);
+                left: calc(74% - 20px);
                 top: 22%;
                 width: 26%;
             }
@@ -2057,7 +2058,7 @@
 
             /* 각 step 라벨 위치 (아이콘 top과 동일) */
             .ps-mobile-step-label[data-step="0"] {
-                left: 12%;
+                left: calc(12% + 8px);
                 top: 10%;
             }
 
@@ -2067,45 +2068,41 @@
             }
 
             .ps-mobile-step-label[data-step="2"] {
-                left: 60%;
+                left: calc(60% - 10px);
                 top: 27%;
             }
 
             .ps-mobile-step-label[data-step="3"] {
-                left: calc(87% - 10px);
-                top: 22%;
+                left: calc(87% - 25px);
+                top: calc(22% + 20px);
+            }
+
+            /* ── 모바일 하단 조절 영역 래퍼 ── */
+            .ps-mobile-bottom-group {
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             /* ── 모바일 인디케이터 바 ── */
-            .ps-mobile-indicators.mobile-only {
-                display: flex !important;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                padding: 7px;
+            .ps-mobile-indicators {
+                display: flex;
+                justify-content: space-between;
                 gap: 6px;
-                width: 328px;
-                height: 20px;
-                margin: -30px auto 0;
-                position: relative;
-                z-index: 30;
-                box-sizing: border-box;
-                flex: none;
-                order: 0;
-                flex-grow: 0;
+                padding: 10px 7px;
+                width: 100%;
             }
 
             .ps-mobile-dot {
-                width: 74px;
+                flex: 1;
                 height: 6px;
-                border-radius: 1000px;
+                border-radius: 3px;
                 background: #D3D3D3;
                 position: relative;
                 overflow: hidden;
                 cursor: pointer;
-                min-width: 0;
-                flex: none;
-                flex-grow: 1;
             }
 
             .ps-mobile-dot::after {
@@ -2123,7 +2120,6 @@
                 transition: width 3s linear;
             }
 
-
             .ps-mobile-dot.done::after {
                 width: 100%;
                 transition: none;
@@ -2136,18 +2132,11 @@
                 align-items: flex-start;
                 padding: 16px 20px;
                 gap: 10px;
-                width: 328px;
-                height: 123px;
+                width: 100%;
                 background: #FFFFFF;
                 border-radius: 16px;
                 box-sizing: border-box;
-                margin: -50px auto 0;
-                position: relative;
-                z-index: 20;
-                flex: none;
-                order: 1;
-                align-self: stretch;
-                flex-grow: 0;
+                margin-top: -50px;
             }
 
             .ps-mobile-info-header {
