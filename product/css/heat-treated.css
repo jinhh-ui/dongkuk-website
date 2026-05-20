@@ -1488,8 +1488,7 @@
                 width: 100%;
             }
 
-            .desktop-only { display: none !important; }
-            .mobile-only { display: block !important; }
+            .desktop-only { display: none; }
             
             /* 제품등급 테이블 스타일 */
             .grade-section-desktop {
@@ -1909,38 +1908,38 @@
 
             /* ── 공정: 데스크탑 요소 숨김 ── */
             .process-scroll-outer {
-                padding: 0 !important;
-                overflow: visible !important;
+                padding: 0;
+                overflow: visible;
             }
 
             .process-sticky {
-                display: block !important;
-                height: auto !important;
-                position: relative !important;
-                padding: 0 !important;
+                display: block;
+                height: auto;
+                position: relative;
+                padding: 0;
             }
 
             .process-card {
-                width: 100% !important;
-                max-width: 100% !important;
-                height: auto !important;
-                padding: 40px 16px 20px !important;
-                border-radius: 0 !important;
-                overflow: visible !important;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                padding: 40px 16px 40px;
+                border-radius: 0;
+                overflow: visible;
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
-                transform: none !important;
+                gap: 40px;
+                transform: none;
             }
 
             .ps-header {
-                position: relative !important;
-                width: 100% !important;
-                height: auto !important;
-                left: 0 !important;
-                top: 0 !important;
-                padding: 0 !important;
-                box-sizing: border-box !important;
+                position: relative;
+                width: 100%;
+                height: auto;
+                left: 0;
+                top: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
             .ps-label {
@@ -1948,29 +1947,37 @@
             }
 
             .ps-title {
-                font-size: 30px !important;
-                line-height: 1.5 !important;
+                font-size: 30px;
+                line-height: 1.5;
             }
 
             .ps-diagram-area {
-                display: none !important;
+                display: none;
             }
 
             .ps-bubble {
-                display: none !important;
+                display: none;
             }
 
             .ps-progress {
-                display: none !important;
+                display: none;
             }
 
             /* ── 모바일 전용 공정 다이어그램 ── */
             .ps-mobile-diagram {
-                display: block !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 width: 100%;
                 position: relative;
                 aspect-ratio: 328 / 160;
                 overflow: visible;
+            }
+
+            .ps-mobile-diagram-inner {
+                width: 100%;
+                aspect-ratio: 328 / 160;
+                position: relative;
             }
 
             .ps-mobile-row {
@@ -2081,7 +2088,7 @@
             .ps-mobile-bottom-group {
                 display: flex;
                 flex-direction: column;
-                gap: 60px;
+                gap: 10px;
                 width: 100%;
                 box-sizing: border-box;
             }
@@ -2129,72 +2136,40 @@
             .ps-mobile-info-card {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 16px 20px;
                 gap: 10px;
-                width: 100%;
                 background: #FFFFFF;
                 border-radius: 16px;
+                padding: 16px 20px;
+                width: 100%;
                 box-sizing: border-box;
-                margin-top: -50px;
             }
 
             .ps-mobile-info-header {
                 display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                padding: 0px;
                 gap: 10px;
-                width: 100%;
-                height: 29px;
-                flex: none;
-                order: 0;
-                flex-grow: 0;
+                align-items: flex-start;
             }
 
             .ps-mobile-info-num {
-                width: auto;
-                height: 29px;
-                font-family: 'Pretendard';
-                font-style: normal;
-                font-weight: 700;
                 font-size: 18px;
-                line-height: 160%;
+                font-weight: 700;
+                line-height: 1.6;
                 color: #F27100;
-                flex: none;
-                order: 0;
-                flex-grow: 0;
             }
 
             .ps-mobile-info-name {
-                width: auto;
-                height: 29px;
-                font-family: 'Pretendard';
-                font-style: normal;
-                font-weight: 700;
                 font-size: 18px;
-                line-height: 160%;
-                color: #000000;
-                flex: none;
-                order: 1;
-                flex-grow: 0;
+                font-weight: 700;
+                line-height: 1.6;
+                color: #000;
             }
 
             .ps-mobile-info-desc {
-                width: 100%;
-                height: auto;
-                min-height: 52px;
-                font-family: 'Pretendard';
-                font-style: normal;
-                font-weight: 400;
                 font-size: 16px;
-                line-height: 160%;
+                font-weight: 400;
+                line-height: 1.6;
                 color: #4E4E4E;
                 margin: 0;
-                flex: none;
-                order: 1;
-                align-self: stretch;
-                flex-grow: 0;
             }
 
             /* Grade Table — 1584px 고정폭 → 스크롤 */
@@ -2555,20 +2530,21 @@
 
 
 /* Visibility Classes */
-.desktop-only { display: block !important; }
-.mobile-only { display: none !important; }
 .m-br { display: none; }
 
 @media (max-width: 1023px) {
     .m-br { display: inline; }
-    .desktop-only { display: none !important; }
-    .mobile-only { display: block !important; }
+    .desktop-only { display: none; }
+}
+
+@media (min-width: 1024px) {
+    .mobile-only { display: none; }
 }
 
         /* 제품등급 테이블 데스크탑 스타일 (1920px 기준) */
         @media (min-width: 1024px) {
             .grade-section-desktop {
-                display: flex !important;
+                display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 48px;
@@ -3026,5 +3002,29 @@
         @media (max-width: 768px) {
             .usage-menu-item {
                 gap: 12px !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .ps-mobile-diagram {
+                margin-top: 40px;
+                aspect-ratio: 328 / 277;
+            }
+            .ps-mob-icon[data-step="0"] {
+                transform: translateX(-9px);
+            }
+            .ps-mob-icon[data-step="1"] {
+                transform: scale(1.07) translateX(-6.1px) translateY(1.5px);
+                transform-origin: left bottom;
+            }
+            .ps-mob-icon[data-step="2"] {
+                transform: translateX(-0.5px) translateY(-2.1px);
+            }
+            .ps-mob-icon[data-step="3"] {
+                transform: scale(1.214);
+                transform-origin: left bottom;
+            }
+            .ps-mobile-step-label[data-step="3"] {
+                left: calc(87% - 15px);
             }
         }
