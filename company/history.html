@@ -691,16 +691,16 @@
                 </div>
 
             </div>
+
+            <!-- FAB Navigation -->
+            <div class="history-fab">
+                <a href="#decade-2020s" class="fab-btn active"><span>현재 ~ 2011</span></a>
+                <a href="#decade-2010s" class="fab-btn"><span>2010~2001</span></a>
+                <a href="#decade-2000s" class="fab-btn"><span>2000~1991</span></a>
+                <a href="#decade-1900s" class="fab-btn"><span>1990 이전</span></a>
+            </div>
         </section>
 
-    </div>
-
-    <!-- FAB Navigation -->
-    <div class="history-fab">
-        <a href="#decade-2020s" class="fab-btn active"><span>현재 ~ 2011</span></a>
-        <a href="#decade-2010s" class="fab-btn"><span>2010~2001</span></a>
-        <a href="#decade-2000s" class="fab-btn"><span>2000~1991</span></a>
-        <a href="#decade-1900s" class="fab-btn"><span>1990 이전</span></a>
     </div>
 
     <div id="support-placeholder"></div>
@@ -853,6 +853,7 @@
 
                 movingDot.style.top = `${progress * 100}%`;
                 lineProgress.style.height = `${progress * 100}%`;
+                window._timelineProgress = progress;
 
                 // Calculate the actual vertical coordinate of the visual dot
                 const dotY = lineRect.top + progress * lineRect.height;

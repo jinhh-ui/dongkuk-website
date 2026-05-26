@@ -76,7 +76,6 @@
     position: relative;
     padding: 0;
     background: #fff;
-    overflow: hidden;
 }
 
 .history-inner {
@@ -85,7 +84,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 100px clamp(60px, 6.25vw, 120px);
+    padding: 100px clamp(60px, 6.25vw, 120px) 15vh;
     gap: clamp(100px, 8.33vw, 160px);
 }
 
@@ -286,7 +285,7 @@
 
 /* Floating Navigation (FAB) */
 .history-fab {
-    position: fixed;
+    position: sticky;
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
@@ -296,6 +295,8 @@
     padding: 10px;
     gap: 4px;
     height: 78px;
+    width: fit-content;
+    margin: 0 auto;
     background: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
@@ -383,7 +384,7 @@
     }
 
     .history-fab {
-        position: fixed;
+        position: sticky;
         left: 0;
         right: 0;
         bottom: 0;

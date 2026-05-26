@@ -292,43 +292,7 @@
     }, { threshold: 0.12 });
     fadeEls.forEach(el => fadeIO.observe(el));
 
-    /* ══ GNB 컬러 전환 및 스크롤 숨김 처리 ══ */
-    (function () {
-      const gnb = document.querySelector('.gnb');
-      const hero = document.getElementById('hero');
-      let lastY = window.scrollY;
-
-      function updateGnb() {
-        const currentY = window.scrollY;
-        const delta = currentY - lastY;
-
-        // 1. 투명↔solid 전환
-        // 투명 = 최상단(scrollY ≈ 0)에서만
-        // solid = 그 외 모든 경우 (히어로 영역 안이라도 스크롤 내리면 solid)
-        if (hero) {
-          const atTop = currentY <= 10;
-          gnb.classList.toggle('gnb-transparent', atTop);
-          gnb.classList.toggle('gnb-solid', !atTop);
-        }
-
-        // 2. orbital 섹션 감지
-        const orbital = document.querySelector('.orbital-sticky');
-        const inOrbital = orbital && orbital.getBoundingClientRect().top < 100 && orbital.getBoundingClientRect().bottom > 0;
-
-        if (inOrbital) {
-          gnb.classList.remove('gnb-hidden');
-        } else if (delta > 0 && currentY > 50) {
-          gnb.classList.add('gnb-hidden');
-        } else if (delta < 0) {
-          gnb.classList.remove('gnb-hidden');
-        }
-
-        lastY = currentY;
-      }
-
-      window.addEventListener('scroll', updateGnb, { passive: true });
-      updateGnb();
-    })();
+    /* GNB 스크롤 숨김/표시 및 색상 전환은 gnb.js에서 통합 처리 */
 
     (function () {
       const wrapper = document.getElementById('invest-wrapper');
@@ -404,6 +368,34 @@
         imgs.forEach(function (el, i) { el.classList.toggle('prod-active', i === idx); });
         segs.forEach(function (el, i) { el.style.opacity = i === idx ? '1' : '0'; });
         dots.forEach(function (el, i) { el.classList.toggle('active', i === idx); });
+        // Dikel 텍스트: step 0(니켈도금강판)에서만 표시
+        var dikelName = document.getElementById('product-dikel-name');
+        if (dikelName) dikelName.style.opacity = idx === 0 ? '1' : '0';
+      }
+
+      /* ── 제품정보 버튼: body로 이동하여 3D 캔버스 위에 렌더링 ── */
+      var detailBtn = document.querySelector('.product-detail-btn');
+      var btnOrigParent = detailBtn ? detailBtn.parentElement : null;
+      var btnIsLifted = false;
+
+      function liftBtn() {
+        if (!detailBtn || btnIsLifted) return;
+        var r = detailBtn.getBoundingClientRect();
+        detailBtn.style.position = 'fixed';
+        detailBtn.style.bottom = (window.innerHeight - r.bottom) + 'px';
+        detailBtn.style.right = (window.innerWidth - r.right) + 'px';
+        detailBtn.style.left = 'auto';
+        detailBtn.style.top = 'auto';
+        detailBtn.style.zIndex = '100';
+        document.body.appendChild(detailBtn);
+        btnIsLifted = true;
+      }
+
+      function dropBtn() {
+        if (!detailBtn || !btnIsLifted || !btnOrigParent) return;
+        detailBtn.style.cssText = '';
+        btnOrigParent.appendChild(detailBtn);
+        btnIsLifted = false;
       }
 
       function onProdScroll() {
@@ -414,6 +406,14 @@
         if (loadingBar) loadingBar.style.width = (p * 100) + '%';
         var idx = Math.min(Math.floor(Math.max(0, (p - 0.15) / 0.85) * 3), 2);
         setStep(idx);
+
+        /* 버튼: sticky가 화면에 고정된 동안만 fixed */
+        var vh = window.innerHeight;
+        if (rect.top <= 0 && rect.bottom > vh) {
+          liftBtn();
+        } else {
+          dropBtn();
+        }
 
         /* 3D 코일: product 섹션 접근 시 이동 + 각도 변경 + 스크롤 아웃 */
         if (window._coil3d) {

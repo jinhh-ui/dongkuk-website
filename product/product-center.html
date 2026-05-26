@@ -140,7 +140,7 @@
                 <h2 class="global-title global-title-2">기술과 파트너십으로<br>미래 가치를 이어갑니다.</h2>
 
                 <div class="global-video-frame" id="globalVideoFrame">
-                    <video id="globalVideo" muted playsinline preload="auto">
+                    <video id="globalVideo" muted playsinline webkit-playsinline preload="metadata">
                         <source src="assets/product-center/product-center-movie.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -402,8 +402,7 @@
 
         if (productsContainer) {
             productsContainer.addEventListener('mouseleave', () => {
-                productCards.forEach(c => c.classList.remove('expanded'));
-                productCards[0].classList.add('expanded');
+                /* 마지막 호버한 카드 유지 */
             });
         }
 
@@ -414,6 +413,8 @@
             const video = document.getElementById('globalVideo');
             if (!section || !frame || !video) return;
 
+            video.muted = true;
+            video.setAttribute('playsinline', '');
             video.addEventListener('loadeddata', () => { video.currentTime = 0.01; });
 
             const title1 = section.querySelector('.global-title-1');
@@ -424,6 +425,7 @@
 
             let triggered = false;
             let counted = false;
+            let frameExpanded = false;
 
             function showMarkers() {
                 markers.forEach((m, i) => setTimeout(() => m.classList.add('show'), i * 150));
@@ -446,12 +448,33 @@
                 }
             }
 
-            /* 마커: 영상 끝나기 1초 전부터 표시 */
-            let markersShown = false;
-            video.addEventListener('timeupdate', () => {
-                if (!markersShown && video.duration && video.currentTime >= video.duration - 1) {
-                    markersShown = true;
-                    showMarkers();
+            /* 프레임 확장 완료 후 영상 재생 + 마커/스탯 타이밍 시작 */
+            function onFrameExpanded() {
+                if (frameExpanded) return;
+                frameExpanded = true;
+                video.muted = true;
+                var playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function() { /* iOS autoplay 차단 시 무시 */ });
+                }
+                /* 스탯: 확장 직후 표시 */
+                showStats();
+                /* 마커: 영상 끝 1초 전 or 영상 없으면 3초 후 */
+                let markersShown = false;
+                video.addEventListener('timeupdate', () => {
+                    if (!markersShown && video.duration && video.currentTime >= video.duration - 1) {
+                        markersShown = true;
+                        showMarkers();
+                    }
+                });
+                /* fallback: 영상 재생 안 될 경우 3초 후 */
+                setTimeout(() => { if (!markersShown) { markersShown = true; showMarkers(); } }, 3000);
+            }
+
+            frame.addEventListener('transitionend', (e) => {
+                /* border-radius 등 다른 transition 무시, 주요 속성만 */
+                if (e.target === frame && (e.propertyName === 'top' || e.propertyName === 'left')) {
+                    onFrameExpanded();
                 }
             });
 
@@ -466,9 +489,6 @@
                         title1.classList.add('fade-out');
                         title2.classList.add('fade-in');
                     }, 300);
-                    /* 스탯 카드: 프레임 확장과 함께 자연스럽게 등장 */
-                    setTimeout(() => showStats(), 800);
-                    setTimeout(() => video.play(), 800);
                 }
             }
 
@@ -476,7 +496,8 @@
             setTimeout(() => {
                 window.addEventListener('scroll', checkScroll, { passive: true });
             }, 1000);
-            setTimeout(() => { if (!counted) { showMarkers(); showStats(); } }, 6000);
+            /* fallback: transitionend 안 터질 경우 대비 */
+            setTimeout(() => { if (!frameExpanded && triggered) onFrameExpanded(); }, 8000);
         })();
     </script>
     <script src="../js/gnb.js"></script>

@@ -184,43 +184,97 @@
   w.innerHTML = html;
   while (w.firstChild) document.body.appendChild(w.firstChild);
 
-  /* 기존 헤더에 GNB 중앙 메뉴 삽입 */
+  /* 기존 헤더에 GNB 중앙 메뉴 삽입 (한화에어로스페이스 구조) */
   var header = document.querySelector('.gnb');
   var gnbUtils = document.querySelector('.gnb-utils');
+
   if (header && gnbUtils && !document.querySelector('.gnb-nav')) {
+      // ── nav 빌드: 각 항목에 gnb-submenu-wrap > gnb-submenu 구조 ──
       var navHtml = '<nav class="gnb-nav">';
       for (var i = 0; i < categories.length; i++) {
           navHtml += '<div class="gnb-nav-item" data-idx="' + i + '">';
           navHtml += '<a href="' + categories[i].items[0].href + '" class="gnb-nav-link">' + categories[i].title + '</a>';
           
-          // Submenu
+          // 서브메뉴 래퍼 (overflow:hidden + height 트랜지션)
+          navHtml += '<div class="gnb-submenu-wrap">';
           navHtml += '<div class="gnb-submenu">';
           for (var j = 0; j < categories[i].items.length; j++) {
               navHtml += '<a href="' + categories[i].items[j].href + '">' + categories[i].items[j].text + '</a>';
           }
-          navHtml += '</div>';
+          navHtml += '</div>'; // .gnb-submenu
+          navHtml += '</div>'; // .gnb-submenu-wrap
           
-          navHtml += '</div>';
+          navHtml += '</div>'; // .gnb-nav-item
       }
-      navHtml += '<div class="gnb-dropdown-bg"></div>';
       navHtml += '</nav>';
       gnbUtils.insertAdjacentHTML('beforebegin', navHtml);
 
-      // Hover events for GNB
+      /* ═══ 호버 로직 ═══
+         ::before 하나가 GNB 헤더 + 서브메뉴 전체를 커버.
+         --gnb-expanded-height CSS 변수로 높이를 제어. */
       var navElement = header.querySelector('.gnb-nav');
-      
-      if (navElement) {
-          navElement.addEventListener('mouseenter', function() {
-              if (window.innerWidth > 1023) {
-                  header.classList.add('is-hover');
-              }
-          });
-          navElement.addEventListener('mouseleave', function() {
-              if (window.innerWidth > 1023) {
-                  header.classList.remove('is-hover');
-              }
-          });
+      var navItems = header.querySelectorAll('.gnb-nav-item');
+      var hoverTimeout = null;
+      var activeIdx = -1;
+
+      function openSubmenu(idx) {
+        if (window.innerWidth <= 1439) return;
+        clearTimeout(hoverTimeout);
+        
+        var item = navItems[idx];
+        var wrap = item.querySelector('.gnb-submenu-wrap');
+        var submenu = item.querySelector('.gnb-submenu');
+        if (!wrap || !submenu) return;
+
+        // 이전에 열린 다른 서브메뉴 닫기
+        if (activeIdx !== -1 && activeIdx !== idx) {
+          var prevWrap = navItems[activeIdx].querySelector('.gnb-submenu-wrap');
+          if (prevWrap) prevWrap.classList.remove('is-active');
+        }
+        activeIdx = idx;
+
+        // 해당 서브메뉴 표시
+        wrap.classList.add('is-active');
+
+        // header padding-bottom으로 확장 (한화에어로스페이스 방식)
+        var contentH = submenu.scrollHeight;
+        header.style.setProperty('--gnb-submenu-height', contentH);
+
+        header.classList.add('is-hover');
+
+        // 스크롤 차단
+        document.body.style.overflow = 'hidden';
       }
+
+      function closeAllSubmenus() {
+        if (window.innerWidth <= 1439) return;
+        hoverTimeout = setTimeout(function() {
+          for (var i = 0; i < navItems.length; i++) {
+            var wrap = navItems[i].querySelector('.gnb-submenu-wrap');
+            if (wrap) wrap.classList.remove('is-active');
+          }
+          header.style.setProperty('--gnb-submenu-height', 0);
+          header.classList.remove('is-hover');
+          activeIdx = -1;
+
+          // 스크롤 복원
+          document.body.style.overflow = '';
+        }, 80);
+      }
+
+      // 각 nav-item에 mouseenter만 바인딩 (어떤 서브메뉴를 열지 결정)
+      for (var ni = 0; ni < navItems.length; ni++) {
+        (function(idx) {
+          navItems[idx].addEventListener('mouseenter', function() {
+            openSubmenu(idx);
+          });
+        })(ni);
+      }
+
+      // 헤더 전체에서 mouseleave — 확장된 영역 포함 전체를 벗어나야 닫힘
+      header.addEventListener('mouseleave', function() {
+        closeAllSubmenus();
+      });
   }
 
   /* ── 요소 ── */
@@ -242,11 +296,8 @@
     var pageHeader = document.querySelector('#nav, .gnb, .header');
     if (pageHeader) {
         pageHeader.classList.add('gnb-menu-active');
-        if (pageHeader.classList.contains('gnb-dark') || pageHeader.classList.contains('gnb-transparent')) {
-            menu.classList.add('sitemap-dark');
-        } else {
-            menu.classList.remove('sitemap-dark');
-        }
+        // 항상 다크 모드 사이트맵
+        menu.classList.add('sitemap-dark');
     }
   }
   function closeMenu() {
@@ -315,41 +366,69 @@
   });
 })();
 
-/* ── GNB 스크롤 숨김 애니메이션 로직 ── */
+/* ══════════════════════════════════════════════════════════
+   GNB 스크롤 숨김/표시 — 모든 페이지 통합 로직
+   (한화에어로스페이스 스타일)
+   
+   원칙:
+   1. 스크롤 다운 → GNB 위로 숨김
+   2. 스크롤 업 → GNB 다시 표시
+   3. 최상단에서는 항상 표시
+   4. 투명 GNB 페이지: 최상단 = 투명, 스크롤 = solid
+   ══════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-  let lastScrollY = window.scrollY;
   const gnb = document.querySelector('.gnb');
+  if (!gnb) return;
 
-  if (gnb) {
-    const useTransparent = gnb.hasAttribute('data-gnb-transparent');
-    const page = document.body.getAttribute('data-page');
+  // 히어로 영역 자동 감지: data-gnb-transparent 또는 히어로 섹션 존재
+  const hasHero = gnb.hasAttribute('data-gnb-transparent') 
+    || document.querySelector('.hero-section, #hero, .page-hero');
+  
+  if (hasHero && !gnb.classList.contains('gnb-transparent')) {
+    gnb.classList.add('gnb-transparent');
+    gnb.setAttribute('data-gnb-transparent', '');
+  }
 
-    // index 페이지는 orbital 등 자체 스크롤 로직이 있어 여기선 스킵
-    if (page === 'main') return;
+  const useTransparent = gnb.hasAttribute('data-gnb-transparent');
+  let lastScrollY = window.scrollY;
+  let ticking = false;
 
-    function updateGnb() {
-      const currentScrollY = window.scrollY;
+  function updateGnb() {
+    const currentScrollY = window.scrollY;
+    const delta = currentScrollY - lastScrollY;
 
-      // 투명 GNB 페이지: 최상단(10px 이내)이면 투명, 그 외 solid
-      if (useTransparent) {
-        const atTop = currentScrollY <= 10;
-        gnb.classList.toggle('gnb-transparent', atTop);
-        gnb.classList.toggle('gnb-solid', !atTop);
-      }
-
-      // 스크롤 숨기기
-      if (currentScrollY > lastScrollY && currentScrollY > 5) {
-        gnb.classList.add('gnb-hidden');
-      } else {
-        gnb.classList.remove('gnb-hidden');
-      }
-
-      lastScrollY = currentScrollY;
+    // 1. 투명 ↔ solid 전환
+    if (useTransparent) {
+      const atTop = currentScrollY <= 10;
+      gnb.classList.toggle('gnb-transparent', atTop);
+      gnb.classList.toggle('gnb-solid', !atTop);
     }
 
-    window.addEventListener('scroll', updateGnb);
-    updateGnb(); // 초기 실행
+    // 2. 스크롤 숨김/표시 (모든 페이지 동일 로직)
+    if (currentScrollY <= 5) {
+      // 최상단: 항상 표시
+      gnb.classList.remove('gnb-hidden');
+    } else if (delta > 3) {
+      // 아래로 스크롤 (3px 이상 움직였을 때만 — 미세 떨림 방지)
+      gnb.classList.add('gnb-hidden');
+    } else if (delta < -3) {
+      // 위로 스크롤
+      gnb.classList.remove('gnb-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
   }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(updateGnb);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // 초기 실행
+  updateGnb();
 });
 
 /* ── BTN TOP 공통 로직 (Responsive) ── */
@@ -379,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (boundaryEl) {
       const boundaryTop = boundaryEl.getBoundingClientRect().top + scrollY;
       const overlap = scrollBottom - boundaryTop;
-      const isMobile = window.innerWidth <= 1023;
+      const isMobile = window.innerWidth <= 1439;
       const hasProductTabs = !!document.querySelector('.product-tabs');
       const hasHistoryFab = !!document.querySelector('.history-fab');
       
@@ -429,3 +508,86 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+/* ══════════════════════════════════════════════════════════
+   커스텀 오버레이 스크롤바 (한화에어로스페이스 .c-scrollbar 방식)
+   네이티브 스크롤바는 CSS로 숨기고, position:fixed 요소로 대체.
+   스크롤 시 나타나고 멈추면 서서히 사라짐.
+   ══════════════════════════════════════════════════════════ */
+(function() {
+  var bar = document.createElement('div');
+  bar.className = 'c-scrollbar';
+  var thumb = document.createElement('div');
+  thumb.className = 'c-scrollbar-thumb';
+  bar.appendChild(thumb);
+  document.body.appendChild(bar);
+
+  var hideTimer = null;
+  var isDragging = false;
+  var dragStartY = 0;
+  var dragStartScroll = 0;
+
+  function updateThumb() {
+    var docH = document.documentElement.scrollHeight;
+    var winH = window.innerHeight;
+    if (docH <= winH) { bar.style.opacity = '0'; return; }
+    var ratio = winH / docH;
+    var thumbH = Math.max(ratio * winH, 40);
+    var scrollRatio = window.scrollY / (docH - winH);
+    var maxTop = winH - thumbH;
+    thumb.style.height = thumbH + 'px';
+    thumb.style.top = (scrollRatio * maxTop) + 'px';
+  }
+
+  function showBar() {
+    bar.style.opacity = '1';
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function() {
+      if (!isDragging) bar.style.opacity = '0';
+    }, 1200);
+  }
+
+  window.addEventListener('scroll', function() {
+    updateThumb();
+    showBar();
+  }, { passive: true });
+
+  window.addEventListener('resize', updateThumb);
+
+  // 드래그
+  thumb.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    dragStartY = e.clientY;
+    dragStartScroll = window.scrollY;
+    bar.style.opacity = '1';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    var docH = document.documentElement.scrollHeight;
+    var winH = window.innerHeight;
+    var delta = e.clientY - dragStartY;
+    var ratio = delta / winH;
+    window.scrollTo(0, dragStartScroll + ratio * (docH - winH));
+  });
+
+  window.addEventListener('mouseup', function() {
+    if (!isDragging) return;
+    isDragging = false;
+    document.body.style.userSelect = '';
+    showBar();
+  });
+
+  // 바 클릭으로 점프
+  bar.addEventListener('click', function(e) {
+    if (e.target === thumb) return;
+    var docH = document.documentElement.scrollHeight;
+    var winH = window.innerHeight;
+    var ratio = e.clientY / winH;
+    window.scrollTo({ top: ratio * (docH - winH), behavior: 'smooth' });
+  });
+
+  updateThumb();
+})();

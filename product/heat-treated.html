@@ -472,7 +472,7 @@
 
                     <div class="usage-tab-content active" id="usage-tab-0">
                         <div class="utc-video">
-                            <video autoplay loop muted playsinline>
+                            <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
                                 <source src="assets/heat-treated/mobility-video.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -501,7 +501,7 @@
 
                     <div class="usage-tab-content" id="usage-tab-1">
                         <div class="utc-video">
-                            <video autoplay loop muted playsinline>
+                            <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
                                 <source src="assets/heat-treated/heat-parts-video.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -824,6 +824,15 @@
 
     </script>
     <script src="../js/gnb.js"></script>
+    <script>
+    /* iOS 자동재생 호환 */
+    document.querySelectorAll('video[autoplay]').forEach(function(v) {
+        v.muted = true;
+        v.setAttribute('playsinline', '');
+        var p = v.play();
+        if (p) p.catch(function(){});
+    });
+    </script>
 
 
 </body>

@@ -308,6 +308,11 @@
     word-break: keep-all;
 }
 
+/* ===== Product Tabs 안착 여백 ===== */
+.support-section {
+    margin-top: clamp(80px, 6.25vw, 120px);
+}
+
 /* ===== Product Tabs 최적화 ===== */
 /* ===== 하단 플로팅 제품 네비게이션 ===== */
 .product-tabs {
@@ -365,8 +370,8 @@
 .product-intro .inner {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    padding: 100px clamp(16px, 6.25vw, 120px) 0;
+    align-items: flex-start;
+    padding-top: 100px;
 }
 
 .pi-top-wrapper {
@@ -566,12 +571,9 @@ img.ic-download {
 
 /* ===== Accordion (Figma Specs) ===== */
 .product-intro .accordion {
-    padding: 0;
-    background: #fff;
-    margin-top: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    width: 100%;
+    margin-top: 40px;
+    padding: 40px 0 100px;
 }
 
 .acc-item {
@@ -614,7 +616,7 @@ img.ic-download {
     font-size: clamp(18px, 1.66vw, 32px);
     font-weight: 700;
     line-height: 150%;
-    color: #222222;
+    color: #1B1B1B;
 }
 
 .acc-dropdown-icon {
@@ -657,7 +659,8 @@ img.ic-download {
     padding: 48px 44px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 60px;
+    overflow-x: auto;
 }
 
 /* Production Range List Container */
@@ -1026,7 +1029,7 @@ img.ic-download {
 .utc-part-box {
     flex: 1;
     max-width: 135px;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 135 / 150;
     background: #ECEDF0;
     border-radius: 16px;
     display: flex;
@@ -1074,7 +1077,7 @@ img.ic-download {
     height: auto;
     /* 고정 높이 제거 */
     background: #FFFFFF;
-    padding: 0 30px;
+    padding: 0 30px 100px;
     /* 상하 여백 제거, 좌우 30px 유지 */
     overflow: hidden;
 }
@@ -1127,7 +1130,7 @@ img.ic-download {
 }
 
 .ps-title {
-    font-size: 50px;
+    font-size: clamp(30px, 2.6vw, 50px);
     font-weight: 700;
     line-height: 140%;
     color: #000;
@@ -1215,7 +1218,7 @@ img.ic-download {
 }
 
 .ps-bubble h3 {
-    font-size: 30px;
+    font-size: clamp(20px, 1.56vw, 30px);
     font-weight: 700;
     line-height: 150%;
     color: #000;
@@ -1265,7 +1268,7 @@ img.ic-download {
 /* ── Progress bar: absolute within card ── */
 .ps-progress {
     position: absolute;
-    width: 1680px;
+    width: calc(100% - 180px);
     height: 182px;
     left: 90px;
     top: 808px;
@@ -1280,7 +1283,7 @@ img.ic-download {
     flex-direction: row;
     align-items: center;
     gap: 16px;
-    width: 1600px;
+    width: 100%;
     height: 102px;
 }
 
@@ -1584,7 +1587,7 @@ img.ic-download {
     .product-intro .inner {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 0;
         padding: 0 16px;
         padding-bottom: 40px;
         max-width: 100%;
@@ -1600,7 +1603,7 @@ img.ic-download {
 
     .product-intro .accordion {
         padding: 0;
-        margin: 0;
+        margin-top: 40px;
     }
 
     .pi-left {
@@ -1659,6 +1662,7 @@ img.ic-download {
         order: 4;
         width: 100%;
         gap: 16px;
+        padding-bottom: 20px;
     }
 
     .pi-top-content,
