@@ -204,8 +204,7 @@ body .no-transition *,
     height: 100%;
     border-radius: 50%;
     position: relative;
-    border: 1px solid #D3D3D3;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
 }
 
 .orb-orbit::before {
@@ -583,7 +582,7 @@ body .no-transition *,
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
     border-radius: 20px;
-    padding: 30px;
+    padding: clamp(16px, 1.5625vw, 30px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -686,9 +685,9 @@ body .no-transition *,
     transition: font-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 카드가 확장되면 -> 타이틀이 60px로 커짐 */
+/* 카드가 확장되면 -> 타이틀이 커짐 */
 .product-card.expanded .pc-title-small {
-    font-size: 60px;
+    font-size: clamp(36px, 3.125vw, 60px);
 }
 
 /* 설명글 스타일 (타이틀 아래) */
@@ -826,7 +825,7 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card:hover .pc-title-small {
-        font-size: 60px;
+        font-size: clamp(36px, 3.125vw, 60px);
     }
 
     .products-container:hover .product-card:hover .pc-desc {

@@ -54,14 +54,14 @@
    ════════════════════════════════════ */
 .gnb-sitemap {
   container-type: inline-size;
-  padding: clamp(30px, 3.125cqw, 60px) clamp(24px, 4.16cqw, 80px) clamp(50px, 5.2cqw, 100px);
+  padding: 60px 120px 100px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(30px, 3.125cqw, 60px);
+  align-items: center;
+  gap: 60px;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(65px);
+  -webkit-backdrop-filter: blur(65px);
   width: 100%;
   min-height: calc(100vh - 90px);
   box-sizing: border-box;
@@ -76,28 +76,28 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: clamp(20px, 10cqw, 192px);
+  gap: 200px;
   width: 100%;
-  max-width: 1760px; /* 원래 너비 복구 */
-  padding-bottom: clamp(30px, 3.125cqw, 60px);
+  max-width: 1680px;
+  padding-bottom: 60px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .gnb-menu.sitemap-dark .sitemap-row {
-  border-bottom: 1px solid #4E4E4E;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sitemap-row:last-child {
-  border-bottom: none;
+  border-bottom: none !important;
   padding-bottom: 0;
 }
 
 .sitemap-row-title {
-  width: clamp(90px, 9.89cqw, 190px);
+  width: 190px;
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
-  font-size: clamp(24px, 1.875cqw, 54px);
-  line-height: 150%;
+  font-size: 36px;
+  line-height: 1.5;
   color: #111111;
   flex-shrink: 0;
   white-space: nowrap;
@@ -121,23 +121,23 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  width: clamp(151px, 11.97cqw, 230px);
+  width: 230px;
 }
 
 .sitemap-item {
   width: 100%;
-  height: clamp(40px, 2.91cqw, 56px);
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: clamp(6px, 0.52cqw, 10px) clamp(10px, 0.83cqw, 16px);
+  padding: 10px 16px;
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
-  font-size: clamp(13px, 1.25cqw, 36px);
-  line-height: 150%;
+  font-size: 24px;
+  line-height: 1.5;
   color: #D3D3D3;
   text-decoration: none;
-  border-radius: clamp(8px, 0.625cqw, 12px);
+  border-radius: 12px;
   transition: color 0.2s, background 0.2s;
   box-sizing: border-box;
   white-space: nowrap;
@@ -156,18 +156,18 @@
 
 .sitemap-tab {
   width: 100%;
-  height: clamp(32px, 2.29cqw, 44px);
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: clamp(4px, 0.31cqw, 6px) clamp(10px, 0.83cqw, 16px); /* 상위 텍스트와 좌측 정렬 완벽 일치 */
+  padding: 6px 16px;
   font-family: 'Pretendard', sans-serif;
   font-weight: 400;
-  font-size: clamp(14px, 1.04cqw, 24px); /* 20px at 1920 */
-  line-height: 160%;
-  color: #767676;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #7A7A7A;
   text-decoration: none;
-  border-radius: clamp(8px, 0.625cqw, 12px);
+  border-radius: 12px;
   transition: color 0.2s, background 0.2s;
   box-sizing: border-box;
   white-space: nowrap;
@@ -203,9 +203,9 @@
 
 
 /* ════════════════════════════════════
-   RESPONSIVE < 1024px
+   RESPONSIVE ≤ 1439px (TABLET/MOBILE)
    ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 1439px) {
   /* 오버레이: 뒤 어둡게 */
   .gnb-overlay.is-open { opacity: 1; visibility: visible; }
 
@@ -347,20 +347,4 @@
   }
 }
 
-/* ── GNB 스크롤 숨김 애니메이션 ── */
-/* GNB를 화면 위에 고정하고 애니메이션 효과 주기 */
-.gnb {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    max-width: none;
-    z-index: 1000;
-    transition: top 0.3s ease-in-out;
-}
-
-/* 스크롤을 내렸을 때 GNB를 위로 숨기는 역할 */
-.gnb.gnb-hidden {
-    top: -110px;
-}
+/* GNB 스크롤 숨김/표시는 common.css에서 통합 관리 */

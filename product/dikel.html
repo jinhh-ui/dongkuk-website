@@ -134,12 +134,12 @@
 
                 <!-- Accordion Section (Product Specs & Range) -->
                 <div class="accordion">
-                    <!-- 1. 대응규격 -->
+                    <!-- 1. 제품사양 -->
                     <div class="acc-item">
                         <div class="acc-header" onclick="toggleAcc(this)">
                             <div class="acc-header-left">
                                 <div class="acc-dot"></div>
-                                <span class="acc-title">대응규격</span>
+                                <span class="acc-title">제품사양</span>
                             </div>
                             <div class="acc-dropdown-icon">
                                 <img src="../assets/common/ic-dropdown.svg" class="plus" alt="열기">
@@ -409,7 +409,7 @@
 
                         <div class="usage-tab-content active" id="usage-tab-0">
                             <div class="utc-video">
-                                <video autoplay loop muted playsinline>
+                                <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
                                     <source src="assets/dikel/nickel-product-intro.mp4" type="video/mp4">
                                 </video>
                             </div>
@@ -430,7 +430,7 @@
 
                         <div class="usage-tab-content" id="usage-tab-1">
                             <div class="utc-video">
-                                <video autoplay loop muted playsinline>
+                                <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
                                     <source src="assets/dikel/nickel-industrial-parts.mp4" type="video/mp4">
                                 </video>
                             </div>
@@ -1104,7 +1104,7 @@
                         <div class="bi-color-card">
                             <div class="color-circle dk-grey"></div>
                             <div class="color-info-group">
-                                <h4 class="color-name">DongKuk Grey</h4>
+                                <h4 class="color-name">DiKel Grey</h4>
                                 <div class="color-values">
                                     <div class="color-val-row"><span class="color-val-text">#9DA6A8</span></div>
                                     <div class="color-val-row"><span class="color-val-text">R157 G166 B168</span></div>
@@ -1135,7 +1135,7 @@
             <div class="ptab" onclick="location.href='heat-treated.html'">Q/T열처리강판</div>
         </div>
         <section class="hero">
-            <video class="hero-video" autoplay loop muted playsinline>
+            <video class="hero-video" autoplay loop muted playsinline webkit-playsinline preload="metadata">
                 <source src="assets/dikel/video_dikel-value.mp4" type="video/mp4">
             </video>
             <div class="hero-bg-decor">
@@ -1263,7 +1263,7 @@
                             </div>
 
                             <div class="img-box-center-wrap">
-                                <p class="center-label">원통형 배터리 <span class="center-label-slash">/</span> 니켈도금강판</p>
+                                <p class="center-label">원통형 배터리 / 니켈도금강판</p>
                                 <div class="img-box-center">
                                     <img src="assets/dikel/dikel/cylindrical.png" alt="원통형 배터리">
                                 </div>
@@ -1867,7 +1867,15 @@
 
     </script>
     <script src="../js/gnb.js"></script>
-
+    <script>
+        /* iOS 자동재생 호환 */
+        document.querySelectorAll('video[autoplay]').forEach(function (v) {
+            v.muted = true;
+            v.setAttribute('playsinline', '');
+            var p = v.play();
+            if (p) p.catch(function () { });
+        });
+    </script>
 
 </body>
 

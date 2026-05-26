@@ -177,8 +177,7 @@ body {
     height: 100%;
     border-radius: 50%;
     position: relative;
-    border: 1px dashed #D3D3D3;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
 }
 
 .orb-orbit::before {
@@ -542,7 +541,7 @@ body {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
     border-radius: 20px;
-    padding: 30px;
+    padding: clamp(16px, 1.5625vw, 30px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

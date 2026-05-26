@@ -6,6 +6,47 @@
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
+
+/* ===== 네이티브 스크롤바 숨김 ===== */
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* ===== 커스텀 오버레이 스크롤바 (한화에어로스페이스 .c-scrollbar 방식) ===== */
+.c-scrollbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+}
+
+.c-scrollbar:hover {
+    opacity: 1 !important;
+}
+
+.c-scrollbar-thumb {
+    position: absolute;
+    right: 2px;
+    width: 7px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.c-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 /* ===== RESET / BASE ===== */
 * {
     margin: 0;
@@ -55,16 +96,22 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 4.16vw; /* 80px at 1920 */
-    position: absolute;
+    position: fixed;
     width: 100%;
     max-width: 1920px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     top: 0;
     z-index: 100;
     box-sizing: border-box;
     background: #FFFFFF;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
-    transition: background 0.3s, box-shadow 0.3s, top 0.3s;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.3s ease, box-shadow 0.3s ease, padding-bottom 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 스크롤 다운 시 GNB 위로 숨김 */
+.gnb.gnb-hidden {
+    transform: translateX(-50%) translateY(-100%);
 }
 
 .gnb-logo {
@@ -90,7 +137,7 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 0;
-    gap: calc(8px + 0.625vw); /* 1920px에서 20px */
+    gap: 40px;
     position: relative;
     z-index: 101;
 }
@@ -106,149 +153,126 @@ body {
     font-family: 'Pretendard', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: clamp(14px, 0.9375vw, 24px); /* 18px at 1920 */
-    line-height: 160%;
+    font-size: 18px;
+    line-height: 1.6;
     color: #111111;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 calc(8px + 0.41vw); /* 1920px에서 16px */
-    height: 29px;
-    transition: color 0.3s;
+    padding: 0 16px;
+    transition: color 0.3s, font-weight 0.2s;
     white-space: nowrap;
     word-break: keep-all;
 }
 
 .gnb-nav-link:hover {
-    color: #F27100;
+    font-weight: 700;
+}
+
+/* ===== 서브메뉴 래퍼 (한화에어로스페이스 구조) =====
+   각 nav-item 안에 .gnb-submenu-wrap (overflow:hidden + height 트랜지션)
+   → 그 안에 .gnb-submenu (실제 링크들)
+   래퍼가 height:0이면 자식도 자연스럽게 클리핑 */
+.gnb-submenu-wrap {
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 102;
+}
+
+.gnb-submenu-wrap.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .gnb-submenu {
-    position: absolute;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10.41vw; /* 200px */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 102;
-    padding-top: 0.52vw; /* 10px */
+    padding: 20px 0 60px;
+    width: 200px;
 }
 
-.gnb-nav-item:hover .gnb-submenu {
-    opacity: 1;
-    visibility: visible;
-}
-
-.gnb-dropdown-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    z-index: -1;
-    transition: height 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-    pointer-events: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
+/* ===== 배경 — ::before로 헤더 전체를 커버 ===== */
 
 /* 기본 (라이트모드) 서브메뉴 텍스트 */
 .gnb-submenu a {
     width: 100%;
-    height: 2.7vw; /* 52px at 1920 */
-    min-height: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 10px 0;
     font-family: 'Pretendard', sans-serif;
-    font-size: clamp(14px, 1.04vw, 24px); /* 20px at 1920 */
+    font-size: 20px;
     font-weight: 400;
-    color: #363636;
+    line-height: 1.6;
+    color: #FFFFFF;
     text-decoration: none;
     border-radius: 12px;
-    transition: font-weight 0.2s ease, background 0.2s ease, color 0.2s ease;
+    transition: font-weight 0.2s ease;
     white-space: nowrap;
     word-break: keep-all;
 }
 
 .gnb-submenu a:hover {
     font-weight: 700;
-    color: #F27100;
 }
 
-/* Hover Interaction: Dropdown Expand */
+/* ===== Hover: 헤더 자체가 다크 배경 + 확장 ===== */
 .gnb.is-hover {
-    background: transparent !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(50px) !important;
+    -webkit-backdrop-filter: blur(50px) !important;
     box-shadow: none !important;
+    padding-bottom: calc(var(--gnb-submenu-height, 0) * 1px);
+    overflow: hidden;
 }
 
-.gnb.is-hover .gnb-dropdown-bg {
-    height: 430px;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.gnb.is-hover .gnb-nav-link:hover {
-    color: #F27100;
-}
-
-/* ===== 다크모드 및 투명모드 드롭다운 오버라이드 ===== */
-.gnb.gnb-dark .gnb-dropdown-bg,
-.gnb.gnb-transparent .gnb-dropdown-bg {
-    background: rgba(0, 0, 0, 0.8);
-    border-bottom: none;
-}
-
-.gnb.gnb-dark .gnb-submenu a,
-.gnb.gnb-transparent .gnb-submenu a {
+/* 호버 시 서브메뉴 텍스트 */
+.gnb.is-hover .gnb-submenu a {
     color: #FFFFFF;
 }
 
-.gnb.gnb-dark .gnb-submenu a:hover,
-.gnb.gnb-transparent .gnb-submenu a:hover {
-    color: #FFFFFF;
+.gnb.is-hover .gnb-submenu a:hover {
     font-weight: 700;
 }
 
-.gnb.gnb-dark.is-hover .gnb-logo img,
-.gnb.gnb-transparent.is-hover .gnb-logo img {
+/* 호버 시 상단 메뉴 텍스트를 흰색으로 */
+.gnb.is-hover .gnb-nav-link {
+    color: #FFFFFF;
+}
+
+.gnb.is-hover .gnb-nav-link:hover {
+    font-weight: 700;
+}
+
+/* 호버 시 로고 흰색 */
+.gnb.is-hover .gnb-logo img {
     filter: brightness(0) invert(1);
 }
 
-.gnb.gnb-dark.is-hover .gnb-nav-link,
-.gnb.gnb-transparent.is-hover .gnb-nav-link {
+/* 호버 시 유틸 영역 흰색 */
+.gnb.is-hover .gnb-utils a {
     color: #FFFFFF;
 }
 
-.gnb.gnb-dark.is-hover .gnb-nav-link:hover,
-.gnb.gnb-transparent.is-hover .gnb-nav-link:hover {
-    color: #F27100;
+.gnb.is-hover .gnb-divider {
+    background: rgba(255, 255, 255, 0.5);
 }
 
-.gnb.gnb-dark.is-hover .gnb-utils a,
-.gnb.gnb-transparent.is-hover .gnb-utils a {
-    color: #FFFFFF;
-}
-
-.gnb.gnb-dark.is-hover .gnb-divider,
-.gnb.gnb-transparent.is-hover .gnb-divider {
-    background: #D3D3D3;
-}
-
-.gnb.gnb-dark.is-hover .gnb-menu-btn span,
-.gnb.gnb-transparent.is-hover .gnb-menu-btn span {
+.gnb.is-hover .gnb-menu-btn span {
     background: #FFFFFF;
 }
+
+
+/* ===== 다크모드 및 투명모드 드롭다운 오버라이드 ===== */
+/* 다크/투명 모드에서도 동일한 드롭다운 배경 사용 (이미 검은색이므로 그대로) */
 
 /* 투명 배경(스크롤 전)일 때 */
 .gnb.gnb-transparent {
@@ -336,7 +360,7 @@ body {
     padding: 4px 8px;
     height: 44px;
     border-radius: 50px;
-    font-size: clamp(14px, 1.04vw, 24px); /* 1920px에서 20px */
+    font-size: 20px;
     font-weight: 500;
     color: #4E4E4E;
     line-height: 1.5;
@@ -378,46 +402,56 @@ body {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* 메뉴 열렸을 때: 투명 → 약간 투명한 흰 배경 + 다크 텍스트 (블러 효과 포함) */
-.gnb.gnb-menu-active,
-.header.gnb-menu-active {
-    background: rgba(255, 255, 255, 0.85); /* 0.85 투명도로 하단 사이트맵과 통일 */
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    max-width: none;
-    z-index: 100;
+/* 메뉴 열렸을 때: 다크 배경 + 메인메뉴 숨김 (피그마 390:11322) */
+.gnb.gnb-menu-active {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(50px) !important;
+    -webkit-backdrop-filter: blur(50px) !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
 }
 
-.gnb.gnb-menu-active .gnb-nav,
-.gnb.gnb-menu-active .gnb-utils-links,
-.gnb.gnb-menu-active .gnb-divider,
-.header.gnb-menu-active .gnb-nav,
-.header.gnb-menu-active .utils-text,
-.header.gnb-menu-active .divider {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+/* 메인메뉴 숨김 */
+.gnb.gnb-menu-active .gnb-nav {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
-.gnb-nav, .gnb-utils-links, .gnb-divider {
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+/* 호버 서브메뉴도 완전 차단 */
+.gnb.gnb-menu-active .gnb-submenu-wrap {
+    display: none !important;
 }
 
-.gnb.gnb-menu-active .gnb-menu-btn span {
-    background: #4E4E4E;
+/* ::before 배경 해제 (menu-active가 자체 배경 처리) */
+.gnb.gnb-menu-active::before {
+    display: none !important;
 }
 
-/* 메뉴 열렸을 때: 햄버거 → X 변환 */
+/* 로고 흰색 */
+.gnb.gnb-menu-active .gnb-logo img {
+    filter: brightness(0) invert(1);
+}
+
+/* 유틸 텍스트 흰색 */
+.gnb.gnb-menu-active .gnb-utils a {
+    color: #FFFFFF;
+}
+
+/* 디바이더 흰색 */
+.gnb.gnb-menu-active .gnb-divider {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* 햄버거 → X 흰색 */
 .gnb.gnb-menu-active .gnb-menu-btn {
     gap: 0;
     overflow: visible;
+}
+
+.gnb.gnb-menu-active .gnb-menu-btn span {
+    background: #FFFFFF;
 }
 
 .gnb.gnb-menu-active .gnb-menu-btn span:nth-child(1) {
@@ -432,10 +466,34 @@ body {
     transform: translateY(-2px) rotate(-45deg);
 }
 
-.gnb.gnb-menu-active .gnb-logo img {
-    filter: none;
-}
 
+/* ===== TABLET/MOBILE GNB (≤ 1439px): 로고 + 햄버거만 ===== */
+@media (max-width: 1439px) {
+    .gnb {
+        padding: 0 16px;
+    }
+
+    .gnb-nav,
+    .gnb-utils-links,
+    .gnb-divider {
+        display: none !important;
+    }
+
+    .gnb-logo {
+        width: 120px;
+        height: 28px;
+    }
+
+    .gnb-menu-btn {
+        width: 36px;
+        height: 36px;
+        gap: 7px;
+    }
+
+    .gnb-menu-btn span {
+        width: 22px;
+    }
+}
 
 /* ===== PAGE HEADER ===== */
 .page-header {
@@ -652,7 +710,7 @@ body {
 
 .support-banner:hover .support-card-arrow,
 .support-card:hover .support-card-arrow {
-    background: #dbdbdb;
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .support-arrow-inner {
@@ -868,7 +926,7 @@ body {
    MOBILE — max-width: 1023px
    모든 페이지 공통 컴포넌트의 모바일 오버라이드
    ════════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
+@media (max-width: 1439px) {
 
     /* ── Reset / Base ── */
     html {
@@ -897,6 +955,10 @@ body {
     .gnb {
         height: 72px;
         padding: 0 16px;
+    }
+
+    .gnb.gnb-hidden {
+        transform: translateX(-50%) translateY(-100%);
     }
 
     .gnb-logo {
