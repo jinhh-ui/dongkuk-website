@@ -726,7 +726,7 @@ body {
   width: 100%;
   background: #fff;
   height: clamp(280px, 31.25vw, 600px);
-  padding: 192px 0 210px;
+  padding: var(--section-padding-y) 0 var(--section-padding-y);
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -1266,7 +1266,7 @@ body {
   position: sticky;
   top: 0;
   background: #fff;
-  padding: 158px 120px;
+  padding: var(--section-padding-y) var(--section-padding-x);
   height: clamp(560px, 46.875vw, 900px);
   box-sizing: border-box;
   overflow: hidden;
