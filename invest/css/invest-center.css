@@ -16,10 +16,7 @@ body {
     position: relative;
 }
 
-.gnb {
-    position: fixed;
-    background: transparent;
-}
+
 
 /* Hero Section — product-center와 동일 구조 */
 .invest-hero {
@@ -1869,8 +1866,7 @@ body {
     padding: 14px;
     width: 60px;
     height: 60px;
-    background: rgba(241, 237, 234, 0.2);
-    border-radius: 30px;
+    background: transparent;
     border: none;
     cursor: pointer;
 }

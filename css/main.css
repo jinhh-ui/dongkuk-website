@@ -21,9 +21,6 @@ body {
 
 /* ══ NAV — 메인 페이지 GNB 오버라이드 ══ */
 /* 메인 페이지에서는 히어로 위에 투명하게 시작 (common.css에서 position:fixed 처리) */
-.gnb {
-  background: transparent;
-}
 
 .mob-br {
   display: none;
@@ -103,6 +100,9 @@ body {
   height: 500vh;
   z-index: 3;
   margin-top: 120px;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .orbital-sticky {
@@ -206,6 +206,7 @@ body {
   height: 100%;
   display: block;
   background: transparent !important;
+  filter: drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.6));
 }
 
 .orb-dot {
@@ -388,6 +389,9 @@ body {
   background: #fff;
   overflow: visible;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-card {
@@ -724,11 +728,15 @@ body {
 /* ══ 슬로건 ══ */
 #slogan {
   width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
   background: #fff;
-  height: clamp(280px, 31.25vw, 600px);
-  padding: var(--section-padding-y) 0 var(--section-padding-y);
+  height: 600px;
+  padding: 0;
   box-sizing: border-box;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .slogan-track {
@@ -775,6 +783,8 @@ body {
 #invest-wrapper {
   position: relative;
   z-index: 2;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 #invest {
@@ -866,6 +876,7 @@ body {
 /* 주가 카드 */
 .inv-card-stock {
   width: 396px;
+  min-width: 0;
   min-height: 556px;
   background: #fff;
   border-radius: 30px;
@@ -873,7 +884,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  flex-shrink: 0;
 }
 
 .inv-stock-header {
@@ -990,10 +1000,10 @@ body {
 /* 중간 컬럼 (국내시장 + 글로벌) */
 .inv-card-col {
   width: 450px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  flex-shrink: 0;
 }
 
 .inv-card-market {
@@ -1219,6 +1229,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
 .ir-doc-date {
@@ -1232,7 +1243,7 @@ body {
 .ir-doc-dl {
   width: 60px;
   height: 60px;
-  background: rgba(241, 237, 234, 0.2);
+  background: rgba(241, 237, 234, 0.3);
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -1257,7 +1268,6 @@ body {
 #support-wrapper {
   position: relative;
   z-index: 1;
-  height: clamp(560px, 46.875vw, 900px);
   max-width: 1920px;
   margin: 0 auto;
 }
@@ -1267,9 +1277,7 @@ body {
   top: 0;
   background: #fff;
   padding: var(--section-padding-y) var(--section-padding-x);
-  height: clamp(560px, 46.875vw, 900px);
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .support-heading {
@@ -1277,10 +1285,8 @@ body {
   font-weight: 700;
   color: #070707;
   line-height: 1.4;
-  margin-bottom: clamp(30px, 3.125vw, 60px);
+    margin-bottom: clamp(30px, 3.125vw, 60px);
   width: min(1680px, 100%);
-  height: auto;
-  min-height: clamp(48px, 4.375vw, 84px);
   display: flex;
   align-items: center;
 }
@@ -1363,20 +1369,208 @@ body {
   transition-delay: 0.2s;
 }
 
-/* ══ 반응형 (모바일 등 데스크탑 붕괴 방지 처리) ══ */
-@media (max-width: 1439px) {
-  .product-title {
-    white-space: normal !important;
+/* ══ 반응형 — 태블릿 전용 (768~1439) ══ */
+@media (min-width: 768px) and (max-width: 1439px) {
+
+  /* ── GNB ── */
+  .gnb {
+    height: 72px !important;
+    padding: 0 24px !important;
+  }
+
+  /* ── Product Section ── */
+  #product-wrapper {
+    padding: 0 16px;
+  }
+
+  .product-sticky {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .product-card {
+    width: 100%;
+    height: 80svh;
+    padding: 30px 24px 24px;
+    border-radius: 20px;
+    margin: 0 0 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    box-sizing: border-box;
   }
 
   .product-left {
-    flex: 0 0 clamp(240px, 37vw, 480px);
+    flex: none;
+    width: 100%;
+    height: auto !important;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-title {
+    font-size: clamp(30px, 4.5vw, 50px) !important;
+    white-space: normal !important;
+  }
+
+  #prod-steps {
+    flex: 0 0 auto;
+    position: relative;
+    min-height: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .prod-step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .prod-step.prod-active {
+    position: relative;
+  }
+
+  .product-info-card {
+    position: relative !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    overflow: visible !important;
+  }
+
+  .product-info-text {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px;
+  }
+
+  .product-info-text h3 {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    font-size: clamp(16px, 2.2vw, 24px) !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    opacity: 0.8;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    white-space: nowrap !important;
+  }
+
+  .product-info-text h3 br {
+    display: none;
+  }
+
+  .product-info-text p {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    font-size: clamp(14px, 1.6vw, 18px) !important;
+    font-weight: 400 !important;
+    color: #fff !important;
+    opacity: 0.8;
+    line-height: 1.6 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .product-info-text p br {
+    display: none;
+  }
+
+  .product-info-img {
+    display: block !important;
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    height: 25svh !important;
+    width: calc(25svh * 296 / 126) !important;
+    max-width: 100% !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    background: transparent !important;
   }
 
   .product-coil {
-    width: clamp(340px, 38vw, 680px);
-    height: clamp(340px, 38vw, 680px);
-    right: clamp(-20px, -1.5vw, -10px);
+    display: none !important;
+  }
+
+  .product-bottom {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin-top: 16px;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .product-bottom-group-wrap {
+    display: none !important;
+  }
+
+  .product-loading-container {
+    display: none !important;
+  }
+
+  .product-status-row {
+    display: none !important;
+  }
+
+  .product-detail-btn {
+    width: 100%;
+  }
+
+  .product-detail-btn a:not(.circle-arrow) {
+    width: auto;
+    padding: 12px 20px;
+    height: auto;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 14px;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .product-detail-btn .circle-arrow {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 14px;
+    border-color: #fff !important;
+  }
+
+  .mouse-icon-box {
+    display: none !important;
+  }
+
+  .keep-scrolling {
+    display: none !important;
   }
 
   .footer-nav-list a {
@@ -1385,6 +1579,77 @@ body {
 }
 
 @media (max-width: 1439px) {
+  #slogan {
+    height: 400px;
+  }
+}
+
+/* 투자 섹션 태블릿 전용 (768~1439) */
+@media (min-width: 768px) and (max-width: 1439px) {
+  .invest-card-wrap {
+    max-width: calc(100vw - 40px);
+    min-height: auto;
+    border-radius: 20px;
+    gap: 30px;
+    padding: 60px 40px;
+  }
+
+  .invest-title-text {
+    font-size: 40px;
+  }
+
+  .invest-card-ir {
+    min-height: auto;
+  }
+
+  .invest-cards-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .inv-card-stock {
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    padding: 32px;
+  }
+
+  .inv-card-stock .inv-stock-header {
+    width: 100%;
+  }
+
+  .inv-card-stock .inv-stock-body {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .inv-card-stock .inv-change-box {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .inv-price-num {
+    font-size: 44px;
+  }
+
+  .inv-card-col {
+    width: 100%;
+    flex-direction: row;
+    gap: 14px;
+  }
+
+  .inv-card-col > * {
+    flex: 1;
+  }
+
+  .inv-card-num,
+  .inv-card-num-dark {
+    font-size: 44px;
+  }
+
   .invest-inner {
     flex-direction: column;
     padding: 40px;
@@ -1402,6 +1667,7 @@ body {
   /* 모바일에서는 끝까지 붙도록 설정 */
   .support-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
     width: auto;
   }
 
@@ -1739,8 +2005,9 @@ body {
     right: auto !important;
     top: auto !important;
     transform: none !important;
-    width: 100% !important;
-    height: 126px !important;
+    height: 15svh !important;
+    width: calc(15svh * 296 / 126) !important;
+    max-width: 100% !important;
     border-radius: 8px !important;
     overflow: hidden;
     background: transparent !important;
@@ -1833,8 +2100,8 @@ body {
 
   /* ── Slogan ── */
   #slogan {
-    height: auto;
-    padding: 40px 0;
+    height: 231px;
+    padding: 0;
   }
 
   .slogan-text {

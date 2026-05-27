@@ -2328,13 +2328,13 @@ img.ic-download {
 
     /* --- DiKel 스토리 --- */
     .story-section {
-        padding: clamp(32px, 8.9vw, 40px) 0 !important;
+        padding: var(--section-padding-y) 0 !important;
     }
 
     .story-section .inner {
         flex-direction: column !important;
         width: 100% !important;
-        padding: 0 clamp(16px, 4.4vw, 24px) !important;
+        padding: 0 var(--section-padding-x) !important;
         gap: clamp(24px, 6.7vw, 30px) !important;
     }
 

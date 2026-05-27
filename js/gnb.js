@@ -158,6 +158,14 @@
         var item = c.items[j];
         var cls = (item.key && item.key === PAGE) ? ' class="is-active"' : '';
         h += '<a href="' + item.href + '"' + cls + '>' + item.text + '</a>';
+        /* 서브서브메뉴 (tabs) 렌더링 — Figma MOB_HOME_KOR */
+        if (item.tabs && item.tabs.length > 0) {
+          h += '<div class="gnb-mob-tabs">';
+          for (var k = 0; k < item.tabs.length; k++) {
+            h += '<a href="' + item.tabs[k].href + '" class="gnb-mob-tab">' + item.tabs[k].text + '</a>';
+          }
+          h += '</div>';
+        }
       }
       h += '</div></div>';
     }
@@ -187,6 +195,32 @@
   /* 기존 헤더에 GNB 중앙 메뉴 삽입 (한화에어로스페이스 구조) */
   var header = document.querySelector('.gnb');
   var gnbUtils = document.querySelector('.gnb-utils');
+
+  /* ── 모바일 전용 GNB 바 생성 (PC GNB와 완전 분리) ── */
+  if (header) {
+    var mobBar = document.createElement('header');
+    mobBar.className = 'gnb-mob-bar';
+    // 투명/다크 모드 복제
+    if (header.classList.contains('gnb-transparent')) {
+      mobBar.classList.add('gnb-mob-transparent');
+      mobBar.setAttribute('data-gnb-mob-transparent', '');
+    }
+    if (header.classList.contains('gnb-dark')) {
+      mobBar.classList.add('gnb-mob-dark');
+    }
+    mobBar.innerHTML = '<div class="gnb-mob-bar-logo">'
+      + '<a href="' + B + 'index.html"><img src="' + LOGO + '" alt="동국산업 로고"></a>'
+      + '</div>'
+      + '<button class="gnb-mob-bar-btn" aria-label="메뉴"><span></span><span></span><span></span></button>';
+    header.insertAdjacentElement('afterend', mobBar);
+
+    // 모바일 햄버거 → 동일 메뉴 열기
+    mobBar.querySelector('.gnb-mob-bar-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+  }
 
   if (header && gnbUtils && !document.querySelector('.gnb-nav')) {
       // ── nav 빌드: 각 항목에 gnb-submenu-wrap > gnb-submenu 구조 ──
@@ -295,7 +329,10 @@
     document.body.style.overflowY = 'scroll';
     var pageHeader = document.querySelector('#nav, .gnb, .header');
     if (pageHeader) {
-        pageHeader.classList.add('gnb-menu-active');
+        // 모바일/태블릿에서는 gnb-menu-active 안 붙임 (GNB 스타일 변경 없이 사이드 메뉴만)
+        if (window.innerWidth > 1439) {
+            pageHeader.classList.add('gnb-menu-active');
+        }
         // 항상 다크 모드 사이트맵
         menu.classList.add('sitemap-dark');
     }
@@ -378,42 +415,56 @@
    ══════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
   const gnb = document.querySelector('.gnb');
-  if (!gnb) return;
+  const mobBar = document.querySelector('.gnb-mob-bar');
+  if (!gnb && !mobBar) return;
 
-  // 히어로 영역 자동 감지: data-gnb-transparent 또는 히어로 섹션 존재
-  const hasHero = gnb.hasAttribute('data-gnb-transparent') 
+  // 히어로 영역 자동 감지
+  const hasHero = (gnb && gnb.hasAttribute('data-gnb-transparent'))
+    || (mobBar && mobBar.hasAttribute('data-gnb-mob-transparent'))
     || document.querySelector('.hero-section, #hero, .page-hero');
   
-  if (hasHero && !gnb.classList.contains('gnb-transparent')) {
+  if (gnb && hasHero && !gnb.classList.contains('gnb-transparent')) {
     gnb.classList.add('gnb-transparent');
     gnb.setAttribute('data-gnb-transparent', '');
   }
 
-  const useTransparent = gnb.hasAttribute('data-gnb-transparent');
+  const useTransparent = (gnb && gnb.hasAttribute('data-gnb-transparent'))
+    || (mobBar && mobBar.hasAttribute('data-gnb-mob-transparent'));
   let lastScrollY = window.scrollY;
   let ticking = false;
 
   function updateGnb() {
+    // 메뉴 열려있으면 스킵 (body fixed → scrollY=0이 되어 상태 꼬임 방지)
+    if (document.body.style.position === 'fixed') {
+      ticking = false;
+      return;
+    }
     const currentScrollY = window.scrollY;
     const delta = currentScrollY - lastScrollY;
 
     // 1. 투명 ↔ solid 전환
     if (useTransparent) {
       const atTop = currentScrollY <= 10;
-      gnb.classList.toggle('gnb-transparent', atTop);
-      gnb.classList.toggle('gnb-solid', !atTop);
+      if (gnb) {
+        gnb.classList.toggle('gnb-transparent', atTop);
+        gnb.classList.toggle('gnb-solid', !atTop);
+      }
+      if (mobBar) {
+        mobBar.classList.toggle('gnb-mob-transparent', atTop);
+        mobBar.classList.toggle('gnb-mob-solid', !atTop);
+      }
     }
 
-    // 2. 스크롤 숨김/표시 (모든 페이지 동일 로직)
+    // 2. 스크롤 숨김/표시
     if (currentScrollY <= 5) {
-      // 최상단: 항상 표시
-      gnb.classList.remove('gnb-hidden');
+      if (gnb) gnb.classList.remove('gnb-hidden');
+      if (mobBar) mobBar.classList.remove('gnb-mob-hidden');
     } else if (delta > 3) {
-      // 아래로 스크롤 (3px 이상 움직였을 때만 — 미세 떨림 방지)
-      gnb.classList.add('gnb-hidden');
+      if (gnb) gnb.classList.add('gnb-hidden');
+      if (mobBar) mobBar.classList.add('gnb-mob-hidden');
     } else if (delta < -3) {
-      // 위로 스크롤
-      gnb.classList.remove('gnb-hidden');
+      if (gnb) gnb.classList.remove('gnb-hidden');
+      if (mobBar) mobBar.classList.remove('gnb-mob-hidden');
     }
 
     lastScrollY = currentScrollY;
@@ -454,7 +505,7 @@ document.addEventListener('DOMContentLoaded', function () {
       btnTop.classList.remove('show');
     }
 
-    const boundaryEl = document.querySelector('.support-section') || footer;
+      const boundaryEl = footer;
     if (boundaryEl) {
       const boundaryTop = boundaryEl.getBoundingClientRect().top + scrollY;
       const overlap = scrollBottom - boundaryTop;

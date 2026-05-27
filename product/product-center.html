@@ -260,14 +260,23 @@
         function getTranslateX(index) {
             const wrapperWidth = wrapper.clientWidth;
             const winWidth = window.innerWidth;
-            const isMobile = winWidth <= 1023;
+            const isMobile = winWidth <= 767;
 
-            // 데스크톱: 비율 기반 (1920px 기준)
-            // 카드 25.9375vw + 간격 1.5625vw = 27.5vw
-            // 활성카드 37.2916vw / 2 = 18.6458vw
-            // 1920px 초과 시 고정값 사용 (498px + 30px = 528px, 716px / 2 = 358px)
-            const cardFullWidth = isMobile ? 320 : Math.min(winWidth * 0.275, 528);
-            const activeHalfWidth = isMobile ? 155 : Math.min(winWidth * 0.186458, 358);
+            // CSS 브레이크포인트와 정확히 매칭
+            // ≤767px: 모바일 고정값
+            // 768~1439px: vw 비율 (카드 25.9375vw + gap 1.5625vw, 활성 37.2916vw)
+            // ≥1440px: CSS 고정값 (카드 498px + gap 30px = 528px, 활성 716px)
+            let cardFullWidth, activeHalfWidth;
+            if (isMobile) {
+                cardFullWidth = 320;
+                activeHalfWidth = 155;
+            } else if (winWidth >= 1440) {
+                cardFullWidth = 528;  // 498px + 30px gap
+                activeHalfWidth = 358; // 716px / 2
+            } else {
+                cardFullWidth = winWidth * 0.275;
+                activeHalfWidth = winWidth * 0.186458;
+            }
 
             return (wrapperWidth / 2) - (index * cardFullWidth + activeHalfWidth);
         }
@@ -387,7 +396,7 @@
 
         productCards.forEach(card => {
             card.addEventListener('click', () => {
-                const isMobile = window.innerWidth <= 1023;
+                const isMobile = window.innerWidth <= 767;
                 if (isMobile && card.dataset.href) {
                     location.href = card.dataset.href;
                     return;

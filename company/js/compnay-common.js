@@ -115,13 +115,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (isCompanyInfo) {
             // ─── 회사소개 (company-info) 전용 고성능 2단계 인터랙션 ───
-            // 1단계: 텍스트 컬러 전환 (전체 스크롤의 0% ~ 40%)
-            let textProgress = Math.max(0, Math.min(1, progress / 0.4));
+            // 1단계: 텍스트 컬러 전환 (전체 스크롤의 0% ~ 30%)
+            let textProgress = Math.max(0, Math.min(1, progress / 0.3));
             
-            // 2단계: 이미지 확장 및 풀프레임 전환 (전체 스크롤의 40% ~ 100%)
+            // 2단계: 이미지 확장 및 풀프레임 전환 (전체 스크롤의 30% ~ 70%)
+            // 70%~100% 구간은 풀프레임 유지 (체류 구간)
             let imageProgress = 0;
-            if (progress > 0.4) {
-                imageProgress = Math.max(0, Math.min(1, (progress - 0.4) / 0.6));
+            if (progress > 0.3) {
+                imageProgress = Math.max(0, Math.min(1, (progress - 0.3) / 0.4));
             }
 
             // 1) 텍스트 캐릭터 활성화 (한 번 활성화되면 유지)
@@ -135,12 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 textSection.style.transform = `translateY(${-80 * imageProgress}px)`;
             }
 
-            // 3) GNB 상단 헤더 페이드아웃 (풀프레임 몰입도 극대화)
-            const gnb = document.querySelector('.gnb');
-            if (gnb) {
-                gnb.style.opacity = 1 - imageProgress;
-                gnb.style.pointerEvents = (imageProgress > 0.85) ? 'none' : 'auto';
-            }
+
 
             // 4) 이미지 프레임 확장 및 100vw/100vh 꽉 채움 제어
             const screenW = window.innerWidth;
@@ -195,6 +191,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const activeCount = Math.floor(progress * chars.length);
             // 한 번 active가 된 글자는 되돌리지 않음 (one-way)
             chars.forEach((c, i) => { if (i < activeCount) c.classList.add('active'); });
+
+
 
             if (imgWrapper && document.body.dataset.page !== 'network') {
                 const baseW = 1920;

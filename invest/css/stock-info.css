@@ -2113,13 +2113,13 @@ img.ic-download {
 
     /* --- DiKel 스토리 --- */
     .story-section {
-        padding: clamp(32px, 8.9vw, 40px) 0;
+        padding: var(--section-padding-y) 0;
     }
 
     .story-section .inner {
         flex-direction: column;
         width: 100%;
-        padding: 0 clamp(16px, 4.4vw, 24px);
+        padding: 0 var(--section-padding-x);
         gap: clamp(24px, 6.7vw, 30px);
     }
 
@@ -2463,7 +2463,7 @@ img.ic-download {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(40px, 5.2vw, 100px) 0;
+    padding: var(--section-padding-y) 0;
 }
 
 .story-section .inner {
@@ -3543,7 +3543,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: clamp(40px, 3.65vw, 70px) 0 100px;
+    padding: var(--section-padding-y) 0 var(--section-padding-y);
     width: 100%;
     background: #FFFFFF;
 }
@@ -7813,7 +7813,13 @@ body {
 }
 
 @media (max-width: 767px) {
+    /* 모바일: 기본 숨김, 탭한 바만 표시 */
     .fs-bar.orange .fs-tooltip {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .fs-bar.active .fs-tooltip {
         opacity: 1;
         visibility: visible;
     }
