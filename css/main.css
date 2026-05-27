@@ -726,7 +726,7 @@ body {
   width: 100%;
   background: #fff;
   height: clamp(280px, 31.25vw, 600px);
-  padding: clamp(80px, 10vw, 192px) 0 clamp(90px, 10.938vw, 210px);
+  padding: 192px 0 210px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -1266,7 +1266,7 @@ body {
   position: sticky;
   top: 0;
   background: #fff;
-  padding: clamp(79px, 8.229vw, 158px) clamp(60px, 6.25vw, 120px);
+  padding: 158px 120px;
   height: clamp(560px, 46.875vw, 900px);
   box-sizing: border-box;
   overflow: hidden;

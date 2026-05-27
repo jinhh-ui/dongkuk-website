@@ -29,7 +29,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: clamp(40px, 5.4vw, 104px) 0;
+            padding: 104px 0;
             background: #fff;
         }
 
@@ -59,7 +59,7 @@
         .story-section .inner {
             max-width: 1920px;
             margin: 0 auto;
-            padding: clamp(40px, 6.25vw, 120px) clamp(16px, 6.25vw, 120px);
+            padding: 120px 120px;
             box-sizing: border-box;
         }
 
@@ -200,7 +200,7 @@
         /* ===== 연구개발 현장 ===== */
         .scene-section {
             background: #CDEBFB;
-            padding: clamp(40px, 6.2vw, 119px) 0 clamp(40px, 7vw, 135px);
+            padding: 119px 0 135px;
             overflow: hidden;
             width: 100%;
         }
@@ -208,7 +208,7 @@
         .scene-section .inner {
             max-width: 1920px;
             margin: 0 auto;
-            padding: 0 clamp(16px, 6.25vw, 120px);
+            padding: 0 120px;
         }
 
         .scene-gallery-wrap {
