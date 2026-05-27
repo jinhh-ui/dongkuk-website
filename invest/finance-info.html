@@ -991,6 +991,37 @@
         });
 
     </script>
+
+    <!-- 모바일: 차트 바 탭 시 말풍선 표시 -->
+    <script>
+        (function () {
+            if (window.innerWidth > 767) return;
+
+            document.querySelectorAll('.fs-bar').forEach(function (bar) {
+                bar.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    var wasActive = this.classList.contains('active');
+
+                    // 모든 바 active 해제
+                    document.querySelectorAll('.fs-bar.active').forEach(function (b) {
+                        b.classList.remove('active');
+                    });
+
+                    // 탭한 바가 이미 active였으면 닫기, 아니면 열기
+                    if (!wasActive) {
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // 바 외부 탭 시 모든 말풍선 닫기
+            document.addEventListener('click', function () {
+                document.querySelectorAll('.fs-bar.active').forEach(function (b) {
+                    b.classList.remove('active');
+                });
+            });
+        })();
+    </script>
     <script src="../js/gnb.js"></script>
 
 

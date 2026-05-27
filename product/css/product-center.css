@@ -78,38 +78,30 @@ body {
     display: inline;
 }
 
-/* GNB: 히어로 위 투명 오버레이 (index.html과 동일) */
-.gnb {
-    position: fixed;
-    background: transparent;
-}
+
 
 /* ================= 동국산업의 기준 (Standards Section) ================= */
 .standards-section {
     position: relative;
     width: 100%;
     max-width: 1920px;
-    height: 69.427vw;
-    /* 1333px / 1920px */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 6.25vw;
-    /* 120px / 1920px */
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
     background: #FFFFFF;
     overflow: hidden;
 }
 
 .section-title {
-    font-size: 3.125vw;
-    /* 60px / 1920px */
+    font-size: clamp(36px, 3.125vw, 60px);
     font-weight: 700;
     line-height: 140%;
     text-align: center;
-    margin-bottom: 12.5vw;
-    /* 240px / 1920px */
+    margin-bottom: 240px;
     color: #000000;
 }
 
@@ -607,8 +599,7 @@ body .no-transition *,
 
 /* ================= 🌟 제품 (Products Section) 🌟 ================= */
 .products-section {
-    padding: 6.25vw;
-    /* 120px / 1920px */
+    padding: 120px var(--section-padding-x);
     background: #FFFFFF;
     display: flex;
     justify-content: center;
@@ -656,12 +647,11 @@ body .no-transition *,
 .pc-text-block {
     position: absolute;
     /* 닫혀있을 때: 바닥에서 40px(2.0833vw) 띄우고, 타이틀의 예상 높이(50px)만큼 top 계산하여 아래쪽에 배치 */
-    top: calc(42.0833vw - 2.0833vw - 50px);
+    top: calc(42.0833vw - 2.0833vw - 2.604vw);
     left: 2.0833vw;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    /* 두 박스(타이틀과 설명글)의 간격 20px */
+    gap: 1.0416vw;
     z-index: 10;
     transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1),
         left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -669,8 +659,8 @@ body .no-transition *,
 
 /* 카드가 확장되면 -> 위쪽 50px, 왼쪽 50px 간격 설정 */
 .product-card.expanded .pc-text-block {
-    top: 50px;
-    left: 50px;
+    top: 2.604vw;
+    left: 2.604vw;
 }
 
 /* 닫혀있을 때 하단 타이틀 */
@@ -795,7 +785,7 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card .pc-text-block {
-        top: calc(42.0833vw - 2.0833vw - 50px);
+        top: calc(42.0833vw - 2.0833vw - 2.604vw);
         left: 2.0833vw;
     }
 
@@ -820,8 +810,8 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card:hover .pc-text-block {
-        top: 50px;
-        left: 50px;
+        top: 2.604vw;
+        left: 2.604vw;
     }
 
     .products-container:hover .product-card:hover .pc-title-small {
@@ -872,6 +862,7 @@ body .no-transition *,
 .desk-br {
     display: inline;
 }
+
 
 @media (max-width: 767px) {
     .desk-br {
@@ -927,8 +918,6 @@ body .no-transition *,
 
     /* 섹션 높이 고정: 1333px (= 69.427vw × 1920px) */
     .standards-section {
-        height: 1333px;
-        padding-top: 120px;
     }
 
     .section-title {

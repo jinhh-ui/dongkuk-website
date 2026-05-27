@@ -35,7 +35,7 @@
       var isMobile = window.innerWidth <= 767;
 
       function setup() {
-        W = section.offsetWidth;
+        W = Math.min(section.offsetWidth, 1920);
         H = section.offsetHeight;
         isMobile = window.innerWidth <= 767;
         cx = W * 0.50;
@@ -407,9 +407,9 @@
         var idx = Math.min(Math.floor(Math.max(0, (p - 0.15) / 0.85) * 3), 2);
         setStep(idx);
 
-        /* 버튼: sticky가 화면에 고정된 동안만 fixed */
+        /* 버튼: sticky가 화면에 고정된 동안만 fixed (PC만) */
         var vh = window.innerHeight;
-        if (rect.top <= 0 && rect.bottom > vh) {
+        if (window.innerWidth >= 1440 && rect.top <= 0 && rect.bottom > vh) {
           liftBtn();
         } else {
           dropBtn();
@@ -420,8 +420,8 @@
           var vh = window.innerHeight;
           var vw = window.innerWidth;
           var fixedWrap = document.getElementById('coil-3d-fixed');
-          var mobCoil = vw <= 767;
-          var mobUp = mobCoil ? Math.round(vh * -0.20) : 0; /* 모바일: 20vh 위로 */
+          var mobCoil = vw <= 1439;
+          var mobUp = mobCoil ? Math.round(vh * -0.20) : 0; /* 모바일/태블릿: 20vh 위로 */
 
           if (rect.top > 0 && rect.top < vh) {
             /* ── 섹션이 아래에서 올라오는 중: 코일 이동 (center → product) ── */

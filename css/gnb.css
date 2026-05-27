@@ -54,7 +54,7 @@
    ════════════════════════════════════ */
 .gnb-sitemap {
   container-type: inline-size;
-  padding: 60px 120px 100px;
+  padding: var(--section-padding-y) var(--section-padding-x) var(--section-padding-y);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,7 +76,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 200px;
+  gap: clamp(40px, 10.4vw, 200px);
   width: 100%;
   max-width: 1680px;
   padding-bottom: 60px;
@@ -93,10 +93,10 @@
 }
 
 .sitemap-row-title {
-  width: 190px;
+  width: clamp(120px, 10vw, 190px);
   font-family: 'Pretendard', sans-serif;
   font-weight: 700;
-  font-size: 36px;
+  font-size: clamp(24px, 1.875vw, 36px);
   line-height: 1.5;
   color: #111111;
   flex-shrink: 0;
@@ -121,7 +121,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  width: 230px;
+  flex: 1;
+  min-width: 0;
 }
 
 .sitemap-item {
@@ -248,6 +249,12 @@
     width: 156px;
     object-fit: contain;
   }
+  .gnb-menu-header a {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    line-height: 0;
+  }
   .gnb-menu-close {
     width: 32px;
     height: 32px;
@@ -282,9 +289,9 @@
     line-height: 1.5;
     cursor: pointer;
   }
-  /* 활성 카테고리: 주황색 */
+  /* 활성 카테고리 */
   .gnb-mob-cat.is-active {
-    color: #F27100;
+    color: inherit;
   }
 
   /* 서브메뉴 패널: bg F8F9FB, r16, py12 */
@@ -332,13 +339,30 @@
     color: #FFFFFF;
   }
   .gnb-menu.sitemap-dark .gnb-mob-cat.is-active {
-    color: #F27100;
+    color: #FFFFFF;
   }
   .gnb-menu.sitemap-dark .gnb-mob-sub-inner {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
   }
-  .gnb-menu.sitemap-dark .gnb-mob-sub-inner a {
-    color: #D3D3D3;
+  .gnb-menu.sitemap-dark .gnb-mob-sub-inner > a {
+    color: #FFFFFF;
+  }
+
+  /* 서브서브메뉴 (tabs) — Figma: 16px Regular #7A7A7A */
+  .gnb-mob-tabs {
+    display: flex;
+    flex-direction: column;
+  }
+  .gnb-mob-sub-inner .gnb-mob-tab {
+    display: flex;
+    align-items: center;
+    padding: 6px 20px;
+    font-size: 16px !important;
+    font-weight: 400;
+    color: #7A7A7A !important;
+    text-decoration: none;
+    line-height: 1.6;
+    border-radius: 12px;
   }
 
   .gnb-mob-sub-inner a.is-active {

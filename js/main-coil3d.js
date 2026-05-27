@@ -635,13 +635,13 @@
       /* 제품별 재질 프리셋 — 전체적으로 광택 강화 + 제품 간 차이 극대화 */
       var matPresets = {
         /* 니켈: 거울처럼 반짝이는 프리미엄 광택 */
-        nickel: { capR: 0.20, capM: 0.95, capEnv: 3.5, capCC: 0.80, capNS: 0.35, sideR: 0.20, sideM: 0.95, sideEnv: 3.0 },
+        nickel: { capR: 0.20, capM: 0.95, capEnv: 3.5, capCC: 0.80, capNS: 0.35, sideR: 0.20, sideM: 0.95, sideEnv: 3.0, boreEnv: 0.1 },
         /* 냉연: 새틴 피니시 — 약간 무광 */
-        coldRoll: { capR: 0.45, capM: 0.88, capEnv: 0.4, capCC: 0.0, capNS: 0.35, sideR: 0.40, sideM: 0.88, sideEnv: 0.5 },
+        coldRoll: { capR: 0.45, capM: 0.88, capEnv: 0.4, capCC: 0.0, capNS: 0.35, sideR: 0.40, sideM: 0.88, sideEnv: 0.5, boreEnv: 0.1 },
         /* QT: 산업용 강판 — 어둡고 거친 느낌 */
-        qt: { capR: 0.50, capM: 0.70, capEnv: 0.0, capCC: 0.0, capNS: 0.35, sideR: 0.55, sideM: 0.70, sideEnv: 0.0 },
+        qt: { capR: 0.50, capM: 0.70, capEnv: 0.0, capCC: 0.0, capNS: 0.35, sideR: 0.55, sideM: 0.70, sideEnv: 0.0, boreEnv: 0.1 },
         /* */
-        hero: { capR: 0.30, capM: 0.85, capEnv: 2.5, capCC: 0.50, capNS: 0.35, sideR: 0.04, sideM: 0.85, sideEnv: 2.5 }
+        hero: { capR: 0.30, capM: 0.85, capEnv: 2.5, capCC: 0.50, capNS: 0.35, sideR: 0.04, sideM: 0.85, sideEnv: 2.5, boreEnv: 1.2 }
       };
       window._matPresets = matPresets;
       function applyMatPreset(name) {
@@ -661,7 +661,7 @@
         if (!window._boreLock) {
           matBore.roughness = Math.max(p.sideR + 0.05, 0.20);
           matBore.metalness = p.sideM;
-          matBore.envMapIntensity = 0.1;
+          matBore.envMapIntensity = p.boreEnv !== undefined ? p.boreEnv : 0.1;
         }
 
       }
@@ -686,7 +686,7 @@
         if (!window._boreLock) {
           matBore.roughness = Math.max(_l(a.sideR, b.sideR, t) + 0.05, 0.20);
           matBore.metalness = _l(a.sideM, b.sideM, t);
-          matBore.envMapIntensity = 0.1;
+          matBore.envMapIntensity = _l(a.boreEnv || 0.1, b.boreEnv || 0.1, t);
         }
 
       }
@@ -703,8 +703,8 @@
       boreNormTex.wrapT = THREE.ClampToEdgeWrapping;
       boreNormTex.repeat.set(2, 1);
       var matBore = new THREE.MeshPhysicalMaterial({
-        map: boreTex, color: 0xb8bcc4, roughness: 0.25, metalness: 0.85,
-        envMapIntensity: 0.1, side: THREE.BackSide,
+        map: boreTex, color: 0xd8dce4, roughness: 0.12, metalness: 0.85,
+        envMapIntensity: 1.2, side: THREE.BackSide,
         normalMap: boreNormTex, normalScale: new THREE.Vector2(0.20, 0.20)
       });
 
@@ -1042,12 +1042,22 @@
         rebuildStraps(a);
       };
 
-      /* 안쪽 구멍 내벽 — 캡 면보다 양쪽 돌출 (틈 방지) */
+      /* 안쪽 구멍 내벽 — 세그먼트 128 = 챔퍼와 일치 (이음새 틈 방지) */
       var innerWall = new THREE.Mesh(
-        new THREE.CylinderGeometry(INNER_R, INNER_R, MAIN_H + WALL_EXT * 2, 64, 1, true), matBore
+        new THREE.CylinderGeometry(INNER_R, INNER_R, MAIN_H + WALL_EXT * 2, 128, 1, true), matBore
       );
       innerWall.castShadow = false;
       rollGroup.add(innerWall);
+
+      /* bore 뒷면 디스크 — 관통으로 배경 비침 방지 */
+      var boreCapMat = matBore.clone();
+      boreCapMat.side = THREE.FrontSide;
+      var boreBackDisc = new THREE.Mesh(
+        new THREE.CircleGeometry(INNER_R + 0.001, 128), boreCapMat
+      );
+      boreBackDisc.rotation.x = -Math.PI / 2;
+      boreBackDisc.position.y = MAIN_H / 2 + WALL_EXT;
+      rollGroup.add(boreBackDisc);
 
       /* 45도 챔퍼 — 내벽(INNER_R)에서 캡면으로 확장 */
       var matChamfer = matCap.clone();
@@ -1100,23 +1110,39 @@
       /* 모바일: 초기 높이 캐시 — 브라우저 바 토글 시 리사이즈 방지 */
       var cachedMobileVh = null;
       function resize3d() {
-        var vw = fixedWrap ? fixedWrap.clientWidth : window.innerWidth;
-        var vh = fixedWrap ? fixedWrap.clientHeight : window.innerHeight;
-        /* 모바일에서는 최초 높이 또는 너비 변경 시에만 높이 업데이트 */
-        if (vw <= 767) {
-          if (cachedMobileVh === null) cachedMobileVh = vh;
-          /* 너비가 바뀌면(회전) 높이도 갱신 */
-          var widthChanged = (resize3d._prevVw && resize3d._prevVw !== vw);
-          if (widthChanged) cachedMobileVh = vh;
-          resize3d._prevVw = vw;
-          vh = cachedMobileVh;
+        var winW = window.innerWidth;
+        var vw, vh;
+
+        if (winW > 1920) {
+          /* 넓은 뷰포트: 전체 너비로 렌더 → CSS transform 축소 */
+          vw = winW;
+          vh = window.innerHeight;
+          renderer.setSize(vw, vh, false);
+          canvas3d.style.width = vw + 'px';
+          canvas3d.style.height = vh + 'px';
+          var scale = 1920 / vw;
+          canvas3d.style.transform = 'scale(' + scale + ')';
+          canvas3d.style.transformOrigin = 'left center';
+        } else {
+          /* 일반: 컨테이너 크기로 렌더 */
+          vw = fixedWrap ? fixedWrap.clientWidth : winW;
+          vh = fixedWrap ? fixedWrap.clientHeight : window.innerHeight;
+          if (vw <= 767) {
+            if (cachedMobileVh === null) cachedMobileVh = vh;
+            var widthChanged = (resize3d._prevVw && resize3d._prevVw !== vw);
+            if (widthChanged) cachedMobileVh = vh;
+            resize3d._prevVw = vw;
+            vh = cachedMobileVh;
+          }
+          renderer.setSize(vw, vh, false);
+          canvas3d.style.width = '';
+          canvas3d.style.height = '';
+          canvas3d.style.transform = '';
         }
-        renderer.setSize(vw, vh, false);
+
         camera.aspect = vw / vh;
-        /* 모바일: 화면이 좁을수록 FOV를 키워서 코일이 안 잘리게 */
-        if (vw <= 767) {
-          /* 390px → FOV ~68°, 768px → FOV ~48° */
-          camera.fov = Math.min(75, 42 + (767 - vw) * 0.04);
+        if (vw < 1920) {
+          camera.fov = Math.min(75, 42 + (1920 - vw) * 0.017);
         } else {
           camera.fov = 42;
         }
@@ -1147,10 +1173,12 @@
       var deg3 = -39 * (Math.PI / 180);
 
       var ROLL_END = Math.PI * 5.50;
-      var _isMob = window.innerWidth <= 767;
-      var X_END = _isMob ? 0.6 : 0.5;
-      var CAM_Y_START = 0.3, CAM_Y_END = _isMob ? 1.2 : 0.53;
-      var CAM_Z_START = 2.8, CAM_Z_END = _isMob ? 3.2 : 2.7;
+      function _getIsMob() { return window.innerWidth <= 1439; }
+      function _getXEnd() { return _getIsMob() ? 0.6 : 0.5; }
+      function _getCamYEnd() { return _getIsMob() ? 1.2 : 0.53; }
+      function _getCamZEnd() { return _getIsMob() ? 3.2 : 2.7; }
+      var CAM_Y_START = 0.3;
+      var CAM_Z_START = 2.8;
 
       /* ════════════════════════════════════════════════════
          window._coil3d 노출 + 렌더 루프
@@ -1174,9 +1202,12 @@
           var _deg1 = ov.deg1 !== undefined ? ov.deg1 : deg1;
           var _deg2 = ov.deg2 !== undefined ? ov.deg2 : deg2;
           var _deg3 = ov.deg3 !== undefined ? ov.deg3 : deg3;
+          var X_END = _getXEnd();
+          var CAM_Y_END = _getCamYEnd();
+          var CAM_Z_END = _getCamZEnd();
           var _CAM_Y_END = ov.camY !== undefined ? ov.camY : CAM_Y_END;
           var _CAM_Z_END = ov.camZ !== undefined ? ov.camZ : CAM_Z_END;
-          var _lookAtY = ov.lookAtY !== undefined ? ov.lookAtY : (window.innerWidth <= 767 ? 1.0 : -0.01);
+          var _lookAtY = ov.lookAtY !== undefined ? ov.lookAtY : (_getIsMob() ? 1.0 : -0.01);
           var _scale = ov.scale !== undefined ? ov.scale : 1.0;
 
           var currentYaw = 0, currentX = 0, currentZ = 0, currentRoll = 0;
@@ -1257,8 +1288,10 @@
 
           /* 모델 X/Y: et 비율에 따라 이동 (양수=오른쪽/위) */
           /* 모바일: 카드 우상단에 안착 → X 더 크게, Y 더 크게 */
-          var _mobNow = window.innerWidth <= 767;
-          var modelXEnd = ov.modelX !== undefined ? ov.modelX : (_mobNow ? 0.55 : 0.75);
+          var _mobNow = _getIsMob();
+          var vw = window.innerWidth;
+          var _isTablet = vw >= 768 && vw <= 1439;
+          var modelXEnd = ov.modelX !== undefined ? ov.modelX : (_isTablet ? 0.85 : (_mobNow ? 0.55 : 0.75));
           var modelYEnd = ov.modelY !== undefined ? ov.modelY : (_mobNow ? 1.2 : 0.3);
           var curScale = yawGroup.scale.x;
           yawGroup.position.set(
