@@ -21,20 +21,17 @@ body {
     background: transparent;
 }
 
-/* Hero Section */
+/* Hero Section — product-center와 동일 구조 */
 .invest-hero {
     position: relative;
     width: 100%;
-    height: 709px;
+    height: 35.8854vw;
+    /* 689px / 1920px */
+    background: url('../assets/invest-center/invest_center_header.png') no-repeat center top / cover;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
-    padding: 0;
-    gap: clamp(40px, 6.25vw, 120px);
-    overflow: hidden;
-    margin: 0 auto;
-    background: url('../assets/invest-center/invest_center_header.png') no-repeat center/cover;
+    align-items: center;
 }
 
 .invest-hero::after {
@@ -48,71 +45,97 @@ body {
     z-index: 0;
 }
 
-.invest-hero .gnb {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100px;
-}
-
 .invest-hero-content {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    top: 10.4166vw;
+    /* 200px / 1920px */
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: clamp(10px, 1.04vw, 20px);
+    gap: 1.0416vw;
+    /* 20px / 1920px */
     width: 100%;
-    max-width: 995px;
-    height: 289px;
+    max-width: 51.8229vw;
+    /* 995px / 1920px */
     text-align: center;
-    color: #fff;
+    z-index: 1;
 }
 
 .invest-hero-subtitle {
-    font-size: clamp(18px, 1.35vw, 26px);
-    font-weight: 700;
-    line-height: 1.5;
+    font-size: 1.3541vw;
+    /* 26px / 1920px */
+    font-weight: 400;
+    line-height: 150%;
     color: #FFFFFF;
     margin: 0;
 }
 
 .invest-hero-maintitle {
-    font-size: clamp(40px, 4.16vw, 80px);
+    font-size: 4.1666vw;
+    /* 80px / 1920px */
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 140%;
+    letter-spacing: 0%;
     color: #FFFFFF;
     margin: 0;
 }
 
-/* Responsive adjustment for the 80px main title */
-@media (max-width: 1023px) {
+/* TAB — 1440px 고정 */
+@media (min-width: 768px) and (max-width: 1439px) {
     .invest-hero {
-        width: 100%;
-        height: auto;
-        min-height: 400px;
-        padding: 100px 20px 60px;
-        gap: 40px;
-        background: url('../assets/invest-center/투자정보센터header_m.png') no-repeat center/cover;
-    }
-
-    .invest-hero .gnb {
-        height: 72px;
-    }
-
-    .invest-hero-maintitle {
-        font-size: clamp(32px, 8vw, 48px);
-        padding: 0;
-    }
-
-    .invest-hero-subtitle {
-        font-size: clamp(16px, 4vw, 20px);
+        height: 689px;
     }
 
     .invest-hero-content {
+        top: 200px;
+        max-width: 995px;
+        gap: 20px;
+    }
+
+    .invest-hero-subtitle {
+        font-size: 26px;
+    }
+
+    .invest-hero-maintitle {
+        font-size: 80px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    .invest-hero {
+        height: 100vw;
+        max-height: 480px;
+        background: url('../assets/invest-center/투자정보센터header_m.png') no-repeat center / cover;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .invest-hero-content {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-top: 0;
+        padding: 0 16px;
+        gap: 12px;
+        max-width: 100%;
         width: 100%;
-        height: auto;
+        text-align: center;
+    }
+
+    .invest-hero-subtitle {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+
+    .invest-hero-maintitle {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.5;
     }
 }
 
@@ -644,7 +667,7 @@ body {
 }
 
 /* Responsive adjustment for Overview Section */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .investment-overview {
         padding: 40px 16px;
         /* Adjusted to 16px to match 328px width at 360px viewport */
@@ -1911,56 +1934,7 @@ body {
 }
 
 /* Mobile */
-@media (max-width: 1023px) {
-    .invest-hero {
-        width: 360px;
-        height: 360px;
-        min-height: 360px;
-        margin: 0 auto;
-        padding: 0;
-        gap: 60px;
-        background: url('../assets/invest-center/투자정보센터header_m.png') no-repeat center / cover;
-    }
-
-    .invest-hero-content {
-        width: 328px;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .invest-hero-subtitle {
-        width: 328px;
-        height: 20px;
-        font-family: 'Pretendard';
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 160%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: #FFFFFF;
-        margin: 0;
-    }
-
-    .invest-hero-maintitle {
-        width: 328px;
-        height: 78px;
-        font-family: 'Pretendard';
-        font-weight: 700;
-        font-size: 26px;
-        line-height: 150%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: #FFFFFF;
-        margin: 0;
-    }
+@media (max-width: 767px) {
 
     .invest-section {
         padding: 60px 20px;
@@ -2183,8 +2157,7 @@ body {
     }
 
     .ir-card--light .ir-card-content-wrapper {
-        height: 220px;
-        gap: 40px;
+        gap: 20px;
     }
 
     .ir-card--dark {

@@ -46,7 +46,7 @@ function scaleProcessCard() {
     const card = document.getElementById('process-card');
     const sticky = card?.parentElement;
     if (!card || !sticky) return;
-    if (window.innerWidth <= 1023) {
+    if (window.innerWidth <= 767) {
         card.style.transform = '';
         sticky.style.height = '';
         return;
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const scrollWidth = container.scrollWidth;
                     const scrollLimit = scrollWidth - clientWidth;
                     
-                    if (window.innerWidth >= 1024 || scrollLimit <= 0) {
+                    if (window.innerWidth >= 768 || scrollLimit <= 0) {
                         scrollHorizontal.style.setProperty('display', 'none', 'important');
                     } else {
                         scrollHorizontal.style.setProperty('display', 'block', 'important');
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const scrollWidth = scrollBox.scrollWidth;
                 const scrollLimit = scrollWidth - clientWidth;
 
-                if (window.innerWidth >= 1024 || scrollLimit <= 0) {
+                if (window.innerWidth >= 768 || scrollLimit <= 0) {
                     indicator.style.setProperty('display', 'none', 'important');
                 } else {
                     indicator.style.setProperty('display', 'block', 'important');

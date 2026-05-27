@@ -615,7 +615,7 @@ img.ic-download {
     padding-left: 24px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .support-info h3 br {
         display: none;
     }
@@ -1203,7 +1203,7 @@ img.ic-download {
 
 
 /* ===== Responsive: 1280–1760 ===== */
-@media (max-width: 1760px) {
+@media (max-width: 1439px) {
     .feature-cards {
         padding: 2.5rem 5vw 0;
     }
@@ -1213,13 +1213,13 @@ img.ic-download {
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
     html {
         font-size: 14px;
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1439px) {
     html {
         font-size: 13px;
     }
@@ -1229,7 +1229,7 @@ img.ic-download {
            MOBILE — 1023px 이하 (DiKel Tab1)
            (공통: common.css가 GNB/헤더/탭/서포트/푸터 처리)
            ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .pc-only {
         display: none;
     }
@@ -3476,7 +3476,7 @@ img.ic-download {
 
 
 
-@media (max-width: 1760px) {
+@media (max-width: 1439px) {
     .inner {
         padding: 0 5vw;
     }
@@ -3486,13 +3486,13 @@ img.ic-download {
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
     html {
         font-size: 14px;
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1439px) {
     html {
         font-size: 13px;
     }
@@ -4735,7 +4735,7 @@ body {
            MOBILE — 1023px 이하 (탭 패널 공통)
            Brand Resource / 제품 상세 등의 고정폭 해제
            ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     body {
         min-width: 0;
         width: 100%;
@@ -4967,7 +4967,7 @@ body {
 /* ════════════════════════════════════
            모바일 반응형 (768px 이하) - 피그마 MOB 스펙 반영
            ════════════════════════════════════ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
     /* ── 페이지 헤더: 피그마 MOB gap-[20px] 타이틀 30px ── */
     .page-header {
@@ -6238,7 +6238,7 @@ body {
     box-sizing: border-box;
 }
 
-@media screen and (min-width: 361px) and (max-width: 1919px) {
+@media (min-width: 768px) and (max-width: 1439px) {
     .stock-info-board {
         width: min(100%, calc(100vw - 40px));
         margin-left: auto;
@@ -6246,7 +6246,7 @@ body {
     }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1919px) {
+@media (min-width: 768px) and (max-width: 1439px) {
     .stock-pb-info-wrap {
         flex: 1 1 auto;
         min-width: 0;
@@ -6541,7 +6541,7 @@ body {
 /* =========================================================================
    모바일 반응형 (360px) - 주가현황
    ========================================================================= */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
 
     /* ── 실시간 주가 섹션 ── */
     .stock-realtime-section {
@@ -6984,7 +6984,7 @@ body {
 }
 
 /* ── 커스텀 스크롤바 (모바일 전용) ── */
-@media (max-width: 1919px) {
+@media (max-width: 1439px) {
     .stock-daily-scroll-wrap {
         display: block;
         width: 100%;
@@ -7015,7 +7015,7 @@ body {
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .stock-table-wrap::-webkit-scrollbar {
         display: none;
     }
@@ -7110,7 +7110,7 @@ body {
     display: none;
 }
 
-@media (max-width: 1919px) {
+@media (max-width: 1439px) {
     .dividend-scroll-wrap {
         display: block;
         width: 100%;
@@ -7231,7 +7231,7 @@ body {
 }
 
 /* 모바일 대응 (간략하게 우선 추가) */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
 
     .dividend-policy-section,
     .dividend-status-section {
@@ -7435,7 +7435,7 @@ body {
     margin: 0;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .investment-strengths-section {
         padding: 40px 16px;
         height: auto;
@@ -7539,7 +7539,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.2vw, 120px);
+    padding: 100px 120px;
     background: #FFFFFF;
     width: 100%;
     max-width: 1920px;
@@ -7810,7 +7810,7 @@ body {
     border-top: 14px solid #111111;
 }
 
-@media screen and (max-width: 360px) {
+@media (max-width: 767px) {
     .fs-bar.orange .fs-tooltip {
         opacity: 1;
         visibility: visible;
@@ -7953,7 +7953,7 @@ body {
     padding-right: 0;
 }
 
-@media (max-width: 1919px) {
+@media (max-width: 1439px) {
     .fs-scroll-wrap {
         display: block;
         width: 100%;
@@ -7987,7 +7987,7 @@ body {
 /* ==========================================================================
    재무상태표 모바일 반응형 (360px 기준)
    ========================================================================== */
-@media screen and (max-width: 960px) {
+@media (max-width: 767px) {
     .finance-status-section {
         padding: 40px 16px 16px;
         background: #FFFFFF;
@@ -8284,7 +8284,7 @@ body {
     }
 }
 
-@media screen and (min-width: 361px) and (max-width: 1023px) {
+@media (max-width: 767px) {
     .stock-info-board {
         width: min(100%, calc(100vw - 40px));
         margin-left: auto;
@@ -8315,7 +8315,7 @@ body {
     }
 }
 
-@media screen and (max-width: 359px) {
+@media (max-width: 767px) {
     .fs-graph-box {
         height: clamp(304px, 90vw, 328px);
     }

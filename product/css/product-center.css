@@ -787,7 +787,7 @@ body .no-transition *,
 /* =================================================================
    Desktop Hover Accordion (CSS Fallback / JS Enhancement)
    ================================================================= */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 
     /* 마우스가 컨테이너에 들어오면, 일단 모든 카드를 축소 상태로 만듦 */
     .products-container:hover .product-card {
@@ -843,7 +843,7 @@ body .no-transition *,
 
 
 /* ================= Support (Desktop Fit) ================= */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .support-info {
         flex: 1;
     }
@@ -873,7 +873,7 @@ body .no-transition *,
     display: inline;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .desk-br {
         display: none;
     }
@@ -923,7 +923,7 @@ body .no-transition *,
    1920px 초과 — 카드 크기 고정
    (vw 기반 카드가 무한히 커지는 것 방지)
    ════════════════════════════════════ */
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
 
     /* 섹션 높이 고정: 1333px (= 69.427vw × 1920px) */
     .standards-section {
@@ -1051,7 +1051,7 @@ body .no-transition *,
            MOBILE — 1023px 이하
            Figma: MOB_제품정보 센터_KOR (38:3589)
            ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     body {
         padding-top: 0;
         min-width: 0;

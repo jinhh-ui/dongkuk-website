@@ -25,7 +25,7 @@ body {
     display: block;
 }
 
-@media screen and (max-width: 1023px) {
+@media (max-width: 767px) {
     .pc-br {
         display: none;
     }
@@ -326,7 +326,7 @@ body {
     background: var(--gray-900);
 }
 
-@media screen and (max-width: 1023px) {
+@media (max-width: 767px) {
     .mono-box.bg-black {
         background: var(--gray-700);
     }
@@ -446,7 +446,7 @@ body {
 
 
 /* Responsive (Mobile 360px) */
-@media screen and (max-width: 1023px) {
+@media (max-width: 767px) {
     .page-header {
         padding: 20px 16px 30px 16px;
         height: auto;
@@ -601,7 +601,7 @@ body {
         display: none;
     }
 
-    @media screen and (max-width: 640px) {
+    @media (max-width: 767px) {
         .colors-intro br.mo-br {
             display: block;
         }
@@ -615,7 +615,7 @@ body {
         padding: 0;
     }
 
-    @media screen and (max-width: 640px) {
+    @media (max-width: 767px) {
         .colors-flex {
             grid-template-columns: 1fr;
             gap: 24px;

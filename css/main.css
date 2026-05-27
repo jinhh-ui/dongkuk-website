@@ -1364,7 +1364,7 @@ body {
 }
 
 /* ══ 반응형 (모바일 등 데스크탑 붕괴 방지 처리) ══ */
-@media (max-width: 1280px) {
+@media (max-width: 1439px) {
   .product-title {
     white-space: normal !important;
   }
@@ -1384,7 +1384,7 @@ body {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1439px) {
   .invest-inner {
     flex-direction: column;
     padding: 40px;
@@ -1450,7 +1450,7 @@ body {
        MOBILE — 1023px 이하 (메인 페이지)
        모든 고정 너비/절대 위치를 유연한 레이아웃으로 전환
        ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
 
   /* ── GNB ── */
   .gnb {
