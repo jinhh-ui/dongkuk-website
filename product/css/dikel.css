@@ -463,7 +463,7 @@ img.ic-download {
 }
 
 .accordion .inner {
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
     display: flex;
     flex-direction: column;
 }
@@ -691,14 +691,14 @@ img.ic-download {
 .usage-section {
     width: 100%;
     background: #FFFFFF;
-    padding: 100px 0;
+    padding: var(--section-padding-y) 0;
     /* 위아래 여백으로 자연스럽게 높이 확보 */
 }
 
 .usage-section .inner {
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
     display: flex;
     flex-direction: column;
     gap: 72px;
@@ -2679,7 +2679,7 @@ img.ic-download {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 0;
+    padding: var(--section-padding-y) 0;
 }
 
 .story-section .inner {
@@ -2688,7 +2688,7 @@ img.ic-download {
     justify-content: center;
     align-items: center;
     gap: 50px;
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
@@ -2980,7 +2980,7 @@ img.ic-download {
 
 .bi-section .inner {
     display: flex;
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
     flex-direction: column;
     align-items: center;
     /* 자식 요소들 중앙 정렬 */
@@ -3657,7 +3657,7 @@ img.ic-download {
     height: 6.25rem;
     border-radius: 50%;
     background: transparent;
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
 }
 
 .color-meta {
@@ -3748,7 +3748,7 @@ body {
 .inner {
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
 }
 
 /* ===== GNB ===== */
@@ -4024,7 +4024,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 120px;
+    padding: var(--section-padding-x);
     gap: clamp(40px, 4.16vw, 80px);
     width: 100%;
     margin: 0 auto;
@@ -4167,7 +4167,7 @@ body {
     gap: 2.5rem;
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
 }
 
 .why-label {
@@ -4401,7 +4401,7 @@ body {
 .battery-section {
     background: #F1F3F7;
     position: relative;
-    padding: 120px 0;
+    padding: var(--section-padding-x) 0;
     overflow: hidden;
 }
 
@@ -4409,7 +4409,7 @@ body {
     position: relative;
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
     /* 피그마 왼쪽 벽 120px 여백 반영 */
 }
 
@@ -4887,7 +4887,7 @@ body {
 /* 📍 ===== 디켈 경쟁력 Gallery ===== */
 .gallery-section {
     background: #fff;
-    padding: 120px 0;
+    padding: var(--section-padding-x) 0;
 }
 
 .gallery-title {
@@ -4895,7 +4895,7 @@ body {
     font-weight: 700;
     color: #1B1B1B;
     line-height: 1.4;
-    padding: 0 120px;
+    padding: 0 var(--section-padding-x);
     max-width: 1920px;
     margin: 0 auto clamp(40px, 4.16vw, 80px);
 }
