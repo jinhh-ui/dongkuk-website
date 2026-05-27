@@ -6,6 +6,10 @@
 
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
+p {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
 
 /* ===== 네이티브 스크롤바 숨김 ===== */
 html {
@@ -909,24 +913,18 @@ body {
 
 /* ===== RESPONSIVE ===== */
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
     html {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 1280px) {
-    html {
-        font-size: 13px;
+        font-size: clamp(13px, 0.93vw, 14px);
     }
 }
 
 
 /* ════════════════════════════════════════════════════════
-   MOBILE — max-width: 1023px
+   MOBILE — max-width: 767px
    모든 페이지 공통 컴포넌트의 모바일 오버라이드
    ════════════════════════════════════════════════════════ */
-@media (max-width: 1439px) {
+@media (max-width: 767px) {
 
     /* ── Reset / Base ── */
     html {

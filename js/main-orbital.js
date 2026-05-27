@@ -32,12 +32,12 @@
       const norm = (v, lo, hi) => clamp((v - lo) / (hi - lo), 0, 1);
 
       let W, H, cx, cy, rx_in, ry_in, rx_out, ry_out, len1 = 0, len2 = 0, ready = false;
-      var isMobile = window.innerWidth <= 1023;
+      var isMobile = window.innerWidth <= 767;
 
       function setup() {
         W = section.offsetWidth;
         H = section.offsetHeight;
-        isMobile = window.innerWidth <= 1023;
+        isMobile = window.innerWidth <= 767;
         cx = W * 0.50;
         cy = H * 0.50;
         /* 모바일: 코일 궤도 반경 — 코일보다 훨씬 넓게 */
@@ -420,7 +420,7 @@
           var vh = window.innerHeight;
           var vw = window.innerWidth;
           var fixedWrap = document.getElementById('coil-3d-fixed');
-          var mobCoil = vw <= 1023;
+          var mobCoil = vw <= 767;
           var mobUp = mobCoil ? Math.round(vh * -0.20) : 0; /* 모바일: 20vh 위로 */
 
           if (rect.top > 0 && rect.top < vh) {

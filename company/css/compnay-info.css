@@ -16,7 +16,7 @@
 }
 
 /* Tablet (601px ~ 1023px) 자연스러운 줄바꿈을 위해 강제 줄바꿈 해제 */
-@media (max-width: 1023px) and (min-width: 601px) {
+@media (max-width: 767px) {
 
     .mo-only,
     .mo-br,
@@ -622,7 +622,7 @@
     border-radius: 30px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 767px) {
     .ph-detail-content {
         flex-direction: column;
     }
@@ -754,14 +754,14 @@
     height: auto;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1439px) {
     .values-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .values-grid {
         grid-template-columns: 1fr;
     }
@@ -927,7 +927,7 @@
     padding-left: 24px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .support-info h3 br {
         display: none;
     }
@@ -2721,7 +2721,7 @@
 
 
 
-@media (max-width: 1760px) {
+@media (max-width: 1439px) {
     .inner {
         padding: 0 5vw;
     }
@@ -2731,13 +2731,13 @@
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
     html {
         font-size: 14px;
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1439px) {
     html {
         font-size: 13px;
     }
@@ -3981,7 +3981,7 @@ body {
            MOBILE — 1023px 이하 (탭 패널 공통)
            Brand Resource / 제품 상세 등의 고정폭 해제
            ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     body {
         min-width: 0;
         width: 100%;
@@ -4212,7 +4212,7 @@ body {
 /* ════════════════════════════════════
            모바일 반응형 (768px 이하) - 피그마 MOB 스펙 반영
            ════════════════════════════════════ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
     /* ── 페이지 헤더: 피그마 MOB gap-[20px] 타이틀 30px ── */
     .page-header {
@@ -5094,7 +5094,7 @@ body {
 /* ================================================================
    Mobile Responsive (360px optimized)
    ================================================================ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .mo-only {
         display: inline;
     }

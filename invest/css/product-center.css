@@ -750,7 +750,7 @@ body {
 
 
 /* ================= Support (Desktop Fit) ================= */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .support-info {
         flex: 1;
     }
@@ -780,7 +780,7 @@ body {
     display: inline;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .desk-br {
         display: none !important;
     }
@@ -830,7 +830,7 @@ body {
            MOBILE — 1023px 이하
            Figma: MOB_제품정보 센터_KOR (38:3589)
            ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     body {
         padding-top: 0;
         min-width: 0 !important;
@@ -1223,7 +1223,7 @@ body {
 /* =================================================================
    1920 Viewport Only: Sticking Title and Description to Top Wall
    ================================================================= */
-@media (min-width: 1920px) {
+@media (min-width: 1440px) {
     .product-card:hover .pc-title-small,
     .product-card.expanded .pc-title-small {
         bottom: 724px; /* Sticking top of pc-title-small (84px tall) to card top (808px tall) */

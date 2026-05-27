@@ -212,7 +212,7 @@
       /* ════════════════════════════════════════════════════
          THREE.JS 기본 설정
          ════════════════════════════════════════════════════ */
-      var isMobile = window.innerWidth <= 1023;
+      var isMobile = window.innerWidth <= 767;
       var renderer = new THREE.WebGLRenderer({ canvas: canvas3d, antialias: !isMobile, alpha: true, premultipliedAlpha: false });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 2 : 3));
       renderer.setClearColor(0x000000, 0); /* 완전 투명 */
@@ -1103,7 +1103,7 @@
         var vw = fixedWrap ? fixedWrap.clientWidth : window.innerWidth;
         var vh = fixedWrap ? fixedWrap.clientHeight : window.innerHeight;
         /* 모바일에서는 최초 높이 또는 너비 변경 시에만 높이 업데이트 */
-        if (vw <= 1023) {
+        if (vw <= 767) {
           if (cachedMobileVh === null) cachedMobileVh = vh;
           /* 너비가 바뀌면(회전) 높이도 갱신 */
           var widthChanged = (resize3d._prevVw && resize3d._prevVw !== vw);
@@ -1114,9 +1114,9 @@
         renderer.setSize(vw, vh, false);
         camera.aspect = vw / vh;
         /* 모바일: 화면이 좁을수록 FOV를 키워서 코일이 안 잘리게 */
-        if (vw <= 1023) {
+        if (vw <= 767) {
           /* 390px → FOV ~68°, 768px → FOV ~48° */
-          camera.fov = Math.min(75, 42 + (1023 - vw) * 0.04);
+          camera.fov = Math.min(75, 42 + (767 - vw) * 0.04);
         } else {
           camera.fov = 42;
         }
@@ -1147,7 +1147,7 @@
       var deg3 = -39 * (Math.PI / 180);
 
       var ROLL_END = Math.PI * 5.50;
-      var _isMob = window.innerWidth <= 1023;
+      var _isMob = window.innerWidth <= 767;
       var X_END = _isMob ? 0.6 : 0.5;
       var CAM_Y_START = 0.3, CAM_Y_END = _isMob ? 1.2 : 0.53;
       var CAM_Z_START = 2.8, CAM_Z_END = _isMob ? 3.2 : 2.7;
@@ -1176,7 +1176,7 @@
           var _deg3 = ov.deg3 !== undefined ? ov.deg3 : deg3;
           var _CAM_Y_END = ov.camY !== undefined ? ov.camY : CAM_Y_END;
           var _CAM_Z_END = ov.camZ !== undefined ? ov.camZ : CAM_Z_END;
-          var _lookAtY = ov.lookAtY !== undefined ? ov.lookAtY : (window.innerWidth <= 1023 ? 1.0 : -0.01);
+          var _lookAtY = ov.lookAtY !== undefined ? ov.lookAtY : (window.innerWidth <= 767 ? 1.0 : -0.01);
           var _scale = ov.scale !== undefined ? ov.scale : 1.0;
 
           var currentYaw = 0, currentX = 0, currentZ = 0, currentRoll = 0;
@@ -1257,7 +1257,7 @@
 
           /* 모델 X/Y: et 비율에 따라 이동 (양수=오른쪽/위) */
           /* 모바일: 카드 우상단에 안착 → X 더 크게, Y 더 크게 */
-          var _mobNow = window.innerWidth <= 1023;
+          var _mobNow = window.innerWidth <= 767;
           var modelXEnd = ov.modelX !== undefined ? ov.modelX : (_mobNow ? 0.55 : 0.75);
           var modelYEnd = ov.modelY !== undefined ? ov.modelY : (_mobNow ? 1.2 : 0.3);
           var curScale = yawGroup.scale.x;

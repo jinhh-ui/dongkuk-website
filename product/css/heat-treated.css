@@ -284,7 +284,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 100px;
+    padding: 100px clamp(16px, 6.25vw, 120px) 0;
 }
 
 .pi-top-wrapper {
@@ -559,7 +559,6 @@ img.ic-download {
 .acc-body {
     display: none;
     width: 100%;
-    overflow-x: hidden;
 }
 
 .acc-item.open .acc-body {
@@ -585,7 +584,7 @@ img.ic-download {
     color: #F27100;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .spec-note {
         font-size: 14px;
     }
@@ -1198,7 +1197,7 @@ img.ic-download {
 
 
 /* ===== Responsive: 1280–1760 ===== */
-@media (max-width: 1760px) {
+@media (max-width: 1439px) {
     .feature-cards {
         padding: 2.5rem 5vw 0;
     }
@@ -1208,13 +1207,13 @@ img.ic-download {
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
     html {
         font-size: 14px;
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1439px) {
     html {
         font-size: 13px;
     }
@@ -1224,7 +1223,7 @@ img.ic-download {
            MOBILE — 1023px 이하
            모든 고정 너비/절대 위치를 유연한 레이아웃으로 전환
            ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     body {
         min-width: 0;
         width: 100%;
@@ -1951,6 +1950,7 @@ img.ic-download {
         flex-direction: column;
         gap: 40px;
         transform: none;
+        box-sizing: border-box;
     }
 
     .ps-header {
@@ -2191,6 +2191,7 @@ img.ic-download {
         line-height: 1.6;
         color: #4E4E4E;
         margin: 0;
+        min-height: calc(16px * 1.6 * 2);
     }
 
     /* Grade Table — 1584px 고정폭 → 스크롤 */
@@ -2471,12 +2472,12 @@ img.ic-download {
     max-width: 1680px;
     background: #F1F3F7;
     border-radius: 30px;
-    padding: 48px;
+    padding: clamp(24px, 2.5vw, 48px);
     display: flex;
     flex-direction: row;
-    gap: 48px;
+    gap: clamp(24px, 2.5vw, 48px);
     box-sizing: border-box;
-    min-height: 800px;
+    min-height: 0;
     align-items: flex-start;
 }
 
@@ -2498,26 +2499,27 @@ img.ic-download {
 .equip-info {
     display: flex;
     flex-direction: column;
-    gap: 120px;
+    gap: clamp(40px, 6.25vw, 120px);
     padding-top: 20px;
     flex: 1;
+    min-width: 0;
 }
 
 .equip-texts {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: clamp(12px, 1.25vw, 24px);
 }
 
 .equip-title {
-    font-size: 44px;
+    font-size: clamp(24px, 2.29vw, 44px);
     font-weight: 700;
     line-height: 150%;
     color: #363636;
 }
 
 .equip-desc {
-    font-size: 22px;
+    font-size: clamp(16px, 1.14vw, 22px);
     font-weight: 400;
     line-height: 160%;
     color: #4E4E4E;
@@ -2533,19 +2535,21 @@ img.ic-download {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .equip-tag {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
+    padding: clamp(8px, 0.625vw, 12px) clamp(14px, 1.25vw, 24px);
     background: #FFFFFF;
     border-radius: 999px;
-    font-size: 22px;
+    font-size: clamp(16px, 1.14vw, 22px);
     font-weight: 400;
     color: #363636;
     white-space: nowrap;
+    width: auto !important;
 }
 }
 
@@ -2555,7 +2559,7 @@ img.ic-download {
     display: none;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .m-br {
         display: inline;
     }
@@ -2565,7 +2569,7 @@ img.ic-download {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .mobile-only {
         display: none;
     }
@@ -2896,34 +2900,29 @@ img.ic-download {
 }
 
 /* 제품설비 데스크탑 스타일 (1920px 기준) */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .equip-box {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        padding: 48px;
-        gap: 48px;
-        width: 1680px;
-        min-height: 800px;
+        padding: clamp(24px, 2.5vw, 48px);
+        gap: clamp(24px, 2.5vw, 48px);
+        width: 100%;
+        max-width: 1680px;
+        min-height: 0;
         height: auto;
         background: #F1F3F7;
         border-radius: 30px;
-        flex: none;
-        order: 0;
-        align-self: stretch;
-        flex-grow: 0;
         box-sizing: border-box;
         margin: 30px auto;
     }
 
     .equip-img-box {
-        width: 704px;
-        height: 704px;
+        width: 45%;
+        aspect-ratio: 1 / 1;
         background: #FFFFFF;
         border-radius: 20px;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
+        flex-shrink: 0;
         overflow: hidden;
     }
 
@@ -2937,13 +2936,12 @@ img.ic-download {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 20px 0px 0px;
-        gap: 120px;
-        width: 832px;
+        padding: 20px 0 0;
+        gap: clamp(40px, 6.25vw, 120px);
+        width: 100%;
         height: auto;
-        flex: none;
-        order: 1;
-        flex-grow: 1;
+        flex: 1;
+        min-width: 0;
         box-sizing: border-box;
     }
 
@@ -2951,45 +2949,30 @@ img.ic-download {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0px;
-        gap: 24px;
-        width: 832px;
+        gap: clamp(12px, 1.25vw, 24px);
+        width: 100%;
         height: auto;
-        flex: none;
-        order: 0;
-        align-self: stretch;
-        flex-grow: 0;
     }
 
     .equip-title {
-        width: 832px;
-        height: 66px;
+        width: 100%;
+        height: auto;
         font-family: 'Pretendard';
-        font-style: normal;
         font-weight: 700;
-        font-size: 44px;
+        font-size: clamp(24px, 2.29vw, 44px);
         line-height: 150%;
         color: #363636;
-        flex: none;
-        order: 0;
-        align-self: stretch;
-        flex-grow: 0;
         margin: 0;
     }
 
     .equip-desc {
-        width: 832px;
+        width: 100%;
         height: auto;
         font-family: 'Pretendard';
-        font-style: normal;
         font-weight: 400;
-        font-size: 22px;
+        font-size: clamp(16px, 1.14vw, 22px);
         line-height: 160%;
         color: #4E4E4E;
-        flex: none;
-        order: 1;
-        align-self: stretch;
-        flex-grow: 0;
         margin: 0;
     }
 
@@ -2997,30 +2980,23 @@ img.ic-download {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0px;
         gap: 10px;
-        width: 618px;
-        height: 128px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
+        width: 100%;
+        height: auto;
     }
 
     .equip-tags-row {
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 0px;
         gap: 10px;
-        width: 618px;
-        height: 59px;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
+        width: auto;
+        height: auto;
+        flex-wrap: wrap;
     }
 
     .equip-tags-row.row-2 {
-        width: 377px;
+        width: auto;
     }
 
     .equip-tag {
@@ -3028,39 +3004,32 @@ img.ic-download {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 12px 24px;
+        padding: clamp(8px, 0.625vw, 12px) clamp(14px, 1.25vw, 24px);
         gap: 8px;
-        height: 59px;
+        height: auto;
         background: #FFFFFF;
         border-radius: 999px;
-        flex: none;
-        flex-grow: 0;
         box-sizing: border-box;
     }
 
     .equip-tag-text {
-        height: 35px;
         font-family: 'Pretendard';
-        font-style: normal;
         font-weight: 400;
-        font-size: 22px;
+        font-size: clamp(16px, 1.14vw, 22px);
         line-height: 160%;
         text-align: center;
         color: #363636;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
         white-space: nowrap;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .usage-menu-item {
         gap: 12px !important;
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 767px) {
     .ps-mobile-diagram {
         margin-top: 40px;
         aspect-ratio: 328 / 277;

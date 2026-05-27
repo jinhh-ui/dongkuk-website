@@ -46,7 +46,7 @@ function scaleProcessCard() {
     const card = document.getElementById('process-card');
     const sticky = card?.parentElement;
     if (!card || !sticky) return;
-    if (window.innerWidth <= 1023) return;
+    if (window.innerWidth <= 767) return;
     const availW = sticky.clientWidth;
     const cardW = 1860;
     const cardH = 1080;
@@ -150,19 +150,19 @@ document.addEventListener('DOMContentLoaded', function () {
             // 모바일 360/태블릿 해상도에서는 모바일 전용 헤더 이미지 사용
             const img = imgWrapper.querySelector('#expand-image');
             if (img) {
-                const targetSrc = (screenW < 1024) ? 'assets/companyinfo/company_header_m.png' : 'assets/companyinfo/company_header.png';
+                const targetSrc = (screenW < 768) ? 'assets/companyinfo/company_header_m.png' : 'assets/companyinfo/company_header.png';
                 if (img.getAttribute('src') !== targetSrc) {
                     img.setAttribute('src', targetSrc);
                 }
             }
 
             // 반응형 시작 크기 정의
-            const startW = (screenW < 1024) ? (screenW - 32) : (1860 * scale);
-            const startH = (screenW < 1024) ? Math.min(448, screenH * 0.55) : (540 * scale);
-            const startRadius = (screenW < 1024) ? 20 : (30 * scale);
+            const startW = (screenW < 768) ? (screenW - 32) : (1860 * scale);
+            const startH = (screenW < 768) ? Math.min(448, screenH * 0.55) : (540 * scale);
+            const startRadius = (screenW < 768) ? 20 : (30 * scale);
 
             // 텍스트 아래 이미지 시작 Y좌표 계산
-            let startTop = (screenW < 1024) ? 140 : (260 * scale);
+            let startTop = (screenW < 768) ? 140 : (260 * scale);
             if (textSection) {
                 const imgSec = document.querySelector('.hero-image-section');
                 const padTop = imgSec ? parseFloat(window.getComputedStyle(imgSec).paddingTop) : 0;
@@ -201,12 +201,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const screenW = window.innerWidth;
                 const scale = screenW / baseW;
 
-                const startW = (screenW < 1024) ? 328 : (1860 * scale);
+                const startW = (screenW < 768) ? 328 : (1860 * scale);
                 const endW = 1920 * scale;
-                const startH = (screenW < 1024) ? 448 : (540 * scale);
-                const endH = (screenW < 1024) ? 740 : (1190 * scale);
+                const startH = (screenW < 768) ? 448 : (540 * scale);
+                const endH = (screenW < 768) ? 740 : (1190 * scale);
                 
-                const startRadius = (screenW < 1024) ? 20 : (30 * scale);
+                const startRadius = (screenW < 768) ? 20 : (30 * scale);
                 const endRadius = 0;
                 
                 const currentW = startW + (endW - startW) * progress;

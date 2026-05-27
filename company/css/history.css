@@ -28,7 +28,7 @@
 }
 
 /* Standardized breakpoints to match common.css */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .hero-text-inner {
         top: 72px;
         height: auto;
@@ -340,7 +340,7 @@
 }
 
 /* Intermediate and Tablet Responsive */
-@media (max-width: 1280px) {
+@media (max-width: 1439px) {
     .history-line-wrapper {
         left: clamp(16px, 11.2vw - 104px, 40px);
     }
@@ -350,7 +350,7 @@
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .desk-br {
         display: none;
     }
@@ -458,7 +458,7 @@
 }
 
 /* Mobile Range Optimization (1023px and below) */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .history-inner {
         padding-left: clamp(60px, 4vw + 45px, 100px);
         padding-right: clamp(16px, 4.4vw + 1px, 60px);
@@ -474,7 +474,7 @@
 }
 
 /* Mobile 360 Optimized */
-@media (max-width: 480px) {
+@media (max-width: 767px) {
     .hero-text-inner {
         padding: 0;
         min-height: auto;

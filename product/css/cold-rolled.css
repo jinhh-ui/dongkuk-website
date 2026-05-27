@@ -734,7 +734,7 @@ img.ic-download {
     height: 416px;
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 767px) {
     .pr-list-container {
         gap: 40px;
     }
@@ -1369,7 +1369,7 @@ img.ic-download {
 
 
 /* ===== Responsive: 1280–1760 ===== */
-@media (max-width: 1760px) {
+@media (max-width: 1439px) {
     .feature-cards {
         padding: 2.5rem 5vw 0;
     }
@@ -1379,13 +1379,13 @@ img.ic-download {
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
     html {
         font-size: 14px;
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1439px) {
     html {
         font-size: 13px;
     }
@@ -1395,7 +1395,7 @@ img.ic-download {
            MOBILE — 1023px 이하
            모든 고정 너비/절대 위치를 유연한 레이아웃으로 전환
            ════════════════════════════════════ */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     body {
         min-width: 0;
         width: 100%;
@@ -2253,6 +2253,7 @@ img.ic-download {
         line-height: 1.6;
         color: #4E4E4E;
         margin: 0;
+        min-height: calc(16px * 1.6 * 2);
     }
 
     .grade-table {
@@ -2852,7 +2853,7 @@ img.ic-download {
 
 
 /* ── New Flex-Table (Figma Spec) ── */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .cat-table-wrap {
         display: flex;
         flex-direction: column;
@@ -3105,7 +3106,7 @@ img.ic-download {
 }
 
 /* Scroll indicator */
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .cat-scroll-indicator {
         position: relative;
         width: 328px;
@@ -3136,7 +3137,7 @@ img.ic-download {
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .txt-p-20 {
         font-size: 14px;
         color: #F27100;
@@ -3155,7 +3156,7 @@ img.ic-download {
 
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
     .desktop-only {
         display: none !important;
     }
@@ -3165,13 +3166,13 @@ img.ic-download {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .usage-menu-item {
         gap: 12px !important;
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .mobile-only {
         display: none !important;
     }
@@ -3185,7 +3186,7 @@ img.ic-download {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 767px) {
     .ps-mobile-diagram {
         aspect-ratio: 328 / 277 !important;
     }
