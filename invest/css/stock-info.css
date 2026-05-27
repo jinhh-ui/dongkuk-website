@@ -454,7 +454,7 @@ img.ic-download {
 }
 
 .accordion .inner {
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
     display: flex;
     flex-direction: column;
 }
@@ -689,7 +689,7 @@ img.ic-download {
 .usage-section .inner {
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
     display: flex;
     flex-direction: column;
     gap: 72px;
@@ -2472,7 +2472,7 @@ img.ic-download {
     justify-content: center;
     align-items: center;
     gap: 50px;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
@@ -2765,7 +2765,7 @@ img.ic-download {
 
 .bi-section .inner {
     display: flex;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
     flex-direction: column;
     align-items: center;
     /* 자식 요소들 중앙 정렬 */
@@ -3431,7 +3431,7 @@ img.ic-download {
     height: 6.25rem;
     border-radius: 50%;
     background: transparent;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
 }
 
 .color-meta {
@@ -3522,7 +3522,7 @@ body {
 .inner {
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
 }
 
 /* ===== GNB ===== */
@@ -3797,7 +3797,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(40px, 6.25vw, 120px);
+    padding: 120px;
     gap: clamp(40px, 4.16vw, 80px);
     width: 100%;
     margin: 0 auto;
@@ -3940,7 +3940,7 @@ body {
     gap: 2.5rem;
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
 }
 
 .why-label {
@@ -4174,7 +4174,7 @@ body {
 .battery-section {
     background: #F1F3F7;
     position: relative;
-    padding: clamp(40px, 6.25vw, 120px) 0;
+    padding: 120px 0;
     overflow: hidden;
 }
 
@@ -4182,7 +4182,7 @@ body {
     position: relative;
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
     /* 피그마 왼쪽 벽 120px 여백 반영 */
 }
 
@@ -4656,7 +4656,7 @@ body {
 /* 📍 ===== 디켈 경쟁력 Gallery ===== */
 .gallery-section {
     background: #fff;
-    padding: clamp(40px, 6.25vw, 120px) 0;
+    padding: 120px 0;
 }
 
 .gallery-title {
@@ -4664,7 +4664,7 @@ body {
     font-weight: 700;
     color: #1B1B1B;
     line-height: 1.4;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
     max-width: 1920px;
     margin: 0 auto clamp(40px, 4.16vw, 80px);
 }
@@ -5856,7 +5856,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    padding: 100px 120px;
     gap: clamp(30px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
@@ -6374,7 +6374,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    padding: 100px 120px;
     gap: clamp(30px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
@@ -7029,7 +7029,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    padding: 100px 120px;
     gap: clamp(20px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
@@ -7069,7 +7069,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    padding: 100px 120px;
     gap: clamp(20px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
@@ -7318,7 +7318,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    padding: 100px 120px;
     gap: clamp(30px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;

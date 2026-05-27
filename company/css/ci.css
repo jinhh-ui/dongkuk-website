@@ -81,7 +81,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(60px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    padding: 100px 120px;
     gap: clamp(60px, 5.21vw, 100px);
     width: 100%;
     box-sizing: border-box;

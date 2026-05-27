@@ -872,7 +872,7 @@ img.ic-download {
 .usage-section .inner {
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 clamp(16px, 6.25vw, 120px);
+    padding: 0 120px;
     display: flex;
     flex-direction: column;
     gap: 72px;
