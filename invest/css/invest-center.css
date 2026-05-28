@@ -61,8 +61,7 @@ body {
 }
 
 .invest-hero-subtitle {
-    font-size: 1.3541vw;
-    /* 26px / 1920px */
+    font-size: clamp(18px, 1.3541vw, 26px);
     font-weight: 400;
     line-height: 150%;
     color: #FFFFFF;
@@ -70,8 +69,7 @@ body {
 }
 
 .invest-hero-maintitle {
-    font-size: 4.1666vw;
-    /* 80px / 1920px */
+    font-size: clamp(26px, 4.1666vw, 80px);
     font-weight: 700;
     line-height: 140%;
     letter-spacing: 0%;
@@ -79,26 +77,7 @@ body {
     margin: 0;
 }
 
-/* TAB — 1440px 고정 */
-@media (min-width: 768px) and (max-width: 1439px) {
-    .invest-hero {
-        height: 689px;
-    }
-
-    .invest-hero-content {
-        top: 200px;
-        max-width: 995px;
-        gap: 20px;
-    }
-
-    .invest-hero-subtitle {
-        font-size: 26px;
-    }
-
-    .invest-hero-maintitle {
-        font-size: 80px;
-    }
-}
+/* TAB — clamp로 처리했으므로 태블릿 고정값 불필요 */
 
 /* MOBILE */
 @media (max-width: 767px) {
@@ -141,7 +120,7 @@ body {
     width: 100%;
     max-width: 1920px;
     height: auto;
-    min-height: 755px;
+    min-height: auto;
     margin: 0 auto;
     padding: var(--section-padding-y) var(--section-padding-x);
     display: flex;
@@ -172,12 +151,10 @@ body {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    gap: 24px;
+    gap: clamp(10px, 1.25vw, 24px);
     width: 100%;
     max-width: 1680px;
-    /* Max width for desktop */
-    height: 435px;
-    /* Fixed height for desktop */
+    height: auto;
 }
 
 .overview-card {
@@ -192,7 +169,7 @@ body {
 /* 주가정보 카드 */
 .stock-info {
     flex: 1.7;
-    padding: 40px 0px 40px 0px;
+    padding: clamp(20px, 2.08vw, 40px) 0;
     /* Removed right padding as requested */
     justify-content: space-between;
     /* Pushes content to the bottom */
@@ -208,12 +185,12 @@ body {
     padding: 0px;
     margin: 0;
     width: 100%;
-    height: 46px;
+    height: auto;
 }
 
 .card-base-date {
     white-space: nowrap;
-    font-size: 20px;
+    font-size: clamp(14px, 1.04vw, 20px);
     font-weight: 500;
     color: #7A7A7A;
     display: flex;
@@ -233,19 +210,19 @@ body {
 .card-title-wrap h3 {
     white-space: nowrap;
     width: auto;
-    height: 45px;
+    height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
+    font-size: clamp(20px, 1.56vw, 30px);
     line-height: 150%;
     color: #363636;
     margin: 0;
 }
 
 .chevron-icon {
-    width: 36px;
-    height: 36px;
+    width: clamp(24px, 1.87vw, 36px);
+    height: clamp(24px, 1.87vw, 36px);
 }
 
 .stock-main {
@@ -289,7 +266,8 @@ body {
     padding: 0px;
     gap: clamp(8px, 0.73vw, 14px);
     width: auto;
-    height: 112px;
+    height: auto;
+    align-items: baseline;
 }
 
 .price-val {
@@ -305,7 +283,7 @@ body {
 
 .price-unit {
     width: auto;
-    height: 59px;
+    height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
@@ -313,7 +291,7 @@ body {
     line-height: 150%;
     color: #363636;
     display: flex;
-    align-items: flex-start;
+    align-items: baseline;
 }
 
 /* Frame 2116936065 - Stats Area */
@@ -324,7 +302,7 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
-    height: 100px;
+    height: auto;
 }
 
 .info-rows-wrap {
@@ -333,7 +311,7 @@ body {
     align-items: center;
     padding: 0px;
     gap: 20px;
-    height: 60px;
+    height: auto;
 }
 
 .info-group {
@@ -401,7 +379,7 @@ body {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: clamp(14px, 1.04vw, 20px);
     line-height: 150%;
     align-self: flex-end;
     padding-bottom: 4px;
@@ -414,12 +392,12 @@ body {
 }
 
 .base-date {
-    width: 211px;
-    height: 32px;
+    width: auto;
+    height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: clamp(14px, 1.04vw, 20px);
     line-height: 160%;
     display: flex;
     align-items: center;
@@ -451,8 +429,8 @@ body {
 }
 
 .return-icon-box {
-    width: 44px;
-    height: 44px;
+    width: clamp(30px, 2.29vw, 44px);
+    height: clamp(30px, 2.29vw, 44px);
     margin-bottom: 0;
     /* Margin removed */
 }
@@ -464,7 +442,7 @@ body {
 }
 
 .return-title {
-    font-size: 36px;
+    font-size: clamp(24px, 1.87vw, 36px);
     font-weight: 700;
     color: #1B1B1B;
     margin: 0;
@@ -477,8 +455,9 @@ body {
     align-items: center;
     padding: 0px;
     justify-content: space-between;
-    width: 345px;
-    height: 100px;
+    width: 100%;
+    max-width: 345px;
+    height: auto;
 }
 
 .return-stats-sep-svg {
@@ -493,24 +472,24 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 5px;
-    height: 99px;
+    height: auto;
 }
 
 .stat-item:nth-child(1) {
-    width: 118px;
+    width: auto;
 }
 
 .stat-item:nth-child(3) {
-    width: 127px;
+    width: auto;
 }
 
 .stat-label {
     width: auto;
-    height: 32px;
+    height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: clamp(14px, 1.04vw, 20px);
     line-height: 160%;
     color: #7A7A7A;
     display: flex;
@@ -523,16 +502,16 @@ body {
     align-items: flex-end;
     padding: 0px;
     gap: 8px;
-    height: 62px;
+    height: auto;
 }
 
 .stat-val-wrap .val {
-    height: 62px;
+    height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 52px;
-    line-height: 62px;
+    font-size: clamp(30px, 2.7vw, 52px);
+    line-height: 120%;
     display: flex;
     align-items: flex-end;
     color: #1B1B1B;
@@ -545,18 +524,18 @@ body {
     align-items: center;
     padding: 0px 0px 6px;
     gap: 10px;
-    width: 30px;
-    height: 44px;
+    width: auto;
+    height: auto;
 }
 
 .stat-val-wrap .unit {
-    width: 30px;
-    height: 38px;
+    width: auto;
+    height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 600;
-    font-size: 32px;
-    line-height: 38px;
+    font-size: clamp(20px, 1.67vw, 32px);
+    line-height: 120%;
     display: flex;
     align-items: flex-end;
     color: #1B1B1B;
@@ -578,7 +557,7 @@ body {
     background: #FCE3CC;
     position: relative;
     overflow: hidden;
-    padding: 40px;
+    padding: clamp(20px, 2.08vw, 40px);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -586,7 +565,7 @@ body {
 }
 
 .partnership-txt {
-    font-size: 30px;
+    font-size: clamp(20px, 1.56vw, 30px);
     font-weight: 700;
     line-height: 1.5;
     color: #1B1B1B;
@@ -627,31 +606,31 @@ body {
 }
 
 .contact-val {
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     font-weight: 400;
     color: #363636;
 }
 
 .partnership-bg-circle {
     position: absolute;
-    width: 433px;
-    height: 433px;
-    right: -55px;
-    bottom: -210px;
+    width: clamp(200px, 22.55vw, 433px);
+    height: clamp(200px, 22.55vw, 433px);
+    right: clamp(-30px, -2.86vw, -55px);
+    bottom: clamp(-100px, -10.94vw, -210px);
     background: linear-gradient(180deg, rgba(250, 198, 153, 0.8) 10%, rgba(250, 198, 153, 0) 90%);
     border-radius: 50%;
     transform: rotate(-90deg);
     z-index: 1;
 }
 
-/* Inner circle for desktop to match mobile visual */
+/* Inner circle for desktop to match mobile visual — 도넛 */
 .partnership::after {
     content: '';
     position: absolute;
-    width: 144px;
-    height: 144px;
-    right: 89.5px;
-    bottom: -65.5px;
+    width: clamp(70px, 7.5vw, 144px);
+    height: clamp(70px, 7.5vw, 144px);
+    right: clamp(40px, 4.66vw, 89.5px);
+    bottom: clamp(-30px, -3.41vw, -65.5px);
     background: #FCE2CC;
     border-radius: 50%;
     transform: rotate(-90deg);
@@ -661,6 +640,98 @@ body {
 /* News Section & Contact Section override */
 .news-container {
     padding-top: 40px;
+}
+
+/* ── 태블릿 (768~1439px) ── */
+@media (min-width: 768px) and (max-width: 1439px) {
+    .overview-grid {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .overview-card {
+        min-height: auto;
+    }
+
+    .stock-info {
+        flex: 1 1 100%;
+        width: 100%;
+        padding: 24px 0;
+        justify-content: flex-start;
+        gap: clamp(12px, 1.25vw, 24px);
+    }
+
+    .shareholder-return {
+        flex: 1 1 0;
+        min-width: 0;
+        width: auto;
+    }
+
+    .partnership {
+        flex: 1 1 0;
+        min-width: 0;
+        width: auto;
+    }
+
+    .price-row-wrap {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .info-rows-wrap {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .return-stats-row {
+        max-width: 100%;
+    }
+
+    .partnership-bg-circle {
+        width: 280px;
+        height: 280px;
+        aspect-ratio: 1 / 1;
+        right: -40px;
+        bottom: -120px;
+    }
+
+    .partnership::after {
+        width: 100px;
+        height: 100px;
+        aspect-ratio: 1 / 1;
+        right: 55px;
+        bottom: -40px;
+    }
+
+    /* 투자공지 태블릿 — 세로 쌓기 */
+    .notice-cols-wrapper {
+        flex-direction: column;
+        gap: 40px;
+        min-height: auto;
+    }
+
+    .notice-col {
+        width: 100%;
+    }
+
+    .notice-cards {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .notice-card {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .notice-col-title {
+        font-size: clamp(20px, 1.56vw, 30px);
+    }
+
+    .notice-chevron {
+        width: clamp(24px, 1.87vw, 36px);
+        height: clamp(24px, 1.87vw, 36px);
+    }
 }
 
 /* Responsive adjustment for Overview Section */
@@ -703,7 +774,7 @@ body {
         padding: 0;
         justify-content: space-between;
         width: 100%;
-        max-width: 328px;
+        max-width: 100%;
         height: auto;
         min-height: 261px;
         margin-bottom: 20px;
@@ -1010,7 +1081,7 @@ body {
         align-items: flex-start;
         padding: 20px;
         width: 100%;
-        max-width: 328px;
+        max-width: 100%;
         height: auto;
         min-height: 270px;
         background: #F8F9FB;
@@ -1260,7 +1331,7 @@ body {
         padding: 20px;
         isolation: isolate;
         width: 100%;
-        max-width: 328px;
+        max-width: 100%;
         height: 270px;
         background: #FCE3CC;
         border-radius: 16px;
@@ -1426,13 +1497,13 @@ body {
 }
 
 .notice-main-title {
-    width: 173px;
-    height: 60px;
+    width: auto;
+    height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
-    line-height: 60px;
+    font-size: clamp(30px, 2.6vw, 50px);
+    line-height: 140%;
     text-transform: capitalize;
     color: #000000;
     margin: 0;
@@ -1501,14 +1572,13 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 30px;
-    gap: 20px;
-    /* Reduced gap */
+    padding: clamp(16px, 1.56vw, 30px);
+    gap: clamp(12px, 1.04vw, 20px);
     width: calc((100% - 32px) / 3);
-    /* Exactly 262.67px at 820px container */
-    height: 301px;
+    height: auto;
+    min-height: clamp(200px, 15.68vw, 301px);
     background: #FFFFFF;
-    border-radius: 20px;
+    border-radius: clamp(12px, 1.04vw, 20px);
 }
 
 .notice-card-inner {
@@ -1517,13 +1587,14 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     padding: 0px;
-    width: 209px;
-    height: 241px;
+    width: 100%;
+    height: auto;
+    gap: clamp(16px, 1.56vw, 30px);
 }
 
 .notice-icon-box {
-    width: 46px;
-    height: 46px;
+    width: clamp(32px, 2.4vw, 46px);
+    height: clamp(32px, 2.4vw, 46px);
     flex: none;
     background: #FCE3CC;
     border-radius: 700px;
@@ -1538,8 +1609,8 @@ body {
 }
 
 .notice-icon-box img {
-    width: 24px;
-    height: 24px;
+    width: clamp(16px, 1.25vw, 24px);
+    height: clamp(16px, 1.25vw, 24px);
     object-fit: contain;
     display: block;
     transform: translate(1.25px, -1.25px);
@@ -1550,18 +1621,18 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 16px;
-    width: 209px;
-    height: 120px;
+    gap: clamp(8px, 0.83vw, 16px);
+    width: 100%;
+    height: auto;
 }
 
 .notice-card-title {
-    width: 209px;
-    height: 72px;
+    width: 100%;
+    height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     line-height: 150%;
     color: #1B1B1B;
     margin: 0;
@@ -1571,7 +1642,7 @@ body {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: clamp(14px, 1.04vw, 20px);
     line-height: 160%;
     text-align: right;
     color: #7A7A7A;
@@ -1580,13 +1651,13 @@ body {
 /* News Section */
 .news-container {
     display: flex;
-    gap: 60px;
+    gap: clamp(24px, 3.125vw, 60px);
     align-items: flex-start;
 }
 
 .news-image {
     flex: 1;
-    border-radius: 20px;
+    border-radius: clamp(12px, 1.04vw, 20px);
     overflow: hidden;
     background: #eee;
 }
@@ -1612,7 +1683,7 @@ body {
 }
 
 .news-item-title {
-    font-size: 18px;
+    font-size: clamp(14px, 0.94vw, 18px);
     font-weight: 500;
     color: #333;
 }
@@ -1631,7 +1702,7 @@ body {
 .contact-info-wrap {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: clamp(40px, 5.2vw, 100px);
     margin-top: 40px;
 }
 
@@ -1647,7 +1718,7 @@ body {
 }
 
 .contact-text {
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     font-weight: 500;
     color: #111;
 }
@@ -1659,7 +1730,7 @@ body {
     max-width: 1920px;
     margin: 0 auto;
     height: auto;
-    min-height: 769px;
+    min-height: auto;
     background: #FFFFFF;
     box-sizing: border-box;
 }
@@ -1669,13 +1740,13 @@ body {
     padding: var(--section-padding-x) var(--section-padding-x) 90px;
     display: flex;
     flex-direction: column;
-    gap: 65.73px;
+    gap: clamp(60px, 6.25vw, 120px);
     box-sizing: border-box;
 }
 
 .ir-news-title-wrap {
     width: 100%;
-    height: 60px;
+    height: auto;
     display: flex;
     align-items: flex-end;
 }
@@ -1684,8 +1755,8 @@ body {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
-    line-height: 60px;
+    font-size: clamp(30px, 2.6vw, 50px);
+    line-height: 140%;
     text-transform: capitalize;
     color: #000000;
     margin: 0;
@@ -1694,22 +1765,22 @@ body {
 .ir-news-cards {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    align-items: stretch;
+    gap: clamp(12px, 1.25vw, 24px);
     width: 100%;
-    height: 436px;
+    height: auto;
 }
 
 /* 공통 카드 */
 .ir-card {
     display: flex;
     flex-direction: column;
-    padding: 48px 40px;
+    padding: clamp(24px, 2.5vw, 48px) clamp(20px, 2.08vw, 40px);
     isolation: isolate;
     width: calc((100% - 24px) / 2);
     /* Exactly 828px at 1680px container */
-    height: 436px;
-    border-radius: 30px;
+    height: auto;
+    border-radius: clamp(16px, 1.56vw, 30px);
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -1723,21 +1794,26 @@ body {
     height: 100%;
     position: relative;
     z-index: 1;
+    gap: clamp(30px, 3.645vw, 70px);
 }
 
 .ir-card--dark {
-    /* 카드 본체 배경을 46% 농도로 설정 */
-    background: rgba(69, 32, 0, 0.46);
+    background: none;
+    overflow: hidden;
+    border-radius: clamp(16px, 1.56vw, 30px);
 }
 
 .ir-card--dark::before {
     content: '';
     position: absolute;
-    width: 882px;
-    height: 497px;
-    left: calc(50% - 882px/2);
-    top: calc(50% - 497px/2 - 0.5px);
-    background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/ir_news.png') center/cover no-repeat;
+    top: -15%;
+    left: -5%;
+    width: 115%;
+    height: 145%;
+    border-radius: 0;
+    background:
+        linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)),
+        url('../assets/invest-center/ir_news.png') center / cover no-repeat;
     z-index: 0;
 }
 
@@ -1754,14 +1830,14 @@ body {
     align-items: center;
     gap: 2px;
     width: 100%;
-    height: 46px;
+    height: auto;
 }
 
 .ir-card-label {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
+    font-size: clamp(20px, 1.56vw, 30px);
     line-height: 150%;
     color: #FFFFFF;
 }
@@ -1771,8 +1847,8 @@ body {
 }
 
 .ir-chevron {
-    width: 36px;
-    height: 36px;
+    width: clamp(24px, 1.87vw, 36px);
+    height: clamp(24px, 1.87vw, 36px);
 }
 
 /* IR 카드 본문 */
@@ -1780,18 +1856,18 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 58px;
+    gap: clamp(24px, 3.02vw, 58px);
     width: 100%;
-    height: 234px;
+    height: auto;
 }
 
 .ir-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
-    width: 316px;
-    height: 234px;
+    gap: clamp(12px, 1.04vw, 20px);
+    width: 100%;
+    height: auto;
 }
 
 .ir-item-top {
@@ -1800,15 +1876,15 @@ body {
     justify-content: center;
     align-items: flex-start;
     gap: 9px;
-    width: 273px;
-    height: 66px;
+    width: 100%;
+    height: auto;
 }
 
 .ir-item-category {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 44px;
+    font-size: clamp(28px, 2.29vw, 44px);
     line-height: 150%;
     color: #FFFFFF;
 }
@@ -1818,26 +1894,26 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 44px;
-    width: 316px;
-    height: 148px;
+    gap: clamp(20px, 2.29vw, 44px);
+    width: 100%;
+    height: auto;
 }
 
 .ir-item-info {
     display: flex;
     flex-direction: column;
-    gap: 44px;
-    width: 316px;
+    gap: clamp(20px, 2.29vw, 44px);
+    width: 100%;
 }
 
 .ir-item-name {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
-    font-size: 22px;
+    font-size: clamp(16px, 1.15vw, 22px);
     line-height: 160%;
     color: #FFFFFF;
-    width: 316px;
+    width: 100%;
 }
 
 .ir-item-footer {
@@ -1845,16 +1921,16 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    width: 316px;
-    height: 60px;
+    gap: clamp(12px, 1.04vw, 20px);
+    width: 100%;
+    height: auto;
 }
 
 .ir-item-date {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: clamp(14px, 1.04vw, 20px);
     line-height: 160%;
     color: #FFFFFF;
 }
@@ -1864,11 +1940,13 @@ body {
     justify-content: center;
     align-items: center;
     padding: 14px;
-    width: 60px;
-    height: 60px;
-    background: transparent;
+    width: clamp(44px, 3.125vw, 60px);
+    height: clamp(44px, 3.125vw, 60px);
+    background: rgba(241, 237, 234, 0.2);
     border: none;
+    border-radius: 30px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .ir-download-btn img {
@@ -2149,7 +2227,7 @@ body {
     }
 
     .ir-card--dark .ir-card-content-wrapper {
-        height: 368px;
+        height: auto;
     }
 
     .ir-card--light .ir-card-content-wrapper {
@@ -2157,16 +2235,15 @@ body {
     }
 
     .ir-card--dark {
-        min-height: 400px;
-        background: transparent;
+        background: none;
     }
 
     .ir-card--dark::before {
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        left: 0;
-        top: 0;
-        background: url('../assets/invest-center/IR자료실_m.png') center/cover no-repeat;
+        background: url('../assets/invest-center/IR자료실_m.png') center / cover no-repeat;
     }
 
     .ir-card--light {
@@ -2243,6 +2320,7 @@ body {
         height: auto;
         min-height: 42px;
         gap: 20px;
+        justify-content: space-between;
     }
 
     .ir-item-date {

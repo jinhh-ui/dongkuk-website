@@ -97,7 +97,7 @@
     align-items: center;
     padding: 0;
     width: 100%;
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     flex-shrink: 0;
 }
 
@@ -106,13 +106,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 24px;
-    height: 100px;
+    padding: 0 clamp(12px, 1.25vw, 24px);
+    height: clamp(60px, 5.2vw, 100px);
     background: #F8F9FB;
     border-top: 1px solid #363636;
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     line-height: 150%;
     color: #363636;
     flex-shrink: 0;
@@ -127,7 +127,7 @@
 .ds-header-cell.ds-cell-submitter,
 .ds-header-cell.ds-cell-date,
 .ds-header-cell.ds-cell-attachment {
-    width: 280px;
+    width: clamp(140px, 14.58vw, 280px);
     justify-content: center;
 }
 
@@ -147,7 +147,7 @@
     align-items: center;
     padding: 0;
     width: 100%;
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     flex-shrink: 0;
 }
 
@@ -159,8 +159,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 18px 24px;
-    height: 100px;
+    padding: clamp(12px, 0.94vw, 18px) clamp(12px, 1.25vw, 24px);
+    height: clamp(60px, 5.2vw, 100px);
     background: #FFFFFF;
     border-top: 1px solid #D3D3D3;
     flex-shrink: 0;
@@ -188,7 +188,7 @@
 .ds-title-text {
     font-family: 'Pretendard', sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 160%;
     color: #1B1B1B;
     white-space: nowrap;
@@ -200,18 +200,18 @@
 /* 일반 셀 (제출인, 날짜 등) */
 .ds-cell.ds-cell-submitter,
 .ds-cell.ds-cell-date {
-    width: 280px;
+    width: clamp(140px, 14.58vw, 280px);
     justify-content: center;
     font-family: 'Pretendard', sans-serif;
     font-weight: 400;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 160%;
     color: #4E4E4E;
 }
 
 /* 첨부파일 셀 */
 .ds-cell.ds-cell-attachment {
-    width: 280px;
+    width: clamp(140px, 14.58vw, 280px);
     justify-content: center;
     gap: 6px;
 }
@@ -229,7 +229,7 @@
 .ds-download-label {
     font-family: 'Pretendard', sans-serif;
     font-weight: 400;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 160%;
     color: #4E4E4E;
 }
@@ -294,17 +294,17 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 16px 24px;
+    padding: clamp(12px, 0.83vw, 16px) clamp(16px, 1.25vw, 24px);
     gap: 8px;
-    width: 166px;
-    height: 60px;
+    width: clamp(130px, 8.65vw, 166px);
+    height: clamp(48px, 3.13vw, 60px);
     background: transparent;
     border: 1px solid #D3D3D3;
-    border-radius: 14px;
+    border-radius: clamp(10px, 0.73vw, 14px);
     cursor: pointer;
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: clamp(15px, 0.94vw, 18px);
     line-height: 160%;
     color: #363636;
     transition: all 0.2s ease;

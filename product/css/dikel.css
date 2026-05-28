@@ -20,7 +20,7 @@
     position: relative;
     min-height: 250vh;
     /* CSS fallback, JS가 정확한 값으로 덮어씀 */
-    padding-bottom: 100px;
+    padding-bottom: var(--section-padding-y);
 }
 
 .hero-text-inner {
@@ -31,7 +31,7 @@
 }
 
 .hero-text-section {
-    padding: 100px 80px 0;
+    padding: var(--section-padding-y) var(--section-padding-x) 0;
     text-align: center;
 }
 
@@ -73,10 +73,9 @@
     flex-direction: row;
     align-items: center;
     padding: 0;
-    gap: 24px;
+    gap: clamp(12px, 1.25vw, 24px);
     max-width: 1436px;
     width: 100%;
-    height: 540px;
 }
 
 .fcard {
@@ -84,13 +83,14 @@
     overflow: hidden;
     flex: 1;
     min-width: 0;
+    aspect-ratio: 460 / 540;
 }
 
 .fcard .label-text {
     position: absolute;
-    left: 40px;
-    top: 50px;
-    font-size: clamp(16px, 1.35vw, 26px);
+    left: clamp(20px, 8.7%, 40px);
+    top: clamp(24px, 9.26%, 50px);
+    font-size: clamp(14px, 1.35vw, 26px);
     font-weight: 700;
     line-height: 150%;
     z-index: 10;
@@ -98,8 +98,8 @@
 
 .fcard .title-text {
     position: absolute;
-    left: 40px;
-    font-size: clamp(30px, 3.125vw, 60px);
+    left: clamp(20px, 8.7%, 40px);
+    font-size: clamp(24px, 3.125vw, 60px);
     font-weight: 700;
     line-height: 140%;
     display: flex;
@@ -110,26 +110,28 @@
 /* 1. Premium Card */
 .fcard-premium {
     max-width: 470px;
-    height: 540px;
 }
 
 .fcard-premium .bg-main {
     position: absolute;
     width: 100%;
-    height: 460px;
+    height: 85.19%;
+    /* 460 / 540 */
     left: 0;
     top: 0;
     background: #185235;
-    border-radius: 30px 30px 0px 0px;
+    border-radius: clamp(16px, 1.56vw, 30px) clamp(16px, 1.56vw, 30px) 0 0;
     z-index: 1;
 }
 
 .fcard-premium .bg-circle {
     position: absolute;
     width: calc(100% + 16px);
-    height: 470px;
+    height: 87.04%;
+    /* 470 / 540 */
     left: -8px;
-    top: 306px;
+    top: 56.67%;
+    /* 306 / 540 */
     background: #ffffff;
     border-radius: 99999px;
     z-index: 2;
@@ -138,9 +140,11 @@
 .fcard-premium .product-img {
     position: absolute;
     width: 100%;
-    height: 228px;
+    height: 42.22%;
+    /* 228 / 540 */
     left: 0;
-    top: 312px;
+    top: 57.78%;
+    /* 312 / 540 */
     background: url('../assets/dikel/steel-plate.svg') no-repeat center/contain;
     border-radius: 0px 0px 8px 8px;
     z-index: 3;
@@ -152,15 +156,15 @@
 
 .fcard-premium .title-text {
     color: #FFFFFF;
-    top: 183px;
+    top: 33.89%;
+    /* 183 / 540 */
 }
 
 /* 2. Stable Card */
 .fcard-stable {
     max-width: 460px;
-    height: 540px;
     background: #F27100;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
 }
 
 .fcard-stable .label-text {
@@ -169,15 +173,15 @@
 
 .fcard-stable .title-text {
     color: #FFFFFF;
-    top: 396px;
+    top: auto;
+    bottom: clamp(20px, 8.7%, 40px);
 }
 
 /* 3. Next-Gen Card */
 .fcard-nextgen {
     max-width: 460px;
-    height: 540px;
     background: #F1F3F7;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
 }
 
 .fcard-nextgen .label-text {
@@ -186,7 +190,8 @@
 
 .fcard-nextgen .title-text {
     color: #000000;
-    top: 396px;
+    top: auto;
+    bottom: clamp(20px, 8.7%, 40px);
 }
 
 /* ===== Product Tabs 안착 여백 ===== */
@@ -252,12 +257,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 100px;
+    padding-top: clamp(40px, 5.2vw, 100px);
 }
 
 .pi-top-wrapper {
     display: flex;
-    gap: 6.25rem;
+    gap: clamp(30px, 6.25vw, 100px);
     align-items: flex-start;
     width: 100%;
 }
@@ -265,7 +270,7 @@
 .product-intro .accordion {
     width: 100%;
     margin-top: 40px;
-    padding: 40px 0 100px;
+    padding: 40px 0 var(--section-padding-y);
 }
 
 .pi-left {
@@ -437,11 +442,10 @@ img.ic-download {
 
 .pi-right {
     flex: 1;
-    max-width: 100%;
     max-width: 828px;
     min-width: 0;
-    height: 720px;
-    border-radius: 1rem;
+    height: clamp(400px, 37.5vw, 720px);
+    border-radius: clamp(12px, 1vw, 16px);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -458,7 +462,7 @@ img.ic-download {
 
 /* ===== Accordion (Figma Specs) ===== */
 .accordion {
-    padding: 40px 0 100px;
+    padding: 40px 0 var(--section-padding-y);
     background: #fff;
 }
 
@@ -505,15 +509,15 @@ img.ic-download {
 }
 
 .acc-title {
-    font-size: clamp(18px, 1.66vw, 32px);
+    font-size: clamp(20px, 1.66vw, 32px);
     font-weight: 700;
     line-height: 150%;
     color: #1B1B1B;
 }
 
 .acc-dropdown-icon {
-    width: 64px;
-    height: 64px;
+    width: clamp(40px, 3.33vw, 64px);
+    height: clamp(40px, 3.33vw, 64px);
     background: transparent;
     display: flex;
     align-items: center;
@@ -565,7 +569,7 @@ img.ic-download {
 }
 
 .spec-grid-label {
-    font-size: 24px;
+    font-size: clamp(18px, 1.25vw, 24px);
     font-weight: 700;
     line-height: 150%;
     color: #363636;
@@ -577,20 +581,20 @@ img.ic-download {
 }
 
 .spec-grid-col {
-    flex: 1 1 0;
+    flex: 1;
     min-width: 0;
     display: flex;
     flex-direction: column;
 }
 
 .spec-head {
-    height: 90px;
+    height: clamp(60px, 4.69vw, 90px);
     background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF;
     border-top: 1px solid #000000;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     font-weight: 700;
     line-height: 160%;
     color: #000000;
@@ -598,15 +602,15 @@ img.ic-download {
 }
 
 .spec-value {
-    height: 90px;
+    height: clamp(60px, 4.69vw, 90px);
     background: #FFFFFF;
     border-top: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 24px;
-    font-size: 20px;
+    padding: 0 clamp(12px, 1.25vw, 24px);
+    font-size: clamp(14px, 1.04vw, 20px);
     font-weight: 400;
     line-height: 150%;
     color: #363636;
@@ -807,7 +811,6 @@ img.ic-download {
     max-width: 60%;
     flex: 1 1 auto;
     position: relative;
-    height: 739px;
 }
 
 .usage-tab-content {
@@ -826,12 +829,13 @@ img.ic-download {
 .usage-tab-content.active {
     opacity: 1;
     pointer-events: auto;
+    position: relative;
 }
 
 .utc-video {
     width: 100%;
-    height: 494px;
-    border-radius: 30px;
+    aspect-ratio: 1004 / 494;
+    border-radius: clamp(16px, 1.56vw, 30px);
     overflow: hidden;
     position: relative;
 }
@@ -844,8 +848,8 @@ img.ic-download {
 
 .utc-video-bg {
     width: 100%;
-    height: 494px;
-    border-radius: 30px;
+    aspect-ratio: 1004 / 494;
+    border-radius: clamp(16px, 1.56vw, 30px);
     background-size: cover;
     background-position: center;
 }
@@ -878,7 +882,7 @@ img.ic-download {
 
 .utc-footer-info {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     gap: 6px;
     width: 100%;
@@ -889,7 +893,6 @@ img.ic-download {
     height: 30px;
     object-fit: contain;
     flex-shrink: 0;
-    margin-top: 2px;
 }
 
 .utc-footer-text {
@@ -914,7 +917,7 @@ img.ic-download {
     position: relative;
     height: auto;
     background: #FFFFFF;
-    padding: 0 30px 100px;
+    padding: 0 30px var(--section-padding-y);
     overflow: hidden;
 }
 
@@ -1221,7 +1224,66 @@ img.ic-download {
     }
 
     .hero-text-section {
-        padding: 100px 5vw 0;
+        padding: var(--section-padding-y) 5vw 0;
+    }
+
+    /* ── 태블릿 아코디언 여백 ── */
+    .accordion {
+        padding: 0;
+        margin: 0;
+    }
+
+    .accordion .inner {
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    .acc-item {
+        width: 100% !important;
+    }
+
+    .acc-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        gap: 20px;
+        height: 72px;
+        border-bottom: 1px solid #D3D3D3;
+    }
+
+    .acc-title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 150%;
+        color: #1B1B1B;
+    }
+
+    .acc-dropdown-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 21.7241px;
+    }
+
+    .acc-dropdown-icon img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .acc-body {
+        width: 100% !important;
+    }
+
+    .acc-content-box {
+        width: 100% !important;
+        padding: 30px 0;
+        gap: 30px;
+        background: #FFFFFF;
     }
 }
 
@@ -1296,6 +1358,7 @@ img.ic-download {
         width: 100% !important;
         max-width: 100% !important;
         height: 156px;
+        aspect-ratio: auto;
         border-radius: 16px;
         flex: none;
     }
@@ -1703,14 +1766,14 @@ img.ic-download {
 
     .spec-head {
         width: 100%;
-        height: 100px;
+        height: 70px;
         box-sizing: border-box;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .spec-value {
         width: 100%;
-        height: 90px;
+        height: 60px;
         box-sizing: border-box;
         font-size: 14px;
     }
@@ -1828,11 +1891,13 @@ img.ic-download {
 
     .utc-footer-info {
         justify-content: flex-start;
+        align-items: flex-start;
     }
 
     .utc-footer-icon {
         width: 20px;
         height: 20px;
+        margin-top: 3px;
     }
 
     .utc-footer-text {
@@ -2529,6 +2594,7 @@ img.ic-download {
         height: auto;
         left: auto;
         top: auto;
+        transform: none;
     }
 
     .bi-section .logo-margin-block {
@@ -2592,7 +2658,7 @@ img.ic-download {
 
     .bi-section .dikel-mark {
         width: 121px;
-        height: 26px;
+        height: auto;
     }
 
     .bi-section .dikel-mark img {
@@ -2699,11 +2765,12 @@ img.ic-download {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 45px 0;
-    gap: 40px;
+    padding: clamp(20px, 2.34vw, 45px) 0;
+    gap: clamp(20px, 2.08vw, 40px);
 
-    width: 1064px;
-    height: 235px;
+    width: 100%;
+    max-width: 1064px;
+    height: auto;
 
     /* Inside auto layout */
     flex: none;
@@ -2712,16 +2779,16 @@ img.ic-download {
 }
 
 .story-title {
-    width: 1064px;
-    height: 70px;
+    width: 100%;
+    max-width: 1064px;
+    height: auto;
 
     /* heading/Medium */
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: clamp(30px, 2.6vw, 50px);
     line-height: 140%;
-    /* identical to box height, or 70px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2749,7 +2816,7 @@ img.ic-download {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
-    font-size: 22px;
+    font-size: clamp(16px, 1.15vw, 22px);
     line-height: 160%;
     text-align: center;
 
@@ -2774,16 +2841,15 @@ img.ic-download {
 }
 
 .story-desc-group {
-    /* Frame 2116936061 */
-    /* Auto layout */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: calc(100vw * 45 / 1920) 0;
+    padding: clamp(20px, 2.34vw, 45px) 0;
     gap: 20px;
 
-    width: 1064px;
-    height: 125px;
+    width: 100%;
+    max-width: 1064px;
+    height: auto;
 
     /* Inside auto layout */
     flex: none;
@@ -2972,7 +3038,7 @@ img.ic-download {
 
 /* ===== 🌟 DiKel BI (스펙 업데이트 적용) 🌟 ===== */
 .bi-section {
-    padding: 100px 0 100px;
+    padding: var(--section-padding-y) 0;
     /* 위 TBD 박스와의 간격 100px */
     background: #fff;
     width: 100%;
@@ -3135,12 +3201,13 @@ img.ic-download {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 24px 40px;
+    padding: clamp(16px, 1.25vw, 24px) clamp(20px, 2.08vw, 40px);
     gap: 100px;
     flex: 1 1 45%;
     min-width: 0;
     height: 280px;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
+    overflow: hidden;
 }
 
 .mono-card-full {
@@ -3149,11 +3216,12 @@ img.ic-download {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 24px 40px;
+    padding: clamp(16px, 1.25vw, 24px) clamp(20px, 2.08vw, 40px);
     gap: 100px;
     width: 100%;
     height: 280px;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
+    overflow: hidden;
 }
 
 .mc-white {
@@ -3174,10 +3242,16 @@ img.ic-download {
 }
 
 .dikel-mark {
-    width: 318px;
+    width: clamp(200px, 16.56vw, 318px);
     max-width: 100%;
-    height: 68px;
+    height: auto;
     position: relative;
+}
+
+.dikel-mark img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .bi-sub {
@@ -3233,43 +3307,43 @@ img.ic-download {
 }
 
 .spec-ann-col .spec-head {
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     background: #F9FAFE;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     color: #363636;
     text-align: center;
 }
 
 .spec-ann-col .spec-value {
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     display: flex;
     align-items: center;
     justify-content: flex-start;
     border-top: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
     font-weight: 400;
-    font-size: 20px;
+    font-size: clamp(14px, 1.04vw, 20px);
     color: #4E4E4E;
     text-align: left;
-    padding: 0 24px;
+    padding: 0 clamp(12px, 1.25vw, 24px);
     box-sizing: border-box;
 }
 
 .spec-ann-col.wide .spec-head {
-    height: 50px;
-    font-size: 24px;
+    height: clamp(30px, 2.6vw, 50px);
+    font-size: clamp(16px, 1.25vw, 24px);
     white-space: nowrap;
 }
 
 /* 추가 설비 → 하위 헤더 구분 가로선 */
 .spec-ann-sub-header-row {
     display: flex;
-    height: 50px;
+    height: clamp(30px, 2.6vw, 50px);
     background: #F9FAFE;
     border-top: 1px solid #D6D6D6;
 }
@@ -3279,15 +3353,14 @@ img.ic-download {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: clamp(14px, 0.94vw, 18px);
     font-weight: 700;
     color: #363636;
-    /* 하위 헤더 사이에도 세로선 없음 */
 }
 
 .spec-ann-value-row {
     display: flex;
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     border-top: 1px solid #D6D6D6;
 }
 
@@ -3296,8 +3369,8 @@ img.ic-download {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 24px;
-    font-size: 18px;
+    padding: 0 clamp(12px, 1.25vw, 24px);
+    font-size: clamp(14px, 0.94vw, 18px);
     border-right: 1px solid #D6D6D6;
     color: #4E4E4E;
     font-weight: 400;
@@ -3335,10 +3408,17 @@ img.ic-download {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 45px 0;
-    gap: 30px;
+    padding: clamp(20px, 2.34vw, 45px) 0;
+    gap: clamp(20px, 1.56vw, 30px);
     width: 100%;
     height: auto;
+}
+
+@media (max-width: 1200px) {
+    .bi-color-grid {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .bi-color-card {
@@ -3346,10 +3426,10 @@ img.ic-download {
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 40px;
+    gap: clamp(20px, 2.08vw, 40px);
     width: 100%;
     max-width: 540px;
-    height: 230px;
+    height: auto;
     box-sizing: border-box;
 }
 
@@ -3425,8 +3505,8 @@ img.ic-download {
     padding: 0;
     gap: 24px;
     width: 100%;
-    height: 616px;
-    margin-bottom: 100px;
+    height: auto;
+    margin-bottom: clamp(40px, 5.2vw, 100px);
 }
 
 .logo-usage-label {
@@ -3442,20 +3522,21 @@ img.ic-download {
 
 .logo-usage-card {
     width: 100%;
-    height: 550px;
+    height: clamp(280px, 28.64vw, 550px);
     background: #F1F3F7;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
     position: relative;
     flex-shrink: 0;
 }
 
 .logo-usage-card img {
     position: absolute;
-    width: 100%;
+    width: 80%;
     max-width: 415px;
-    height: 88px;
-    left: calc(50% - 415px / 2);
-    top: calc(50% - 88px / 2);
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* ── 로고여백 ── */
@@ -3465,10 +3546,9 @@ img.ic-download {
     align-items: center;
     padding: 0;
     gap: 20px;
-    /* 👈 간격 20으로 설정됨 */
     width: 100%;
-    height: 452px;
-    margin-bottom: 120px;
+    height: auto;
+    margin-bottom: clamp(40px, 6.25vw, 120px);
 }
 
 .logo-margin-label {
@@ -3559,9 +3639,9 @@ img.ic-download {
     box-sizing: border-box;
     width: 100%;
     max-width: 828px;
-    height: 390px;
+    height: clamp(200px, 20.31vw, 390px);
     background: #FFFFFF;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
@@ -3624,25 +3704,32 @@ img.ic-download {
 /* ── BI 컬러 ── */
 .color-row {
     display: flex;
-    gap: 30px;
+    gap: clamp(20px, 1.56vw, 30px);
     width: 100%;
-    height: 320px;
+    height: auto;
     align-items: center;
+}
+
+@media (max-width: 1200px) {
+    .color-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .color-item {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: clamp(20px, 2.08vw, 40px);
     width: 100%;
     max-width: 540px;
-    height: 230px;
+    height: auto;
     box-sizing: border-box;
 }
 
 .color-circle {
-    width: 230px;
-    height: 230px;
+    width: clamp(120px, 11.98vw, 230px);
+    height: clamp(120px, 11.98vw, 230px);
     border-radius: 50%;
     flex-shrink: 0;
     display: flex;
@@ -3663,9 +3750,10 @@ img.ic-download {
 .color-meta {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 270px;
-    height: 154px;
+    gap: clamp(12px, 1.04vw, 20px);
+    flex: 1;
+    min-width: 0;
+    height: auto;
     justify-content: center;
 }
 
@@ -3684,20 +3772,20 @@ img.ic-download {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    height: 95px;
+    height: auto;
 }
 
 .color-val {
     font-family: 'Pretendard', sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: clamp(14px, 0.94vw, 18px);
     line-height: 160%;
     letter-spacing: 0%;
     color: #A7A7A7;
     display: flex;
     align-items: center;
-    width: 270px;
-    height: 29px;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -3802,11 +3890,9 @@ body {
     align-items: flex-end;
     padding: 0px;
     width: 100%;
-    height: 3.6458vw;
-    /* 70px / 1920px */
+    height: clamp(50px, 3.6458vw, 70px);
     background: #FFFFFF;
-    border-bottom: 0.052vw solid #E9E9E9;
-    /* 1px / 1920px */
+    border-bottom: 1px solid #E9E9E9;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -3820,22 +3906,17 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px 1.0416vw;
-    /* 20px / 1920px */
-    width: 16.4583vw;
-    /* 316px / 1920px */
-    height: 3.125vw;
-    /* 60px / 1920px */
-    border-bottom: 0.1041vw solid #E9E9E9;
-    /* 2px / 1920px */
+    padding: 0px clamp(12px, 1.0416vw, 20px);
+    width: clamp(120px, 16.4583vw, 316px);
+    height: clamp(40px, 3.125vw, 60px);
+    border-bottom: 2px solid #E9E9E9;
     flex: none;
     flex-grow: 0;
     cursor: pointer;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.3541vw;
-    /* 26px / 1920px */
+    font-size: clamp(18px, 1.3541vw, 26px);
     line-height: 150%;
     text-align: center;
     color: #A7A7A7;
@@ -3844,8 +3925,7 @@ body {
 }
 
 .tab-item.active {
-    border-bottom: 0.1041vw solid #A7A7A7;
-    /* 2px / 1920px */
+    border-bottom: 2px solid #A7A7A7;
     color: #1B1B1B;
 }
 
@@ -4024,7 +4104,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--section-padding-x);
+    padding: var(--section-padding-y) var(--section-padding-x);
     gap: clamp(40px, 4.16vw, 80px);
     width: 100%;
     margin: 0 auto;
@@ -4069,24 +4149,22 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 0px;
     gap: 24px;
     width: 100%;
-    height: 580px;
 }
 
 .mcard {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    padding: 40px 40px 60px;
-    gap: 40px;
+    padding: clamp(24px, 2.08vw, 40px) clamp(24px, 2.08vw, 40px) clamp(30px, 3.125vw, 60px);
+    gap: clamp(24px, 2.08vw, 40px);
     flex: 1;
     min-width: 0;
-    height: 580px;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
     overflow: hidden;
 }
 
@@ -4105,9 +4183,8 @@ body {
 .mcard-illus {
     margin: 0 auto;
     width: 100%;
-    max-width: 100%;
     max-width: 464px;
-    height: 250px;
+    height: clamp(140px, 13vw, 250px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4118,7 +4195,7 @@ body {
     display: block;
     max-width: 100%;
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -4157,7 +4234,7 @@ body {
 
 /* ===== Why DiKel? ===== */
 .why-section {
-    padding: 7.5rem 0;
+    padding: var(--section-padding-y) 0;
     background: #fff;
 }
 
@@ -4184,7 +4261,7 @@ body {
     max-width: 81.8125rem;
 }
 
-/* 📍 ===== DiKel 지속가능 가치 (피그마 좌표/스펙 완벽 반영) ===== */
+/* 📍 ===== Value Section (sticky scroll parallax) ===== */
 .value-section {
     background: #fff;
     padding: 0;
@@ -4200,25 +4277,34 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .value-inner-box {
-    position: relative;
+    display: flex;
+    align-items: stretch;
+    gap: var(--section-padding-x);
     width: 100%;
-    height: min(1080px, 56.25vw);
-    margin: 0 auto;
+    max-width: 1920px;
+    height: 100vh;
+    padding: var(--section-padding-y) var(--section-padding-x);
+    box-sizing: border-box;
     background: #FFFFFF;
+    margin: 0 auto;
 }
 
-/* 📍 chager1 이미지 (좌표 top 120, left 120) */
-.value-img {
-    position: absolute;
-    width: 38.54%;
-    height: 76%;
-    left: 6.25%;
-    top: 11.1%;
+/* ── Left Column: 이미지 ── */
+.value-left {
+    position: relative;
+    flex: 0 0 45%;
     border-radius: clamp(16px, 1.56vw, 30px);
     overflow: hidden;
+}
+
+.value-img {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.3s ease;
 }
 
 .value-img img {
@@ -4228,81 +4314,71 @@ body {
     display: block;
 }
 
-/* 📍 라벨 텍스트 박스 피그마 스펙 완벽 최적화 */
+/* ── Right Column: 라벨 + 텍스트 + 인디케이터 ── */
+.value-right {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-right: 20px;
+}
+
 .value-section-label {
-    position: absolute;
-    width: auto;
-    height: auto;
-    left: 51.04%;
-    top: 11%;
     font-family: 'Pretendard';
-    font-style: normal;
     font-weight: 700;
     font-size: clamp(18px, 1.56vw, 30px);
     line-height: 150%;
-    display: flex;
-    align-items: center;
     color: #7A7A7A;
-    margin: 0;
+    margin: 0 0 clamp(20px, 2vw, 40px);
     letter-spacing: -0.02em;
+    flex-shrink: 0;
 }
 
-/* 데스크탑에서 두번째 라벨 숨김 (모바일 전용) */
 .value-label-2 {
     display: none;
 }
 
-/* 텍스트 마스크 (여기를 넘어가면 잘려서 보이지 않음) */
+/* ── 텍스트 마스크 (스크롤 애니메이션 클립) ── */
 .value-text-mask {
-    position: absolute;
-    width: 42.18%;
-    right: 6.25%;
-    top: 24.3%;
-    height: 1000px;
+    flex: 1;
+    position: relative;
     overflow: hidden;
-    z-index: 10;
+    width: 88%;
 }
 
-/* 📍 텍스트 아이템 공통 (마스크 내부) */
+/* ── 텍스트 아이템 (JS translateY 애니메이션) ── */
 .value-item {
     position: absolute;
     width: 100%;
-    height: auto;
     left: 0;
     top: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
-    gap: 40px;
+    gap: clamp(20px, 2.08vw, 40px);
     will-change: transform, opacity;
 }
 
-/* 📍 Environmental Value 영역 */
 .value-item-top {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
     gap: 12px;
     width: 100%;
 }
 
 .value-item-tag-wrap {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    padding: 8px 0px;
+    padding: 8px 0;
     gap: 4px;
-    height: 46px;
 }
 
 .value-item-tag {
     font-family: 'Pretendard';
-    font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 150%;
     color: #F27100;
 }
@@ -4311,43 +4387,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
     gap: 20px;
     width: 100%;
 }
 
 .value-item-title {
     font-family: 'Pretendard';
-    font-style: normal;
     font-weight: 700;
     font-size: clamp(28px, 2.6vw, 50px);
     line-height: 140%;
-    display: flex;
-    align-items: center;
     color: #000000;
     width: 100%;
     margin: 0;
 }
 
-.value-item {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: min(40px, calc(100vw * 40 / 1920));
-    will-change: transform, opacity;
-}
-
-/* 2. 기존에 들어있던 margin-top 값들을 모두 제거해야 겹치지 않습니다 */
 .value-item-divider {
     width: 100%;
-    max-width: 693px;
-    height: 0px;
+    height: 0;
     border: 1px solid #E9E9E9;
     flex: none;
     margin: 0;
@@ -4355,14 +4411,11 @@ body {
 
 .value-item-desc {
     font-family: 'Pretendard';
-    font-style: normal;
     font-weight: 400;
     font-size: clamp(16px, 1.25vw, 24px);
     line-height: 150%;
     color: #4E4E4E;
     width: 100%;
-    max-width: 693px;
-    height: auto;
     margin: 0;
     word-break: keep-all;
 }
@@ -4377,14 +4430,15 @@ body {
     opacity: 0.2;
 }
 
-/* 우측 인디케이터 바 */
+/* ── 인디케이터 바 ── */
 .value-indicator {
     position: absolute;
     width: 3px;
-    right: 3.6%;
-    top: 24.3%;
+    right: 0;
+    top: 0;
     border-radius: 1.5px;
     background: #D3D3D3;
+    /* height는 JS syncIndicatorHeight()가 동적 설정 */
 }
 
 .value-indicator-fill {
@@ -4401,7 +4455,7 @@ body {
 .battery-section {
     background: #F1F3F7;
     position: relative;
-    padding: var(--section-padding-x) 0;
+    padding: var(--section-padding-y) 0;
     overflow: hidden;
 }
 
@@ -4433,8 +4487,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 0px;
-    gap: 50px;
-    /* 비교 헤드와 박스 간의 50px 여백 */
+    gap: clamp(30px, 2.6vw, 50px);
     width: 100%;
 }
 
@@ -4499,7 +4552,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 0px;
-    gap: 20px;
+    gap: clamp(20px, 1.56vw, 30px);
     width: 100%;
     height: auto;
     position: relative;
@@ -4512,7 +4565,7 @@ body {
     justify-content: center;
     align-items: flex-end;
     padding: 0px;
-    gap: clamp(20px, 6.25vw, 120px);
+    gap: clamp(10px, 6.25vw, 120px);
     width: 100%;
     height: auto;
 }
@@ -4522,10 +4575,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: clamp(10px, 0.83vw, 16px);
     flex-shrink: 0;
-    width: 300px;
-    height: 300px;
+    width: clamp(170px, 15.6vw, 300px);
+    height: clamp(170px, 15.6vw, 300px);
     background: #fff;
     border-radius: 50%;
     overflow: hidden;
@@ -4537,7 +4590,7 @@ body {
 }
 
 .img-box-side img {
-    width: 178px;
+    width: clamp(100px, 9.27vw, 178px);
     height: auto;
     object-fit: contain;
 }
@@ -4619,7 +4672,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 16px 24px;
+    padding: clamp(10px, 0.83vw, 16px) clamp(16px, 1.25vw, 24px);
     gap: 10px;
     position: relative;
     background: #F27100;
@@ -4641,9 +4694,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
+    gap: clamp(40px, 3.64vw, 70px);
     width: 100%;
-    margin-top: 80px;
+    margin-top: clamp(40px, 4.16vw, 80px);
 }
 
 .bsys-head {
@@ -4660,7 +4713,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 1680px;
-    height: 580px;
+    height: clamp(240px, 30.2vw, 580px);
     background: #FFFFFF;
     border-radius: 1000000px;
     margin: 0 auto;
@@ -4668,7 +4721,6 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 2;
-    /* 뒤에 그려지는 연결 라인을 가리기 위함 */
 }
 
 .bsys-items {
@@ -4677,9 +4729,9 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0;
-    width: calc(100% - 120px);
+    width: calc(100% - clamp(20px, 6.25vw, 120px));
     height: 100%;
-    padding: 60px 0;
+    padding: clamp(30px, 3.12vw, 60px) 0;
     box-sizing: border-box;
 }
 
@@ -4698,8 +4750,8 @@ body {
 /* 원형 배경 공통 */
 .bsys-circle {
     flex-shrink: 0;
-    width: clamp(260px, 24vw, 460px);
-    height: clamp(260px, 24vw, 460px);
+    width: clamp(140px, 20vw, 460px);
+    height: clamp(140px, 20vw, 460px);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -4728,7 +4780,7 @@ body {
 }
 
 .bsys-img {
-    max-width: 70%;
+    max-width: 50%;
     max-height: 70%;
     object-fit: contain;
     display: block;
@@ -4737,7 +4789,7 @@ body {
 /* pill 라벨 (배경 제거 및 40px 위치 조정) */
 .bsys-pill-label {
     position: absolute;
-    bottom: 50px;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -4749,40 +4801,48 @@ body {
 
 .bsys-circle-orange .bsys-img {
     position: absolute;
-    top: 32px;
+    top: 7%;
     left: 50%;
     transform: translateX(-50%);
-    width: 197.24px;
-    height: 367.86px;
+    width: 43%;
+    height: auto;
+    max-width: none;
+    max-height: none;
 }
 
 .bsys-circle-gray .bsys-img {
     position: absolute;
-    top: 68px;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
+    width: 50%;
+    height: auto;
+    max-width: none;
+    max-height: none;
 }
 
 .bsys-circle-dark .bsys-img {
     position: absolute;
-    top: 80px;
+    top: 17%;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 80%;
-    max-height: 80%;
+    width: 75%;
+    height: auto;
+    max-width: none;
+    max-height: none;
 }
 
 .bsys-pill-num {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: clamp(36px, 4.68vw, 48px);
-    height: clamp(36px, 4.68vw, 48px);
+    width: clamp(28px, 2.5vw, 48px);
+    height: clamp(28px, 2.5vw, 48px);
     background: #F1F3F7;
     border-radius: 1000px;
     font-family: 'Pretendard';
     font-weight: 700;
-    font-size: clamp(16px, 2.03vw, 26px);
+    font-size: clamp(14px, 1.35vw, 26px);
     color: #363636;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
 }
@@ -4794,7 +4854,7 @@ body {
 .bsys-pill-text {
     font-family: 'Pretendard';
     font-weight: 700;
-    font-size: clamp(16px, 2.03vw, 26px);
+    font-size: clamp(14px, 1.35vw, 26px);
     line-height: 150%;
     color: #363636;
 }
@@ -4810,9 +4870,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
+    width: clamp(24px, 2.08vw, 40px);
     flex-shrink: 0;
-    margin-right: 10px;
+    margin-right: clamp(4px, 0.52vw, 10px);
 }
 
 .bsys-arrow-sep img {
@@ -4822,10 +4882,10 @@ body {
 .bsys-arrow-sep::after {
     content: '';
     display: block;
-    width: 24px;
-    height: 24px;
-    border-right: 4px solid #999999;
-    border-top: 4px solid #999999;
+    width: clamp(16px, 1.25vw, 24px);
+    height: clamp(16px, 1.25vw, 24px);
+    border-right: clamp(2px, 0.2vw, 4px) solid #999999;
+    border-top: clamp(2px, 0.2vw, 4px) solid #999999;
     transform: rotate(45deg);
 }
 
@@ -4848,35 +4908,32 @@ body {
 .battery-section::before {
     content: '';
     position: absolute;
-    width: 2271px;
-    height: 2271px;
+    width: clamp(1500px, 118.2vw, 2271px);
+    height: clamp(1500px, 118.2vw, 2271px);
     left: 50%;
     transform: translateX(-50%);
-    top: 111px;
+    top: clamp(60px, 5.78vw, 111px);
     border-radius: 50%;
     border: 2px solid #FFFFFF;
     pointer-events: none;
     z-index: 0;
     clip-path: inset(0 0 10% 0);
-    /* 하단 절단면을 대폭 낮춰서 카드에 확실히 닿게 조정 */
 }
 
 /* 큰 배경 원 2: 피그마 38:6022 size-1501 */
 .battery-section::after {
     content: '';
     position: absolute;
-    width: 1501px;
-    height: 1501px;
+    width: clamp(980px, 78.17vw, 1501px);
+    height: clamp(980px, 78.17vw, 1501px);
     left: 50%;
     transform: translateX(-50%);
-    top: 494px;
+    top: clamp(320px, 25.72vw, 494px);
     border-radius: 50%;
-    border: 8px solid #FFFFFF;
-    /* 연결 라인에 8px 보더 적용 */
+    border: clamp(4px, 0.41vw, 8px) solid #FFFFFF;
     pointer-events: none;
     z-index: 0;
     clip-path: inset(0 0 40% 0);
-    /* 하단 절단면을 대폭 낮춰서 카드에 확실히 닿게 조정 */
 }
 
 .battery-section .inner {
@@ -4887,7 +4944,7 @@ body {
 /* 📍 ===== 디켈 경쟁력 Gallery ===== */
 .gallery-section {
     background: #fff;
-    padding: var(--section-padding-x) 0;
+    padding: var(--section-padding-y) 0;
 }
 
 .gallery-title {
@@ -5473,11 +5530,18 @@ body {
         position: relative !important;
         width: 100% !important;
         height: auto !important;
+        max-height: none !important;
         display: flex !important;
         flex-direction: column !important;
         padding: 0 16px !important;
         gap: 20px !important;
         box-sizing: border-box !important;
+    }
+
+    /* 래퍼 투명화 — 자식을 inner-box 레벨로 올림 */
+    .value-left,
+    .value-right {
+        display: contents !important;
     }
 
     .value-section-label {
@@ -6098,5 +6162,26 @@ body {
     /* --- BI 섹션 (데스크톱 스타일 오버라이드) --- */
     .bi-section {
         padding: 40px 0;
+    }
+}
+
+/* ═══ 태블릿 mcard 제목 폰트 축소 (한 줄 유지) ═══ */
+@media (max-width: 1439px) {
+    .mcard-title {
+        font-size: clamp(18px, 2.4vw, 24px);
+        white-space: nowrap;
+    }
+
+    .mcard-desc {
+        font-size: clamp(14px, 1.8vw, 20px);
+    }
+
+    /* ── value-section sticky 태블릿 ── */
+    .value-section {
+        height: 200vh;
+    }
+
+    .value-inner-box {
+        padding: 15vh var(--section-padding-x);
     }
 }

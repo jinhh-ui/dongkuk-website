@@ -595,8 +595,21 @@
 
         // 📍 배당현황 커스텀 스크롤 연동
         const divTableWrap = document.querySelector('.dividend-table-wrap');
+        const divScrollWrap = document.querySelector('.dividend-scroll-wrap');
         const divScrollThumb = document.querySelector('.dividend-scroll-thumb');
         const divScrollTrack = document.querySelector('.dividend-scroll-track');
+
+        function checkDivTableOverflow() {
+            if (!divTableWrap || !divScrollWrap) return;
+            if (divTableWrap.scrollWidth > divTableWrap.clientWidth) {
+                divScrollWrap.classList.add('has-scroll');
+            } else {
+                divScrollWrap.classList.remove('has-scroll');
+            }
+        }
+
+        checkDivTableOverflow();
+        window.addEventListener('resize', checkDivTableOverflow);
 
         if (divTableWrap && divScrollThumb && divScrollTrack) {
             divTableWrap.addEventListener('scroll', () => {

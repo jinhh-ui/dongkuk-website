@@ -8,8 +8,8 @@
     align-items: center;
     justify-content: center;
     background: #fff;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
     box-sizing: border-box;
 }
 
@@ -111,7 +111,8 @@
 
 .network-section .inner {
     width: 100%;
-    max-width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: clamp(12px, 1.56vw, 30px);
@@ -130,6 +131,7 @@
 .cards-row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: clamp(12px, 1.25vw, 24px);
     width: 100%;
 }
@@ -144,7 +146,7 @@
 }
 
 .hq-img-card {
-    width: clamp(328px, 20.26vw, 389px);
+    width: clamp(200px, 20.26vw, 389px);
     height: clamp(156px, 24.9vw, 479px);
     border-radius: clamp(16px, 1.56vw, 30px);
     overflow: hidden;
@@ -159,6 +161,7 @@
 
 .info-card {
     flex: 1;
+    min-width: 200px;
     height: clamp(308px, 24.9vw, 479px);
     background: #F8F9FB;
     border-radius: clamp(16px, 1.56vw, 30px);
@@ -169,31 +172,6 @@
     box-sizing: border-box;
     position: relative;
     min-width: 0;
-}
-
-@media (min-width: 768px) {
-    .info-card {
-        height: auto;
-        min-height: 479px;
-        justify-content: space-between;
-        gap: 0;
-    }
-    
-    .info-card-top {
-        flex-shrink: 0;
-    }
-    
-    .info-card-bottom {
-        width: 100%;
-        height: 148px;
-        flex-shrink: 0;
-        justify-content: space-between;
-        gap: 0;
-    }
-    
-    .info-item {
-        gap: 20px;
-    }
 }
 
 .info-card-top {
@@ -325,7 +303,7 @@
 }
 
 .combined-card .card-img {
-    width: clamp(328px, 20.26vw, 389px);
+    width: clamp(200px, 20.26vw, 389px);
     height: 100%;
     flex-shrink: 0;
 }
@@ -358,6 +336,7 @@
 
 .overseas-card {
     flex: 1;
+    min-width: 280px;
     height: clamp(308px, 25.5vw, 490px);
     border-radius: clamp(16px, 1.56vw, 30px);
     padding: clamp(20px, 2.29vw, 44px) clamp(16px, 2.08vw, 40px);
@@ -369,7 +348,6 @@
     background-size: cover;
     background-position: center;
     color: #FFFFFF;
-    min-width: 0;
 }
 
 .overseas-card::before {
@@ -406,6 +384,82 @@
     color: #D3D3D3;
 }
 
+/* ══════════════════════════════════════════
+   TABLET (768px ~ 1439px)
+   ══════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1439px) {
+
+    .page-header {
+        padding-top: 72px;
+        padding-bottom: 60px;
+    }
+
+    .hero-text-inner {
+        top: 72px;
+    }
+
+    /* 본사: 이미지 풀너비 + 정보카드 3열 */
+    .hq-cards-row {
+        flex-wrap: wrap;
+    }
+
+    .hq-img-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 1;
+        flex-shrink: 0;
+    }
+
+    .hq-img-card img {
+        object-position: center 40%;
+    }
+
+    .hq-cards-row .info-card {
+        flex: 1 1 calc(33.333% - 16px);
+        min-width: 200px;
+        height: auto;
+        min-height: 280px;
+    }
+
+    /* 공장/영업소: 세로카드 2열 */
+    .combined-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .combined-card .card-img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .combined-card .info-card {
+        min-height: 260px;
+    }
+
+    .factory-office-section .cards-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .factory-office-section .combined-card {
+        flex: 1 1 calc(50% - 12px);
+        min-width: 300px;
+    }
+
+    /* 해외: 가로 유지 */
+    .overseas-section .cards-row {
+        flex-direction: row;
+    }
+
+    .overseas-card {
+        height: clamp(280px, 35vw, 400px);
+    }
+}
+
+
+/* ══════════════════════════════════════════
+   MOBILE (≤ 767px)
+   ══════════════════════════════════════════ */
 @media (max-width: 767px) {
 
 

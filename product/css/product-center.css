@@ -438,7 +438,7 @@ body .no-transition *,
 .global-label {
     position: absolute;
     top: 80px;
-    left: 120px;
+    left: var(--section-padding-x);
     font-size: clamp(18px, 1.5vw, 24px);
     font-weight: 500;
     color: #7A7A7A;
@@ -448,7 +448,7 @@ body .no-transition *,
 .global-title {
     position: absolute;
     top: 120px;
-    left: 120px;
+    left: var(--section-padding-x);
     font-size: clamp(40px, 4vw, 60px);
     font-weight: 700;
     line-height: 1.4;
@@ -480,8 +480,8 @@ body .no-transition *,
 .global-video-frame {
     position: absolute;
     top: 320px;
-    left: 120px;
-    right: 120px;
+    left: var(--section-padding-x);
+    right: var(--section-padding-x);
     bottom: 60px;
     border-radius: 30px;
     overflow: hidden;
@@ -548,10 +548,8 @@ body .no-transition *,
 /* 스탯 카드 */
 .global-stats {
     position: absolute;
-    bottom: 6.25vw;
-    /* 120px / 1920px */
-    right: 6.25vw;
-    /* 120px / 1920px (aligning with frame margin) */
+    bottom: var(--section-padding-x);
+    right: var(--section-padding-x);
     display: flex;
     gap: 0.8333vw;
     /* 16px / 1920px */
@@ -612,8 +610,8 @@ body .no-transition *,
     display: flex;
     gap: 1.25vw;
     /* 24px / 1920px */
-    width: 87.5vw;
-    /* 1680px / 1920px */
+    width: 100%;
+    max-width: 1680px;
     height: 42.0833vw;
     /* 808px / 1920px */
 }
@@ -622,8 +620,7 @@ body .no-transition *,
     position: relative;
     flex: 329;
     height: 42.0833vw;
-    border-radius: 1.0416vw;
-    /* 20px / 1920px */
+    border-radius: clamp(12px, 1.0416vw, 20px);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -646,32 +643,33 @@ body .no-transition *,
 /* 타이틀과 설명글을 함께 감싸는 텍스트 박스 */
 .pc-text-block {
     position: absolute;
-    /* 닫혀있을 때: 바닥에서 40px(2.0833vw) 띄우고, 타이틀의 예상 높이(50px)만큼 top 계산하여 아래쪽에 배치 */
-    top: calc(42.0833vw - 2.0833vw - 2.604vw);
-    left: 2.0833vw;
+    bottom: clamp(20px, 2.0833vw, 40px);
+    left: clamp(16px, 2.0833vw, 40px);
+    top: auto;
     display: flex;
     flex-direction: column;
-    gap: 1.0416vw;
+    gap: clamp(8px, 1.0416vw, 20px);
     z-index: 10;
-    transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        top 0.5s cubic-bezier(0.4, 0, 0.2, 1),
         left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* 카드가 확장되면 -> 위쪽 50px, 왼쪽 50px 간격 설정 */
 .product-card.expanded .pc-text-block {
-    top: 2.604vw;
-    left: 2.604vw;
+    top: clamp(24px, 2.604vw, 50px);
+    bottom: auto;
+    left: clamp(24px, 2.604vw, 50px);
 }
 
 /* 닫혀있을 때 하단 타이틀 */
 .pc-title-small {
-    font-size: 1.5625vw;
-    /* 30px / 1920px */
+    font-size: clamp(14px, 1.5625vw, 30px);
     font-weight: 700;
     line-height: 140%;
     color: #FFFFFF;
     margin: 0;
-    white-space: nowrap;
+    word-break: keep-all;
     transition: font-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -682,8 +680,7 @@ body .no-transition *,
 
 /* 설명글 스타일 (타이틀 아래) */
 .pc-desc {
-    font-size: 1.3541vw;
-    /* 26px / 1920px */
+    font-size: clamp(16px, 1.3541vw, 26px);
     font-weight: 700;
     line-height: 150%;
     color: #FFFFFF;
@@ -701,26 +698,21 @@ body .no-transition *,
 /* 버튼 그룹: 우측 하단 */
 .pc-btn-group {
     position: absolute;
-    bottom: 2.0833vw;
-    right: 2.0833vw;
+    bottom: clamp(16px, 2.0833vw, 40px);
+    right: clamp(16px, 2.0833vw, 40px);
     display: flex;
-    gap: 0.2083vw;
-    /* 4px / 1920px */
+    gap: clamp(4px, 0.2083vw, 4px);
 }
 
 .pc-btn-text {
-    width: 7.2916vw;
-    /* 140px / 1920px */
-    height: 3.3333vw;
-    /* 64px / 1920px */
+    width: clamp(100px, 7.2916vw, 140px);
+    height: clamp(44px, 3.3333vw, 64px);
     background: #FFFFFF;
-    border-radius: 0.7291vw;
-    /* 14px / 1920px */
+    border-radius: clamp(8px, 0.7291vw, 14px);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.0416vw;
-    /* 20px / 1920px */
+    font-size: clamp(14px, 1.0416vw, 20px);
     font-weight: 500;
     color: #000000;
     border: none;
@@ -728,13 +720,11 @@ body .no-transition *,
 }
 
 .pc-btn-icon {
-    width: 3.3333vw;
-    /* 64px / 1920px */
-    height: 3.3333vw;
+    width: clamp(44px, 3.3333vw, 64px);
+    height: clamp(44px, 3.3333vw, 64px);
     background: transparent;
-    border-radius: 0.7291vw;
-    border: 0.1041vw solid #FFFFFF;
-    /* 2px / 1920px */
+    border-radius: clamp(8px, 0.7291vw, 14px);
+    border: 2px solid #FFFFFF;
     display: flex;
     justify-content: center;
     color: #ffffff;
@@ -750,8 +740,7 @@ body .no-transition *,
 
 /* 카드가 확장되면 -> 설명글 노출 */
 .product-card.expanded .pc-desc {
-    height: 2.0312vw;
-    /* ~39px at 1920px */
+    height: clamp(24px, 2.0312vw, 39px);
     opacity: 0.8;
     pointer-events: auto;
     transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
@@ -785,12 +774,13 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card .pc-text-block {
-        top: calc(42.0833vw - 2.0833vw - 2.604vw);
-        left: 2.0833vw;
+        top: auto;
+        bottom: clamp(20px, 2.0833vw, 40px);
+        left: clamp(16px, 2.0833vw, 40px);
     }
 
     .products-container:hover .product-card .pc-title-small {
-        font-size: 1.5625vw;
+        font-size: clamp(14px, 1.5625vw, 30px);
     }
 
     .products-container:hover .product-card .pc-desc {
@@ -810,8 +800,9 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card:hover .pc-text-block {
-        top: 2.604vw;
-        left: 2.604vw;
+        top: clamp(24px, 2.604vw, 50px);
+        bottom: auto;
+        left: clamp(24px, 2.604vw, 50px);
     }
 
     .products-container:hover .product-card:hover .pc-title-small {
@@ -819,7 +810,7 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card:hover .pc-desc {
-        height: 2.0312vw;
+        height: clamp(24px, 2.0312vw, 39px);
         opacity: 0.8;
         pointer-events: auto;
     }

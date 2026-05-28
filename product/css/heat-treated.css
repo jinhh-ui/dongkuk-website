@@ -51,7 +51,7 @@
 .hero-text-outer {
     position: relative;
     min-height: 250vh;
-    padding-bottom: 100px;
+    padding-bottom: var(--section-padding-y);
 }
 
 .hero-text-inner {
@@ -61,7 +61,7 @@
 }
 
 .hero-text-section {
-    padding: 100px 80px 0;
+    padding: var(--section-padding-y) var(--section-padding-x) 0;
     text-align: center;
 }
 
@@ -103,10 +103,9 @@
     flex-direction: row;
     align-items: center;
     padding: 0;
-    gap: 24px;
+    gap: clamp(12px, 1.25vw, 24px);
     max-width: 1436px;
     width: 100%;
-    height: 540px;
 }
 
 .fcard {
@@ -114,13 +113,14 @@
     overflow: hidden;
     flex: 1;
     min-width: 0;
+    aspect-ratio: 460 / 540;
 }
 
 .fcard .label-text {
     position: absolute;
-    left: 40px;
-    top: 50px;
-    font-size: clamp(16px, 1.35vw, 26px);
+    left: clamp(20px, 8.7%, 40px);
+    top: clamp(24px, 9.26%, 50px);
+    font-size: clamp(14px, 1.35vw, 26px);
     font-weight: 700;
     line-height: 150%;
     z-index: 10;
@@ -128,8 +128,8 @@
 
 .fcard .title-text {
     position: absolute;
-    left: 40px;
-    font-size: clamp(30px, 3.125vw, 60px);
+    left: clamp(20px, 8.7%, 40px);
+    font-size: clamp(24px, 3.125vw, 60px);
     font-weight: 700;
     line-height: 140%;
     display: flex;
@@ -140,26 +140,25 @@
 /* 1. Premium Card */
 .fcard-premium {
     max-width: 470px;
-    height: 540px;
 }
 
 .fcard-premium .bg-main {
     position: absolute;
     width: 100%;
-    height: 460px;
+    height: 85.19%;   /* 460 / 540 */
     left: 0;
     top: 0;
     background: #5A2A00;
-    border-radius: 30px 30px 0px 0px;
+    border-radius: clamp(16px, 1.56vw, 30px) clamp(16px, 1.56vw, 30px) 0 0;
     z-index: 1;
 }
 
 .fcard-premium .bg-circle {
     position: absolute;
     width: calc(100% + 16px);
-    height: 470px;
+    height: 87.04%;   /* 470 / 540 */
     left: -8px;
-    top: 306px;
+    top: 56.67%;       /* 306 / 540 */
     background: #ffffff;
     border-radius: 99999px;
     z-index: 2;
@@ -168,9 +167,9 @@
 .fcard-premium .product-img {
     position: absolute;
     width: 100%;
-    height: 228px;
+    height: 42.22%;   /* 228 / 540 */
     left: 0;
-    top: 312px;
+    top: 57.78%;       /* 312 / 540 */
     background: url('../assets/heat-treated/heat-treated-plate.png') no-repeat center/contain;
     border-radius: 0px 0px 8px 8px;
     z-index: 3;
@@ -182,15 +181,14 @@
 
 .fcard-premium .title-text {
     color: #FFFFFF;
-    top: 183px;
+    top: 33.89%;       /* 183 / 540 */
 }
 
 /* 2. Stable Card */
 .fcard-stable {
     max-width: 460px;
-    height: 540px;
     background: #F27100;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
 }
 
 .fcard-stable .label-text {
@@ -199,15 +197,15 @@
 
 .fcard-stable .title-text {
     color: #FFFFFF;
-    top: 396px;
+    top: auto;
+    bottom: clamp(20px, 8.7%, 40px);
 }
 
 /* 3. Next-Gen Card */
 .fcard-nextgen {
     max-width: 460px;
-    height: 540px;
     background: #F1F3F7;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
 }
 
 .fcard-nextgen .label-text {
@@ -216,7 +214,8 @@
 
 .fcard-nextgen .title-text {
     color: #000000;
-    top: 396px;
+    top: auto;
+    bottom: clamp(20px, 8.7%, 40px);
 }
 
 /* ===== Product Tabs 안착 여백 ===== */
@@ -289,7 +288,7 @@
 
 .pi-top-wrapper {
     display: flex;
-    gap: 6.25rem;
+    gap: clamp(30px, 6.25vw, 100px);
     align-items: flex-start;
     width: 100%;
 }
@@ -464,11 +463,10 @@ img.ic-download {
 
 .pi-right {
     flex: 1;
-    max-width: 100%;
     max-width: 828px;
     min-width: 0;
-    height: 720px;
-    border-radius: 1rem;
+    height: clamp(400px, 37.5vw, 720px);
+    border-radius: clamp(12px, 1vw, 16px);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -487,7 +485,7 @@ img.ic-download {
 .product-intro .accordion {
     width: 100%;
     margin-top: 40px;
-    padding: 40px 0 100px;
+    padding: 40px 0 var(--section-padding-y);
 }
 
 .acc-item {
@@ -527,17 +525,16 @@ img.ic-download {
 }
 
 .acc-title {
-    font-size: clamp(18px, 1.66vw, 32px);
+    font-size: clamp(20px, 1.66vw, 32px);
     font-weight: 700;
     line-height: 150%;
     color: #1B1B1B;
 }
 
 .acc-dropdown-icon {
-    width: 64px;
-    height: 64px;
+    width: clamp(40px, 3.33vw, 64px);
+    height: clamp(40px, 3.33vw, 64px);
     background: transparent;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -605,7 +602,7 @@ img.ic-download {
 }
 
 .spec-grid-label {
-    font-size: 24px;
+    font-size: clamp(18px, 1.25vw, 24px);
     font-weight: 700;
     color: #363636;
 }
@@ -617,33 +614,34 @@ img.ic-download {
 
 .spec-grid-col {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
 }
 
 .spec-head {
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     background: #F9FAFE;
     border-top: 1px solid #000000;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     font-weight: 700;
     color: #363636;
     text-align: center;
 }
 
 .spec-value {
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     background: #FFFFFF;
     border-top: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 24px;
-    font-size: 20px;
+    padding: 0 clamp(12px, 1.25vw, 24px);
+    font-size: clamp(14px, 1.04vw, 20px);
     font-weight: 400;
     color: #363636;
     text-align: left;
@@ -704,7 +702,7 @@ img.ic-download {
 .usage-section {
     width: 100%;
     background: #FFFFFF;
-    padding: 100px 0;
+    padding: var(--section-padding-y) 0;
     /* 위아래 여백으로 자연스럽게 높이 확보 */
 }
 
@@ -819,7 +817,6 @@ img.ic-download {
     max-width: 60%;
     flex: 1 1 auto;
     position: relative;
-    height: 739px;
 }
 
 .usage-tab-content {
@@ -838,12 +835,13 @@ img.ic-download {
 .usage-tab-content.active {
     opacity: 1;
     pointer-events: auto;
+    position: relative;
 }
 
 .utc-video {
     width: 100%;
-    height: 494px;
-    border-radius: 30px;
+    aspect-ratio: 1004 / 494;
+    border-radius: clamp(16px, 1.56vw, 30px);
     overflow: hidden;
     position: relative;
 }
@@ -881,7 +879,7 @@ img.ic-download {
 
 .utc-footer-info {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     gap: 6px;
     width: 100%;
@@ -892,7 +890,6 @@ img.ic-download {
     height: 30px;
     object-fit: contain;
     flex-shrink: 0;
-    margin-top: 2px;
 }
 
 .utc-footer-text {
@@ -909,7 +906,7 @@ img.ic-download {
     position: relative;
     height: auto;
     background: #FFFFFF;
-    padding: 0 30px 100px;
+    padding: 0 30px var(--section-padding-y);
     overflow: hidden;
 }
 
@@ -1203,7 +1200,107 @@ img.ic-download {
     }
 
     .hero-text-section {
-        padding: 100px 5vw 0;
+        padding: var(--section-padding-y) 5vw 0;
+    }
+
+    /* ── 태블릿 아코디언/표 반응형 ── */
+    .accordion {
+        padding: 0;
+        margin: 0;
+    }
+
+    .accordion .inner {
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    .acc-item {
+        width: 100% !important;
+    }
+
+    .acc-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        gap: 20px;
+        height: 72px;
+        border-bottom: 1px solid #D3D3D3;
+    }
+
+    .acc-title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 150%;
+        color: #1B1B1B;
+    }
+
+    .acc-dropdown-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 21.7241px;
+    }
+
+    .acc-dropdown-icon img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .acc-body {
+        width: 100% !important;
+    }
+
+    .acc-content-box {
+        width: 100% !important;
+        padding: 30px 0;
+        gap: 30px;
+        background: #FFFFFF;
+    }
+
+    .spec-grid-group {
+        width: 100% !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .spec-grid-group::-webkit-scrollbar {
+        display: none;
+    }
+
+    .spec-grid-row {
+        width: max-content;
+        min-width: 100%;
+        display: flex;
+    }
+
+    .spec-grid-col {
+        flex: 1 1 auto;
+        min-width: 150px;
+    }
+
+    .spec-grid-label {
+        font-size: 20px;
+    }
+
+    .spec-head {
+        width: 100%;
+        height: 70px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .spec-value {
+        width: 100%;
+        height: 60px;
+        box-sizing: border-box;
+        font-size: 14px;
     }
 }
 
@@ -1915,11 +2012,13 @@ img.ic-download {
 
     .utc-footer-info {
         justify-content: flex-start;
+        align-items: flex-start;
     }
 
     .utc-footer-icon {
         width: 20px;
         height: 20px;
+        margin-top: 3px;
     }
 
     .utc-footer-text {
@@ -3055,5 +3154,54 @@ img.ic-download {
 
     .ps-mobile-step-label[data-step="3"] {
         left: calc(87% - 15px);
+    }
+}
+
+/* ═══ 태블릿 등급표(grade) 글자 축소 + 횡스크롤 ═══
+   base 선언(min-width:768px 블록)보다 반드시 뒤에 위치해야 오버라이드 됨 */
+@media (max-width: 1439px) {
+    .grade-section-desktop {
+        padding: 0;
+        border-radius: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .grade-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .grade-header-text {
+        font-size: 18px;
+        height: auto;
+    }
+
+    .grade-row-text {
+        font-size: 16px;
+    }
+
+    .grade-cell-text-new {
+        font-size: 16px;
+    }
+
+    .footnote-tag-new,
+    .footnote-desc-new {
+        font-size: 14px;
+    }
+
+    /* ── 대응규격 이미지 인라인 max-width 해제 ── */
+    .acc-content-box > div[style*="max-width: 890px"] {
+        max-width: 100% !important;
+        border-radius: 20px !important;
+    }
+
+    /* ── 제품설비 equip 태블릿 ── */
+    .equip-box {
+        border-radius: 20px;
+    }
+
+    .equip-img-box {
+        border-radius: 16px;
     }
 }
