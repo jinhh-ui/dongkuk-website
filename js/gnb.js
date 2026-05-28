@@ -274,6 +274,7 @@
         var contentH = submenu.scrollHeight;
         header.style.setProperty('--gnb-submenu-height', contentH);
 
+        header.classList.remove('gnb-hidden');
         header.classList.add('is-hover');
 
         // 스크롤 차단
@@ -509,49 +510,70 @@ document.addEventListener('DOMContentLoaded', function () {
     if (boundaryEl) {
       const boundaryTop = boundaryEl.getBoundingClientRect().top + scrollY;
       const overlap = scrollBottom - boundaryTop;
-      const isMobile = window.innerWidth <= 1439;
-      const hasProductTabs = !!document.querySelector('.product-tabs');
-      const hasHistoryFab = !!document.querySelector('.history-fab');
+      var vw = window.innerWidth;
+      var isPC = vw >= 1440;
+      var isTablet = vw >= 768 && vw < 1440;
+      var isMobile = vw < 768;
+      var hasProductTabs = !!document.querySelector('.product-tabs');
+      var hasHistoryFab = !!document.querySelector('.history-fab');
       
-      let baseBottom = 16;
-      if (isMobile) {
+      let baseBottom = isPC ? 40 : (isTablet ? 24 : 16);
+      if (isMobile || isTablet) {
         if (hasProductTabs || hasHistoryFab) {
-          baseBottom = 83; // 53px (tabs height/fab height) + 30px (gap) = 83px
-        } else {
-          baseBottom = 16;
+          baseBottom = 83; // 53px (tabs/fab height) + 30px gap
         }
       }
 
       // Calculate btnTop bottom position
-      if (isMobile && (hasProductTabs || hasHistoryFab)) {
+      if ((isMobile || isTablet) && (hasProductTabs || hasHistoryFab)) {
         if (overlap > 0) {
           btnTop.style.bottom = `${overlap + baseBottom}px`;
         } else {
           btnTop.style.bottom = `${baseBottom}px`;
         }
       } else {
-        if (overlap > baseBottom) {
-          btnTop.style.bottom = `${overlap}px`;
+        if (overlap > 0) {
+          btnTop.style.bottom = `${overlap + baseBottom}px`;
         } else {
           btnTop.style.bottom = `${baseBottom}px`;
         }
       }
 
-      // Adjust product-tabs position to prevent overlapping boundaryEl
+      // Adjust product-tabs position to prevent overlapping support-section
       const productTabsList = document.querySelectorAll('.product-tabs');
       if (productTabsList.length > 0) {
+        const supportEl = document.querySelector('.support-section');
+        const tabsBoundaryEl = supportEl || boundaryEl;
+        const supportRect = tabsBoundaryEl.getBoundingClientRect();
+        const supportStyles = supportEl ? getComputedStyle(supportEl) : null;
+        const supportMarginTop = supportStyles ? parseFloat(supportStyles.marginTop) : 0;
+        const supportPaddingTop = supportStyles ? parseFloat(supportStyles.paddingTop) : 0;
+
         productTabsList.forEach(tabs => {
+          const tabsHeight = tabs.offsetHeight;
+          const gapStartFromBottom = windowHeight - (supportRect.top - supportMarginTop);
+
           if (isMobile) {
-            if (overlap > 0) {
-              tabs.style.bottom = `${overlap}px`;
+            // 모바일: margin + padding 합산 영역의 정중앙
+            const totalGap = supportMarginTop + supportPaddingTop;
+            const gapCenterFromBottom = windowHeight - supportRect.top + supportMarginTop / 2 - supportPaddingTop / 2;
+
+            if (gapStartFromBottom > 0) {
+              const targetBottom = gapCenterFromBottom - tabsHeight / 2;
+              tabs.style.bottom = `${Math.max(targetBottom, 0)}px`;
             } else {
-              tabs.style.bottom = `0px`;
+              tabs.style.bottom = '0px';
             }
           } else {
-            if (overlap > 40) {
-              tabs.style.bottom = `${overlap}px`;
+            // PC/태블릿: margin 영역만의 정중앙
+            const baseTabBottom = isTablet ? 24 : 40;
+            const marginCenterFromBottom = windowHeight - supportRect.top + supportMarginTop / 2;
+
+            if (gapStartFromBottom > 0) {
+              const targetBottom = marginCenterFromBottom - tabsHeight / 2;
+              tabs.style.bottom = `${Math.max(targetBottom, baseTabBottom)}px`;
             } else {
-              tabs.style.bottom = `40px`;
+              tabs.style.bottom = `${baseTabBottom}px`;
             }
           }
         });

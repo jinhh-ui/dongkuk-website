@@ -51,7 +51,7 @@
 .hero-text-outer {
     position: relative;
     min-height: 250vh;
-    padding-bottom: 100px;
+    padding-bottom: var(--section-padding-y);
 }
 
 .hero-text-inner {
@@ -61,7 +61,7 @@
 }
 
 .hero-text-section {
-    padding: 100px 80px 0;
+    padding: var(--section-padding-y) var(--section-padding-x) 0;
     text-align: center;
 }
 
@@ -102,11 +102,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
-    gap: 24px;
-    width: 100%;
+    padding: 0;
+    gap: clamp(12px, 1.25vw, 24px);
     max-width: 1436px;
-    height: 540px;
+    width: 100%;
 }
 
 .fcard {
@@ -114,13 +113,14 @@
     overflow: hidden;
     flex: 1;
     min-width: 0;
+    aspect-ratio: 460 / 540;
 }
 
 .fcard .label-text {
     position: absolute;
-    left: 40px;
-    top: 50px;
-    font-size: clamp(16px, 1.35vw, 26px);
+    left: clamp(20px, 8.7%, 40px);
+    top: clamp(24px, 9.26%, 50px);
+    font-size: clamp(14px, 1.35vw, 26px);
     font-weight: 700;
     line-height: 150%;
     z-index: 10;
@@ -128,8 +128,8 @@
 
 .fcard .title-text {
     position: absolute;
-    left: 40px;
-    font-size: clamp(30px, 3.125vw, 60px);
+    left: clamp(20px, 8.7%, 40px);
+    font-size: clamp(24px, 3.125vw, 60px);
     font-weight: 700;
     line-height: 140%;
     display: flex;
@@ -140,37 +140,35 @@
 /* Card 1 */
 .fcard-premium {
     max-width: 470px;
-    height: 540px;
-    overflow: hidden;
 }
 
 .fcard-premium .bg-main {
     position: absolute;
     width: 100%;
-    height: 460px;
-    left: 0px;
-    top: 0px;
+    height: 85.19%;   /* 460 / 540 */
+    left: 0;
+    top: 0;
     background: #003592;
-    border-radius: 30px 30px 0px 0px;
+    border-radius: clamp(16px, 1.56vw, 30px) clamp(16px, 1.56vw, 30px) 0 0;
     z-index: 1;
 }
 
 .c1-bg-orange {
     position: absolute;
     width: 100%;
-    height: 460px;
-    left: 0px;
-    top: 0px;
+    height: 85.19%;
+    left: 0;
+    top: 0;
     background: #F27100;
-    border-radius: 30px 30px 0px 0px;
+    border-radius: clamp(16px, 1.56vw, 30px) clamp(16px, 1.56vw, 30px) 0 0;
 }
 
 .fcard-premium .bg-circle {
     position: absolute;
     width: calc(100% + 16px);
-    height: 470px;
+    height: 87.04%;   /* 470 / 540 */
     left: -8px;
-    top: 306px;
+    top: 56.67%;       /* 306 / 540 */
     background: #ffffff;
     border-radius: 99999px;
     z-index: 2;
@@ -179,133 +177,55 @@
 .fcard-premium .product-img {
     position: absolute;
     width: 100%;
-    height: 228px;
+    height: 42.22%;   /* 228 / 540 */
     left: 0;
-    top: 312px;
+    top: 57.78%;       /* 312 / 540 */
     border-radius: 0px 0px 8px 8px;
     object-fit: cover;
     z-index: 3;
 }
 
-.fcard-premium .title-text {
-    position: absolute;
-    left: 40px;
-    top: 183px;
-    font-family: 'Pretendard';
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 140%;
+.fcard-premium .label-text {
     color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    margin: 0;
 }
 
-.fcard-premium .label-text {
-    position: absolute;
-    left: 40px;
-    top: 50px;
-    font-family: 'Pretendard';
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 150%;
+.fcard-premium .title-text {
     color: #FFFFFF;
-    margin: 0;
+    top: 33.89%;       /* 183 / 540 */
 }
 
 /* Card 2 */
 .fcard-stable {
     max-width: 460px;
-    height: 540px;
     background: #F27100;
-    border-radius: 30px;
-}
-
-.fcard-stable .bg-main {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    top: 0px;
-    background: #F27100;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
 }
 
 .fcard-stable .label-text {
-    position: absolute;
-    width: auto;
-    max-width: calc(100% - 80px);
-    left: 40px;
-    top: 50px;
-    font-family: 'Pretendard';
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 150%;
     color: #FFFFFF;
-    margin: 0;
-    word-break: keep-all;
 }
 
 .fcard-stable .title-text {
-    position: absolute;
-    left: 40px;
-    top: 312px;
-    font-family: 'Pretendard';
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 140%;
     color: #FFFFFF;
-    margin: 0;
-    display: flex;
-    align-items: center;
+    top: auto;
+    bottom: clamp(20px, 8.7%, 40px);
 }
 
 /* Card 3 */
 .fcard-nextgen {
     max-width: 460px;
-    height: 540px;
     background: #F1F3F7;
-    border-radius: 30px;
-}
-
-.fcard-nextgen .bg-main {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    top: 0px;
-    background: #F1F3F7;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
 }
 
 .fcard-nextgen .label-text {
-    position: absolute;
-    width: auto;
-    max-width: calc(100% - 80px);
-    left: 40px;
-    top: 50px;
-    font-family: 'Pretendard';
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 150%;
     color: #4E4E4E;
-    margin: 0;
-    word-break: keep-all;
 }
 
 .fcard-nextgen .title-text {
-    position: absolute;
-    left: 40px;
-    top: 312px;
-    font-family: 'Pretendard';
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 140%;
     color: #000000;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    word-break: keep-all;
+    top: auto;
+    bottom: clamp(20px, 8.7%, 40px);
 }
 
 /* ===== Product Tabs 안착 여백 ===== */
@@ -371,12 +291,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 100px;
+    padding-top: clamp(40px, 5.2vw, 100px);
 }
 
 .pi-top-wrapper {
     display: flex;
-    gap: 6.25rem;
+    gap: clamp(30px, 6.25vw, 100px);
     align-items: flex-start;
     width: 100%;
 }
@@ -550,11 +470,10 @@ img.ic-download {
 
 .pi-right {
     flex: 1;
-    max-width: 100%;
     max-width: 828px;
     min-width: 0;
-    height: 720px;
-    border-radius: 1rem;
+    height: clamp(400px, 37.5vw, 720px);
+    border-radius: clamp(12px, 1vw, 16px);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -573,7 +492,7 @@ img.ic-download {
 .product-intro .accordion {
     width: 100%;
     margin-top: 40px;
-    padding: 40px 0 100px;
+    padding: 40px 0 var(--section-padding-y);
 }
 
 .acc-item {
@@ -613,17 +532,16 @@ img.ic-download {
 }
 
 .acc-title {
-    font-size: clamp(18px, 1.66vw, 32px);
+    font-size: clamp(20px, 1.66vw, 32px);
     font-weight: 700;
     line-height: 150%;
     color: #1B1B1B;
 }
 
 .acc-dropdown-icon {
-    width: 64px;
-    height: 64px;
+    width: clamp(40px, 3.33vw, 64px);
+    height: clamp(40px, 3.33vw, 64px);
     background: transparent;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -766,7 +684,7 @@ img.ic-download {
 }
 
 .spec-grid-label {
-    font-size: 24px;
+    font-size: clamp(18px, 1.25vw, 24px);
     font-weight: 700;
     color: #363636;
 }
@@ -778,35 +696,34 @@ img.ic-download {
 
 .spec-grid-col {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
 }
 
 .spec-head {
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     background: #F9FAFE;
     border-top: 1px solid #000000;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     font-weight: 700;
     color: #363636;
     text-align: center;
 }
 
 .spec-value {
-    height: 100px;
+    height: clamp(60px, 5.2vw, 100px);
     background: #FFFFFF;
     border-top: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* 👈 좌측 정렬로 변경 */
-    padding-left: 24px;
-    /* 👈 왼쪽 벽과 24px 간격 유지 */
-    font-size: 20px;
+    padding-left: clamp(12px, 1.25vw, 24px);
+    font-size: clamp(14px, 1.04vw, 20px);
     font-weight: 400;
     color: #363636;
     text-align: left;
@@ -865,7 +782,7 @@ img.ic-download {
 .usage-section {
     width: 100%;
     background: #FFFFFF;
-    padding: 100px 0;
+    padding: var(--section-padding-y) 0;
     /* 위아래 여백으로 자연스럽게 높이 확보 */
 }
 
@@ -983,7 +900,6 @@ img.ic-download {
     max-width: 60%;
     flex: 1 1 auto;
     position: relative;
-    height: 739px;
 }
 
 .usage-tab-content {
@@ -1002,12 +918,13 @@ img.ic-download {
 .usage-tab-content.active {
     opacity: 1;
     pointer-events: auto;
+    position: relative;
 }
 
 .utc-video {
     width: 100%;
-    height: 494px;
-    border-radius: 30px;
+    aspect-ratio: 1004 / 494;
+    border-radius: clamp(16px, 1.56vw, 30px);
     overflow: hidden;
     position: relative;
 }
@@ -1046,7 +963,7 @@ img.ic-download {
 
 .utc-footer-info {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     gap: 6px;
     width: 100%;
@@ -1057,7 +974,6 @@ img.ic-download {
     height: 30px;
     object-fit: contain;
     flex-shrink: 0;
-    margin-top: 2px;
 }
 
 .utc-footer-text {
@@ -1077,7 +993,7 @@ img.ic-download {
     height: auto;
     /* 고정 높이 제거 */
     background: #FFFFFF;
-    padding: 0 30px 100px;
+    padding: 0 30px var(--section-padding-y);
     /* 상하 여백 제거, 좌우 30px 유지 */
     overflow: hidden;
 }
@@ -1375,7 +1291,107 @@ img.ic-download {
     }
 
     .hero-text-section {
-        padding: 100px 5vw 0;
+        padding: var(--section-padding-y) 5vw 0;
+    }
+
+    /* ── 태블릿 아코디언/표 반응형 ── */
+    .accordion {
+        padding: 0;
+        margin: 0;
+    }
+
+    .accordion .inner {
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    .acc-item {
+        width: 100% !important;
+    }
+
+    .acc-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        gap: 20px;
+        height: 72px;
+        border-bottom: 1px solid #D3D3D3;
+    }
+
+    .acc-title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 150%;
+        color: #1B1B1B;
+    }
+
+    .acc-dropdown-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 21.7241px;
+    }
+
+    .acc-dropdown-icon img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .acc-body {
+        width: 100% !important;
+    }
+
+    .acc-content-box {
+        width: 100% !important;
+        padding: 30px 0;
+        gap: 30px;
+        background: #FFFFFF;
+    }
+
+    .spec-grid-group {
+        width: 100% !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .spec-grid-group::-webkit-scrollbar {
+        display: none;
+    }
+
+    .spec-grid-row {
+        width: max-content;
+        min-width: 100%;
+        display: flex;
+    }
+
+    .spec-grid-col {
+        flex: 1 1 auto;
+        min-width: 150px;
+    }
+
+    .spec-grid-label {
+        font-size: 20px;
+    }
+
+    .spec-head {
+        width: 100%;
+        height: 70px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .spec-value {
+        width: 100%;
+        height: 60px;
+        box-sizing: border-box;
+        font-size: 14px;
     }
 }
 
@@ -1921,11 +1937,13 @@ img.ic-download {
 
     .utc-footer-info {
         justify-content: flex-start;
+        align-items: flex-start;
     }
 
     .utc-footer-icon {
         width: 20px;
         height: 20px;
+        margin-top: 3px;
     }
 
     .utc-footer-text {
@@ -3189,5 +3207,85 @@ img.ic-download {
 @media (max-width: 767px) {
     .ps-mobile-diagram {
         aspect-ratio: 328 / 277 !important;
+    }
+}
+
+/* ═══ 태블릿 표(cat-f-table) 글자·크기 축소 ═══
+   base 선언(.txt-lbl-24 등)보다 반드시 뒤에 위치해야 오버라이드 됨 */
+@media (max-width: 1439px) {
+    .cat-f-table {
+        width: 100%;
+        table-layout: auto;
+    }
+
+    .cat-f-table th,
+    .cat-f-table td {
+        padding: 8px 10px;
+    }
+
+    .th-in {
+        padding: 8px 6px;
+    }
+
+    .txt-lbl-24 {
+        font-size: 18px;
+    }
+
+    .txt-lbl-20 {
+        font-size: 16px;
+    }
+
+    .txt-p-16,
+    .txt-p-16-d {
+        font-size: 13px;
+    }
+
+    .txt-p-14 {
+        font-size: 12px;
+    }
+
+    .txt-p-20 {
+        font-size: 16px;
+    }
+
+    .td-f-val {
+        padding: 12px 14px;
+        height: auto;
+    }
+
+    .cat-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* ── 차트/그래프 반응형 ── */
+    .pr-chart-box {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto !important;
+        padding: clamp(20px, 2.5vw, 40px);
+        border-radius: 20px;
+        gap: 30px;
+    }
+
+    .pr-chart-visual {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 810 / 416;
+    }
+
+    .pr-chart-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .pr-item-row {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .pr-item-info {
+        width: 100%;
     }
 }

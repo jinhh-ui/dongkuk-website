@@ -1,12 +1,12 @@
 
         /* ===== Page Header ===== */
         .page-header {
-            padding: 40px 0 100px;
+            padding: 40px 0 var(--section-padding-y);
             text-align: center;
         }
 
         .page-header h1 {
-            font-size: 80px;
+            font-size: clamp(30px, 4.17vw, 80px);
             font-weight: 700;
             color: #000;
             line-height: 140%;
@@ -15,7 +15,7 @@
         /* ===== Subtitle (sticky scroll-to-color) ===== */
         .hero-text-outer {
             position: relative;
-            margin-top: 100px;
+            margin-top: var(--section-padding-y);
         }
 
         .hero-text-inner {
@@ -75,7 +75,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 80px;
+            gap: clamp(40px, 4.16vw, 80px);
         }
 
         .story-row {
@@ -126,10 +126,10 @@
 
         .story-ic {
             position: absolute;
-            width: 86px;
-            height: 86px;
-            left: 40px;
-            top: 40px;
+            width: clamp(52px, 4.48vw, 86px);
+            height: clamp(52px, 4.48vw, 86px);
+            left: clamp(20px, 2.08vw, 40px);
+            top: clamp(20px, 2.08vw, 40px);
             z-index: 2;
         }
 
@@ -146,12 +146,12 @@
             align-items: flex-start;
             gap: clamp(20px, 3.125vw, 60px);
             width: clamp(280px, 26vw, 500px);
-            height: 392px;
+            height: auto;
             flex: 0 0 auto;
         }
 
         .story-text.lab3-text {
-            height: 343px;
+            height: auto;
         }
 
         .story-text h2 {
@@ -176,7 +176,7 @@
             flex-direction: row;
             align-items: flex-start;
             gap: 12px;
-            min-height: 45px;
+            min-height: clamp(30px, 2.34vw, 45px);
         }
 
         .story-bullets li::before {
@@ -187,7 +187,7 @@
             background: #7A7A7A;
             border-radius: 50%;
             flex-shrink: 0;
-            margin-top: 18px;
+            margin-top: clamp(10px, 0.94vw, 18px);
         }
 
         .story-bullets li span {
@@ -213,7 +213,7 @@
 
         .scene-gallery-wrap {
             display: flex;
-            margin-top: 56px;
+            margin-top: clamp(24px, 2.92vw, 56px);
             width: 100%;
             overflow: hidden;
         }
@@ -221,8 +221,8 @@
         .scene-track {
             display: flex;
             align-items: flex-end;
-            gap: 40px;
-            padding-right: 40px;
+            gap: clamp(16px, 2.08vw, 40px);
+            padding-right: clamp(16px, 2.08vw, 40px);
             animation: marquee 30s linear infinite;
             flex-shrink: 0;
         }
@@ -244,30 +244,30 @@
         }
 
         .scene-img.s1 {
-            width: 732px;
-            height: 473px;
-            border-radius: 50px 50px 0 50px;
+            width: clamp(314px, 38.12vw, 732px);
+            height: clamp(204px, 24.63vw, 473px);
+            border-radius: clamp(16px, 2.6vw, 50px) clamp(16px, 2.6vw, 50px) 0 clamp(16px, 2.6vw, 50px);
             background: url('../assets/rnd/img_rnd-scene-1.png') no-repeat center/cover;
         }
 
         .scene-img.s2 {
-            width: 354px;
-            height: 389px;
-            border-radius: 0 50px 50px 50px;
+            width: clamp(152px, 18.43vw, 354px);
+            height: clamp(167px, 20.26vw, 389px);
+            border-radius: 0 clamp(16px, 2.6vw, 50px) clamp(16px, 2.6vw, 50px) clamp(16px, 2.6vw, 50px);
             background: url('../assets/rnd/img_rnd-scene-2.png') no-repeat center/cover;
         }
 
         .scene-img.s3 {
-            width: 885px;
-            height: 561px;
-            border-radius: 50px 0 50px 0;
+            width: clamp(380px, 46.09vw, 885px);
+            height: clamp(240px, 29.22vw, 561px);
+            border-radius: clamp(16px, 2.6vw, 50px) 0 clamp(16px, 2.6vw, 50px) 0;
             background: url('../assets/rnd/img_rnd-scene-3.png') no-repeat center/cover;
         }
 
         .scene-img.s4 {
-            width: 354px;
-            height: 514px;
-            border-radius: 0 50px 50px 50px;
+            width: clamp(152px, 18.43vw, 354px);
+            height: clamp(222px, 26.77vw, 514px);
+            border-radius: 0 clamp(16px, 2.6vw, 50px) clamp(16px, 2.6vw, 50px) clamp(16px, 2.6vw, 50px);
             background: url('../assets/rnd/img_rnd-scene-4.png') no-repeat center/cover;
         }
 

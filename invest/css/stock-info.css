@@ -21,7 +21,7 @@
     position: relative;
     min-height: 250vh;
     /* CSS fallback, JS가 정확한 값으로 덮어씀 */
-    padding-bottom: 100px;
+    padding-bottom: var(--section-padding-y);
 }
 
 .hero-text-inner {
@@ -32,7 +32,7 @@
 }
 
 .hero-text-section {
-    padding: 100px 80px 0;
+    padding: var(--section-padding-y) var(--section-padding-x) 0;
     text-align: center;
 }
 
@@ -248,7 +248,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 100px;
+    padding-top: var(--section-padding-y);
 }
 
 .pi-top-wrapper {
@@ -261,7 +261,7 @@
 .product-intro .accordion {
     width: 100%;
     margin-top: 60px;
-    padding: 40px 0 100px;
+    padding: 40px 0 var(--section-padding-y);
 }
 
 .pi-left {
@@ -449,7 +449,7 @@ img.ic-download {
 
 /* ===== Accordion (Figma Specs) ===== */
 .accordion {
-    padding: 40px 0 100px;
+    padding: 40px 0 var(--section-padding-y);
     background: #fff;
 }
 
@@ -682,7 +682,7 @@ img.ic-download {
 .usage-section {
     width: 100%;
     background: #FFFFFF;
-    padding: 100px 0;
+    padding: var(--section-padding-y) 0;
     /* 위아래 여백으로 자연스럽게 높이 확보 */
 }
 
@@ -1209,7 +1209,7 @@ img.ic-download {
     }
 
     .hero-text-section {
-        padding: 100px 5vw 0;
+        padding: var(--section-padding-y) 5vw 0;
     }
 }
 
@@ -1675,14 +1675,14 @@ img.ic-download {
 
     .spec-head {
         width: 150px;
-        height: 100px;
+        height: 70px;
         box-sizing: border-box;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .spec-value {
         width: 150px;
-        height: 90px;
+        height: 60px;
         box-sizing: border-box;
         font-size: 14px;
     }
@@ -2757,7 +2757,7 @@ img.ic-download {
 
 /* ===== 🌟 DiKel BI (스펙 업데이트 적용) 🌟 ===== */
 .bi-section {
-    padding: 100px 0 100px;
+    padding: var(--section-padding-y) 0;
     /* 위 TBD 박스와의 간격 100px */
     background: #fff;
     width: 100%;
@@ -3575,11 +3575,9 @@ body {
     align-items: flex-end;
     padding: 0px;
     width: 100%;
-    height: 3.6458vw;
-    /* 70px / 1920px */
+    height: clamp(50px, 3.6458vw, 70px);
     background: #FFFFFF;
-    border-bottom: 0.052vw solid #E9E9E9;
-    /* 1px / 1920px */
+    border-bottom: 1px solid #E9E9E9;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -3593,22 +3591,17 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px 1.0416vw;
-    /* 20px / 1920px */
-    width: 16.4583vw;
-    /* 316px / 1920px */
-    height: 3.125vw;
-    /* 60px / 1920px */
-    border-bottom: 0.1041vw solid #E9E9E9;
-    /* 2px / 1920px */
+    padding: 0px clamp(12px, 1.0416vw, 20px);
+    width: clamp(120px, 16.4583vw, 316px);
+    height: clamp(40px, 3.125vw, 60px);
+    border-bottom: 2px solid #E9E9E9;
     flex: none;
     flex-grow: 0;
     cursor: pointer;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.3541vw;
-    /* 26px / 1920px */
+    font-size: clamp(18px, 1.3541vw, 26px);
     line-height: 150%;
     text-align: center;
     color: #A7A7A7;
@@ -3617,8 +3610,7 @@ body {
 }
 
 .tab-item.active {
-    border-bottom: 0.1041vw solid #A7A7A7;
-    /* 2px / 1920px */
+    border-bottom: 2px solid #A7A7A7;
     color: #1B1B1B;
 }
 
@@ -5962,11 +5954,11 @@ body {
 .stock-pb-price-wrap {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: baseline;
     padding: 0px;
-    gap: 14px;
-    width: 268px;
-    height: 112px;
+    gap: clamp(8px, 0.73vw, 14px);
+    width: auto;
+    height: auto;
     flex: none;
     order: 0;
     align-self: stretch;
@@ -5985,15 +5977,15 @@ body {
 }
 
 .stock-pb-currency {
-    width: 72px;
-    height: 59px;
+    width: auto;
+    height: auto;
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 26px;
+    font-size: clamp(18px, 1.35vw, 26px);
     line-height: 150%;
     color: #363636;
     display: flex;
-    align-items: flex-start;
+    align-items: baseline;
 }
 
 .stock-pb-bot {
@@ -6197,29 +6189,29 @@ body {
 .stock-mc-val-wrap {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: baseline;
     padding: 0px;
-    gap: 14px;
-    width: 293px;
-    height: 84px;
+    gap: clamp(8px, 0.73vw, 14px);
+    width: auto;
+    height: auto;
 }
 
 .stock-mc-price {
-    width: 160px;
-    height: 84px;
+    width: auto;
+    height: auto;
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 60px;
+    font-size: clamp(36px, 3.125vw, 60px);
     line-height: 140%;
     color: #000000;
 }
 
 .stock-mc-currency {
-    width: 72px;
-    height: 59px;
+    width: auto;
+    height: auto;
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 26px;
+    font-size: clamp(18px, 1.35vw, 26px);
     line-height: 150%;
     color: #363636;
 }
@@ -7112,79 +7104,83 @@ body {
     display: none;
 }
 
-@media (max-width: 1439px) {
-    .dividend-scroll-wrap {
-        display: block;
-        width: 100%;
-        height: 16px;
-        margin: 0 auto;
-        position: relative;
-    }
+/* 커스텀 스크롤바 — 기본 숨김, JS에서 오버플로우 감지 시 .has-scroll 추가 */
+.dividend-scroll-wrap {
+    display: none;
+    width: 100%;
+    height: 16px;
+    margin: 0 auto;
+    position: relative;
+}
 
-    .dividend-scroll-track {
-        position: absolute;
-        width: calc(100% - 4px);
-        height: 4px;
-        left: 2px;
-        top: 6px;
-        background: rgba(211, 211, 211, 0.3);
-        border-radius: 2px;
-    }
+.dividend-scroll-wrap.has-scroll {
+    display: block;
+}
 
-    .dividend-scroll-thumb {
-        position: absolute;
-        width: 50%;
-        height: 4px;
-        left: 2px;
-        top: 6px;
-        background: #D3D3D3;
-        border-radius: 2px;
-        transition: left 0.1s ease-out;
-    }
+.dividend-scroll-track {
+    position: absolute;
+    width: calc(100% - 4px);
+    height: 4px;
+    left: 2px;
+    top: 6px;
+    background: rgba(211, 211, 211, 0.3);
+    border-radius: 2px;
+}
+
+.dividend-scroll-thumb {
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    left: 2px;
+    top: 6px;
+    background: #D3D3D3;
+    border-radius: 2px;
+    transition: left 0.1s ease-out;
 }
 
 .dividend-table {
-    width: 1680px;
+    width: 100%;
     border-collapse: collapse;
     border-bottom: 1px solid #000000;
+    table-layout: auto;
 }
 
 .dividend-table th {
     box-sizing: border-box;
-    width: 280px;
-    height: 100px;
+    height: auto;
     background: #F8F9FB;
     border-top: 1px solid #000000;
-    padding: 18px 24px;
+    padding: clamp(18px, 1.67vw, 32px) clamp(16px, 1.25vw, 24px);
     font-family: 'Pretendard';
     font-weight: 700;
-    font-size: 24px;
+    font-size: clamp(18px, 1.25vw, 24px);
     line-height: 150%;
     color: #363636;
     text-align: center;
+    white-space: nowrap;
 }
 
 /* 첫 번째 열 (구분) */
 .dividend-table th:first-child,
 .dividend-table td:first-child {
-    width: 280px;
     text-align: left;
+    white-space: nowrap;
 }
 
 .dividend-table td {
     box-sizing: border-box;
-    width: 280px;
-    height: 100px;
+    height: auto;
     background: #FFFFFF;
     border-top: 1px solid #D3D3D3;
     border-right: 1px solid #D3D3D3;
-    padding: 18px 24px;
+    padding: clamp(18px, 1.77vw, 34px) clamp(16px, 1.25vw, 24px);
     font-family: 'Pretendard';
     font-weight: 400;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 160%;
     color: #363636;
     text-align: center;
+    white-space: nowrap;
 }
 
 .dividend-table td:last-child {
@@ -7198,7 +7194,7 @@ body {
     align-items: flex-start;
     padding: 20px 0px;
     gap: 8px;
-    width: 1680px;
+    width: 100%;
     height: auto;
 }
 
@@ -7356,12 +7352,13 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    width: 402px;
-    height: 438px;
+    width: auto;
+    height: auto;
     background: #FFFFFF;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
     box-sizing: border-box;
     flex: 1;
+    min-width: 0;
 }
 
 .strength-img-box {
@@ -7370,8 +7367,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0px;
-    width: 382px;
-    height: 200px;
+    width: 100%;
+    height: clamp(120px, 10.4vw, 200px);
     background: #F8F9FB;
     border-radius: 24px 24px 0px 0px;
     flex: none;
@@ -7388,19 +7385,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
-    gap: 40px;
-    width: 382px;
-    height: 218px;
+    padding: clamp(12px, 1.04vw, 20px);
+    gap: clamp(20px, 2.08vw, 40px);
+    width: 100%;
+    height: auto;
     box-sizing: border-box;
 }
 
 .strength-label {
     width: 100%;
-    height: 36px;
+    height: auto;
     font-family: 'Pretendard';
     font-weight: 700;
-    font-size: 24px;
+    font-size: clamp(18px, 1.25vw, 24px);
     line-height: 150%;
     color: #4E4E4E;
     margin: 0;
@@ -7420,7 +7417,7 @@ body {
     height: auto;
     font-family: 'Pretendard';
     font-weight: 700;
-    font-size: 36px;
+    font-size: clamp(24px, 1.875vw, 36px);
     line-height: 150%;
     color: #000000;
     margin: 0;
@@ -7431,12 +7428,36 @@ body {
     height: auto;
     font-family: 'Pretendard';
     font-weight: 400;
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     line-height: 150%;
     color: #4E4E4E;
     margin: 0;
 }
 
+/* 태블릿: 2x2 그리드 */
+@media (min-width: 768px) and (max-width: 1439px) {
+    .investment-strengths-section {
+        padding: 40px 24px;
+        height: auto;
+        gap: 30px;
+    }
+
+    .strengths-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        height: auto;
+        gap: 16px;
+    }
+
+    .strength-card {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+    }
+}
+
+/* 모바일: 세로 1열 + 아이콘 우상단 */
 @media (max-width: 767px) {
     .investment-strengths-section {
         padding: 40px 16px;
@@ -7451,6 +7472,7 @@ body {
     }
 
     .strengths-cards {
+        display: flex;
         flex-direction: column;
         width: 100%;
         height: auto;
@@ -7463,13 +7485,12 @@ body {
         justify-content: space-between;
         align-items: center;
         padding: 20px;
-        width: 328px;
+        width: 100%;
         height: auto;
         min-height: 189px;
         background: #FFFFFF;
         border-radius: 16px;
         box-sizing: border-box;
-        margin: 0 auto;
     }
 
     .strength-img-box {
@@ -7626,8 +7647,7 @@ body {
 
 .fs-chart-area {
     position: absolute;
-    width: clamp(180px, 24.27vw, 466px);
-    /* Lowered for extreme narrowing */
+    width: calc(100% - clamp(32px, 4.16vw, 80px));
     height: clamp(204px, 21.1vw, 405.27px);
     left: clamp(16px, 2.08vw, 40px);
     top: clamp(75px, 6.98vw, 134px);
@@ -7685,7 +7705,7 @@ body {
     justify-content: space-between;
     gap: 0px;
     position: absolute;
-    width: clamp(140px, 19.375vw, 372px);
+    width: calc(100% - clamp(72px, 4.79vw, 92px));
     /* height = fs-grid-rows height - fs-chart-row height */
     height: calc(clamp(183px, 17.18vw, 330px) - clamp(21px, 1.56vw, 30px));
     /* top = fs-chart-row height / 2 */
@@ -7698,13 +7718,14 @@ body {
 .fs-chart-column {
     display: flex;
     flex-direction: column;
-    width: clamp(43px, 5.13vw + 24.5px, 123px);
+    width: 30%;
     height: 100%;
     position: relative;
 }
 
 .fs-bar {
     width: clamp(43px, 1.86vw + 36.3px, 72px);
+    max-width: 90%;
     border-radius: 8px 8px 0px 0px;
     background: #A7A7A7;
     position: absolute;
@@ -7917,7 +7938,7 @@ body {
 }
 
 .fs-table-header .fs-table-cell:first-child {
-    flex: 0 0 clamp(180px, 11.45vw, 220px);
+    flex: 0 0 clamp(180px, 14.58vw, 280px);
     justify-content: flex-start;
 }
 
@@ -7934,14 +7955,18 @@ body {
 }
 
 .fs-table-cell.label {
-    flex: 0 0 clamp(180px, 11.45vw, 220px);
+    flex: 0 0 clamp(180px, 14.58vw, 280px);
     justify-content: flex-start;
-    padding-left: clamp(12px, 0.83vw, 16px);
+    padding-left: clamp(12px, 1.25vw, 24px);
     font-weight: 700;
 }
 
+.m-br {
+    display: none;
+}
+
 .fs-table-cell.sub-label {
-    flex: 0 0 clamp(180px, 11.45vw, 220px);
+    flex: 0 0 clamp(180px, 14.58vw, 280px);
     justify-content: flex-start;
     padding: 18px clamp(8px, 0.83vw, 16px) 18px clamp(24px, 1.67vw, 32px);
     font-weight: 700;
@@ -8050,13 +8075,10 @@ body {
     .fs-graph-box {
         flex: none;
         width: 100%;
-        max-width: 544px;
-        /* Allow growth on tablets */
-        /* Soft-coding: 328px at 360vw, 540px at 960vw */
+        max-width: none;
         height: clamp(328px, 35.33vw + 200.8px, 540px);
         border: 0.6px solid #E9E9E9;
         border-radius: 16px;
-        margin: 0 auto;
     }
 
     .fs-graph-title {
@@ -8069,9 +8091,8 @@ body {
 
     .fs-chart-area {
         position: absolute;
-        /* Soft-coding using linear interpolation between 360px and 960px benchmarks */
-        width: clamp(296px, 28.33vw + 194px, 466px);
-        left: clamp(16px, 4vw + 1.6px, 40px);
+        width: calc(100% - 32px);
+        left: 16px;
         top: clamp(75px, 9.83vw + 39.6px, 134px);
         bottom: clamp(49px, 3.83vw + 35.2px, 72px);
         height: auto;
@@ -8121,17 +8142,13 @@ body {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-        justify-content: center;
-        gap: clamp(16px, 8.6vw, 32px);
+        justify-content: space-evenly;
+        gap: 0;
         position: absolute;
-        width: 75.6%;
-        /* 224/296 */
-        /* height = 100% - row height (21px) */
+        width: calc(100% - 72px);
         height: calc(100% - 21px);
-        /* top = row height / 2 (10.5px) */
         top: 10.5px;
-        left: 24.3%;
-        /* 72/296 */
+        left: 72px;
         padding: 0;
         box-sizing: border-box;
     }
@@ -8139,13 +8156,13 @@ body {
     .fs-chart-column {
         display: flex;
         flex-direction: column;
-        width: clamp(43px, 5.13vw + 24.5px, 123px);
+        width: 30%;
         height: 100%;
         position: relative;
     }
 
     .fs-bar {
-        width: clamp(43px, 1.86vw + 36.3px, 72px);
+        width: clamp(36px, 85%, 72px);
         border-radius: 6px 6px 0px 0px;
         background: #A7A7A7;
         position: absolute;
@@ -8260,6 +8277,10 @@ body {
         /* Reset padding for mobile */
     }
 
+    .m-br {
+        display: inline;
+    }
+
     .fs-table-cell.sub-label {
         padding: 16px 16px 16px 30px;
         font-size: 16px;
@@ -8312,15 +8333,7 @@ body {
         width: 100%;
     }
 
-    .strengths-cards {
-        width: min(100%, calc(100vw - 40px));
-        margin-left: auto;
-        margin-right: auto;
-    }
 
-    .strength-card {
-        width: 100%;
-    }
 }
 
 @media (max-width: 767px) {
@@ -8352,8 +8365,8 @@ body {
     }
 
     .fs-bar-columns {
-        justify-content: space-between;
-        gap: 6px;
+        justify-content: space-evenly;
+        gap: 0;
         left: 52px;
         right: 0;
         width: auto;
@@ -8364,11 +8377,11 @@ body {
         flex: 1 1 0;
         width: auto;
         min-width: 32px;
-        max-width: 56px;
+        max-width: none;
     }
 
     .fs-bar {
-        width: min(100%, 32px);
+        width: clamp(43px, 7.13vw + 17.3px, 72px);
     }
 
     .fs-year {

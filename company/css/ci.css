@@ -36,7 +36,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 70px 0 100px;
+    padding: 70px 0 var(--section-padding-y);
     gap: clamp(40px, 3.65vw, 70px);
     width: 100%;
     max-width: 1920px;
@@ -444,6 +444,18 @@ body {
     color: var(--gray-300);
 }
 
+
+/* ── 태블릿: 전용색상 간격/크기 ── */
+@media (min-width: 768px) and (max-width: 1439px) {
+    .colors-flex {
+        gap: clamp(60px, 10vw, 160px);
+        justify-content: center;
+    }
+
+    .color-info-card {
+        width: auto;
+    }
+}
 
 /* Responsive (Mobile 360px) */
 @media (max-width: 767px) {

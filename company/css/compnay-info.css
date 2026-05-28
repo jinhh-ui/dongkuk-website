@@ -46,7 +46,7 @@
 }
 
 .hero-text-section {
-    padding: 100px 80px 0;
+    padding: var(--section-padding-y) var(--section-padding-x) 0;
     text-align: center;
 }
 
@@ -146,8 +146,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
 }
 
 /* CEO Message Section */
@@ -159,6 +159,7 @@
     gap: clamp(10px, 0.83vw, 16px);
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
     background: #FFFFFF;
     box-sizing: border-box;
 }
@@ -235,7 +236,7 @@
 
 /* ===== Accordion (Figma Specs) ===== */
 .accordion {
-    padding: 40px 0 100px;
+    padding: 40px 0 var(--section-padding-y);
     background: #fff;
 }
 
@@ -255,6 +256,7 @@
     gap: clamp(20px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
     background: #FFFFFF;
     box-sizing: border-box;
     position: relative;
@@ -357,6 +359,7 @@
     gap: clamp(24px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
     background: #FFFFFF;
     box-sizing: border-box;
 }
@@ -504,6 +507,7 @@
     padding: var(--section-padding-x);
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
     background: #FFFFFF;
     box-sizing: border-box;
 }
@@ -644,6 +648,7 @@
     gap: clamp(30px, 2.6vw, 50px);
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
     background: #F1EDEA;
     box-sizing: border-box;
 }
@@ -1708,7 +1713,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 0;
+    padding: var(--section-padding-y) 0;
 }
 
 .story-section .inner {
@@ -2002,7 +2007,7 @@
 
 /* ===== 🌟 DiKel BI (스펙 업데이트 적용) 🌟 ===== */
 .bi-section {
-    padding: 100px 0 100px;
+    padding: var(--section-padding-y) 0;
     /* 위 TBD 박스와의 간격 100px */
     background: #fff;
     width: 100%;
