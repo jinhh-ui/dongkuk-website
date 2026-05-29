@@ -253,7 +253,7 @@
 
 .pi-top-wrapper {
     display: flex;
-    gap: 6.25rem;
+    gap: 100px;
     align-items: flex-start;
     width: 100%;
 }
@@ -403,9 +403,9 @@ img.ic-download {
 }
 
 .br-btn {
-    padding: 0.625rem 1.375rem;
+    padding: 10px 22px;
     border-radius: 50px;
-    font-size: 0.9375rem;
+    font-size: 15px;
     font-weight: 700;
     border: none;
     cursor: pointer;
@@ -432,13 +432,13 @@ img.ic-download {
     max-width: 828px;
     min-width: 0;
     height: 720px;
-    border-radius: 1rem;
+    border-radius: 16px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #9E9E9E;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .pi-right img {
@@ -1205,7 +1205,7 @@ img.ic-download {
 /* ===== Responsive: 1280–1760 ===== */
 @media (max-width: 1439px) {
     .feature-cards {
-        padding: 2.5rem 5vw 0;
+        padding: 40px 5vw 0;
     }
 
     .hero-text-section {
@@ -2968,12 +2968,12 @@ img.ic-download {
 .bi-sub {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 20px;
     width: 100%;
 }
 
 .bi-sub-title {
-    font-size: 1.875rem;
+    font-size: 30px;
     font-weight: 700;
     color: #4E4E4E;
 }
@@ -3427,8 +3427,8 @@ img.ic-download {
 }
 
 .color-circle-inner {
-    width: 6.25rem;
-    height: 6.25rem;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: transparent;
     padding: 0 var(--section-padding-x);
@@ -3482,7 +3482,7 @@ img.ic-download {
     }
 
     .footer-content {
-        padding: 5rem 5vw 2.5rem;
+        padding: 80px 5vw 40px;
     }
 }
 
@@ -3922,14 +3922,14 @@ body {
 
 /* ===== Why DiKel? ===== */
 .why-section {
-    padding: 7.5rem 0;
+    padding: 120px 0;
     background: #fff;
 }
 
 .why-section .inner {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 40px;
     max-width: 1920px;
     margin: 0 auto;
     padding: 0 var(--section-padding-x);
@@ -3946,7 +3946,7 @@ body {
     font-weight: 400;
     color: #111;
     line-height: 1.4;
-    max-width: 81.8125rem;
+    max-width: 1309px;
 }
 
 /* 📍 ===== DiKel 지속가능 가치 (피그마 좌표/스펙 완벽 반영) ===== */
@@ -4673,9 +4673,9 @@ body {
 
 .gallery-img {
     flex: none;
-    width: 28.75rem;
-    height: 28.75rem;
-    border-radius: 3.75rem;
+    width: 460px;
+    height: 460px;
+    border-radius: 60px;
     overflow: hidden;
     margin-right: 24px;
 }

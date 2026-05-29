@@ -26,7 +26,7 @@
       title: '회사정보',
       img: 'gnb/img_company.png',
       items: [
-        { text: '회사소개', href: B + 'company/compnay-info.html', key: 'company-info' },
+        { text: '회사소개', href: B + 'company/company-info.html', key: 'company-info' },
         { text: '연혁', href: B + 'company/history.html', key: 'history' },
         { text: '네트워크', href: B + 'company/network.html', key: 'network' },
         { text: 'CI', href: B + 'company/ci.html', key: 'ci' },
@@ -390,6 +390,14 @@
           allSubs[i].classList.remove('is-open');
         }
       }
+    });
+  }
+
+  /* ── 메뉴 내 링크 클릭 시 메뉴 닫기 (탭 전환 포함) ── */
+  var menuLinks = menu.querySelectorAll('a[href]');
+  for (var ml = 0; ml < menuLinks.length; ml++) {
+    menuLinks[ml].addEventListener('click', function () {
+      closeMenu();
     });
   }
 

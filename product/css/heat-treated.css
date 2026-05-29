@@ -438,9 +438,9 @@ img.ic-download {
 }
 
 .br-btn {
-    padding: 0.625rem 1.375rem;
+    padding: 10px 22px;
     border-radius: 50px;
-    font-size: 0.9375rem;
+    font-size: 15px;
     font-weight: 700;
     border: none;
     cursor: pointer;
@@ -472,7 +472,7 @@ img.ic-download {
     align-items: center;
     justify-content: center;
     color: #9E9E9E;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .pi-right img {
@@ -1196,7 +1196,7 @@ img.ic-download {
 /* ===== Responsive: 1280–1760 ===== */
 @media (max-width: 1439px) {
     .feature-cards {
-        padding: 2.5rem 5vw 0;
+        padding: 40px 5vw 0;
     }
 
     .hero-text-section {

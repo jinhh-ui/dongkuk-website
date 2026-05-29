@@ -371,6 +371,12 @@
         // Dikel 텍스트: step 0(니켈도금강판)에서만 표시
         var dikelName = document.getElementById('product-dikel-name');
         if (dikelName) dikelName.style.opacity = idx === 0 ? '1' : '0';
+        // 제품정보 버튼 href 동적 변경
+        var prodLinks = ['product/dikel.html', 'product/cold-rolled.html', 'product/heat-treated.html'];
+        var linkEl = document.getElementById('prod-detail-link');
+        var arrowEl = document.getElementById('prod-detail-arrow');
+        if (linkEl) linkEl.href = prodLinks[idx] || prodLinks[0];
+        if (arrowEl) arrowEl.href = prodLinks[idx] || prodLinks[0];
       }
 
       /* ── 제품정보 버튼: body로 이동하여 3D 캔버스 위에 렌더링 ── */

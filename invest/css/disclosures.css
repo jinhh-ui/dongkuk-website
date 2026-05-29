@@ -224,6 +224,10 @@
     padding: 10px 14px 10px 18px;
     width: max-content;
     height: max-content;
+    border-radius: 1000px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .ds-download-label {
@@ -232,6 +236,7 @@
     font-size: clamp(16px, 1.04vw, 20px);
     line-height: 160%;
     color: #4E4E4E;
+    transition: color 0.2s;
 }
 
 .ds-icon-download {
@@ -279,13 +284,12 @@
     cursor: default;
 }
 
-.ds-btn-download {
-    cursor: pointer;
-    transition: background 0.15s;
+.ds-btn-download:hover {
+    background: #F5F5F5;
 }
 
-.ds-btn-download:hover {
-    background: #D9D9D9;
+.ds-btn-download:hover .ds-download-label {
+    color: #1B1B1B;
 }
 
 .ds-btn-more {
