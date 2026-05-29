@@ -101,7 +101,7 @@ body {
     font-weight: 700;
     line-height: 140%;
     text-align: center;
-    margin-bottom: 240px;
+    margin-bottom: clamp(120px, 12.5vw, 240px);
     color: #000000;
 }
 
@@ -179,13 +179,11 @@ body .no-transition *,
 /* ===== 궤도 원 ===== */
 .orb-wrapper {
     position: absolute;
-    top: 20.1041vw;
-    /* 386px / 1920px */
+    top: clamp(240px, 20.1vw, 386px);
     left: 50%;
     transform: translateX(-50%);
-    width: 166.9791vw;
-    /* 3206px / 1920px */
-    height: 166.9791vw;
+    width: clamp(999px, 167vw, 3206px);
+    height: clamp(999px, 167vw, 3206px);
     pointer-events: none;
     z-index: 0;
 }
