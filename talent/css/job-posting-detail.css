@@ -1,0 +1,359 @@
+/* ══════════════════════════════════════
+   채용공고 상세 (job-posting-detail.html)
+   GP: 1920px / GM: 360px
+   Figma file: 9atg0Kz3RdcbBqpN2Ozdsd  Page 4
+   GP frame: 146:3418 / GM frame: 146:3586
+══════════════════════════════════════ */
+
+
+/* ── 페이지 헤더 ── */
+/* GP: h=366, pb=100, gap=70 after GNB(h=90), title fs=80, fw=700, center */
+.jpd-page-header {
+    padding: 70px 120px 100px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jpd-page-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.325;
+    text-align: center;
+}
+
+
+/* ── 콘텐츠 컨테이너 ── */
+/* GP: pt=100, pb=100, pl=120, pr=120, gap=50 */
+.jpd-container {
+    background: #fff;
+    padding: 100px 120px;
+}
+
+/* GP: inner — horizontal, gap=50, w=1680 */
+.jpd-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+
+/* ── 왼쪽 패널 ── */
+/* GP: w=1200, gap=60 between title and image */
+.jpd-left {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    flex: 0 0 1200px;
+    max-width: 1200px;
+}
+
+/* GP: 공고 제목 — fs=44, fw=700, color=#000, h=66 */
+.jpd-job-title {
+    font-size: 44px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* GP: 이미지 영역 — 1200×1444, bg=#F1F3F7, radius=30 */
+.jpd-job-image {
+    width: 1200px;
+    height: 1444px;
+    background: #F1F3F7;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.jpd-job-image-placeholder {
+    font-size: 20px;
+    font-weight: 500;
+    color: #7A7A7A;
+}
+
+
+/* ── 오른쪽 패널 ── */
+/* GP: w=400, pt=126(공고 제목 높이+gap=66+60=126), gap=30 */
+.jpd-right {
+    flex: 0 0 400px;
+    max-width: 400px;
+    padding-top: 126px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+/* ── 정보 카드 ── */
+/* GP: 400×694, pt=32, pb=32, pl=32, pr=32, radius=30, border=1px #D3D3D3 */
+.jpd-info-card {
+    width: 400px;
+    padding: 32px;
+    border-radius: 30px;
+    border: 1px solid #D3D3D3;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+/* GP: 정보 행 컨테이너 — gap=30 */
+.jpd-info-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* GP: 각 행 — vertical, gap=10 */
+.jpd-info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* GP: 라벨 — fs=20, fw=500, color=#7A7A7A */
+.jpd-info-label {
+    font-size: 20px;
+    font-weight: 500;
+    color: #7A7A7A;
+    line-height: 1.6;
+}
+
+/* GP: 값 — fs=26, fw=700, color=#1B1B1B */
+.jpd-info-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1B1B1B;
+    line-height: 1.5;
+}
+
+/* GP: 버튼 그룹 — gap=16 */
+.jpd-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* GP: 버튼 — w=336, h=80, radius=10, fs=24, fw=700 */
+.jpd-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 336px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    box-sizing: border-box;
+}
+
+.jpd-btn:hover {
+    opacity: 0.85;
+}
+
+/* primary: bg=#F27100, color=#fff */
+.jpd-btn--primary {
+    background: #F27100;
+    color: #fff;
+    border: 1px solid #F27100;
+}
+
+/* outline: border=#F27100, color=#F27100 */
+.jpd-btn--outline {
+    background: transparent;
+    color: #F27100;
+    border: 1px solid #F27100;
+}
+
+
+/* ── 안내 문구 ── */
+/* GP: fs=20, fw=400, color=#4E4E4E */
+.jpd-note {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 태블릿 (768px ~ 1439px)
+══════════════════════════════════════ */
+@media (max-width: 1439px) {
+
+    .jpd-page-header {
+        padding: 50px 40px 60px;
+    }
+
+    .jpd-page-title {
+        font-size: clamp(36px, 5vw, 60px);
+    }
+
+    .jpd-container {
+        padding: 60px 40px;
+    }
+
+    .jpd-inner {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .jpd-left {
+        flex: 1 1 60%;
+        max-width: 100%;
+    }
+
+    .jpd-job-title {
+        font-size: clamp(22px, 3vw, 36px);
+    }
+
+    .jpd-job-image {
+        width: 100%;
+        height: 600px;
+    }
+
+    .jpd-right {
+        flex: 1 1 300px;
+        max-width: 400px;
+        padding-top: 0;
+    }
+
+    .jpd-info-card {
+        width: 100%;
+    }
+
+    .jpd-btn {
+        width: 100%;
+    }
+
+    .jpd-info-label {
+        font-size: 18px;
+    }
+
+    .jpd-info-value {
+        font-size: 22px;
+    }
+
+    .jpd-btn {
+        height: 64px;
+        font-size: 20px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 모바일 (~ 767px)
+   GM frame: 146:3586, 360px
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* GM: Page Header — pb=30, fs=30, center */
+    .jpd-page-header {
+        padding: 20px 16px 30px;
+        justify-content: center;
+    }
+
+    .jpd-page-title {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    /* GM: Container — pt=40, pb=40, pl=16, pr=16, gap=30 */
+    .jpd-container {
+        padding: 40px 16px;
+    }
+
+    .jpd-inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .jpd-left {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        gap: 30px;
+    }
+
+    /* GM: 공고 제목 — fs=26, fw=700, w=328, h=78 */
+    .jpd-job-title {
+        font-size: 26px;
+        line-height: 1.5;
+    }
+
+    /* GM: 이미지 영역 — 328×972, bg=#F1F3F7, radius=16 */
+    .jpd-job-image {
+        width: 100%;
+        height: 972px;
+        border-radius: 16px;
+    }
+
+    .jpd-right {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        padding-top: 0;
+        gap: 20px;
+    }
+
+    /* GM: 정보 카드 — pt=20, pb=20, pl=20, pr=20, radius=16, gap=30 */
+    .jpd-info-card {
+        width: 100%;
+        padding: 20px;
+        border-radius: 16px;
+        gap: 30px;
+    }
+
+    /* GM: 정보 행 — gap=20 */
+    .jpd-info-rows {
+        gap: 20px;
+    }
+
+    /* GM: 각 행 — gap=4 */
+    .jpd-info-row {
+        gap: 4px;
+    }
+
+    /* GM: 라벨 — fs=18, h=29 */
+    .jpd-info-label {
+        font-size: 18px;
+        height: 29px;
+    }
+
+    /* GM: 값 — fs=20 */
+    .jpd-info-value {
+        font-size: 20px;
+    }
+
+    /* GM: 버튼 그룹 — gap=10, w=288 */
+    .jpd-btn-group {
+        gap: 10px;
+        width: 288px;
+    }
+
+    /* GM: 버튼 — w=288, h=56, fs=16 */
+    .jpd-btn {
+        width: 288px;
+        height: 56px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    /* GM: 안내 문구 — fs=16 */
+    .jpd-note {
+        font-size: 16px;
+    }
+}

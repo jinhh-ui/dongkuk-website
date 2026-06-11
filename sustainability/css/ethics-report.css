@@ -1,0 +1,454 @@
+/* ══════════════════════════════════════
+   윤리경영 위반 신고 (ethics-report.html)
+   GP: 1920px / GM: 360px
+   Figma file: 9atg0Kz3RdcbBqpN2Ozdsd
+══════════════════════════════════════ */
+
+/* ── 탭 모바일 전용 span (기본=데스크톱) ── */
+.erp-tab-mob-br   { display: none; }
+.erp-tab-mob-text { display: none; }
+.erp-tab-desk-text { display: inline; }
+
+/* ── BR 반응형 제어 ── */
+.erp-br-gp { display: inline; }   /* GP only */
+.erp-br-gm { display: none; }     /* GM only */
+
+/* ── 페이지 헤더 ── */
+/* GP: h=366, GNB=90, gap=70, padBottom=100 */
+.erp-page-header {
+    padding: 70px 120px 100px;
+    background: #fff;
+}
+
+.erp-page-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* ── 탭 내비게이션 ── */
+/* GP node 1:695 — y=366, h=70 */
+.erp-tab-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+    padding: 0;
+}
+
+/* GP: 3 tabs at x=486/802/1118, each w=316, padLeft/Right=20 */
+.erp-tab-item {
+    font-size: 26px;
+    font-weight: 700;
+    color: #A7A7A7;
+    text-decoration: none;
+    padding: 16px 20px;
+    min-width: 316px;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+}
+
+.erp-tab-item:hover { color: #222; }
+.erp-tab-item.active {
+    color: #1B1B1B;
+    border-bottom-color: #A7A7A7;
+}
+
+/* ── 제보유형 / 제보자 보호관련 안내 ── */
+/* GP node 1:696 — padTop/Bot=100, padLeft/Right=120, gap=60 */
+.erp-info-section {
+    background: #fff;
+    padding: 100px 120px;
+}
+
+.erp-info-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* GP node 1:697 / 1:729 — h=296/295, gap=60 */
+.erp-info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+/* GP node 1:698 — w=500, h=296, radius=30 */
+.erp-info-img-wrap {
+    width: 500px;
+    height: 296px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.erp-info-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* GP node 1:701 — w=1120, gap=30 */
+.erp-info-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* GP node 1:702 — fontSize=36, fontWeight=700, color=#000, lineHeight=150% */
+.erp-info-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* GP node 1:703 — 배경 없음, 리스트 순수 텍스트 */
+.erp-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* GP list items — fontSize=20, fontWeight=400, color=rgb(78,78,78), lineHeight=160% */
+.erp-info-list li {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+    word-break: keep-all;
+}
+
+.erp-info-list li::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7A7A7A;
+}
+
+/* ── 처리절차 ── */
+/* GP node 1:748 — x=30, w=1860, h=806, padTop/Bot=100, padLeft/Right=80, bg=rgb(241,237,234), radius=30 */
+.erp-process-section {
+    background: #fff;
+    padding: 0 30px 0;
+}
+
+.erp-process-wrap {
+    background: #F1EDEA;
+    border-radius: 30px;
+    padding: 100px 80px;
+}
+
+.erp-process-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* GP node 1:749 — fontSize=50, fontWeight=700, color=#000, lineHeight=140% */
+.erp-process-title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* GP: process row — w=1680, h=496, gap=20, HORIZONTAL */
+.erp-process-steps {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* GP: each card w=513, h=496, pad=40, bg=white, radius=30
+   icon→title gap=12px / title→desc gap=40px (Figma 1:752 group structure) */
+.erp-step-card {
+    width: 512px;
+    height: 496px;
+    background: #fff;
+    border-radius: 30px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    box-sizing: border-box;
+}
+
+/* GP: icon 88×88, margin-bottom=12px (icon→title gap) */
+.erp-step-icon {
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+}
+
+.erp-step-icon img {
+    width: 88px;
+    height: 88px;
+    display: block;
+}
+
+/* GP: fontSize=36, fontWeight=700, color=#000, lineHeight=150%
+   margin-bottom=40px (title→desc gap) */
+.erp-step-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 40px 0;
+    line-height: 1.5;
+}
+
+/* GP: fontSize=20, fontWeight=400, color=rgb(78,78,78), lineHeight=160% */
+.erp-step-desc {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 29px;
+    margin: 0;
+    word-break: keep-all;
+}
+
+/* GP: arrow node 1:756/1:765 — w=31 */
+.erp-step-arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+}
+
+/* ── 버튼 섹션 ── */
+/* GP node 1:775 — padTop=60, gap=16 */
+.erp-btn-section {
+    background: #fff;
+    padding: 60px 120px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+/* GP: w=346, h=80, radius=10, fontSize=24, fontWeight=700 */
+.erp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 346px;
+    height: 80px;
+    padding: 0 40px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+/* GP node 1:776 — bg=rgb(242,113,0), color=white */
+.erp-btn--primary {
+    background: #F27100;
+    color: #fff;
+    border: 1px solid #F27100;
+}
+
+.erp-btn--primary:hover {
+    background: #d96400;
+    border-color: #d96400;
+}
+
+/* GP node 1:777 — stroke=rgb(242,113,0), color=rgb(242,113,0) */
+.erp-btn--outline {
+    background: transparent;
+    color: #F27100;
+    border: 1px solid #F27100;
+}
+
+.erp-btn--outline:hover {
+    background: #F27100;
+    color: #fff;
+}
+
+
+/* ── 고객지원 섹션 패딩 오버라이드 ── */
+[data-page="ethics-report"] .support-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* ══════════════════════════════════════
+   반응형 - 태블릿 (768~1439px)
+══════════════════════════════════════ */
+@media (max-width: 1439px) {
+    .erp-page-header { padding: 40px 60px 60px; }
+    .erp-page-title { font-size: 48px; }
+    .erp-tab-item { font-size: 20px; min-width: 240px; }
+
+    .erp-info-section { padding: 80px 60px; }
+    .erp-info-inner { gap: 50px; }
+    .erp-info-img-wrap { width: 360px; height: 214px; border-radius: 20px; }
+    .erp-info-list { padding: 0; }
+    .erp-info-title { font-size: 28px; }
+    .erp-info-list li { font-size: 16px; }
+
+    .erp-process-section { padding: 0 20px 40px; }
+    .erp-process-wrap { padding: 60px 60px; border-radius: 20px; }
+    .erp-process-title { font-size: 36px; }
+    .erp-step-card { padding: 32px; border-radius: 20px; gap: 0; }
+    .erp-step-icon { width: 64px; height: 64px; margin-bottom: 10px; }
+    .erp-step-icon img { width: 64px; height: 64px; }
+    .erp-step-title { font-size: 24px; margin-bottom: 32px; }
+    .erp-step-desc { font-size: 16px; }
+
+    .erp-btn-section { padding: 50px 60px; }
+    .erp-btn { width: 280px; height: 64px; font-size: 18px; }
+}
+
+
+/* ══════════════════════════════════════
+   반응형 - 모바일 (≤767px) GM 360px
+   Figma GM node: 1:788
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* BR 전환 */
+    .erp-br-gp { display: none; }
+    .erp-br-gm { display: inline; }
+
+    /* 탭 모바일 전용 span */
+    .erp-tab-mob-br   { display: inline; }
+    .erp-tab-desk-text { display: none; }
+    .erp-tab-mob-text { display: inline; }
+
+    /* 페이지 헤더 */
+    /* GM node 1:789 — h=176, padBottom=30, GNB=72 */
+    .erp-page-header { padding: 20px 16px 30px; }
+    /* GM node 1:792 — fontSize=30 */
+    .erp-page-title { font-size: 30px; font-weight: 700; text-align: left; margin: 0; }
+
+    /* 탭 — GM node 1:793 — h=66 */
+    .erp-tab-nav { padding: 0; }
+    .erp-tab-item {
+        flex: 1;
+        min-width: 0;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 20px 10px;
+        text-align: center;
+        white-space: normal;
+        word-break: keep-all;
+        line-height: 1.3;
+    }
+
+    /* 제보유형 / 보호안내 */
+    /* GM node 1:794 — padTop/Bot=40, padLeft/Right=16, gap=30 */
+    .erp-info-section { padding: 40px 16px; }
+    .erp-info-inner { gap: 30px; }
+    .erp-info-row {
+        flex-direction: column;
+        gap: 24px;
+    }
+    /* GM node 1:796 — w=328, h=185, radius=16 */
+    .erp-info-img-wrap {
+        width: 100%;
+        height: 185px;
+        border-radius: 16px;
+    }
+    /* GM node 1:797 — padLeft/Right=12 / 1:798 gap=16 */
+    .erp-info-body {
+        gap: 16px;
+        padding: 0 12px;
+    }
+    /* GM: fontSize=26 */
+    .erp-info-title { font-size: 26px; }
+    /* GM: 리스트에 배경색 없음 */
+    .erp-info-list {
+        background: transparent;
+        border-radius: 0;
+        padding: 0;
+        gap: 4px;
+    }
+    .erp-info-list li { font-size: 15px; line-height: 1.6; }
+
+    /* 처리절차 */
+    /* GM node 1:843 — w=360, padTop/Bot=40, padLeft/Right=16, bg=rgb(241,237,234) */
+    .erp-process-section { padding: 0; }
+    .erp-process-wrap {
+        border-radius: 0;
+        padding: 40px 16px;
+    }
+    .erp-process-inner { gap: 20px; }
+    /* GM node 1:845 — fontSize=30 */
+    .erp-process-title { font-size: 30px; }
+    /* GM: cards VERTICAL, gap=10 */
+    .erp-process-steps {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+    /* GM each card — w=328, pad=24, radius=16
+       icon→title gap=8px / title→desc gap=24px (Figma 1:848 group) */
+    .erp-step-card {
+        padding: 24px;
+        border-radius: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 0;
+        align-self: auto;
+    }
+    /* GM icon 56×56, margin-bottom=8px */
+    .erp-step-icon { width: 56px; height: 56px; margin-bottom: 8px; }
+    .erp-step-icon img { width: 56px; height: 56px; }
+    /* GM fontSize=26, margin-bottom=24px */
+    .erp-step-title { font-size: 26px; margin-bottom: 24px; }
+    /* GM fontSize=16 */
+    .erp-step-desc { font-size: 16px; }
+
+    /* Arrow: rotate + separator style */
+    .erp-step-arrow {
+        transform: rotate(90deg);
+        width: 100%;
+        height: 32px;
+        padding: 4px 0;
+        justify-content: center;
+        margin: 4px 0;
+    }
+
+    /* 버튼 */
+    /* GM node 1:869 — padTop/Bot=20, padLeft/Right=20, gap=10 */
+    .erp-btn-section {
+        padding: 20px;
+        gap: 10px;
+    }
+    /* GM node 1:870/1:871 — w=155, h=56, radius=10, fontSize=16 */
+    .erp-btn {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+        height: 56px;
+        font-size: 16px;
+        padding: 0 12px;
+        border-radius: 10px;
+    }
+}
