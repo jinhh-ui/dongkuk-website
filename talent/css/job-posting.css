@@ -334,26 +334,34 @@
 
     .job-list-row {
         padding: 24px 16px;
-        flex-wrap: wrap;
         gap: 16px;
+        height: auto;
     }
 
     .job-row-title {
-        font-size: 20px;
+        width: auto;
+        height: auto;
+    }
+
+    .job-row-right {
+        width: auto;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .job-row-tag {
+        width: auto;
+        white-space: nowrap;
+        font-size: clamp(16px, 1.5vw, 22px);
     }
 
     .job-row-date,
     .job-row-dday {
-        font-size: 16px;
+        font-size: clamp(14px, 1.5vw, 20px);
     }
 
     .job-badge {
         font-size: 16px;
-    }
-
-    .job-row-tag {
-        font-size: 18px;
-        width: auto;
     }
 
     .job-empty-text {

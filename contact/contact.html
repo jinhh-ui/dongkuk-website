@@ -328,22 +328,6 @@
 
     // 문의하기 버튼 → 유효성 검사 후 완료 페이지 이동
     document.querySelector('.ct-submit-btn').addEventListener('click', function() {
-        var fields = document.querySelectorAll('.ct-info-con .ct-input');
-        var nameVal   = fields[0] ? fields[0].value.trim() : '';
-        var phoneVal  = fields[1] ? fields[1].value.trim() : '';
-        var emailLocal = document.getElementById('emailLocal') ? document.getElementById('emailLocal').value.trim() : '';
-        var emailDomainVal = document.getElementById('emailDomain') ? document.getElementById('emailDomain').value.trim() : '';
-        var titleVal  = document.querySelector('.ct-content-con .ct-input') ? document.querySelector('.ct-content-con .ct-input').value.trim() : '';
-        var contentVal = document.querySelector('.ct-textarea') ? document.querySelector('.ct-textarea').value.trim() : '';
-        var agreed = document.getElementById('agreeCheck') ? document.getElementById('agreeCheck').checked : false;
-
-        if (!nameVal) { alert('이름을 입력해 주세요.'); fields[0] && fields[0].focus(); return; }
-        if (!phoneVal) { alert('연락처를 입력해 주세요.'); fields[1] && fields[1].focus(); return; }
-        if (!emailLocal || !emailDomainVal) { alert('이메일을 입력해 주세요.'); document.getElementById('emailLocal') && document.getElementById('emailLocal').focus(); return; }
-        if (!titleVal) { alert('제목을 입력해 주세요.'); document.querySelector('.ct-content-con .ct-input') && document.querySelector('.ct-content-con .ct-input').focus(); return; }
-        if (!contentVal) { alert('내용을 입력해 주세요.'); document.querySelector('.ct-textarea') && document.querySelector('.ct-textarea').focus(); return; }
-        if (!agreed) { alert('개인정보 수집 이용에 동의해 주세요.'); return; }
-
         window.location.href = 'contact-complete.html';
     });
     </script>
