@@ -72,17 +72,17 @@
       title: '지속가능경영',
       img: 'gnb/img_sustainability.png',
       items: [
-        { text: '지속가능경영 센터', href: '#', key: '' },
-        { text: '환경경영', href: '#', key: '' },
-        { text: '사회경영', href: '#', key: '', tabs: [
-          { text: '안전경영', href: '#' },
-          { text: '품질경영', href: '#' },
-          { text: '사회공헌', href: '#' }
+        { text: '지속가능경영 센터', href: B + 'sustainability/environment.html', key: 'environment' },
+        { text: '환경경영', href: B + 'sustainability/environment.html', key: 'environment' },
+        { text: '사회경영', href: B + 'sustainability/social-safety.html', key: 'social-safety', tabs: [
+          { text: '안전경영', href: B + 'sustainability/social-safety.html' },
+          { text: '품질경영', href: B + 'sustainability/social-quality.html' },
+          { text: '사회공헌', href: B + 'sustainability/social-welfare.html' }
         ] },
-        { text: '윤리경영', href: '#', key: '', tabs: [
-          { text: '윤리강령', href: '#' },
-          { text: '윤리실천 활동', href: '#' },
-          { text: '윤리경영 위반 신고', href: '#' }
+        { text: '윤리경영', href: B + 'sustainability/ethics.html', key: 'ethics', tabs: [
+          { text: '윤리강령', href: B + 'sustainability/ethics.html' },
+          { text: '윤리실천 활동', href: B + 'sustainability/ethics-activity.html' },
+          { text: '윤리경영 위반 신고', href: B + 'sustainability/ethics-report.html' }
         ] }
       ]
     },
@@ -90,11 +90,11 @@
       title: '인재경영',
       img: 'gnb/img_career.png',
       items: [
-        { text: '인재상', href: '#', key: '' },
+        { text: '인재상', href: B + 'talent/talent.html', key: 'talent' },
         { text: '직무소개', href: '#', key: '' },
-        { text: '복리후생', href: '#', key: '' },
-        { text: '채용안내', href: '#', key: '' },
-        { text: '채용공고', href: '#', key: '' }
+        { text: '복리후생', href: B + 'talent/welfare.html', key: 'welfare' },
+        { text: '채용안내', href: B + 'talent/recruit.html', key: 'recruit' },
+        { text: '채용공고', href: B + 'talent/job-posting.html', key: 'job-posting' }
       ]
     }
   ];
@@ -222,7 +222,11 @@
     });
   }
 
-  if (header && gnbUtils && !document.querySelector('.gnb-nav')) {
+  /* 기존 정적 .gnb-nav 제거 후 동적으로 재빌드 (서브메뉴 hover 지원) */
+  var existingNav = document.querySelector('.gnb-nav');
+  if (existingNav) existingNav.remove();
+
+  if (header && gnbUtils) {
       // ── nav 빌드: 각 항목에 gnb-submenu-wrap > gnb-submenu 구조 ──
       var navHtml = '<nav class="gnb-nav">';
       for (var i = 0; i < categories.length; i++) {
