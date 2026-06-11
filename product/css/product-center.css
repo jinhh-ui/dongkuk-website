@@ -821,27 +821,7 @@ body .no-transition *,
 
 
 
-/* ================= Support (Desktop Fit) ================= */
-@media (min-width: 768px) {
-    .support-info {
-        flex: 1;
-    }
 
-    .support-info h3,
-    .support-info p {
-        display: inline-block;
-        width: auto;
-        max-width: 100%;
-    }
-
-    .support-info h3 br {
-        display: none;
-    }
-
-    .support-info p br.mo-br {
-        display: none;
-    }
-}
 
 /* 반응형 줄바꿈 */
 .mob-br {
@@ -1404,28 +1384,7 @@ body .no-transition *,
         display: none;
     }
 
-    /* ── Support: Figma px-16, py-40 ── */
-    .support-section {
-        padding: 40px 16px;
-    }
 
-    .support-banner {
-        width: 100%;
-        border-radius: 16px;
-        padding: 24px 10px;
-        flex-direction: column;
-    }
-
-    .support-info h3 {
-        font-size: 24px;
-        line-height: 1.5;
-    }
-
-    .support-info p {
-        font-size: 16px;
-        line-height: 1.6;
-        padding: 0 16px;
-    }
 
 
 

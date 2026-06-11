@@ -5781,36 +5781,7 @@ body {
         display: block;
     }
 
-    /* ── 고객지원: 피그마 MOB py-[40px] px-[16px] round-[16px] ── */
-    .support-section {
-        padding: 40px 16px;
-    }
 
-    /* 불필요한 고정 너비와 flex 강제 오버라이드를 제거하여 common.css의 반응형 Grid 레이아웃을 살림 */
-    .support-banner {
-        width: 100%;
-        padding: 24px 10px;
-        border-radius: 16px;
-        box-sizing: border-box;
-    }
-
-    .support-info h3 {
-        font-size: 24px;
-        line-height: 1.5;
-        white-space: pre-wrap;
-    }
-
-    .support-info p {
-        font-size: 16px;
-        line-height: 1.6;
-        padding: 0 16px;
-        box-sizing: border-box;
-    }
-
-    /* 화살표 버튼 숨기기 (MOB에선 없음) */
-    .btn-arrow-right {
-        display: none;
-    }
 
     /* ── 문의 CTA ── */
     .inquiry-section .inner {

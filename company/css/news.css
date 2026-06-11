@@ -379,103 +379,7 @@ a {
     top: 3px;
 }
 
-/* Support Section */
-.support-section {
-    width: 100%;
-    background: #FFFFFF;
-    padding: var(--section-padding-y) var(--section-padding-x);
-    display: flex;
-    justify-content: center;
-    height: auto;
-    min-height: clamp(288px, 19.2vw, 370px);
-    align-items: flex-start;
-}
 
-.support-banner {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: clamp(24px, 2.08vw, 40px) clamp(10px, 2.6vw, 50px);
-    gap: clamp(20px, 1.04vw, 20px);
-    width: 100%;
-    max-width: 1680px;
-    height: auto;
-    min-height: clamp(208px, 10.9vw, 210px);
-    background: #F8F9FB;
-    border-radius: clamp(16px, 1.04vw, 20px);
-}
-
-.support-icon {
-    position: relative;
-    width: clamp(80px, 6.77vw, 130px);
-    height: clamp(80px, 6.77vw, 130px);
-    flex: none;
-}
-
-.support-icon::before {
-    content: '';
-    position: absolute;
-    width: clamp(57.85px, 4.89vw, 94px);
-    height: clamp(57.85px, 4.89vw, 94px);
-    left: 50%;
-    top: clamp(11.08px, 0.93vw, 18px);
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, #F3782B 50%, #FF9933 100%);
-    border-radius: 50%;
-}
-
-.support-icon::after {
-    content: '';
-    position: absolute;
-    width: clamp(20px, 1.45vw, 28px);
-    height: clamp(18px, 1.3vw, 25px);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: url('../assets/common/ic-support.svg') no-repeat center/contain;
-}
-
-.support-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: clamp(16px, 0.83vw, 16px);
-}
-
-.support-info h2 {
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: clamp(24px, 1.66vw, 32px);
-    line-height: 150%;
-    color: #1B1B1B;
-    word-break: keep-all;
-}
-
-.support-info p {
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 400;
-    font-size: clamp(16px, 1.14vw, 22px);
-    line-height: 160%;
-    color: #4E4E4E;
-    word-break: keep-all;
-}
-
-.support-arrow {
-    width: 64px;
-    height: 64px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 13px;
-    gap: 10px;
-    border-radius: 4px;
-}
 
 /* ── 태블릿: 뉴스 그리드 2열 ── */
 @media (min-width: 768px) and (max-width: 1439px) {
@@ -509,41 +413,7 @@ a {
         grid-template-columns: 1fr;
     }
 
-    .support-banner {
-        display: grid;
-        grid-template-columns: clamp(60px, 22vw, 80px) 1fr;
-        grid-template-rows: auto auto;
-        column-gap: 12px;
-        row-gap: 28px;
-    }
 
-    .support-icon {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    .support-info {
-        display: contents;
-    }
-
-    .support-info h2 {
-        grid-column: 2;
-        grid-row: 1;
-        text-align: left;
-        display: flex;
-        align-items: center;
-    }
-
-    .support-info p {
-        grid-column: 1 / span 2;
-        grid-row: 2;
-        padding: 0 16px;
-        text-align: left;
-    }
-
-    .support-arrow {
-        display: none;
-    }
 }
 
 /* Specific Design Parity Enforcement for 1920px */
@@ -560,11 +430,7 @@ a {
     .news-grid { gap: 60px 20px; }
     .card-title { font-size: 26px; }
     .card-date { font-size: 20px; }
-    .support-section { padding: var(--section-padding-y) var(--section-padding-x); min-height: 370px; }
-    .support-banner { padding: 40px 50px 40px 30px; border-radius: 20px; }
-    .support-icon { width: 130px; height: 130px; }
-    .support-info h2 { font-size: 32px; }
-    .support-info p { font-size: 22px; }
+
 }
 
 /* Specific Design Parity Enforcement for 360px */
@@ -595,9 +461,5 @@ a {
     .news-grid { gap: 30px; }
     .card-title { font-size: 18px; }
     .card-date { font-size: 16px; }
-    .support-section { padding: 40px 16px; min-height: 288px; }
-    .support-banner { padding: 24px 10px; border-radius: 16px; }
-    .support-icon { width: 80px; height: 80px; }
-    .support-info h2 { font-size: 24px; }
-    .support-info p { font-size: 16px; }
+
 }

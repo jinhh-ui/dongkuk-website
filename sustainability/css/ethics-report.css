@@ -126,24 +126,26 @@
 
 /* GP list items — fontSize=20, fontWeight=400, color=rgb(78,78,78), lineHeight=160% */
 .erp-info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
     font-size: 20px;
     font-weight: 400;
     color: #4E4E4E;
     line-height: 1.6;
-    padding-left: 20px;
-    position: relative;
     word-break: keep-all;
 }
 
 .erp-info-list li::before {
     content: '';
-    position: absolute;
-    left: 6px;
-    top: 12px;
+    display: inline-block;
+    flex-shrink: 0;
     width: 6px;
     height: 6px;
+    min-width: 6px;
     border-radius: 50%;
     background: #7A7A7A;
+    margin-top: 0.65em;
 }
 
 /* ── 처리절차 ── */
@@ -177,15 +179,15 @@
 /* GP: process row — w=1680, h=496, gap=20, HORIZONTAL */
 .erp-process-steps {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 20px;
 }
 
 /* GP: each card w=513, h=496, pad=40, bg=white, radius=30
    icon→title gap=12px / title→desc gap=40px (Figma 1:752 group structure) */
 .erp-step-card {
-    width: 512px;
-    height: 496px;
+    flex: 1;
+    min-width: 0;
     background: #fff;
     border-radius: 30px;
     padding: 40px;
@@ -234,8 +236,10 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
+    align-self: center;
     justify-content: center;
     width: 31px;
+    min-width: 31px;
 }
 
 /* ── 버튼 섹션 ── */
@@ -291,11 +295,7 @@
 }
 
 
-/* ── 고객지원 섹션 패딩 오버라이드 ── */
-[data-page="ethics-report"] .support-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
+
 
 /* ══════════════════════════════════════
    반응형 - 태블릿 (768~1439px)
@@ -307,7 +307,7 @@
 
     .erp-info-section { padding: 80px 60px; }
     .erp-info-inner { gap: 50px; }
-    .erp-info-img-wrap { width: 360px; height: 214px; border-radius: 20px; }
+    .erp-info-img-wrap { width: 360px; height: 296px; border-radius: 20px; }
     .erp-info-list { padding: 0; }
     .erp-info-title { font-size: 28px; }
     .erp-info-list li { font-size: 16px; }
@@ -432,7 +432,7 @@
         height: 32px;
         padding: 4px 0;
         justify-content: center;
-        margin: 4px 0;
+        margin: 22px 0;
     }
 
     /* 버튼 */
