@@ -1,0 +1,531 @@
+/* ══════════════════════════════════════
+   채용공고 (job-posting.html)
+   GP: 1920px / GM: 360px
+   Figma file: 9atg0Kz3RdcbBqpN2Ozdsd  Page 4
+   GP frame: 146:3347 / GM frame: 146:3489
+══════════════════════════════════════ */
+
+
+/* ── 페이지 헤더 ── */
+/* GP: Page Header — h=366, GNB=90, pt-after-gnb=70, pb=100, title fs=80, fw=700, center */
+.job-page-header {
+    padding: 70px 120px 100px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.job-page-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.325;
+    text-align: center;
+}
+
+
+/* ── 콘텐츠 섹션 ── */
+/* GP: content — w=1920, pt=100, pb=100, pl=120, pr=120, gap=40 */
+.job-content {
+    background: #fff;
+    padding: 100px 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+/* ── 필터 탭 + 검색 행 ── */
+/* GP: Tab row — h=60, horizontal, space-between */
+.job-filter-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* GP: 탭 그룹 — gap=8 */
+.job-tabs {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+/* GP: 각 탭 — w=75, h=48, radius=100, fs=20, fw=700 */
+.job-tab {
+    padding: 0;
+    width: 75px;
+    height: 48px;
+    border-radius: 100px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #4E4E4E;
+    background: #fff;
+    border: 1px solid #D3D3D3;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    line-height: 1.5;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.job-tab.is-active,
+.job-tab:hover {
+    background: #F27100;
+    color: #fff;
+    border-color: #F27100;
+}
+
+/* GP: 검색창 — w=544, h=60, pl=20, pr=24, gap=10, radius=10, stroke=#A7A7A7 */
+.job-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 544px;
+    height: 60px;
+    padding: 0 24px 0 20px;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.job-search-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* GP: 검색 placeholder text — fs=22, fw=400, color=#A7A7A7 */
+.job-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1B1B1B;
+    background: transparent;
+    font-family: inherit;
+}
+
+.job-search-input::placeholder {
+    color: #A7A7A7;
+    font-weight: 400;
+}
+
+
+/* ── 채용공고 목록 ── */
+/* GP: Board List — w=1680, 상단 border=1px solid #D3D3D3 */
+.job-board-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #D3D3D3;
+}
+
+/* GP: List_row — h=163, pt=36, pb=36, pl=24, pr=24, gap=12, horizontal
+   하단 border=1px solid #D3D3D3 */
+.job-list-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 163px;
+    padding: 36px 24px;
+    gap: 12px;
+    background: #fff;
+    border-bottom: 1px solid #D3D3D3;
+    cursor: pointer;
+    transition: background 0.15s;
+    box-sizing: border-box;
+}
+
+.job-list-row:hover {
+    background: #fafafa;
+}
+
+/* GP: 왼쪽 영역 — vertical, gap=20 */
+.job-row-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* GP: 상단 행(배지 + 제목) — horizontal, gap=20 */
+.job-row-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+/* GP: 배지(접수중) — w=71, h=39, radius=4, fs=18, fw=700, bg=#1B1B1B, color=#fff */
+.job-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 71px;
+    height: 39px;
+    padding: 0;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.job-badge--open {
+    background: #1B1B1B;
+    color: #fff;
+}
+
+/* GP: 배지(접수마감) — bg=#D3D3D3, color=#fff */
+.job-badge--closed {
+    background: #D3D3D3;
+    color: #fff;
+}
+
+/* GP: 제목 — fs=24, fw=700, color=#1B1B1B, w=525, h=36 */
+.job-row-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1B1B1B;
+    line-height: 1.5;
+    width: 525px;
+    height: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* GP: 날짜+D-day 행 — horizontal, gap=16 */
+.job-row-meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+/* GP: 날짜 — fs=20, fw=400, color=#7A7A7A */
+.job-row-date {
+    font-size: 20px;
+    font-weight: 400;
+    color: #7A7A7A;
+    line-height: 1.6;
+}
+
+/* GP: 구분선(|) — w=1, h=15, bg=#D3D3D3 */
+.job-row-divider {
+    display: inline-block;
+    width: 1px;
+    height: 15px;
+    background: #D3D3D3;
+    flex-shrink: 0;
+}
+
+/* GP: D-day — fs=20, fw=700, color=#F27100 */
+.job-row-dday {
+    font-size: 20px;
+    font-weight: 700;
+    color: #F27100;
+    line-height: 1.5;
+}
+
+/* GP: 오른쪽 태그 영역 — horizontal, gap=20, w=440, h=35 */
+.job-row-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 440px;
+    height: 35px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+/* GP: 태그 텍스트 — fs=22, fw=400, color=#4E4E4E, w=120 */
+.job-row-tag {
+    font-size: 22px;
+    font-weight: 400;
+    color: #4E4E4E;
+    width: 120px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* GP: 태그 구분선 — 세로 1px #D3D3D3 */
+.job-row-sep {
+    display: inline-block;
+    width: 1px;
+    height: 16px;
+    background: #D3D3D3;
+    flex-shrink: 0;
+}
+
+
+/* ── 채용공고 없는 경우 ── */
+/* GP: 빈 상태 — center, 아이콘 + 텍스트 */
+.job-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 120px 0;
+}
+
+.job-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+/* GP: 빈 상태 텍스트 — fs=24, fw=400, color=#7A7A7A */
+.job-empty-text {
+    font-size: 24px;
+    font-weight: 400;
+    color: #7A7A7A;
+    margin: 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 태블릿 (768px ~ 1439px)
+══════════════════════════════════════ */
+@media (max-width: 1439px) {
+
+    .job-page-header {
+        padding: 50px 40px 60px;
+    }
+
+    .job-page-title {
+        font-size: clamp(36px, 5vw, 60px);
+    }
+
+    .job-content {
+        padding: 60px 40px;
+        gap: 30px;
+    }
+
+    .job-tab {
+        font-size: 18px;
+        height: 44px;
+        padding: 8px 16px;
+    }
+
+    .job-search {
+        width: 360px;
+        height: 52px;
+    }
+
+    .job-search-input {
+        font-size: 18px;
+    }
+
+    .job-list-row {
+        padding: 24px 16px;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .job-row-title {
+        font-size: 20px;
+    }
+
+    .job-row-date,
+    .job-row-dday {
+        font-size: 16px;
+    }
+
+    .job-badge {
+        font-size: 16px;
+    }
+
+    .job-row-tag {
+        font-size: 18px;
+        width: auto;
+    }
+
+    .job-empty-text {
+        font-size: 20px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 모바일 (~ 767px)
+   GM frame: 360px, padding l=16 r=16
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* GM: Page Header — pb=30, fs=30, center */
+    .job-page-header {
+        padding: 0;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .job-page-title {
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+        height: 54px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        line-height: 1.4;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    /* GM: content — pt=40, pb=40, pl=16, pr=16, gap=30 */
+    .job-content {
+        padding: 40px 16px;
+        gap: 30px;
+    }
+
+    /* GM: filter row — vertical, gap=30 */
+    .job-filter-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    /* GM: 탭 — w=60, h=42, pt=8, pb=8, pl=16, pr=16, fs=16 */
+    .job-tabs {
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+
+    .job-tab {
+        width: 60px;
+        height: 42px;
+        padding: 8px 16px;
+        font-size: 16px;
+        border-radius: 100px;
+    }
+
+    /* GM: 검색창 — w=328, h=48, pl=16, pr=16, gap=10, radius=8 */
+    .job-search {
+        width: 100%;
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 8px;
+        gap: 10px;
+    }
+
+    .job-search-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* GM: 검색 input — fs=18, fw=500 */
+    .job-search-input {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    /* GM: Board List — 상단 border */
+    .job-board-list {
+        border-top: 1px solid #D3D3D3;
+    }
+
+    /* GM: List_row — vertical, pt=20, pb=20, gap=0 */
+    .job-list-row {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 0;
+        gap: 0;
+        height: auto;
+    }
+
+    /* GM: 왼쪽 영역 — vertical, gap=0 */
+    .job-row-left {
+        gap: 0;
+        width: 100%;
+    }
+
+    /* GM: 배지 — w=auto, h=32, pt=3, pb=3, pl=10, pr=10, fs=16, fw=700 */
+    .job-badge {
+        width: auto;
+        height: 32px;
+        padding: 3px 10px;
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    /* GM: top row — vertical layout (배지 위, 제목 아래) */
+    .job-row-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    /* GM: 제목 — fs=18, fw=700, pt=16, pb=16, h=90 */
+    .job-row-title {
+        width: auto;
+        height: 90px;
+        font-size: 18px;
+        padding: 16px 0;
+        line-height: 1.6;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    /* GM: 날짜 행 — gap=8, fs=16 */
+    .job-row-meta {
+        gap: 8px;
+    }
+
+    .job-row-date {
+        font-size: 16px;
+        height: 26px;
+    }
+
+    .job-row-divider {
+        height: 12px;
+    }
+
+    .job-row-dday {
+        font-size: 16px;
+    }
+
+    /* GM: 오른쪽 태그 행 — horizontal, gap=8, pt=16, pb=16, fs=16, width/height 해제 */
+    .job-row-right {
+        gap: 8px;
+        padding: 16px 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .job-row-tag {
+        font-size: 16px;
+        width: auto;
+        height: 26px;
+        text-align: left;
+    }
+
+    .job-row-sep {
+        height: 12px;
+    }
+
+    /* GM: 빈 상태 */
+    .job-empty {
+        padding: 80px 0;
+        gap: 20px;
+    }
+
+    .job-empty-text {
+        font-size: 18px;
+    }
+}
