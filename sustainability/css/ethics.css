@@ -1,0 +1,575 @@
+/* ══════════════════════════════════════
+   윤리경영 (ethics.html)
+   GP: 1920px / GM: 360px
+══════════════════════════════════════ */
+
+/* ── 페이지 헤더 ── */
+.eth-page-header {
+    padding: 70px 120px 100px;
+    background: #fff;
+}
+
+.eth-page-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* ── 탭 모바일 전용 요소 (기본은 데스크톱 상태) ── */
+.eth-tab-mob-br { display: none; }
+.eth-tab-mob-text { display: none; }
+.eth-tab-desk-text { display: inline; }
+
+/* ── 탭 내비게이션 ── */
+.eth-tab-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fff;
+    padding: 0;
+}
+
+.eth-tab-item {
+    font-size: 26px;
+    font-weight: 700;
+    color: #aaa;
+    text-decoration: none;
+    padding: 16px 20px;
+    min-width: 316px;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+}
+
+.eth-tab-item:hover { color: #222; }
+.eth-tab-item.active {
+    color: #1b1b1b;
+    border-bottom-color: #a7a7a7;
+}
+
+/* ── 도입 섹션 (sticky scroll animation) ── */
+.eth-intro-outer {
+    position: relative;
+    min-height: 200vh;
+    background: #fff;
+}
+
+.eth-intro-inner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.eth-intro-text-section {
+    padding: 100px 30px 60px;
+    text-align: center;
+}
+
+.eth-intro-title {
+    font-size: clamp(24px, 3.125vw, 60px);
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+    color: #E9E9E9;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.eth-intro-title .char {
+    transition: color 0.15s ease;
+}
+
+.eth-intro-title .char.active {
+    color: #363636;
+}
+
+.eth-intro-image-section {
+    padding: 0 30px;
+}
+
+.eth-intro-image-wrapper {
+    width: 100%;
+    height: 540px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.eth-intro-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.eth-intro-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.eth-intro-overlay-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.eth-intro-overlay-text--mobile { display: none; }
+
+/* ── 윤리강령 (7가지 원칙) ── */
+.eth-principles-section {
+    background: #fff;
+    padding: 100px 120px;
+}
+
+.eth-principles-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.eth-section-label {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #7a7a7a;
+}
+
+.eth-principles-content {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.eth-principles-left {
+    width: 840px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.eth-principles-title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.eth-principles-img-wrap {
+    width: 672px;
+    height: 375px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.eth-principles-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.eth-principles-right {
+    width: 840px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.eth-principles-intro {
+    font-size: 24px;
+    font-weight: 400;
+    color: #444;
+    line-height: 36px;
+    margin: 0;
+    word-break: keep-all;
+}
+
+.eth-principles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 760px;
+}
+
+.eth-principles-list li {
+    font-size: 22px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 35px;
+    padding-left: 22px;
+    position: relative;
+    word-break: keep-all;
+}
+
+.eth-principles-list li::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 17px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4E4E4E;
+}
+
+.eth-principles-footer {
+    font-size: 18px;
+    color: #4E4E4E;
+    line-height: 36px;
+    margin-top: 0;
+}
+
+/* ── 윤리행동지침 (아코디언) ── */
+.eth-accordion-section {
+    background: #fff;
+    padding: 100px 120px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.eth-accordion-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.eth-accordion-title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.eth-accordion-title-wrap .eth-section-label {
+    margin-bottom: 0;
+}
+
+.eth-accordion-title-wrap .eth-accordion-title {
+    margin-bottom: 40px;
+}
+
+.eth-accordion-title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.eth-accordion-intro {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.8;
+    margin: 0;
+    max-width: 900px;
+    word-break: keep-all;
+}
+
+/* 아코디언 목록 */
+.eth-accordion-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.eth-accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.eth-accordion-item:first-child {
+    border-top: 1px solid #e0e0e0;
+}
+
+/* 아코디언 헤더 버튼 */
+.eth-accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 38px 0;
+    text-align: left;
+}
+
+.eth-accordion-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid #D3D3D3;
+    background: transparent;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.eth-accordion-item.is-open .eth-accordion-dot {
+    background: transparent;
+    border-color: #F27100;
+}
+
+.eth-accordion-chapter {
+    flex: 1;
+    font-size: 30px;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.4;
+}
+
+.eth-accordion-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    transition: transform 0.3s;
+}
+
+.eth-accordion-icon svg {
+    width: 33.1px;
+    height: 33.1px;
+}
+
+/* 열린 상태: + → × */
+.eth-accordion-item.is-open .eth-accordion-icon svg line:first-child {
+    transform-origin: center;
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+/* 아코디언 바디 (슬라이드) */
+.eth-accordion-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+}
+
+.eth-accordion-item.is-open .eth-accordion-body {
+    max-height: 2000px;
+}
+
+.eth-accordion-content {
+    padding: 30px 20px;
+    background: #F8F9FB;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.eth-acc-article {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.eth-acc-article-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+.eth-acc-article-desc {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.8;
+    margin: 0;
+    word-break: keep-all;
+}
+
+.eth-acc-sublist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.eth-acc-sublist li {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.8;
+    word-break: keep-all;
+    padding-left: 28px;
+    text-indent: -28px;
+}
+
+.eth-acc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    counter-reset: acc-item;
+}
+
+.eth-acc-list li {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.8;
+    word-break: keep-all;
+    display: flex;
+    gap: 12px;
+    counter-increment: acc-item;
+}
+
+.eth-acc-list li::before {
+    content: counter(acc-item) '.';
+    font-weight: 700;
+    color: #222;
+    flex-shrink: 0;
+    min-width: 20px;
+}
+
+/* ── 고객지원 섹션 패딩 오버라이드 ── */
+[data-page="ethics"] .support-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* ══════════════════════════════════════
+   반응형 - 태블릿 (768~1439px)
+══════════════════════════════════════ */
+@media (max-width: 1439px) {
+    .eth-page-header { padding: 40px 60px 60px; }
+    .eth-page-title { font-size: 48px; }
+    .eth-tab-nav { padding: 0 60px; }
+    .eth-tab-item { font-size: 20px; }
+
+    .eth-intro-outer { min-height: 180vh; }
+    .eth-intro-text-section { padding: 80px 60px 40px; }
+    .eth-intro-title { font-size: 48px; }
+    .eth-intro-image-section { padding: 0 60px; }
+    .eth-intro-image-wrapper { height: 420px; }
+    .eth-intro-overlay-text { font-size: 24px; }
+
+    .eth-principles-section { padding: 80px 60px; }
+    .eth-principles-left { width: 480px; }
+    .eth-principles-title { font-size: 40px; }
+    .eth-principles-intro, .eth-principles-list li { font-size: 16px; }
+
+    .eth-accordion-section { padding: 80px 60px; }
+    .eth-accordion-title { font-size: 40px; }
+    .eth-accordion-chapter { font-size: 20px; }
+}
+
+/* ══════════════════════════════════════
+   반응형 - 모바일 (≤767px) GM 360px
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* 탭 모바일 전용 span 처리 */
+    .eth-tab-mob-br { display: inline; }
+    .eth-tab-desk-text { display: none; }
+    .eth-tab-mob-text { display: inline; }
+
+    /* 페이지 헤더 */
+    .eth-page-header { padding: 0; gap: 20px; align-items: center; }
+    .eth-page-title { font-size: 30px; font-weight: 700; text-align: center; height: 54px; margin-top: 20px; margin-bottom: 30px; line-height: 1.4; padding: 0 16px; box-sizing: border-box; }
+
+    /* 탭 */
+    .eth-tab-nav { padding: 0; gap: 0; }
+    .eth-tab-item {
+        flex: 1;
+        min-width: 0;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 20px 10px;
+        margin-right: 0;
+        text-align: center;
+        white-space: normal;
+        word-break: keep-all;
+        line-height: 1.3;
+    }
+
+    /* 도입 */
+    .eth-intro-outer { min-height: unset; }
+    .eth-intro-inner { position: relative; padding-bottom: 40px; }
+    .eth-intro-text-section { padding: 40px 16px 24px; }
+    .eth-intro-title { font-size: 24px; line-height: 1.5; white-space: normal; text-align: left; color: #363636; }
+    .eth-intro-title .char { color: #363636; }
+    .eth-intro-image-section { padding: 0 16px; }
+    .eth-intro-image-wrapper { height: 448px; border-radius: 16px; }
+    .eth-intro-overlay-text { font-size: 15px; padding: 0 16px; }
+    .eth-intro-overlay-text--desktop { display: none; }
+    .eth-intro-overlay-text--mobile { display: block; }
+
+    /* 윤리강령 (7가지 원칙) */
+    .eth-principles-section { padding: 40px 16px; }
+    /* label(18px) → 8px gap → title+image+desc */
+    .eth-principles-inner { gap: 8px; }
+    .eth-section-label { font-size: 18px; }
+    /* title → 30px gap → image, then 30px gap → intro+list */
+    .eth-principles-content { flex-direction: column; gap: 30px; }
+    .eth-principles-left { width: 100%; justify-content: flex-start; gap: 30px; }
+    .eth-principles-img-wrap { width: 100%; height: 185px; border-radius: 0; }
+    .eth-principles-title { font-size: 30px; }
+    .eth-principles-right { gap: 20px; }
+    .eth-principles-intro { font-size: 16px; line-height: 1.6; color: #4E4E4E; }
+    .eth-principles-list { gap: 4px; }
+    .eth-principles-list li { font-size: 16px; line-height: 1.6; padding-left: 18px; }
+    .eth-principles-list li::before { left: 4px; top: 13px; width: 5px; height: 5px; }
+
+    /* 아코디언 */
+    .eth-accordion-section { padding: 40px 16px; }
+    .eth-accordion-inner { gap: 30px; }
+    /* label → 8px → title → 30px → intro */
+    .eth-accordion-title-wrap { gap: 8px; }
+    .eth-accordion-title { font-size: 30px; line-height: 1.4; }
+    /* intro는 title-wrap 안에 있어서 gap:8만 적용됨 → 22px 추가해서 총 30px */
+    .eth-accordion-intro { font-size: 16px; line-height: 1.6; max-width: 100%; margin-top: 22px; }
+    .eth-accordion-header { padding: 15px 0; gap: 20px; }
+    .eth-accordion-dot {
+        width: 20px; height: 20px;
+        background: #D3D3D3;
+        border: none;
+        border-radius: 50%;
+    }
+    .eth-accordion-item.is-open .eth-accordion-dot {
+        background: #F27100;
+        border: none;
+    }
+    .eth-accordion-chapter { font-size: 20px; font-weight: 700; }
+    .eth-accordion-icon { width: 24px; height: 24px; }
+    .eth-accordion-content { padding: 20px 16px; border-radius: 12px; gap: 24px; margin-bottom: 20px; }
+    .eth-acc-article-title { font-size: 15px; }
+    .eth-acc-list { gap: 14px; }
+    .eth-acc-list li { font-size: 14px; gap: 8px; }
+    .eth-acc-list li::before { min-width: 16px; }
+    .eth-acc-sublist li { font-size: 14px; }
+    .eth-acc-article-desc { font-size: 14px; }
+}
