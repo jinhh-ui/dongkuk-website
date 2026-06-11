@@ -68,8 +68,8 @@
 }
 
 .wel-cards--2 .wel-card {
-    flex: 0 0 calc((100% - 30px) / 2);
-    max-width: calc((100% - 30px) / 2);
+    flex: 0 0 calc((100% - 60px) / 3);
+    max-width: calc((100% - 60px) / 3);
 }
 
 /* 카드 3개 행: 3개씩 */
@@ -88,7 +88,7 @@
 /* ── 개별 카드 ── */
 /* GP: card — h=540, bg=#F8F9FB, radius=20, overflow hidden */
 .wel-card {
-    height: 540px;
+    height: auto;
     background: #F8F9FB;
     border-radius: 20px;
     display: flex;
@@ -219,14 +219,10 @@
     }
 
     .wel-cards--2 .wel-card,
-    .wel-cards--3 .wel-card {
-        flex: 0 0 calc((100% - 16px) / 2);
-        max-width: calc((100% - 16px) / 2);
-    }
-
+    .wel-cards--3 .wel-card,
     .wel-cards--1 .wel-card {
-        flex: 0 0 calc((100% - 16px) / 2);
-        max-width: calc((100% - 16px) / 2);
+        flex: 0 0 calc((100% - 32px) / 3);
+        max-width: calc((100% - 32px) / 3);
     }
 
     .wel-card-title {
@@ -267,7 +263,6 @@
         font-size: 30px;
         font-weight: 700;
         text-align: center;
-        height: 54px;
         margin-top: 20px;
         margin-bottom: 30px;
         line-height: 1.4;
@@ -330,14 +325,11 @@
     /* GM: card title — font-size=20px, h=30 */
     .wel-card-title {
         font-size: 20px;
-        height: 30px;
     }
 
     /* GM: card desc — font-size=16px */
     .wel-card-desc {
         font-size: 16px;
-        height: 78px;
-        box-sizing: border-box;
     }
 
     /* GM: btn section — p=20, gap=10 */

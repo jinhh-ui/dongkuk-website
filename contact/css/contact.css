@@ -824,6 +824,24 @@
     .ct-checkbox-label {
         font-size: 18px;
     }
+
+    .ct-email-wrap {
+        flex-wrap: wrap;
+    }
+
+    .ct-email-local {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .ct-at {
+        display: none;
+    }
+
+    .ct-email-domain-wrap {
+        flex: 1 1 100%;
+        width: 100%;
+    }
 }
 
 
