@@ -47,8 +47,8 @@
     </header>
 
     <!-- 페이지 헤더 -->
-    <section class="ct-page-header">
-        <h1 class="ct-page-title">문의하기</h1>
+    <section class="page-header">
+        <h1>문의하기</h1>
     </section>
 
     <!-- 폼 컨테이너 -->
@@ -76,7 +76,7 @@
         </div>
 
         <!-- ③ 문의자 정보 -->
-        <div class="ct-item">
+        <div class="ct-item ct-item--full">
             <h2 class="ct-item-title">문의자 정보를 입력해 주세요.</h2>
             <div class="ct-info-con">
                 <!-- 이름 -->
@@ -102,21 +102,25 @@
                     <div class="ct-field-title">
                         <span class="ct-field-label">이메일</span><span class="ct-required">*</span>
                     </div>
-                    <div class="ct-field-input-wrap">
+                    <div class="ct-field-input-wrap ct-field-input-wrap--full">
                         <div class="ct-email-wrap">
                             <input type="text" class="ct-input ct-email-local" placeholder="이메일 주소" autocomplete="off" id="emailLocal">
                             <span class="ct-at">@</span>
                             <div class="ct-email-domain-wrap">
                                 <input type="text" class="ct-input ct-email-domain" placeholder="직접입력" id="emailDomain">
-                                <select class="ct-email-select" id="emailSelect" aria-label="도메인 선택">
-                                    <option value="">직접입력</option>
-                                    <option value="gmail.com">gmail.com</option>
-                                    <option value="naver.com">naver.com</option>
-                                    <option value="daum.net">daum.net</option>
-                                    <option value="kakao.com">kakao.com</option>
-                                    <option value="hanmail.net">hanmail.net</option>
-                                    <option value="nate.com">nate.com</option>
-                                </select>
+                                <div class="ct-email-select" id="emailSelect" role="combobox" aria-label="도메인 선택" aria-expanded="false" tabindex="0">
+                                    <span class="ct-email-select-current">직접입력</span>
+                                    <span class="ct-email-select-arrow"></span>
+                                    <ul class="ct-email-select-list" role="listbox">
+                                        <li role="option" data-value="" class="is-selected">직접입력</li>
+                                        <li role="option" data-value="gmail.com">gmail.com</li>
+                                        <li role="option" data-value="naver.com">naver.com</li>
+                                        <li role="option" data-value="daum.net">daum.net</li>
+                                        <li role="option" data-value="kakao.com">kakao.com</li>
+                                        <li role="option" data-value="hanmail.net">hanmail.net</li>
+                                        <li role="option" data-value="nate.com">nate.com</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -156,12 +160,7 @@
                             <label class="ct-file-btn" for="fileInput">파일선택</label>
                             <input type="file" id="fileInput" class="ct-file-input" multiple accept=".jpg,.gif,.png,.xls,.xlsx,.doc,.docx,.ppt,.pdf,.txt,.zip">
                             <div class="ct-drop-area" id="dropArea">
-                                <svg class="ct-drop-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9L13 2Z" stroke="#363636" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M13 2V9H20" stroke="#363636" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <circle cx="15" cy="15" r="4" stroke="#363636" stroke-width="1.5"/>
-                                    <path d="M15 13V15L16.5 16.5" stroke="#363636" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
+                                <img class="ct-drop-icon" src="../assets/common/ic_file_upload.svg" alt="" width="36" height="36">
                                 <p class="ct-drop-text">첨부할 파일을 여기에 끌어다 놓거나, 파일 선택 버튼을 눌러 직접 선택해 주세요.</p>
                             </div>
                             <ul class="ct-attach-notes">
@@ -229,26 +228,6 @@
         <button type="button" class="ct-submit-btn">문의하기</button>
     </div>
 
-    <!-- 고객지원 -->
-    <section class="ct-support-section">
-        <div class="ct-support-card">
-            <img src="../assets/common/ic-support.svg" alt="" class="ct-support-icon">
-            <div class="ct-support-text">
-                <div class="ct-support-texts">
-                    <!-- 데스크탑: 1줄 / 모바일: 2줄 -->
-                    <p class="ct-support-title">동국산업에 대해 <br class="ct-mo-br">더 알고 싶으신가요?</p>
-                    <!-- 데스크탑: 1줄 / 모바일: 2줄 -->
-                    <p class="ct-support-desc">제품, 기술, 협력, 채용 등 다양한 문의를 남겨주시면<br class="ct-mo-br"> 담당자가 확인 후 안내드립니다.</p>
-                </div>
-                <a href="contact.html" class="ct-support-arrow" aria-label="문의하기">
-                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-                        <path d="M6 13H20M14 7L20 13L14 19" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- 고객지원 플레이스홀더 -->
     <div id="support-placeholder"></div>
 
@@ -272,20 +251,65 @@
         });
     });
 
-    // 이메일 도메인 드롭다운 연동
+    // 커스텀 이메일 도메인 드롭다운
     var emailSelect = document.getElementById('emailSelect');
     var emailDomain = document.getElementById('emailDomain');
     if (emailSelect && emailDomain) {
-        emailSelect.addEventListener('change', function() {
-            if (this.value) {
-                emailDomain.value = this.value;
-                emailDomain.readOnly = true;
-            } else {
-                emailDomain.value = '';
-                emailDomain.readOnly = false;
-                emailDomain.focus();
+        // 드롭다운 목록 위치 계산
+        function positionDropdown() {
+            var list = emailSelect.querySelector('.ct-email-select-list');
+            var rect = emailSelect.getBoundingClientRect();
+            list.style.top = (rect.bottom + 4) + 'px';
+            list.style.left = rect.left + 'px';
+            list.style.width = rect.width + 'px';
+        }
+        // 열기/닫기 토글
+        emailSelect.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var isOpen = this.classList.toggle('is-open');
+            this.setAttribute('aria-expanded', isOpen);
+            if (isOpen) positionDropdown();
+        });
+        emailSelect.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                var isOpen = this.classList.toggle('is-open');
+                this.setAttribute('aria-expanded', isOpen);
+            }
+            if (e.key === 'Escape') {
+                this.classList.remove('is-open');
+                this.setAttribute('aria-expanded', 'false');
             }
         });
+        // 항목 선택
+        emailSelect.querySelectorAll('.ct-email-select-list li').forEach(function(li) {
+            li.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var val = this.getAttribute('data-value');
+                emailSelect.querySelector('.ct-email-select-current').textContent = this.textContent;
+                emailSelect.querySelectorAll('li').forEach(function(l) { l.classList.remove('is-selected'); });
+                this.classList.add('is-selected');
+                emailSelect.classList.remove('is-open');
+                emailSelect.setAttribute('aria-expanded', 'false');
+                if (val) {
+                    emailDomain.value = val;
+                    emailDomain.readOnly = true;
+                } else {
+                    emailDomain.value = '';
+                    emailDomain.readOnly = false;
+                    emailDomain.focus();
+                }
+            });
+        });
+        // 외부 클릭 시 닫기
+        document.addEventListener('click', function() {
+            emailSelect.classList.remove('is-open');
+            emailSelect.setAttribute('aria-expanded', 'false');
+        });
+        // 스크롤 시 위치 업데이트
+        window.addEventListener('scroll', function() {
+            if (emailSelect.classList.contains('is-open')) positionDropdown();
+        }, { passive: true });
     }
 
     // 드래그&드롭
@@ -301,6 +325,27 @@
         });
         dropArea.addEventListener('click', function() { fileInput.click(); });
     }
+
+    // 문의하기 버튼 → 유효성 검사 후 완료 페이지 이동
+    document.querySelector('.ct-submit-btn').addEventListener('click', function() {
+        var fields = document.querySelectorAll('.ct-info-con .ct-input');
+        var nameVal   = fields[0] ? fields[0].value.trim() : '';
+        var phoneVal  = fields[1] ? fields[1].value.trim() : '';
+        var emailLocal = document.getElementById('emailLocal') ? document.getElementById('emailLocal').value.trim() : '';
+        var emailDomainVal = document.getElementById('emailDomain') ? document.getElementById('emailDomain').value.trim() : '';
+        var titleVal  = document.querySelector('.ct-content-con .ct-input') ? document.querySelector('.ct-content-con .ct-input').value.trim() : '';
+        var contentVal = document.querySelector('.ct-textarea') ? document.querySelector('.ct-textarea').value.trim() : '';
+        var agreed = document.getElementById('agreeCheck') ? document.getElementById('agreeCheck').checked : false;
+
+        if (!nameVal) { alert('이름을 입력해 주세요.'); fields[0] && fields[0].focus(); return; }
+        if (!phoneVal) { alert('연락처를 입력해 주세요.'); fields[1] && fields[1].focus(); return; }
+        if (!emailLocal || !emailDomainVal) { alert('이메일을 입력해 주세요.'); document.getElementById('emailLocal') && document.getElementById('emailLocal').focus(); return; }
+        if (!titleVal) { alert('제목을 입력해 주세요.'); document.querySelector('.ct-content-con .ct-input') && document.querySelector('.ct-content-con .ct-input').focus(); return; }
+        if (!contentVal) { alert('내용을 입력해 주세요.'); document.querySelector('.ct-textarea') && document.querySelector('.ct-textarea').focus(); return; }
+        if (!agreed) { alert('개인정보 수집 이용에 동의해 주세요.'); return; }
+
+        window.location.href = 'contact-complete.html';
+    });
     </script>
 </body>
 </html>

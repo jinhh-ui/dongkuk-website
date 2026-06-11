@@ -1,0 +1,179 @@
+/* ══════════════════════════════════════
+   문의 접수 완료 (contact-complete.html)
+   GP: 1920px  /  GM: 360px
+   Figma file: 9atg0Kz3RdcbBqpN2Ozdsd  Page 5
+   GP frame: 278:2122 / GM frame: 278:2149
+══════════════════════════════════════ */
+
+
+/* ── 완료 콘텐츠 섹션 ── */
+/* GP: px=120, pb=30, gap=60, items-center */
+.cc-section {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 0 120px 30px;
+    width: 100%;
+}
+
+
+/* ── 아이콘 + 타이틀 그룹 ── */
+/* GP: gap=10, items-center */
+.cc-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* GP: 아이콘 — 112×112 */
+.cc-icon {
+    width: 112px;
+    height: 112px;
+    display: block;
+    flex-shrink: 0;
+}
+
+
+/* GP: 타이틀 — fs=44, fw=700, lh=1.5, color=#000, center */
+.cc-title {
+    font-size: 44px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* GP: 설명 — fs=24, fw=400, lh=1.5, color=#363636, center */
+.cc-desc {
+    font-size: 24px;
+    font-weight: 400;
+    color: #363636;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+}
+
+/* GP: cc-br 보이기, cc-mo-br 숨김 */
+.cc-br {
+    display: block;
+}
+
+.cc-mo-br {
+    display: none;
+}
+
+
+/* ── 버튼 섹션 ── */
+/* GP: pt=60, justify-center */
+.cc-btn-section {
+    background: #fff;
+    padding: 60px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* GP: 홈으로 이동 버튼 — w=346, h=80, radius=10, fs=24, fw=700, bg=#F27100, color=#fff */
+.cc-home-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #F27100;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    line-height: 1;
+    transition: opacity 0.2s;
+}
+
+.cc-home-btn:hover {
+    opacity: 0.85;
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 모바일 (~ 767px)
+   GM frame: 360px
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* GM: pt=40, pb=40, pl=16, pr=16, gap=30 */
+    .cc-section {
+        padding: 40px 16px;
+        gap: 30px;
+    }
+
+    /* GM: 아이콘 — 84×84 */
+    .cc-icon {
+        width: 84px;
+        height: 84px;
+    }
+
+    /* GM: 타이틀 — fs=26, fw=700, lh=1.5
+       "문의가 정상적으로\n접수되었습니다." */
+    .cc-title {
+        font-size: 26px;
+    }
+
+    /* GM: 타이틀 줄바꿈 — 모바일에서 <br>로 변환 */
+    .cc-title-br::before {
+        content: '\A';
+        white-space: pre;
+    }
+
+    .cc-title-br {
+        display: contents;
+    }
+
+    /* GM: desc — fs=16, fw=400, lh=1.6, color=#4E4E4E, w=320, h=78 */
+    .cc-desc {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #4E4E4E;
+        width: 320px;
+        height: 78px;
+    }
+
+    /* GM: cc-br 숨김, cc-mo-br 보이기 */
+    .cc-br {
+        display: none;
+    }
+
+    .cc-mo-br {
+        display: inline;
+    }
+
+    /* GM: <br> 숨기기 (자연스럽게 줄바꿈) */
+    .cc-br {
+        display: none;
+    }
+
+    /* GM: 버튼 섹션 — pt=20, pb=20, pl=20, pr=20 */
+    .cc-btn-section {
+        padding: 20px;
+        width: 100%;
+    }
+
+    /* GM: 버튼 — w=320, h=56, py=15, px=40, fs=16 */
+    .cc-home-btn {
+        width: 320px;
+        height: 56px;
+        padding: 15px 40px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+}
