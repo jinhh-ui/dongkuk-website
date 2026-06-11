@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채용공고 - 동국산업</title>
+    <meta name="description" content="동국산업 채용공고 - 공채 및 수시 채용 공고">
+    <link rel="icon" type="image/svg+xml" href="../assets/common/favicon.svg">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/gnb.css">
+    <link rel="stylesheet" href="css/job-posting.css">
+</head>
+
+<body data-page="job-posting">
+
+    <!-- GNB (PC) -->
+    <header class="gnb">
+        <div class="gnb-logo">
+            <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
+        </div>
+        <nav class="gnb-nav">
+            <div class="gnb-nav-item">
+                <a href="../company/company-info.html" class="gnb-nav-link">회사정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../product/product-center.html" class="gnb-nav-link">제품정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../invest/invest-center.html" class="gnb-nav-link">투자정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../sustainability/environment.html" class="gnb-nav-link">지속가능경영</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="talent.html" class="gnb-nav-link" style="font-weight:700;">인재경영</a>
+            </div>
+        </nav>
+        <div class="gnb-utils">
+            <div class="gnb-utils-links">
+                <a href="#">문의</a>
+                <a href="#">KR</a>
+            </div>
+            <span class="gnb-divider"></span>
+            <button class="gnb-menu-btn" aria-label="메뉴"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- 페이지 헤더 -->
+    <section class="job-page-header">
+        <h1 class="job-page-title">채용공고</h1>
+    </section>
+
+    <!-- 콘텐츠 섹션 -->
+    <section class="job-content">
+
+        <!-- 필터 탭 + 검색 -->
+        <div class="job-filter-row">
+            <div class="job-tabs">
+                <button class="job-tab is-active" data-filter="all">전체</button>
+                <button class="job-tab" data-filter="public">공채</button>
+                <button class="job-tab" data-filter="rolling">수시</button>
+            </div>
+            <div class="job-search">
+                <span class="job-search-icon">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="13" cy="13" r="8" stroke="#A7A7A7" stroke-width="2"/>
+                        <line x1="19" y1="19" x2="26" y2="26" stroke="#A7A7A7" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <input type="text" class="job-search-input" placeholder="채용공고 검색하기" id="job-search-input">
+            </div>
+        </div>
+
+        <!-- 채용공고 목록 -->
+        <div class="job-board-list" id="job-board-list">
+
+            <!-- row 1: 접수중 -->
+            <div class="job-list-row" data-category="public" data-status="open">
+                <div class="job-row-left">
+                    <div class="job-row-top">
+                        <span class="job-badge job-badge--open">접수중</span>
+                        <span class="job-row-title">동국산업㈜ 2026년 상하반기 채용 공고(경인영업그룹)</span>
+                    </div>
+                    <div class="job-row-meta">
+                        <span class="job-row-date">2026.04.01 ~ 2026.05.31 13:00</span>
+                        <span class="job-row-divider"></span>
+                        <span class="job-row-dday">D-41</span>
+                    </div>
+                </div>
+                <div class="job-row-right">
+                    <span class="job-row-tag">공채</span>
+                    <span class="job-row-sep"></span>
+                    <span class="job-row-tag">경력</span>
+                    <span class="job-row-sep"></span>
+                    <span class="job-row-tag">경기 시흥</span>
+                </div>
+            </div>
+
+            <!-- row 2: 접수중 -->
+            <div class="job-list-row" data-category="public" data-status="open">
+                <div class="job-row-left">
+                    <div class="job-row-top">
+                        <span class="job-badge job-badge--open">접수중</span>
+                        <span class="job-row-title">동국산업㈜ 2026년 상하반기 채용 공고(경영지원팀)</span>
+                    </div>
+                    <div class="job-row-meta">
+                        <span class="job-row-date">2026.04.01 ~ 2026.04.30 13:00</span>
+                        <span class="job-row-divider"></span>
+                        <span class="job-row-dday">D-10</span>
+                    </div>
+                </div>
+                <div class="job-row-right">
+                    <span class="job-row-tag">공채</span>
+                    <span class="job-row-sep"></span>
+                    <span class="job-row-tag">신입</span>
+                    <span class="job-row-sep"></span>
+                    <span class="job-row-tag">서울 중구</span>
+                </div>
+            </div>
+
+            <!-- row 3: 접수마감 -->
+            <div class="job-list-row" data-category="rolling" data-status="closed">
+                <div class="job-row-left">
+                    <div class="job-row-top">
+                        <span class="job-badge job-badge--closed">접수마감</span>
+                        <span class="job-row-title">동국산업㈜ 2026년 상하반기 채용 공고(남부영업그룹)</span>
+                    </div>
+                    <div class="job-row-meta">
+                        <span class="job-row-date">2026.04.01 ~ 2026.04.10 13:00</span>
+                    </div>
+                </div>
+                <div class="job-row-right">
+                    <span class="job-row-tag">수시</span>
+                    <span class="job-row-sep"></span>
+                    <span class="job-row-tag">경력무관</span>
+                    <span class="job-row-sep"></span>
+                    <span class="job-row-tag">서울 중구</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 채용공고 없는 경우 -->
+        <div class="job-empty" id="job-empty" style="display:none;">
+            <div class="job-empty-icon">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" stroke="#D3D3D3" stroke-width="2" stroke-dasharray="4 4"/>
+                    <circle cx="30" cy="30" r="20" stroke="#D3D3D3" stroke-width="2" stroke-dasharray="4 4"/>
+                    <circle cx="30" cy="30" r="12" stroke="#D3D3D3" stroke-width="2" stroke-dasharray="4 4"/>
+                    <circle cx="30" cy="30" r="4" fill="#D3D3D3"/>
+                </svg>
+            </div>
+            <p class="job-empty-text">현재 채용중인 공고가 없습니다.</p>
+        </div>
+
+    </section>
+
+    <!-- 고객지원 -->
+    <div id="support-placeholder"></div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 상단 이동 버튼 -->
+    <div id="btn-top-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/gnb.js"></script>
+    <script src="js/job-posting.js"></script>
+</body>
+</html>

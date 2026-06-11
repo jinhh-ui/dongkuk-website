@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채용공고 - 동국산업</title>
+    <meta name="description" content="동국산업 채용공고 - 공채 및 수시 채용 공고">
+    <link rel="icon" type="image/svg+xml" href="../assets/common/favicon.svg">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/gnb.css">
+    <link rel="stylesheet" href="css/job-posting-empty.css">
+</head>
+
+<body data-page="job-posting">
+
+    <!-- GNB (PC) -->
+    <header class="gnb">
+        <div class="gnb-logo">
+            <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
+        </div>
+        <nav class="gnb-nav">
+            <div class="gnb-nav-item">
+                <a href="../company/company-info.html" class="gnb-nav-link">회사정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../product/product-center.html" class="gnb-nav-link">제품정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../invest/invest-center.html" class="gnb-nav-link">투자정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../sustainability/environment.html" class="gnb-nav-link">지속가능경영</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="talent.html" class="gnb-nav-link" style="font-weight:700;">인재경영</a>
+            </div>
+        </nav>
+        <div class="gnb-utils">
+            <div class="gnb-utils-links">
+                <a href="#">문의</a>
+                <a href="#">KR</a>
+            </div>
+            <span class="gnb-divider"></span>
+            <button class="gnb-menu-btn" aria-label="메뉴"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- 페이지 헤더 -->
+    <section class="jpe-page-header">
+        <h1 class="jpe-page-title">채용공고</h1>
+    </section>
+
+    <!-- 콘텐츠 섹션 -->
+    <section class="jpe-content">
+
+        <!-- 필터 탭 + 검색 -->
+        <div class="jpe-filter-row">
+            <div class="jpe-tabs">
+                <button class="jpe-tab is-active" data-filter="all">전체</button>
+                <button class="jpe-tab" data-filter="public">공채</button>
+                <button class="jpe-tab" data-filter="rolling">수시</button>
+            </div>
+            <div class="jpe-search">
+                <span class="jpe-search-icon">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="13" cy="13" r="8" stroke="#A7A7A7" stroke-width="2"/>
+                        <line x1="19" y1="19" x2="26" y2="26" stroke="#A7A7A7" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <input type="text" class="jpe-search-input" placeholder="채용공고 검색하기" id="jpe-search-input">
+            </div>
+        </div>
+
+        <!-- 채용공고 없는 경우 -->
+        <div class="jpe-board-empty">
+            <div class="jpe-empty-inner">
+                <!-- 아이콘: Figma 146:3476 — 112×112, ellipse 86×86, stroke #F1EDEA, weight≈12 -->
+                <div class="jpe-empty-icon">
+                    <svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="56" cy="56" r="37" fill="none" stroke="#F1EDEA" stroke-width="12" stroke-dasharray="12 12" pathLength="240"/>
+                    </svg>
+                </div>
+                <p class="jpe-empty-text">현재 채용중인 공고가 없습니다.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 고객지원 -->
+    <div id="support-placeholder"></div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 상단 이동 버튼 -->
+    <div id="btn-top-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/gnb.js"></script>
+    <script src="js/job-posting-empty.js"></script>
+</body>
+</html>
