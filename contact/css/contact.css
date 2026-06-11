@@ -1,0 +1,1034 @@
+/* ══════════════════════════════════════
+   문의하기 (contact.html)
+   GP: 1920px / GM: 360px
+   Figma file: 9atg0Kz3RdcbBqpN2Ozdsd  Page 5
+   GP frame: 278:1980 / GM frame: 278:2179
+══════════════════════════════════════ */
+
+
+/* ── 페이지 헤더 ── */
+/* GP: h=366, GNB=90, pt=70, pb=100, title fs=80, fw=700, center */
+.ct-page-header {
+    padding: 70px 120px 100px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ct-page-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
+}
+
+
+/* ── 폼 컨테이너 ── */
+/* GP: pt=100, pb=100, pl=120, pr=120, gap=100 */
+.ct-container {
+    background: #fff;
+    padding: 100px 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+
+/* ── 섹션 아이템 ── */
+/* GP: gap=40 between title and content */
+.ct-item {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* 문의자 정보: w=728 */
+    max-width: 728px;
+}
+
+.ct-item--full {
+    max-width: 100%;
+}
+
+/* GP: item title — fs=36, fw=700, color=#1B1B1B */
+.ct-item-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1B1B1B;
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* ── 선택 버튼 그리드 ── */
+/* GP: gap=24, 3-col grid */
+.ct-btn-grid {
+    display: grid;
+    gap: 24px;
+}
+
+/* GP: 카테고리 4개 — 3+1 (3col) */
+.ct-btn-grid--4 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* GP: 제품 3개 — 3col */
+.ct-btn-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* GP: 각 버튼 — h=120, radius=20, fs=24, fw=700 */
+.ct-btn-sel {
+    height: 120px;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #F8F9FB;
+    color: #363636;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+/* GP: 활성 상태 — bg=#FCE3CC, border=3px solid #F27100, color=#F27100 */
+.ct-btn-sel.is-active {
+    background: #FCE3CC;
+    color: #F27100;
+    border-color: #F27100;
+}
+
+.ct-btn-sel:hover:not(.is-active) {
+    background: #F0F1F3;
+}
+
+
+/* ── 문의자 정보 폼 ── */
+/* GP: con — VERTICAL, gap=60 */
+.ct-info-con {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* GP: Text Field — HORIZONTAL, gap=24, h=60 */
+.ct-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    height: 60px;
+}
+
+/* GP: 문의내용 textarea 행 — align-items flex-start */
+.ct-field--textarea {
+    align-items: flex-start;
+    height: auto;
+}
+
+/* GP: 첨부파일 행 — align-items flex-start */
+.ct-field--attach {
+    align-items: flex-start;
+    height: auto;
+}
+
+/* GP: Title — w=160, h=60, pt=12, pb=12, gap=4 */
+.ct-field-title {
+    width: 160px;
+    min-width: 160px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+/* GP: 문의내용 title (첨부파일 포함) — top-aligned */
+.ct-field--textarea .ct-field-title,
+.ct-field--attach .ct-field-title {
+    align-items: flex-start;
+    padding-top: 12px;
+    height: auto;
+}
+
+/* GP: label — fs=24, fw=700, color=#363636 */
+.ct-field-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: #363636;
+    line-height: 1.5;
+}
+
+/* GP: 필수 * — fs=20, color=#F00 */
+.ct-required {
+    font-size: 20px;
+    color: #FF0000;
+    line-height: 32px;
+}
+
+/* GP: Input 래퍼 — 문의자 정보(w=544) */
+.ct-field-input-wrap {
+    width: 544px;
+}
+
+/* GP: 문의내용 Input 래퍼 — w=1390 */
+.ct-field-input-wrap--full {
+    flex: 1;
+    width: auto;
+}
+
+/* GP: Input — h=60, pl=24, pr=24, border=1px solid #A7A7A7, radius=10 */
+.ct-input {
+    width: 100%;
+    height: 60px;
+    padding: 0 24px;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1B1B1B;
+    background: #fff;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.ct-input:focus {
+    border-color: #F27100;
+}
+
+.ct-input::placeholder {
+    color: #A7A7A7;
+}
+
+/* GP: Textarea — h=302, pt=12, pb=12, pl=24, pr=24 */
+.ct-textarea {
+    width: 100%;
+    height: 302px;
+    padding: 12px 24px;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1B1B1B;
+    background: #fff;
+    font-family: inherit;
+    box-sizing: border-box;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.15s;
+    line-height: 1.6;
+}
+
+.ct-textarea:focus {
+    border-color: #F27100;
+}
+
+.ct-textarea::placeholder {
+    color: #A7A7A7;
+}
+
+/* GP: 문의내용 섹션 con — gap=60 */
+.ct-content-con {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+
+/* ── 이메일 분할 입력 ── */
+.ct-email-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+.ct-email-local {
+    flex: 1;
+    min-width: 0;
+    border-radius: 10px 0 0 10px;
+    border-right: none;
+}
+
+.ct-at {
+    width: 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #1B1B1B;
+    background: #fff;
+    border-top: 1px solid #A7A7A7;
+    border-bottom: 1px solid #A7A7A7;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.ct-email-domain-wrap {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: 1px solid #A7A7A7;
+    border-radius: 0 10px 10px 0;
+    background: #fff;
+    height: 60px;
+    overflow: hidden;
+}
+
+.ct-email-domain {
+    flex: 1;
+    border: none;
+    border-radius: 0;
+    height: 58px;
+    padding: 0 16px;
+    font-size: 22px;
+    color: #1B1B1B;
+    background: transparent;
+    outline: none;
+    min-width: 0;
+}
+
+.ct-email-domain::placeholder {
+    color: #A7A7A7;
+}
+
+.ct-email-select {
+    height: 58px;
+    border: none;
+    border-left: 1px solid #D3D3D3;
+    background: #fff;
+    font-size: 18px;
+    color: #1B1B1B;
+    font-family: inherit;
+    padding: 0 12px;
+    cursor: pointer;
+    outline: none;
+    flex-shrink: 0;
+    min-width: 120px;
+}
+
+.ct-email-wrap .ct-email-local:focus {
+    border-color: #F27100;
+}
+
+.ct-email-domain-wrap:focus-within {
+    border-color: #F27100;
+}
+
+
+/* ── 첨부파일 ── */
+.ct-attach-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* GP: 파일선택 버튼 — h=52, pl=20, pr=20, bg=#1B1B1B, color=#fff, fs=18, fw=500, radius=10 */
+.ct-file-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    padding: 0 20px;
+    background: #1B1B1B;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    line-height: 1;
+    width: fit-content;
+    font-family: inherit;
+    transition: opacity 0.15s;
+}
+
+.ct-file-btn:hover {
+    opacity: 0.8;
+}
+
+.ct-file-input {
+    display: none;
+}
+
+/* GP: Drop area — h=200, bg=#F8F9FB, border=1px solid #A7A7A7, radius=10 */
+.ct-drop-area {
+    height: 200px;
+    background: #F8F9FB;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.ct-drop-area:hover,
+.ct-drop-area.is-over {
+    background: #F0F1F3;
+    border-color: #F27100;
+}
+
+.ct-drop-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+/* GP: drop text — fs=20, fw=400, color=#4E4E4E */
+.ct-drop-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* GP: 첨부 안내 — fs=20, color=#7A7A7A, bullet */
+.ct-attach-notes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ct-attach-notes li {
+    font-size: 20px;
+    font-weight: 400;
+    color: #7A7A7A;
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+}
+
+.ct-attach-notes li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #7A7A7A;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    top: 12px;
+}
+
+
+/* ── 개인정보 ── */
+.ct-privacy-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* GP: 개인정보 테이블 외부 — bg=#F8F9FB, radius=16, pt=30, pb=30, pl=20, pr=20 */
+.ct-privacy-table {
+    background: #F8F9FB;
+    border-radius: 16px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+}
+
+/* GP: 헤더 행 — bg=#F1EDEA, radius=16, pt=6, pb=6, pl=30, pr=30, h=48 */
+.ct-privacy-row--head {
+    background: #F1EDEA;
+    border-radius: 16px;
+    padding: 6px 30px;
+    margin-bottom: 0;
+}
+
+.ct-privacy-row--head span {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1B1B1B;
+    line-height: 1.5;
+    display: block;
+}
+
+/* GP: 내용 행 — bg=#F1EDEA, radius=16, pt=12, pb=12, pl=30, pr=30 */
+.ct-privacy-row--body {
+    background: #F1EDEA;
+    border-radius: 16px;
+    padding: 12px 30px;
+    margin-bottom: 0;
+}
+
+.ct-privacy-row--body p {
+    font-size: 22px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.ct-privacy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ct-privacy-list li {
+    font-size: 22px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+    padding-left: 18px;
+    position: relative;
+}
+
+.ct-privacy-list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: #4E4E4E;
+    border-radius: 50%;
+    position: absolute;
+    left: 4px;
+    top: 12px;
+}
+
+/* GP: 체크박스 — gap=10 */
+.ct-checkbox-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.ct-checkbox-input {
+    display: none;
+}
+
+/* GP: 체크박스 박스 — 36×36, border=1px solid #A7A7A7, radius=4 */
+.ct-checkbox-box {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #A7A7A7;
+    border-radius: 4px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.ct-checkbox-box::after {
+    content: '';
+    width: 10px;
+    height: 16px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) translate(-2px, -2px);
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.ct-checkbox-input:checked + .ct-checkbox-box {
+    background: #F27100;
+    border-color: #F27100;
+}
+
+.ct-checkbox-input:checked + .ct-checkbox-box::after {
+    opacity: 1;
+}
+
+/* GP: 체크박스 텍스트 — fs=24, fw=700, color=#000 */
+.ct-checkbox-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+
+/* ── 제출 버튼 섹션 ── */
+/* GP: h=140, pt=60, justify-center */
+.ct-btn-section {
+    background: #fff;
+    padding: 60px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GP: btn — w=346, h=80, radius=10, fs=24, fw=700, bg=#F27100, color=#fff */
+.ct-submit-btn {
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #F27100;
+    color: #fff;
+    border: 1px solid #F27100;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s;
+    line-height: 1;
+}
+
+.ct-submit-btn:hover {
+    opacity: 0.85;
+}
+
+
+/* ── 고객지원 섹션 ── */
+/* GP: pt=80, pb=80, pl=120, pr=120 */
+.ct-support-section {
+    background: #fff;
+    padding: 80px 120px;
+}
+
+/* GP: card — w=1680, h=210, radius=20, bg=#F8F9FB, pt=40, pb=40, pl=30, pr=50, gap=20 */
+.ct-support-card {
+    background: #F8F9FB;
+    border-radius: 20px;
+    padding: 40px 50px 40px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+/* GP: ic_고객지원 — 130×130 */
+.ct-support-icon {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+}
+
+/* GP: text area — gap=24, flex-row */
+.ct-support-text {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.ct-support-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* 데스크탑: 줄바꿈 없음 */
+.ct-mo-br { display: none; }
+
+/* GP: title — fs=32, fw=700, color=#1B1B1B */
+.ct-support-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1B1B1B;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* GP: desc — fs=22, fw=400, color=#4E4E4E */
+.ct-support-desc {
+    font-size: 22px;
+    font-weight: 400;
+    color: #4E4E4E;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* GP: Chevron — 64×64, radius=4, bg 없음 */
+.ct-support-arrow {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.ct-support-arrow:hover {
+    background: #F0F1F3;
+}
+
+.ct-support-arrow svg {
+    width: 26px;
+    height: 26px;
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 태블릿 (768px ~ 1439px)
+══════════════════════════════════════ */
+@media (max-width: 1439px) {
+
+    .ct-page-header {
+        padding: 50px 40px 60px;
+    }
+
+    .ct-page-title {
+        font-size: clamp(36px, 5vw, 60px);
+    }
+
+    .ct-container {
+        padding: 60px 40px;
+        gap: 60px;
+    }
+
+    .ct-item-title {
+        font-size: clamp(20px, 2.5vw, 28px);
+    }
+
+    .ct-btn-sel {
+        height: 80px;
+        font-size: 18px;
+    }
+
+    .ct-field-label {
+        font-size: 18px;
+    }
+
+    .ct-input,
+    .ct-textarea {
+        font-size: 16px;
+    }
+
+    .ct-support-section {
+        padding: 60px 40px;
+    }
+
+    .ct-support-card {
+        gap: 16px;
+    }
+
+    .ct-support-icon {
+        width: 90px;
+        height: 90px;
+    }
+
+    .ct-support-title {
+        font-size: 24px;
+    }
+
+    .ct-support-desc {
+        font-size: 16px;
+    }
+
+    .ct-privacy-row--head span {
+        font-size: 18px;
+    }
+
+    .ct-privacy-row--body p,
+    .ct-privacy-list li {
+        font-size: 16px;
+    }
+
+    .ct-checkbox-label {
+        font-size: 18px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 모바일 (~ 767px)
+   GM frame: 360px, padding l=16 r=16
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* GM: Page Header — pb=30, fs=30, center */
+    .ct-page-header {
+        padding: 0;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .ct-page-title {
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+        height: 54px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        line-height: 1.4;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    /* GM: container — pt=40, pb=40, pl=16, pr=16, gap=60 */
+    .ct-container {
+        padding: 40px 16px;
+        gap: 60px;
+    }
+
+    /* GM: item — max-width 해제, gap=30 */
+    .ct-item {
+        max-width: 100%;
+        gap: 30px;
+    }
+
+    .ct-item--full {
+        gap: 30px;
+    }
+
+    /* GM: item title — fs=26, fw=700 */
+    .ct-item-title {
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+    /* GM: 카테고리 버튼 — 1col vertical, gap=10 */
+    .ct-btn-grid--4,
+    .ct-btn-grid--3 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* GM: 각 버튼 — h=64, radius=12, fs=18, border=1px */
+    .ct-btn-sel {
+        height: 64px;
+        border-radius: 12px;
+        font-size: 18px;
+        border-width: 1px;
+    }
+
+    /* GM: 문의자 정보 con — gap=20 */
+    .ct-info-con {
+        gap: 20px;
+    }
+
+    /* GM: Text Field — VERTICAL (label 위, input 아래), gap=8 */
+    .ct-field {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 8px;
+    }
+
+    .ct-field--textarea,
+    .ct-field--attach {
+        align-items: flex-start;
+    }
+
+    /* GM: title — h=44, fs=18 */
+    .ct-field-title {
+        width: auto;
+        min-width: unset;
+        height: 44px;
+        padding-top: 0;
+        align-items: center;
+    }
+
+    .ct-field--textarea .ct-field-title,
+    .ct-field--attach .ct-field-title {
+        padding-top: 0;
+        height: 44px;
+        align-items: center;
+    }
+
+    .ct-field-label {
+        font-size: 18px;
+    }
+
+    /* GM: Input 래퍼 — 100% */
+    .ct-field-input-wrap {
+        width: 100%;
+    }
+
+    /* GM: input — h=48, pl=16, pr=16, radius=8, fs=18 */
+    .ct-input {
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 8px;
+        font-size: 18px;
+    }
+
+    /* GM: textarea — radius=8 */
+    .ct-textarea {
+        font-size: 18px;
+        border-radius: 8px;
+        height: 246px;
+    }
+
+    /* GM: 문의내용 con — gap=20 */
+    .ct-content-con {
+        gap: 20px;
+    }
+
+    /* GM: 이메일 — vertical (2행: username | @+domain+select) */
+    .ct-email-wrap {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .ct-email-local {
+        border-radius: 8px;
+        border-right: 1px solid #A7A7A7;
+        height: 48px;
+    }
+
+    .ct-at {
+        display: none;
+    }
+
+    .ct-email-domain-wrap {
+        border-radius: 8px;
+        height: 48px;
+    }
+
+    .ct-email-domain {
+        height: 46px;
+        font-size: 18px;
+        padding: 0 12px;
+    }
+
+    .ct-email-select {
+        height: 46px;
+        font-size: 14px;
+        padding: 0 8px;
+        min-width: 100px;
+    }
+
+    /* GM: 파일선택 버튼 — w=88, h=48, fs=18 */
+    .ct-file-btn {
+        height: 48px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    /* GM: drop area — h=200, radius=8 */
+    .ct-drop-area {
+        height: 200px;
+        border-radius: 8px;
+    }
+
+    .ct-drop-text {
+        font-size: 14px;
+        padding: 0 16px;
+        text-align: center;
+    }
+
+    .ct-attach-notes li {
+        font-size: 14px;
+    }
+
+    /* GM: privacy table — pt=20, pb=20, pl=16, pr=16, radius=16 */
+    .ct-privacy-table {
+        padding: 20px 16px;
+    }
+
+    .ct-privacy-row--head span {
+        font-size: 18px;
+    }
+
+    .ct-privacy-row--head {
+        padding: 8px 16px;
+    }
+
+    .ct-privacy-row--body {
+        padding: 10px 16px;
+    }
+
+    .ct-privacy-row--body p,
+    .ct-privacy-list li {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* GM: 체크박스 — gap=8, box=40×40 */
+    .ct-checkbox-wrap {
+        gap: 8px;
+    }
+
+    .ct-checkbox-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+    }
+
+    .ct-checkbox-label {
+        font-size: 18px;
+    }
+
+    /* GM: 버튼 섹션 — pt=20, pb=20, pl=20, pr=20 */
+    .ct-btn-section {
+        padding: 20px 20px;
+    }
+
+    /* GM: btn — w=100%, h=56, fs=16, radius=10 */
+    .ct-submit-btn {
+        width: 100%;
+        height: 56px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    /* GM: 고객지원 — pt=40, pb=40, pl=16, pr=16 */
+    .ct-support-section {
+        padding: 40px 16px;
+    }
+
+    /* GM: card — w=328, h=208, radius=16, pt=24, pb=24, pl=10, pr=10, gap=50 */
+    .ct-support-card {
+        border-radius: 16px;
+        padding: 24px 10px;
+        flex-direction: column;
+        gap: 0;
+        height: auto;
+    }
+
+    /* GM: icon — 80×80 */
+    .ct-support-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .ct-support-text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0 6px;
+        width: 100%;
+    }
+
+    .ct-support-texts {
+        gap: 12px;
+        width: 100%;
+    }
+
+    /* GM: title — fs=24, Bold, color=#000
+       "동국산업에 대해 \n더 알고 싶으신가요?" */
+    .ct-support-title {
+        font-size: 24px;
+    }
+
+    /* 모바일: 줄바꿈 표시 */
+    .ct-mo-br { display: inline; }
+
+    /* GM: desc — fs=16, lh=1.6 */
+    .ct-support-desc {
+        font-size: 16px;
+    }
+
+    /* GM: 화살표 숨김 */
+    .ct-support-arrow {
+        display: none;
+    }
+}
