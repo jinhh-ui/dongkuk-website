@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의하기 - 동국산업</title>
+    <meta name="description" content="동국산업 제품, 투자, 채용 등 다양한 문의를 남겨주세요.">
+    <link rel="icon" type="image/svg+xml" href="../assets/common/favicon.svg">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/gnb.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body data-page="contact">
+
+    <!-- GNB (PC) -->
+    <header class="gnb">
+        <div class="gnb-logo">
+            <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
+        </div>
+        <nav class="gnb-nav">
+            <div class="gnb-nav-item">
+                <a href="../company/company-info.html" class="gnb-nav-link">회사정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../product/product-center.html" class="gnb-nav-link">제품정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../invest/invest-center.html" class="gnb-nav-link">투자정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../sustainability/environment.html" class="gnb-nav-link">지속가능경영</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../talent/talent.html" class="gnb-nav-link">인재경영</a>
+            </div>
+        </nav>
+        <div class="gnb-utils">
+            <div class="gnb-utils-links">
+                <a href="contact.html" style="font-weight:700;">문의</a>
+                <a href="#">KR</a>
+            </div>
+            <span class="gnb-divider"></span>
+            <button class="gnb-menu-btn" aria-label="메뉴"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- 페이지 헤더 -->
+    <section class="ct-page-header">
+        <h1 class="ct-page-title">문의하기</h1>
+    </section>
+
+    <!-- 폼 컨테이너 -->
+    <section class="ct-container">
+
+        <!-- ① 카테고리 선택 -->
+        <div class="ct-item ct-item--full">
+            <h2 class="ct-item-title">문의하고 싶은 카테고리를 선택해 주세요.</h2>
+            <div class="ct-btn-grid ct-btn-grid--4" id="categoryBtns">
+                <button class="ct-btn-sel is-active" data-group="category" type="button">제품 및 영업 문의</button>
+                <button class="ct-btn-sel" data-group="category" type="button">IR 및 투자 정보</button>
+                <button class="ct-btn-sel" data-group="category" type="button">채용</button>
+                <button class="ct-btn-sel" data-group="category" type="button">기타</button>
+            </div>
+        </div>
+
+        <!-- ② 제품 선택 -->
+        <div class="ct-item ct-item--full">
+            <h2 class="ct-item-title">문의하실 제품을 선택해 주세요.</h2>
+            <div class="ct-btn-grid ct-btn-grid--3" id="productBtns">
+                <button class="ct-btn-sel is-active" data-group="product" type="button">냉연강판</button>
+                <button class="ct-btn-sel" data-group="product" type="button">Q/T 열처리강판</button>
+                <button class="ct-btn-sel" data-group="product" type="button">니켈도금강판</button>
+            </div>
+        </div>
+
+        <!-- ③ 문의자 정보 -->
+        <div class="ct-item">
+            <h2 class="ct-item-title">문의자 정보를 입력해 주세요.</h2>
+            <div class="ct-info-con">
+                <!-- 이름 -->
+                <div class="ct-field">
+                    <div class="ct-field-title">
+                        <span class="ct-field-label">이름</span><span class="ct-required">*</span>
+                    </div>
+                    <div class="ct-field-input-wrap">
+                        <input type="text" class="ct-input" placeholder="이름을 입력해 주세요." autocomplete="name">
+                    </div>
+                </div>
+                <!-- 연락처 -->
+                <div class="ct-field">
+                    <div class="ct-field-title">
+                        <span class="ct-field-label">연락처</span><span class="ct-required">*</span>
+                    </div>
+                    <div class="ct-field-input-wrap">
+                        <input type="tel" class="ct-input" placeholder="-없이 연락처를 입력해주세요." autocomplete="tel">
+                    </div>
+                </div>
+                <!-- 이메일 -->
+                <div class="ct-field">
+                    <div class="ct-field-title">
+                        <span class="ct-field-label">이메일</span><span class="ct-required">*</span>
+                    </div>
+                    <div class="ct-field-input-wrap">
+                        <div class="ct-email-wrap">
+                            <input type="text" class="ct-input ct-email-local" placeholder="이메일 주소" autocomplete="off" id="emailLocal">
+                            <span class="ct-at">@</span>
+                            <div class="ct-email-domain-wrap">
+                                <input type="text" class="ct-input ct-email-domain" placeholder="직접입력" id="emailDomain">
+                                <select class="ct-email-select" id="emailSelect" aria-label="도메인 선택">
+                                    <option value="">직접입력</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="daum.net">daum.net</option>
+                                    <option value="kakao.com">kakao.com</option>
+                                    <option value="hanmail.net">hanmail.net</option>
+                                    <option value="nate.com">nate.com</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ④ 문의내용 -->
+        <div class="ct-item ct-item--full">
+            <h2 class="ct-item-title">문의내용을 입력해 주세요.</h2>
+            <div class="ct-content-con">
+                <!-- 제목 -->
+                <div class="ct-field ct-field--full">
+                    <div class="ct-field-title">
+                        <span class="ct-field-label">제목</span><span class="ct-required">*</span>
+                    </div>
+                    <div class="ct-field-input-wrap ct-field-input-wrap--full">
+                        <input type="text" class="ct-input" placeholder="제목을 입력해 주세요.">
+                    </div>
+                </div>
+                <!-- 내용 -->
+                <div class="ct-field ct-field--full ct-field--textarea">
+                    <div class="ct-field-title">
+                        <span class="ct-field-label">내용</span><span class="ct-required">*</span>
+                    </div>
+                    <div class="ct-field-input-wrap ct-field-input-wrap--full">
+                        <textarea class="ct-textarea" placeholder="내용을 입력해 주세요."></textarea>
+                    </div>
+                </div>
+                <!-- 첨부파일 -->
+                <div class="ct-field ct-field--full ct-field--attach">
+                    <div class="ct-field-title">
+                        <span class="ct-field-label">첨부파일</span>
+                    </div>
+                    <div class="ct-field-input-wrap ct-field-input-wrap--full">
+                        <div class="ct-attach-wrap">
+                            <label class="ct-file-btn" for="fileInput">파일선택</label>
+                            <input type="file" id="fileInput" class="ct-file-input" multiple accept=".jpg,.gif,.png,.xls,.xlsx,.doc,.docx,.ppt,.pdf,.txt,.zip">
+                            <div class="ct-drop-area" id="dropArea">
+                                <svg class="ct-drop-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V9L13 2Z" stroke="#363636" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M13 2V9H20" stroke="#363636" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="15" cy="15" r="4" stroke="#363636" stroke-width="1.5"/>
+                                    <path d="M15 13V15L16.5 16.5" stroke="#363636" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <p class="ct-drop-text">첨부할 파일을 여기에 끌어다 놓거나, 파일 선택 버튼을 눌러 직접 선택해 주세요.</p>
+                            </div>
+                            <ul class="ct-attach-notes">
+                                <li>jpg, gif, png, xls, xlsx, doc, docx, ppt, pdf, txt, zip 파일만 업로드가 가능합니다.</li>
+                                <li>파일당 최대 3MB / 최대 5개까지 등록 가능합니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ⑤ 개인정보 수집 이용안내 -->
+        <div class="ct-item ct-item--full">
+            <h2 class="ct-item-title">개인정보 수집 이용안내</h2>
+            <div class="ct-privacy-wrap">
+                <div class="ct-privacy-table">
+                    <div class="ct-privacy-row ct-privacy-row--head">
+                        <span>개인정보 수집 및 이용,제공 등의 동의</span>
+                    </div>
+                    <div class="ct-privacy-row ct-privacy-row--body">
+                        <p>'동국산업㈜'는 (이하 '회사'는) 고객님의 개인정보를 중요시하며, "정보통신망 이용촉진 및 정보보호"에 관한 법률을 준수하고 있습니다.<br>
+                        회사는 개인정보취급방침을 통하여 고객님께서 제공하시는 개인 정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.<br>
+                        회사는 개인정보취급방침을 개정하는 경우 웹사이트 공지사항(또는 개별공지)을 통하여 공지할 것입니다.<br>
+                        본 방침은 2008년 05월 13일부터 시행됩니다.</p>
+                    </div>
+                    <div class="ct-privacy-row ct-privacy-row--head">
+                        <span>수집하는 개인정보 항목</span>
+                    </div>
+                    <div class="ct-privacy-row ct-privacy-row--body">
+                        <ul class="ct-privacy-list">
+                            <li>이름, 이메일, 연락처</li>
+                        </ul>
+                    </div>
+                    <div class="ct-privacy-row ct-privacy-row--head">
+                        <span>개인정보의 수집 및 이용목적</span>
+                    </div>
+                    <div class="ct-privacy-row ct-privacy-row--body">
+                        <ul class="ct-privacy-list">
+                            <li>상담 및 문의 사항 확인 및 답변</li>
+                            <li>처리결과 통보 등의 목적</li>
+                        </ul>
+                    </div>
+                    <div class="ct-privacy-row ct-privacy-row--head">
+                        <span>개인정보의 보유 및 이용기간</span>
+                    </div>
+                    <div class="ct-privacy-row ct-privacy-row--body">
+                        <ul class="ct-privacy-list">
+                            <li>개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다</li>
+                        </ul>
+                    </div>
+                </div>
+                <label class="ct-checkbox-wrap">
+                    <input type="checkbox" class="ct-checkbox-input" id="agreeCheck">
+                    <span class="ct-checkbox-box"></span>
+                    <span class="ct-checkbox-label">(필수) 동의하기</span>
+                </label>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 제출 버튼 -->
+    <div class="ct-btn-section">
+        <button type="button" class="ct-submit-btn">문의하기</button>
+    </div>
+
+    <!-- 고객지원 -->
+    <section class="ct-support-section">
+        <div class="ct-support-card">
+            <img src="../assets/common/ic-support.svg" alt="" class="ct-support-icon">
+            <div class="ct-support-text">
+                <div class="ct-support-texts">
+                    <!-- 데스크탑: 1줄 / 모바일: 2줄 -->
+                    <p class="ct-support-title">동국산업에 대해 <br class="ct-mo-br">더 알고 싶으신가요?</p>
+                    <!-- 데스크탑: 1줄 / 모바일: 2줄 -->
+                    <p class="ct-support-desc">제품, 기술, 협력, 채용 등 다양한 문의를 남겨주시면<br class="ct-mo-br"> 담당자가 확인 후 안내드립니다.</p>
+                </div>
+                <a href="contact.html" class="ct-support-arrow" aria-label="문의하기">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <path d="M6 13H20M14 7L20 13L14 19" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 고객지원 플레이스홀더 -->
+    <div id="support-placeholder"></div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 상단 이동 버튼 -->
+    <div id="btn-top-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/gnb.js"></script>
+    <script>
+    // 선택 버튼 토글
+    document.querySelectorAll('.ct-btn-sel').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var group = this.getAttribute('data-group');
+            document.querySelectorAll('.ct-btn-sel[data-group="' + group + '"]').forEach(function(b) {
+                b.classList.remove('is-active');
+            });
+            this.classList.add('is-active');
+        });
+    });
+
+    // 이메일 도메인 드롭다운 연동
+    var emailSelect = document.getElementById('emailSelect');
+    var emailDomain = document.getElementById('emailDomain');
+    if (emailSelect && emailDomain) {
+        emailSelect.addEventListener('change', function() {
+            if (this.value) {
+                emailDomain.value = this.value;
+                emailDomain.readOnly = true;
+            } else {
+                emailDomain.value = '';
+                emailDomain.readOnly = false;
+                emailDomain.focus();
+            }
+        });
+    }
+
+    // 드래그&드롭
+    var dropArea = document.getElementById('dropArea');
+    var fileInput = document.getElementById('fileInput');
+    if (dropArea && fileInput) {
+        dropArea.addEventListener('dragover', function(e) { e.preventDefault(); dropArea.classList.add('is-over'); });
+        dropArea.addEventListener('dragleave', function() { dropArea.classList.remove('is-over'); });
+        dropArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            dropArea.classList.remove('is-over');
+            fileInput.files = e.dataTransfer.files;
+        });
+        dropArea.addEventListener('click', function() { fileInput.click(); });
+    }
+    </script>
+</body>
+</html>
