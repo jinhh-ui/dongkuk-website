@@ -15,7 +15,8 @@
         location.pathname.includes('/invest/') ||
         location.pathname.includes('/sustainability/') ||
         location.pathname.includes('/career/') ||
-        location.pathname.includes('/talent/');
+        location.pathname.includes('/talent/') ||
+        location.pathname.includes('/contact/');
     const prefix = isSubdir ? '../' : '';
 
     /* ── 고객지원 배너 ── */
