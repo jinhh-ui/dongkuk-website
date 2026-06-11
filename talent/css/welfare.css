@@ -1,0 +1,357 @@
+/* ══════════════════════════════════════
+   복리후생 (welfare.html)
+   GP: 1920px / GM: 360px
+   Figma file: 9atg0Kz3RdcbBqpN2Ozdsd  Page 4
+   GP frame: 146:3101 / GM frame: 146:3768
+══════════════════════════════════════ */
+
+
+/* ── 페이지 헤더 ── */
+/* GP: h=366, GNB=90, gap=70, pb=100. Title: font-size=80px, Bold, center */
+.wel-page-header {
+    padding: 70px 120px 100px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wel-page-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
+}
+
+
+/* ── 복리후생 리스트 섹션 ── */
+/* GP: List — w=1920, pt=100, pb=100, pl=120, pr=120, gap=80 */
+.wel-list {
+    background: #fff;
+    padding: 100px 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+
+/* ── 각 카테고리 아이템 ── */
+/* GP: item — w=1680, gap=40 between Title and cards */
+.wel-item {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* GP: Title text — font-size=50px, Bold, color=#000 */
+.wel-item-title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.4;
+}
+
+
+/* ── 카드 그리드 ── */
+/* GP: cards row — gap=30px horizontal */
+.wel-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+/* 카드 2개 행: 2개씩 */
+.wel-cards--2 {
+    /* 2 cards × 540px + 1 gap × 30px = 1110px / 1680px max */
+}
+
+.wel-cards--2 .wel-card {
+    flex: 0 0 calc((100% - 30px) / 2);
+    max-width: calc((100% - 30px) / 2);
+}
+
+/* 카드 3개 행: 3개씩 */
+.wel-cards--3 .wel-card {
+    flex: 0 0 calc((100% - 60px) / 3);
+    max-width: calc((100% - 60px) / 3);
+}
+
+/* 카드 1개 행: 첫 번째 카드만 (540px / 1680px ≈ 32.14%) */
+.wel-cards--1 .wel-card {
+    flex: 0 0 calc((100% - 60px) / 3);
+    max-width: calc((100% - 60px) / 3);
+}
+
+
+/* ── 개별 카드 ── */
+/* GP: card — h=540, bg=#F8F9FB, radius=20, overflow hidden */
+.wel-card {
+    height: 540px;
+    background: #F8F9FB;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* GP: card image area — h=270 */
+.wel-card-img-wrap {
+    width: 100%;
+    height: 270px;
+    flex-shrink: 0;
+    background: #D9D9D9;
+    overflow: hidden;
+}
+
+.wel-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* GP: card body — h=270, pl=40, pr=40, pt=40, pb=40 */
+.wel-card-body {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* GP: card title — font-size=36px, Bold, color=#000 */
+.wel-card-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* GP: card desc — font-size=24px, Regular, color=#363636 */
+.wel-card-desc {
+    font-size: 24px;
+    font-weight: 400;
+    color: #363636;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* ── 버튼 섹션 ── */
+/* GP: btn — w=1920, h=140, pt=60, gap=16, centered */
+.wel-btn-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 60px 0 0;
+    background: #fff;
+}
+
+/* GP: btn — w=346, h=80, radius=10, font-size=24px, Bold */
+.wel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.wel-btn:hover {
+    opacity: 0.85;
+}
+
+/* outline: border=#F27100, color=#F27100 */
+.wel-btn--outline {
+    border: 1px solid #F27100;
+    color: #F27100;
+    background: transparent;
+}
+
+/* primary: bg=#F27100, color=#fff */
+.wel-btn--primary {
+    background: #F27100;
+    color: #fff;
+    border: 1px solid #F27100;
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 태블릿 (768px ~ 1439px)
+══════════════════════════════════════ */
+@media (max-width: 1439px) {
+
+    .wel-page-header {
+        padding: 50px 40px 60px;
+    }
+
+    .wel-page-title {
+        font-size: clamp(36px, 5vw, 60px);
+    }
+
+    .wel-list {
+        padding: 60px 40px;
+        gap: 60px;
+    }
+
+    .wel-item-title {
+        font-size: clamp(24px, 3.5vw, 40px);
+    }
+
+    .wel-cards {
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .wel-cards--2 .wel-card,
+    .wel-cards--3 .wel-card {
+        flex: 0 0 calc((100% - 16px) / 2);
+        max-width: calc((100% - 16px) / 2);
+    }
+
+    .wel-cards--1 .wel-card {
+        flex: 0 0 calc((100% - 16px) / 2);
+        max-width: calc((100% - 16px) / 2);
+    }
+
+    .wel-card-title {
+        font-size: clamp(18px, 2.5vw, 28px);
+    }
+
+    .wel-card-desc {
+        font-size: clamp(14px, 1.8vw, 18px);
+    }
+
+    .wel-card-body {
+        padding: 24px;
+        gap: 10px;
+    }
+
+    .wel-btn {
+        width: 260px;
+        height: 60px;
+        font-size: 18px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 모바일 (~ 767px)
+   GM frame: 360px, padding l=16 r=16
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* GM: Page Header — pb=30, title font-size=30px */
+    .wel-page-header {
+        padding: 0;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .wel-page-title {
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+        height: 54px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        line-height: 1.4;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    /* GM: List items — pl=16, pr=16, pt=40, pb=40, gap=20 */
+    .wel-list {
+        padding: 0;
+        gap: 0;
+    }
+
+    .wel-item {
+        padding: 40px 16px;
+        gap: 20px;
+    }
+
+    /* GM: item title — font-size=30px */
+    .wel-item-title {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    /* GM: cards — vertical stack, gap=12 */
+    .wel-cards {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* GM: all cards take full width (328px in 360px frame) */
+    .wel-cards--2 .wel-card,
+    .wel-cards--3 .wel-card,
+    .wel-cards--1 .wel-card {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* GM: card — w=100%, inline style override */
+    .wel-card {
+        width: 100% !important;
+    }
+
+    .wel-card-img-wrap {
+        width: 100% !important;
+        padding-bottom: 0;
+        height: 164px;
+    }
+
+    .wel-card-body {
+        width: 100% !important;
+    }
+
+    /* GM: card body — pl=20, pr=20 (implied from 328px card), gap=12 */
+    .wel-card-body {
+        padding: 20px 20px 20px;
+        gap: 16px;
+    }
+
+    /* GM: card title — font-size=20px, h=30 */
+    .wel-card-title {
+        font-size: 20px;
+        height: 30px;
+    }
+
+    /* GM: card desc — font-size=16px */
+    .wel-card-desc {
+        font-size: 16px;
+        height: 78px;
+        box-sizing: border-box;
+    }
+
+    /* GM: btn section — p=20, gap=10 */
+    .wel-btn-section {
+        padding: 20px 20px;
+        gap: 10px;
+    }
+
+    /* GM: btn — w=155, h=56, font-size=16px */
+    .wel-btn {
+        flex: 1;
+        width: auto;
+        height: 56px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+}
