@@ -48,16 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* 윤리경영 - 아코디언 */
-const PLUS_SVG  = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="1.5"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="1.5"/></svg>`;
-const MINUS_SVG = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="1.5"/></svg>`;
-
 document.addEventListener('DOMContentLoaded', () => {
 
     const items = document.querySelectorAll('.eth-accordion-item');
 
     items.forEach(item => {
         const header = item.querySelector('.eth-accordion-header');
-        const icon   = item.querySelector('.eth-accordion-icon');
 
         header.addEventListener('click', () => {
             const isOpen = item.classList.contains('is-open');
@@ -65,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // 현재 항목 토글 (다른 항목은 유지)
             item.classList.toggle('is-open', !isOpen);
             header.setAttribute('aria-expanded', String(!isOpen));
-            icon.innerHTML = isOpen ? PLUS_SVG : MINUS_SVG;
 
             // 열릴 때 스크롤 보정
             if (!isOpen) {

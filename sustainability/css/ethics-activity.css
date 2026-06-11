@@ -133,7 +133,7 @@
     word-break: keep-all;
 }
 
-.act-intro-overlay-text--mobile { display: none; }
+.act-intro-overlay-text--mobile { display: none !important; }
 
 /* ── 카드 섹션 ── */
 .act-cards-section {
@@ -191,11 +191,7 @@
 }
 
 
-/* ── 고객지원 섹션 패딩 오버라이드 ── */
-[data-page="ethics-activity"] .support-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
+
 
 /* ══════════════════════════════════════
    반응형 - 태블릿 (768~1439px)

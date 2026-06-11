@@ -1188,6 +1188,8 @@ body {
         grid-row: 2;
         font-size: 16px;
         margin: 0;
+        padding: 0 16px;
+        box-sizing: border-box;
     }
 
     .btn-arrow-right,

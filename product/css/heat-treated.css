@@ -218,10 +218,7 @@
     bottom: clamp(20px, 8.7%, 40px);
 }
 
-/* ===== Product Tabs 안착 여백 ===== */
-.support-section {
-    margin-top: clamp(80px, 6.25vw, 120px);
-}
+
 
 /* ===== Product Tabs 최적화 ===== */
 /* ===== 하단 플로팅 제품 네비게이션 ===== */
