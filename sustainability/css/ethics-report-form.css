@@ -1,0 +1,1628 @@
+/* ══════════════════════════════════════
+   제보하기 (ethics-report-form.html)
+   GP: 1920px / GM: 360px
+   Figma node — GP: 568-15112 / GM: 568-16586
+══════════════════════════════════════ */
+
+
+/* ── 페이지 헤더 ── */
+/* GP: Page Header — flex-col, gap=70, pb=100, title center */
+.erf-page-header {
+    padding: 70px 120px 100px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GP: heading/XL — fs=80, fw=700, lh=1.4 */
+.erf-page-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.4;
+    text-align: center;
+}
+
+
+/* ── 폼 컨테이너 ── */
+/* GP: container — px=120, py=100, gap=100 */
+.erf-container {
+    background: #fff;
+    padding: 100px 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+
+/* ── 섹션 아이템 ── */
+/* GP: Item — flex-col, gap=50 */
+.erf-item {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 1680px;
+}
+
+/* GP: Title header — flex-row, justify-between */
+.erf-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* GP: label/36 — fs=36, fw=700, color=#000, lh=1.5 */
+.erf-item-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* GP: 구분선 — h=1, bg=black (line under title) */
+.erf-item-line {
+    width: 100%;
+    height: 1px;
+    background: #000;
+    margin-top: -34px; /* GP: gap=16 between title text and line => total gap 50=16+34 */
+}
+
+/* GP: *는 필수 — fs=18, lh=1.6 */
+.erf-required-note {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.erf-req-star {
+    color: red;
+}
+
+
+/* ── 라디오 그룹 ── */
+/* GP: con — flex-row, gap=160 */
+.erf-radio-group {
+    display: flex;
+    gap: 160px;
+}
+
+/* GP: radio btn — flex-row, gap=20, w=172 */
+.erf-radio {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.erf-radio-input {
+    display: none;
+}
+
+/* GP: RadioBtn — 36×36, ring 28×28 */
+.erf-radio-circle {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.erf-radio-circle::before {
+    content: '';
+    width: 28px;
+    height: 28px;
+    border: 1px solid #A7A7A7;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    transition: border-color 0.15s;
+}
+
+.erf-radio-circle::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #F27100;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.erf-radio-input:checked + .erf-radio-circle::before {
+    border-color: #F27100;
+}
+
+.erf-radio-input:checked + .erf-radio-circle::after {
+    opacity: 1;
+}
+
+/* GP: label/24_Bold — fs=24, fw=700, color=#363636, lh=1.5 */
+.erf-radio-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: #363636;
+    line-height: 1.5;
+}
+
+
+/* ── 필드 그리드 ── */
+/* GP: con — flex-col, gap=60 */
+.erf-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* GP: TextField — flex-row, gap=24, h=60 */
+.erf-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    height: 60px;
+}
+
+/* 이메일 필드 — height auto */
+.erf-field--email {
+    height: auto;
+}
+
+/* 전체 폭 필드 */
+.erf-field--full {
+    height: 60px;
+}
+
+/* textarea 필드 — h=302 */
+.erf-field--textarea {
+    align-items: flex-start;
+    height: auto;
+}
+
+/* 첨부파일 필드 */
+.erf-field--attach {
+    align-items: flex-start;
+    height: auto;
+}
+
+/* GP: label — w=160, h=60, gap=4, flex-row, items-center */
+.erf-field-title {
+    width: 160px;
+    min-width: 160px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+/* textarea/attach title — top-aligned */
+.erf-field--textarea .erf-field-title,
+.erf-field--attach .erf-field-title {
+    align-items: flex-start;
+    padding-top: 12px;
+    height: auto;
+}
+
+/* GP: label/24_Bold — fs=24, fw=700, color=#363636, lh=1.5 */
+.erf-field-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: #363636;
+    line-height: 1.5;
+}
+
+/* GP: 필수 * — fs=20, color=rgba(255,0,0,0.8), lh=32px */
+.erf-required {
+    font-size: 20px;
+    color: rgba(255, 0, 0, 0.8);
+    line-height: 32px;
+}
+
+/* GP: Input 래퍼 — flex:1 for name/phone = w=544(728-160-24) */
+.erf-field-input-wrap {
+    width: 544px;
+}
+
+/* GP: 문의내용 Input 래퍼 — flex:1 (full width) */
+.erf-field-input-wrap--full {
+    flex: 1;
+    width: auto;
+    max-width: 1390px;
+}
+
+/* GP: Input — h=60, px=24, border=1px solid #A7A7A7, radius=10, fs=22, fw=400 */
+.erf-input {
+    width: 100%;
+    height: 60px;
+    padding: 0 24px;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1B1B1B;
+    background: #fff;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.erf-input:focus {
+    border-color: #F27100;
+}
+
+.erf-input::placeholder {
+    color: #A7A7A7;
+}
+
+/* GP: Textarea — h=302, py=12, px=24, radius=10, fs=22 */
+.erf-textarea {
+    width: 100%;
+    height: 302px;
+    padding: 12px 24px;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1B1B1B;
+    background: #fff;
+    font-family: inherit;
+    box-sizing: border-box;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.15s;
+    line-height: 1.6;
+}
+
+.erf-textarea:focus {
+    border-color: #F27100;
+}
+
+.erf-textarea::placeholder {
+    color: #A7A7A7;
+}
+
+
+/* ── 이메일 분할 ── */
+/* GP: flex-row, gap=12 */
+.erf-email-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* GP: local — w=544, shrink allowed */
+.erf-email-local {
+    flex: 0 1 544px;
+    max-width: 544px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* GP: @ — fs=20, color=#000 */
+.erf-at {
+    flex: 0 0 auto;
+    font-size: 20px;
+    color: #000;
+    line-height: 32px;
+}
+
+/* GP: domain-wrap — w=526, flex-row, gap=12 */
+.erf-email-domain-wrap {
+    flex: 0 1 526px;
+    max-width: 526px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 60px;
+}
+
+/* GP: domain input — flex:1, h=60, border, radius=10, px=24 */
+.erf-email-domain {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    height: 60px;
+    padding: 0 24px;
+    font-size: 22px;
+    color: #1B1B1B;
+    background: #fff;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.erf-email-domain::placeholder {
+    color: #A7A7A7;
+}
+
+.erf-email-domain:focus {
+    border-color: #F27100;
+}
+
+/* GP: 커스텀 select — flex:1, h=60, border, radius=10, px=24 */
+.erf-email-select {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+    height: 60px;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 22px;
+    color: #1B1B1B;
+    font-family: inherit;
+    padding: 0 24px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.erf-email-select:focus {
+    border-color: #F27100;
+}
+
+.erf-email-select-current {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* GP: 드롭다운 화살표 — 24×24, 피그마 SVG 삼각형 */
+.erf-email-select-arrow {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.erf-email-select-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+.erf-email-select.is-open .erf-email-select-arrow {
+    transform: rotate(180deg);
+}
+
+/* GP: 드롭다운 리스트 — border=1 solid #A7A7A7, radius=10, items h=60 px=24 */
+.erf-email-select-list {
+    display: none;
+    position: fixed;
+    background: #fff;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    z-index: 9999;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.erf-email-select.is-open .erf-email-select-list {
+    display: block;
+}
+
+/* GP: 각 항목 — h=60, px=24, fs=22, lh=1.6, color=#000 */
+.erf-email-select-list li {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    font-size: 22px;
+    color: #000;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.1s;
+}
+
+.erf-email-select-list li:hover {
+    background: #F1F3F7;
+}
+
+/* GP: 선택된 항목 — bg=#F1F3F7 */
+.erf-email-select-list li.is-selected {
+    background: #F1F3F7;
+    color: #000;
+    font-weight: 400;
+}
+
+
+/* ── 첨부파일 ── */
+.erf-attach-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* GP: 파일선택 — h=52, px=20, bg=#1B1B1B, fs=18, fw=500, radius=10 */
+.erf-file-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    padding: 0 20px;
+    background: #1B1B1B;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    line-height: 1.6;
+    width: fit-content;
+    font-family: inherit;
+    transition: opacity 0.15s;
+}
+
+.erf-file-btn:hover {
+    opacity: 0.8;
+}
+
+.erf-file-input {
+    display: none;
+}
+
+/* GP: Drop area — h=200, bg=#F8F9FB, border=1px dashed #A7A7A7, radius=10 */
+.erf-drop-area {
+    height: 200px;
+    background: #F8F9FB;
+    border: 1px dashed #A7A7A7;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 24px 0;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    box-sizing: border-box;
+}
+
+.erf-drop-area:hover,
+.erf-drop-area.is-over {
+    background: #F0F1F3;
+    border-color: #F27100;
+}
+
+.erf-drop-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+/* GP: drop text — fs=20, fw=400, color=#4E4E4E */
+.erf-drop-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* GP: 첨부 안내 — fs=20, color=#7A7A7A, dot 6×6 */
+.erf-attach-notes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.erf-attach-notes li {
+    font-size: 20px;
+    font-weight: 400;
+    color: #7A7A7A;
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+}
+
+.erf-attach-notes li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #7A7A7A;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 13px;
+}
+
+
+/* ── 비밀번호 행 ── */
+/* GP: con — flex-row, gap=225 (2 fields side by side, each w=728) */
+.erf-pw-row {
+    display: flex;
+    gap: clamp(40px, 11.72vw, 225px);
+}
+
+.erf-pw-row .erf-field {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.erf-pw-row .erf-field-input-wrap {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+}
+
+/* GP: 비밀번호 안내 — center, w=1312 */
+.erf-pw-notes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 184px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.erf-pw-notes li {
+    font-size: 20px;
+    font-weight: 400;
+    color: #7A7A7A;
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+}
+
+.erf-pw-notes li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #7A7A7A;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 13px;
+}
+
+
+/* ── 개인정보 ── */
+.erf-privacy-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* GP: bg=#F8F9FB, radius=16, py=30, px=20 */
+.erf-privacy-table {
+    background: #F8F9FB;
+    border-radius: 16px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* GP: head — px=30, py=6, fs=24, fw=700, color=#1B1B1B, lh=1.5 */
+.erf-privacy-row--head {
+    padding: 6px 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.erf-privacy-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1B1B1B;
+    line-height: 1.5;
+    width: 22px;
+    flex-shrink: 0;
+}
+
+.erf-privacy-row--head span {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1B1B1B;
+    line-height: 1.5;
+}
+
+/* GP: body — px=64, py=12 */
+.erf-privacy-row--body {
+    padding: 12px 64px;
+}
+
+.erf-privacy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* GP: fs=22, fw=400, color=#4E4E4E, lh=35px, dot 6×6 */
+.erf-privacy-list li {
+    font-size: 22px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 35px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.erf-privacy-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #4E4E4E;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 15px;
+}
+
+/* GP: checkbox — gap=10 */
+.erf-checkbox-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.erf-checkbox-input {
+    display: none;
+}
+
+/* GP: 체크박스 — 36×36 outer, 24×24 inner border=1px solid #A7A7A7, radius=4 */
+.erf-checkbox-box {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.erf-checkbox-box::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border: 1px solid #A7A7A7;
+    border-radius: 4px;
+    background: #fff;
+    box-sizing: border-box;
+    transition: background 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.erf-checkbox-input:checked + .erf-checkbox-box::before {
+    background: #F27100;
+    border-color: #F27100;
+}
+
+/* GP: label/24_Bold — fs=24, fw=700, color=#000 */
+.erf-checkbox-label {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+
+/* ── 제출 버튼 ── */
+/* GP: pt=60, center */
+.erf-btn-section {
+    background: #fff;
+    padding: 60px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* GP: btn — w=346, h=80, radius=10, fs=24, fw=700, bg=#F27100, color=#fff */
+.erf-submit-btn {
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #F27100;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s;
+    line-height: 1.5;
+}
+
+.erf-submit-btn:hover {
+    opacity: 0.85;
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 태블릿 (768px ~ 1439px)
+══════════════════════════════════════ */
+@media (max-width: 1439px) {
+
+    .erf-page-header {
+        padding: 50px 40px 60px;
+    }
+
+    .erf-page-title {
+        font-size: clamp(36px, 5vw, 60px);
+    }
+
+    .erf-container {
+        padding: 60px 40px;
+        gap: 60px;
+    }
+
+    .erf-item {
+        gap: 36px;
+    }
+
+    .erf-item-line {
+        margin-top: -20px;
+    }
+
+    .erf-item-title {
+        font-size: 30px;
+    }
+
+    .erf-required-note {
+        font-size: 16px;
+    }
+
+    /* 라디오 그룹 */
+    .erf-radio-group {
+        gap: 60px;
+    }
+
+    .erf-radio {
+        gap: 12px;
+    }
+
+    .erf-radio-label {
+        font-size: 20px;
+    }
+
+    /* 필드 */
+    .erf-fields {
+        gap: 36px;
+    }
+
+    .erf-field-title {
+        width: 130px;
+        min-width: 130px;
+    }
+
+    .erf-field-label {
+        font-size: 20px;
+    }
+
+    .erf-required {
+        font-size: 18px;
+    }
+
+    .erf-field-input-wrap {
+        width: auto;
+        flex: 1;
+    }
+
+    .erf-input {
+        height: 54px;
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .erf-textarea {
+        height: 260px;
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    /* 이메일 */
+    .erf-email-local {
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
+    }
+
+    .erf-email-domain-wrap {
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
+    }
+
+    .erf-email-domain {
+        height: 54px;
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .erf-email-select {
+        height: 54px;
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    /* 첨부파일 */
+    .erf-file-btn {
+        height: 48px;
+        padding: 0 16px;
+        font-size: 16px;
+    }
+
+    .erf-drop-text {
+        font-size: 16px;
+    }
+
+    .erf-attach-notes li {
+        font-size: 16px;
+    }
+
+    .erf-attach-notes li::before {
+        top: 10px;
+    }
+
+    /* 비밀번호 */
+    .erf-pw-row {
+        gap: 40px;
+    }
+
+    .erf-pw-row .erf-field {
+        flex: 1;
+    }
+
+    .erf-pw-row .erf-field-input-wrap {
+        flex: 1;
+        width: auto;
+    }
+
+    .erf-pw-notes {
+        margin-left: 154px;
+    }
+
+    .erf-pw-notes li {
+        font-size: 16px;
+    }
+
+    /* 개인정보 */
+    .erf-privacy-num {
+        font-size: 20px;
+    }
+
+    .erf-privacy-row--head span {
+        font-size: 20px;
+    }
+
+    .erf-privacy-row--body {
+        padding: 10px 50px;
+    }
+
+    .erf-privacy-list li {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .erf-checkbox-label {
+        font-size: 20px;
+    }
+
+    /* 제출 버튼 */
+    .erf-submit-btn {
+        width: 300px;
+        height: 70px;
+        font-size: 20px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   반응형 — 모바일 (max-width: 767px)
+   GM frame: 568-16586 — w=360, px=16
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* GM: Page Header — gap=20, pb=30, title fs=30 lh=1.4 */
+    .erf-page-header {
+        padding: 20px 16px 30px;
+    }
+
+    .erf-page-title {
+        font-size: 30px;
+        line-height: 1.4;
+    }
+
+    /* GM: container — px=16, py=40, gap=60 */
+    .erf-container {
+        padding: 40px 16px;
+        gap: 60px;
+    }
+
+    /* GM: Item — gap=30 */
+    .erf-item {
+        gap: 30px;
+    }
+
+    /* GM: item-header — flex-col, gap=4 */
+    .erf-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    /* GM: label/26 — fs=26, fw=700, lh=1.5 */
+    .erf-item-title {
+        font-size: 26px;
+    }
+
+    /* GM: line margin-top adjust for gap=12 between title+line */
+    .erf-item-line {
+        margin-top: -18px;
+    }
+
+    /* GM: *는 필수 — fs=14, lh=1.5, color=#222 */
+    .erf-required-note {
+        font-size: 14px;
+        color: #222;
+    }
+
+    /* GM: radio — flex-col, gap=20 */
+    .erf-radio-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* GM: radio btn — gap=8 */
+    .erf-radio {
+        gap: 8px;
+    }
+
+    /* GM: RadioBtn MOB — 40×40 outer, 20×20 ring, 12×12 inner dot */
+    .erf-radio-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .erf-radio-circle::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    .erf-radio-circle::after {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* GM: label/18 — fs=18, fw=700, lh=1.6, color=#363636 */
+    .erf-radio-label {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* GM: con — gap=20 */
+    .erf-fields {
+        gap: 20px;
+    }
+
+    /* GM: TextField — flex-col, gap=8 */
+    .erf-field {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        height: auto;
+    }
+
+    .erf-field--email {
+        height: auto;
+    }
+
+    /* GM: label — w=auto, h=44, gap=2 */
+    .erf-field-title {
+        width: auto;
+        min-width: unset;
+        height: 44px;
+        gap: 2px;
+    }
+
+    .erf-field--textarea .erf-field-title,
+    .erf-field--attach .erf-field-title {
+        padding-top: 0;
+    }
+
+    /* GM: label/18 — fs=18, fw=700, color=#363636, lh=1.6 */
+    .erf-field-label {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* GM: Input wrap — w=full */
+    .erf-field-input-wrap {
+        width: 100%;
+    }
+
+    /* GM: Input — h=48, px=16, radius=8, fs=18, fw=500 */
+    .erf-input {
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    /* GM: Textarea — h=246, px=16, py=8, radius=8, fs=18 */
+    .erf-textarea {
+        height: 246px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    /* GM: email — flex-col layout */
+    .erf-email-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .erf-email-local {
+        flex: none;
+        width: 100%;
+        height: 48px;
+        border-radius: 10px;
+        font-size: 18px;
+        padding: 0 16px;
+    }
+
+    .erf-at {
+        font-size: 20px;
+        color: #222;
+    }
+
+    /* GM: domain group after @ — flex-row, gap=12, items-start */
+    .erf-email-domain-wrap {
+        flex: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        height: auto;
+    }
+
+    .erf-email-domain {
+        flex: none;
+        width: 100%;
+        height: 48px;
+        border-radius: 10px;
+        font-size: 18px;
+        padding: 0 16px;
+    }
+
+    .erf-email-select {
+        flex: none;
+        width: 100%;
+        height: 48px;
+        border-radius: 10px;
+        font-size: 18px;
+        padding: 0 16px;
+    }
+
+    .erf-email-select-list li {
+        font-size: 18px;
+        padding: 10px 16px;
+    }
+
+    /* GM: 파일선택 — h=48, px=16, fs=16, fw=400, radius=10 */
+    .erf-file-btn {
+        height: 48px;
+        padding: 12px 16px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    /* GM: drop area — h=200, radius=8 */
+    .erf-drop-area {
+        border-radius: 8px;
+    }
+
+    /* GM: drop text — fs=16, center, 줄바꿈 */
+    .erf-drop-text {
+        font-size: 16px;
+    }
+
+    /* GM: 첨부 안내 — fs=16, dot 4px */
+    .erf-attach-notes li {
+        font-size: 16px;
+        padding-left: 14px;
+    }
+
+    .erf-attach-notes li::before {
+        width: 4px;
+        height: 4px;
+        top: 11px;
+        left: 3px;
+    }
+
+    /* GM: 비밀번호 — flex-col, gap=20 */
+    .erf-pw-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .erf-pw-row .erf-field {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .erf-pw-row .erf-field-title {
+        width: auto;
+        min-width: unset;
+        height: 44px;
+    }
+
+    .erf-pw-row .erf-field-input-wrap {
+        width: 100%;
+    }
+
+    /* GM: 비밀번호 안내 — fs=16, dot 4px */
+    .erf-pw-notes {
+        margin-left: 0;
+    }
+
+    .erf-pw-notes li {
+        font-size: 16px;
+        padding-left: 14px;
+    }
+
+    .erf-pw-notes li::before {
+        width: 4px;
+        height: 4px;
+        top: 11px;
+        left: 3px;
+    }
+
+    /* GM: 개인정보 테이블 — radius=12, py=20, px=16 */
+    .erf-privacy-table {
+        border-radius: 12px;
+        padding: 20px 16px;
+    }
+
+    /* GM: head — px=8, py=4, gap=8, fs=18, fw=700, lh=1.6 */
+    .erf-privacy-row--head {
+        padding: 4px 8px;
+        gap: 8px;
+    }
+
+    .erf-privacy-num {
+        font-size: 18px;
+        width: 17px;
+        line-height: 1.6;
+    }
+
+    .erf-privacy-row--head span {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* GM: body — pl=33, py=8, fs=18, fw=500, lh=1.6, dot 4px */
+    .erf-privacy-row--body {
+        padding: 8px 8px 8px 33px;
+    }
+
+    .erf-privacy-list li {
+        font-size: 18px;
+        font-weight: 500;
+        color: #4E4E4E;
+        line-height: 29px;
+        padding-left: 14px;
+    }
+
+    .erf-privacy-list li::before {
+        width: 4px;
+        height: 4px;
+        top: 13px;
+        left: 3px;
+    }
+
+    /* GM: checkbox — gap=8, box 40×40 outer, 20×20 inner */
+    .erf-checkbox-wrap {
+        gap: 8px;
+    }
+
+    .erf-checkbox-box {
+        width: 40px;
+        height: 40px;
+    }
+
+    .erf-checkbox-box::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* GM: checkbox label — fs=18, fw=700, color=#222, lh=1.6 */
+    .erf-checkbox-label {
+        font-size: 18px;
+        color: #222;
+    }
+
+    /* GM: btn section — p=20, full-width */
+    .erf-btn-section {
+        padding: 0 20px 0;
+    }
+
+    /* GM: btn — full width, py=15, px=40, radius=10, fs=16, fw=700, lh=1.6 */
+    .erf-submit-btn {
+        width: 100%;
+        height: auto;
+        padding: 15px 40px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* GM: 알림창 모바일 */
+    .erf-alert-popup {
+        width: calc(100% - 32px);
+        max-width: 360px;
+    }
+
+    .erf-alert-msg {
+        font-size: 18px;
+    }
+
+    .erf-alert-btns {
+        padding: 16px;
+    }
+
+    .erf-alert-btn {
+        height: 56px;
+        font-size: 16px;
+    }
+
+    /* GM: 드롭다운 리스트 항목 모바일 */
+    .erf-email-select-list li {
+        height: 48px;
+        font-size: 18px;
+        padding: 0 16px;
+    }
+
+    /* GM: 파일 첨부 상태 모바일 */
+    .erf-drop-header {
+        font-size: 16px;
+    }
+
+    .erf-file-name {
+        font-size: 16px;
+    }
+
+    .erf-file-size {
+        font-size: 14px;
+    }
+
+    /* GM: 비밀번호 토글 모바일 */
+    .erf-pw-toggle {
+        width: 20px;
+        height: 20px;
+    }
+
+    .erf-pw-toggle svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* GM: 에러 메시지 모바일 */
+    .erf-field-error {
+        font-size: 16px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   파일 첨부 상태 (피그마 568-16811)
+   GP: min-h=220, bg=#F8F9FB, border-dashed, radius=10, p=24, gap=20
+══════════════════════════════════════ */
+
+/* 파일 있을 때 드롭 에리어 */
+.erf-drop-area.has-files {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 220px;
+    height: auto;
+    padding: 24px;
+    gap: 20px;
+    cursor: default;
+}
+
+/* 기본/파일 상태 토글 */
+.erf-drop-default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    flex: 1;
+}
+
+.erf-drop-files {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* GP: 헤더 — flex-row, gap=16, items-center */
+.erf-drop-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+/* GP: 모두 삭제 버튼 */
+.erf-drop-clear {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+.erf-drop-clear:hover {
+    text-decoration: underline;
+}
+
+/* GP: 세로 구분선 — w=0(border), h=16 */
+.erf-drop-divider {
+    width: 1px;
+    height: 16px;
+    background: #A7A7A7;
+    flex-shrink: 0;
+}
+
+/* GP: 카운터 — 첨부파일 N개 / 5개 */
+.erf-drop-count {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+.erf-drop-count-current {
+    font-weight: 500;
+    color: #F27100;
+}
+
+/* GP: 파일 목록 — gap=8 */
+.erf-file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* GP: 파일 행 — bg=white, radius=8, px=15, py=12, gap=24, items-center */
+.erf-file-row {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* GP: X 삭제 버튼 — 24×24, rotate(45deg) + icon */
+.erf-file-remove {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+.erf-file-remove svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* GP: 파일명 — fs=20, fw=400, color=#4E4E4E, lh=1.6 */
+.erf-file-name {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+/* GP: 파일 용량 — fs=16, fw=400, color=#A7A7A7 */
+.erf-file-size {
+    font-size: 16px;
+    font-weight: 400;
+    color: #A7A7A7;
+    line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════
+   비밀번호 토글 (피그마 PasswordToggle)
+   GP: 24×24, eye icon show/hide
+══════════════════════════════════════ */
+
+.erf-pw-input-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.erf-input--pw {
+    padding-right: 56px;
+}
+
+.erf-pw-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.erf-pw-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* ══════════════════════════════════════
+   Validation 에러 메시지 (피그마 568-16783)
+   GP: fs=20, fw=400, color=#F64301, lh=1.6
+══════════════════════════════════════ */
+
+.erf-field-error {
+    font-size: 20px;
+    font-weight: 400;
+    color: #F64301;
+    line-height: 1.6;
+    margin: 8px 0 0;
+    min-height: 0;
+}
+
+.erf-field-error:empty {
+    display: none;
+}
+
+/* GP: 에러 상태 인풋 — border-color=#F64301 */
+.erf-input.is-error {
+    border-color: #F64301;
+}
+
+
+/* ══════════════════════════════════════
+   시스템 알림창 (Alert popup)
+   피그마 popup_1(1버튼), popup_2(2버튼)
+   GP: w=420, radius=20, shadow=0 4px 10px rgba(0,0,0,0.08)
+══════════════════════════════════════ */
+
+/* GP: 반투명 오버레이 — bg=rgba(0,0,0,0.5) */
+.erf-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GP: 팝업 — w=420, radius=20, bg=white, shadow */
+.erf-alert-popup {
+    width: 420px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+/* GP: body — pt=60, pb=30, px=30 */
+.erf-alert-body {
+    padding: 60px 30px 30px;
+}
+
+/* GP: msg — fs=24, fw=400, color=#000, lh=1.5 */
+.erf-alert-msg {
+    font-size: 24px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* GP: btns — p=20, gap=10 */
+.erf-alert-btns {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+
+/* GP: 버튼 공통 — h=68, radius=10, fs=20, fw=700, lh=1.5 */
+.erf-alert-btn {
+    flex: 1;
+    height: 68px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.15s;
+    line-height: 1.5;
+    border: none;
+}
+
+.erf-alert-btn:hover {
+    opacity: 0.85;
+}
+
+/* GP: 확인 — bg=#F27100, color=white */
+.erf-alert-btn--ok {
+    background: #F27100;
+    color: #fff;
+}
+
+/* GP: 취소 — border=1 solid #F27100, bg=white, color=#F27100 */
+.erf-alert-btn--cancel {
+    background: #fff;
+    border: 1px solid #F27100;
+    color: #F27100;
+}
+
+/* 1버튼(full width) */
+.erf-alert-btn--full {
+    flex: 1;
+}

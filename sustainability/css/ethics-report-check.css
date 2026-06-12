@@ -1,0 +1,271 @@
+/* ══════════════════════════════════════
+   제보결과 조회 (ethics-report-check.html)
+   GP: 1920px  /  GM: 360px
+   Figma: 568-15467 (PC), 568-16473 (모바일)
+══════════════════════════════════════ */
+
+/* ── 조회 섹션 ── */
+/* GP: px=120, pt=100, pb=30, gap=80, items-center */
+.erck-section {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    padding: 100px 120px 30px;
+    width: 100%;
+}
+
+.erck-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+}
+
+/* GP: Title group — center, gap=16 */
+.erck-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+/* GP: 44px Bold #000 center */
+.erck-title {
+    font-size: 44px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* GP: 24px Regular #4E4E4E center */
+.erck-subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* GP: fields column — gap=24 */
+.erck-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* GP: field row — label + input, center */
+.erck-field {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* GP: label — w=130, py=12, 24px Bold #363636 */
+.erck-field-label {
+    width: 130px;
+    min-width: 130px;
+    padding: 12px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #363636;
+    line-height: 1.5;
+    flex-shrink: 0;
+}
+
+/* GP: input container — w=544 */
+.erck-field-input-wrap {
+    width: 544px;
+}
+
+/* GP: input — h=60, border #A7A7A7, radius=10, px=24, fs=22 */
+.erck-field-input {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    padding: 0 24px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #1B1B1B;
+    background: #fff;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.erck-field-input::placeholder {
+    color: #A7A7A7;
+}
+
+.erck-field-input:focus {
+    border-color: #F27100;
+}
+
+/* GP: btn section — pt=60, center */
+.erck-btn-section {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0 0;
+}
+
+/* GP: btn — w=346, h=80, radius=10, fs=24, Bold, bg=#F27100 */
+.erck-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #F27100;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.5;
+    transition: opacity 0.2s;
+}
+
+.erck-submit-btn:hover {
+    opacity: 0.85;
+}
+
+
+/* ══════════════════════════════════════
+   태블릿 (768px ~ 1279px)
+══════════════════════════════════════ */
+@media (max-width: 1279px) {
+    .erck-section {
+        padding: 60px 40px 30px;
+        gap: 50px;
+    }
+
+    .erck-inner {
+        gap: 50px;
+    }
+
+    .erck-title {
+        font-size: 36px;
+    }
+
+    .erck-subtitle {
+        font-size: 20px;
+    }
+
+    .erck-field-label {
+        width: 110px;
+        min-width: 110px;
+        font-size: 20px;
+    }
+
+    .erck-field-input-wrap {
+        width: 460px;
+    }
+
+    .erck-field-input {
+        height: 52px;
+        font-size: 18px;
+        padding: 0 16px;
+    }
+
+    .erck-btn-section {
+        padding: 40px 0 0;
+    }
+
+    .erck-submit-btn {
+        width: 300px;
+        height: 70px;
+        font-size: 20px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   모바일 (~ 767px)
+   GM: 568-16473
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+    /* GM: Contents — px=16, py=40, gap=24 */
+    .erck-section {
+        padding: 40px 16px 0;
+        gap: 24px;
+    }
+
+    .erck-inner {
+        gap: 24px;
+    }
+
+    /* GM: Title — gap=12, 26px Bold, 16px Regular */
+    .erck-title-group {
+        gap: 12px;
+    }
+
+    .erck-title {
+        font-size: 26px;
+    }
+
+    .erck-subtitle {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* GM: fields — gap=24, vertical */
+    .erck-fields {
+        width: 100%;
+        gap: 24px;
+    }
+
+    /* GM: field — col, gap=8 */
+    .erck-field {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+    }
+
+    /* GM: label — h=44, 18px Bold */
+    .erck-field-label {
+        width: auto;
+        min-width: 0;
+        padding: 0;
+        font-size: 18px;
+        line-height: 1.6;
+        height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* GM: input — w=100%, h=48, radius=8, px=16, fs=18 Medium */
+    .erck-field-input-wrap {
+        width: 100%;
+    }
+
+    .erck-field-input {
+        height: 48px;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 0 16px;
+        border-radius: 8px;
+    }
+
+    /* GM: btn — p=20, w=100%, radius=10, fs=16 */
+    .erck-btn-section {
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    .erck-submit-btn {
+        width: 100%;
+        height: auto;
+        padding: 15px 40px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}

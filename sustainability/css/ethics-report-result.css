@@ -1,0 +1,413 @@
+/* ══════════════════════════════════════
+   제보결과 확인 결과 (ethics-report-result.html)
+   GP: 1920px  /  GM: 360px
+   Figma: 568-15290 (PC), 568-16506 (모바일)
+══════════════════════════════════════ */
+
+/* ── 콘텐츠 영역 ── */
+/* GP: px=120, py=100, gap=100, items-center, w=1920 */
+.err-contents {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    padding: 100px 120px;
+    width: 100%;
+}
+
+/* ── 각 Item 블록 ── */
+/* GP: gap=40, w=1680 */
+.err-item {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-width: 1680px;
+}
+
+/* GP: Item Header — gap=16 */
+.err-item-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.err-item-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* GP: 36px Bold #000 */
+.err-item-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* GP: 1px black line */
+.err-item-line {
+    width: 100%;
+    height: 1px;
+    background: #000;
+}
+
+/* ── 접수 정보 2열 ── */
+/* GP: gap=60, row, 각 pair 반반 */
+.err-row--2col {
+    display: flex;
+    gap: 60px;
+}
+
+.err-row--2col .err-pair {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── 제보 내용 body ── */
+/* GP: gap=60, col */
+.err-body {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* ── 필드 쌍 (라벨 + 값) ── */
+/* GP: gap=24, items-center */
+.err-pair {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.err-pair--top {
+    align-items: flex-start;
+}
+
+/* GP: label — w=160, py=12, 24px Bold #363636 */
+.err-label {
+    width: 160px;
+    min-width: 160px;
+    padding: 12px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #363636;
+    line-height: 1.5;
+    flex-shrink: 0;
+}
+
+/* GP: value — 22px Regular #000, lh=1.6 */
+.err-value {
+    font-size: 22px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.6;
+}
+
+/* GP: value wide — flex:1, max-w=1320 */
+.err-value--wide {
+    flex: 1;
+    min-width: 0;
+    max-width: 1320px;
+}
+
+/* ── 첨부파일 ── */
+/* GP: gap=16 */
+.err-attach-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* GP: bg=#F8F9FB, gap=10, px=24, py=20, radius=10, max-w=1320 */
+.err-attach-file {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #F8F9FB;
+    border-radius: 10px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 1320px;
+}
+
+.err-file-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* GP: 20px Regular #000 */
+.err-file-name {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.6;
+}
+
+/* GP: 20px Regular #4E4E4E */
+.err-file-size {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+
+/* ── 처리 결과 카드 ── */
+/* GP: bg=#F8F9FB, px=50, radius=16, w=full */
+.err-result-card {
+    background: #F8F9FB;
+    border-radius: 16px;
+    padding: 30px 50px;
+    width: 100%;
+}
+
+/* GP: gap=60 */
+.err-result-card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.err-result-card .err-value--wide {
+    max-width: none;
+}
+
+
+/* ── 버튼 섹션 ── */
+/* GP: gap=16, center */
+.err-btn-section {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 120px 30px;
+    background: #fff;
+}
+
+/* GP: w=346, h=80, radius=10, fs=24, Bold, bg=#F27100 */
+.err-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #F27100;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: opacity 0.2s;
+}
+
+.err-btn-primary:hover {
+    opacity: 0.85;
+}
+
+/* GP: w=346, h=80, radius=10, border #F27100, fs=24, Bold, color=#F27100 */
+.err-btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #fff;
+    color: #F27100;
+    border: 1px solid #F27100;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: opacity 0.2s;
+}
+
+.err-btn-outline:hover {
+    opacity: 0.85;
+}
+
+
+/* ══════════════════════════════════════
+   태블릿 (768px ~ 1279px)
+══════════════════════════════════════ */
+@media (max-width: 1279px) {
+    .err-contents {
+        padding: 60px 40px;
+        gap: 60px;
+    }
+
+    .err-item {
+        gap: 30px;
+    }
+
+    .err-item-title {
+        font-size: 30px;
+    }
+
+    .err-row--2col {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .err-body {
+        gap: 40px;
+    }
+
+    .err-label {
+        width: 130px;
+        min-width: 130px;
+        font-size: 20px;
+    }
+
+    .err-value {
+        font-size: 18px;
+    }
+
+    .err-attach-file {
+        width: 100%;
+        max-width: none;
+        padding: 16px 20px;
+    }
+
+    .err-file-name,
+    .err-file-size {
+        font-size: 16px;
+    }
+
+    .err-result-card {
+        padding: 24px 30px;
+    }
+
+    .err-result-card-inner {
+        gap: 40px;
+    }
+
+    .err-btn-section {
+        padding: 0 40px 30px;
+    }
+
+    .err-btn-primary,
+    .err-btn-outline {
+        width: 300px;
+        height: 70px;
+        font-size: 20px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   모바일 (~ 767px)
+   GM: 568-16506
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+    /* GM: px=16, py=40, gap=60 */
+    .err-contents {
+        padding: 40px 16px;
+        gap: 60px;
+    }
+
+    /* GM: Item — gap=30 */
+    .err-item {
+        gap: 30px;
+    }
+
+    /* GM: Header — gap=12 */
+    .err-item-header {
+        gap: 12px;
+    }
+
+    /* GM: 26px Bold */
+    .err-item-title {
+        font-size: 26px;
+    }
+
+    /* GM: 2col → 1col, gap=20 */
+    .err-row--2col {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* GM: body — gap=20 */
+    .err-body {
+        gap: 20px;
+    }
+
+    /* GM: pair — col, gap=8, 자식 가로 꽉 참 */
+    .err-pair {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    /* GM: label — auto width, h=44, 18px Bold */
+    .err-label {
+        width: auto;
+        min-width: 0;
+        padding: 0;
+        font-size: 18px;
+        line-height: 1.6;
+        height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* GM: value — 18px Medium */
+    .err-value {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.6;
+    }
+
+    /* GM: attach file — p=16, radius=8, w=100% */
+    .err-attach-file {
+        width: 100%;
+        max-width: none;
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .err-file-name,
+    .err-file-size {
+        font-size: 16px;
+    }
+
+    /* GM: result card — px=16, py=20, radius=12 */
+    .err-result-card {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    /* GM: result card inner — gap=24 */
+    .err-result-card-inner {
+        gap: 24px;
+    }
+
+    /* GM: btns — col, center */
+    .err-btn-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 16px 20px;
+        width: 100%;
+    }
+
+    .err-btn-primary,
+    .err-btn-outline {
+        width: 100%;
+        max-width: 328px;
+        height: 56px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+}
