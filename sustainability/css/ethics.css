@@ -5,7 +5,7 @@
 
 /* ── 페이지 헤더 ── */
 .eth-page-header {
-    padding: clamp(40px, 3.6vw, 70px) clamp(16px, 6.25vw, 120px) clamp(60px, 5.2vw, 100px);
+    padding: clamp(40px, 3.65vw, 70px) clamp(16px, 6.25vw, 120px) clamp(60px, 5.21vw, 100px);
     background: #fff;
 }
 
@@ -116,7 +116,7 @@
 .eth-intro-image-wrapper {
     width: 100%;
     max-width: 1860px;
-    height: clamp(300px, 28vw, 540px);
+    height: clamp(300px, 28.125vw, 540px);
     border-radius: 30px;
     overflow: hidden;
     position: relative;
@@ -156,7 +156,7 @@
 /* ── 윤리강령 (7가지 원칙) ── */
 .eth-principles-section {
     background: #fff;
-    padding: clamp(40px, 5.2vw, 100px) clamp(16px, 6.25vw, 120px);
+    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
 }
 
 .eth-principles-inner {
@@ -179,8 +179,8 @@
 }
 
 .eth-principles-left {
-    flex: 0 1 50%;
-    max-width: 840px;
+    flex: 0 1 800px;
+    max-width: 800px;
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -188,7 +188,7 @@
 }
 
 .eth-principles-title {
-    font-size: clamp(30px, 2.6vw, 50px);
+    font-size: clamp(30px, 2.61vw, 50px);
     font-weight: 700;
     color: #000;
     line-height: 1.4;
@@ -198,7 +198,7 @@
 .eth-principles-img-wrap {
     width: 100%;
     max-width: 672px;
-    height: clamp(250px, 19.5vw, 375px);
+    height: clamp(250px, 19.54vw, 375px);
     overflow: hidden;
     border-radius: 20px;
 }
@@ -211,7 +211,7 @@
 }
 
 .eth-principles-right {
-    flex: 0 1 50%;
+    flex: 0 1 840px;
     max-width: 840px;
     min-width: 0;
     display: flex;
@@ -242,7 +242,7 @@
     display: flex;
     align-items: flex-start;
     gap: 6px;
-    font-size: clamp(16px, 1.145vw, 22px);
+    font-size: clamp(16px, 1.15vw, 22px);
     font-weight: 400;
     color: #4E4E4E;
     line-height: 1.6;
@@ -273,7 +273,7 @@
 /* ── 윤리행동지침 (아코디언) ── */
 .eth-accordion-section {
     background: #fff;
-    padding: clamp(40px, 5.2vw, 100px) clamp(16px, 6.25vw, 120px);
+    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
     border-top: 1px solid #e0e0e0;
 }
 
@@ -294,7 +294,7 @@
 }
 
 .eth-accordion-title-wrap .eth-accordion-title {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .eth-accordion-title {
@@ -322,8 +322,7 @@
     margin: 0;
 }
 
-.eth-accordion-item {
-}
+.eth-accordion-item {}
 
 .eth-accordion-item:first-child .eth-accordion-header {
     border-top: 1px solid #e0e0e0;
@@ -339,15 +338,15 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 38px 0;
+    padding: 48px 0;
     text-align: left;
 }
 
 .eth-accordion-dot {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    border: 5px solid #D3D3D3;
+    border: 8px solid #D3D3D3;
     background: transparent;
     flex-shrink: 0;
     transition: background 0.2s, border-color 0.2s;

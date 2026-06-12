@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제보접수 완료 - 동국산업</title>
+    <meta name="description" content="동국산업 윤리강령 위반신고 제보가 정상적으로 접수되었습니다.">
+    <link rel="icon" type="image/svg+xml" href="../assets/common/favicon.svg">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/gnb.css">
+    <link rel="stylesheet" href="css/ethics-report-complete.css">
+</head>
+
+<body data-page="sustainability">
+
+    <!-- GNB (PC) -->
+    <header class="gnb">
+        <div class="gnb-logo">
+            <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
+        </div>
+        <nav class="gnb-nav">
+            <div class="gnb-nav-item">
+                <a href="../company/company-info.html" class="gnb-nav-link">회사정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../product/product-center.html" class="gnb-nav-link">제품정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../invest/invest-center.html" class="gnb-nav-link">투자정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="environment.html" class="gnb-nav-link">지속가능경영</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../talent/talent.html" class="gnb-nav-link">인재경영</a>
+            </div>
+        </nav>
+        <div class="gnb-utils">
+            <div class="gnb-utils-links">
+                <a href="../contact/contact.html">문의</a>
+                <a href="#">KR</a>
+            </div>
+            <span class="gnb-divider"></span>
+            <button class="gnb-menu-btn" aria-label="메뉴"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- 페이지 헤더 -->
+    <section class="page-header">
+        <h1>제보하기</h1>
+    </section>
+
+    <!-- 접수 완료 콘텐츠 -->
+    <section class="erc-section">
+        <div class="erc-title-group">
+            <img class="erc-icon" src="../assets/common/ic_contact_complete.svg" alt="">
+            <p class="erc-title">제보가 정상적으로 접수되었습니다.</p>
+        </div>
+
+        <div class="erc-contents-wrap">
+            <!-- 접수번호 카드 -->
+            <div class="erc-card">
+                <div class="erc-card-inner">
+                    <div class="erc-card-row">
+                        <span class="erc-card-label">접수번호</span>
+                        <div class="erc-card-value-group">
+                            <span class="erc-card-value" id="receiptNumber">ESG-2026-00123</span>
+                            <button type="button" class="erc-copy-btn" data-copy="receiptNumber" aria-label="접수번호 복사">
+                                <svg viewBox="0 0 36 36" fill="none">
+                                    <rect x="11" y="4.5" width="20" height="22" rx="3" stroke="#4E4E4E" stroke-width="3" fill="none"/>
+                                    <rect x="5" y="10" width="20" height="22" rx="3" stroke="#4E4E4E" stroke-width="3" fill="#F8F9FB"/>
+                                </svg>
+                                <span class="erc-copy-tooltip">복사됨!</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 익명일 때만 보이는 비밀번호 행 -->
+                    <div class="erc-card-row" id="passwordRow" style="display: none;">
+                        <span class="erc-card-label">비밀번호</span>
+                        <div class="erc-card-value-group">
+                            <span class="erc-card-value" id="passwordValue">abc123</span>
+                            <button type="button" class="erc-copy-btn" data-copy="passwordValue" aria-label="비밀번호 복사">
+                                <svg viewBox="0 0 36 36" fill="none">
+                                    <rect x="11" y="4.5" width="20" height="22" rx="3" stroke="#4E4E4E" stroke-width="3" fill="none"/>
+                                    <rect x="5" y="10" width="20" height="22" rx="3" stroke="#4E4E4E" stroke-width="3" fill="#F8F9FB"/>
+                                </svg>
+                                <span class="erc-copy-tooltip">복사됨!</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 설명 -->
+            <div class="erc-desc-list">
+                <!-- 실명용 설명 -->
+                <div class="erc-desc-item" id="descReal1">
+                    <span class="erc-desc-dot"></span>
+                    <p class="erc-desc-text">실명 제보 시 등록할 때 입력하신 <strong>이메일로 답변이 전송</strong>됩니다.</p>
+                </div>
+                <!-- 익명용 설명 -->
+                <div class="erc-desc-item" id="descAnon1" style="display: none;">
+                    <span class="erc-desc-dot"></span>
+                    <p class="erc-desc-text">익명 접수 시 <strong>접수번호</strong>와<strong> 비밀번호</strong>를 분실하면 결과를 확인할 수 없으니 반드시 별도로 기록하여 보관해 주세요.</p>
+                </div>
+                <div class="erc-desc-item">
+                    <span class="erc-desc-dot"></span>
+                    <p class="erc-desc-text">제보하신 내용은 철저히 보호되며 공명하게 처리하겠습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 버튼 섹션 -->
+    <div class="erc-btn-section" id="btnSection">
+        <!-- 실명: 홈으로 이동 1개 / 익명: 홈으로 이동 + 제보결과 확인하기 2개 -->
+        <a href="../index.html" class="erc-btn-primary">홈으로 이동</a>
+        <a href="ethics-report-check.html" class="erc-btn-outline" id="btnCheckResult" style="display: none;">제보결과 확인하기</a>
+    </div>
+
+    <!-- 고객지원 -->
+    <div id="support-placeholder"></div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 상단 이동 버튼 -->
+    <div id="btn-top-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/gnb.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        // URL 파라미터로 type 결정
+        var params = new URLSearchParams(window.location.search);
+        var reportType = params.get('type') || 'real'; // 'real' or 'anon'
+        var receiptNum = params.get('receipt') || 'ESG-2026-00123';
+        var pw = params.get('pw') || '';
+
+        // 접수번호 세팅
+        document.getElementById('receiptNumber').textContent = receiptNum;
+
+        if (reportType === 'anon') {
+            // 익명: 비밀번호 행 표시, 익명 설명 표시, 실명 설명 숨김
+            document.getElementById('passwordRow').style.display = '';
+            document.getElementById('passwordValue').textContent = pw || '******';
+            document.getElementById('descAnon1').style.display = '';
+            document.getElementById('descReal1').style.display = 'none';
+            document.getElementById('btnCheckResult').style.display = '';
+        }
+
+        // 복사 기능
+        document.querySelectorAll('.erc-copy-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var targetId = this.getAttribute('data-copy');
+                var text = document.getElementById(targetId).textContent;
+                var tooltip = this.querySelector('.erc-copy-tooltip');
+                
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text);
+                } else {
+                    var ta = document.createElement('textarea');
+                    ta.value = text;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                }
+
+                tooltip.classList.add('is-visible');
+                setTimeout(function() {
+                    tooltip.classList.remove('is-visible');
+                }, 1500);
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
