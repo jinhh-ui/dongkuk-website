@@ -1053,7 +1053,7 @@ body {
 
     .mo-br,
     .m-br {
-        display: block;
+        display: inline;
     }
 
     body {
@@ -1155,7 +1155,7 @@ body {
         grid-template-rows: 80px auto;
         column-gap: 12px;
         row-gap: 28px;
-        padding: 24px 16px;
+        padding: 24px 10px;
         border-radius: 16px;
     }
 
@@ -1177,16 +1177,22 @@ body {
     .support-info h3 {
         grid-column: 2;
         grid-row: 1;
-        font-size: 20px;
+        font-size: 24px;
+        line-height: 1.5;
         display: flex;
         align-items: center;
+        text-align: left;
         margin: 0;
+        height: 80px;
+        white-space: pre-wrap;
     }
 
     .support-info p {
         grid-column: 1 / span 2;
         grid-row: 2;
         font-size: 16px;
+        line-height: 26px;
+        white-space: normal;
         margin: 0;
         padding: 0 16px;
         box-sizing: border-box;
