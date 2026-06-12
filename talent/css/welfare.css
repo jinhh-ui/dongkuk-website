@@ -11,9 +11,6 @@
 .wel-page-header {
     padding: 70px 120px 100px;
     background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .wel-page-title {
@@ -23,6 +20,10 @@
     margin: 0;
     line-height: 1.4;
     text-align: center;
+    height: 106px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -130,7 +131,7 @@
     font-size: 36px;
     font-weight: 700;
     color: #000;
-    line-height: 1.4;
+    line-height: 54px;
     margin: 0;
 }
 
@@ -141,6 +142,7 @@
     color: #363636;
     line-height: 1.5;
     margin: 0;
+    min-height: 120px;
 }
 
 
@@ -263,6 +265,7 @@
         font-size: 30px;
         font-weight: 700;
         text-align: center;
+        height: 54px;
         margin-top: 20px;
         margin-bottom: 30px;
         line-height: 1.4;
@@ -325,11 +328,13 @@
     /* GM: card title — font-size=20px, h=30 */
     .wel-card-title {
         font-size: 20px;
+        line-height: 30px;
     }
 
     /* GM: card desc — font-size=16px */
     .wel-card-desc {
         font-size: 16px;
+        min-height: 78px;
     }
 
     /* GM: btn section — p=20, gap=10 */

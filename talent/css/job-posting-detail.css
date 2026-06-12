@@ -262,13 +262,21 @@
 
     /* GM: Page Header — pb=30, fs=30, center */
     .jpd-page-header {
-        padding: 20px 16px 30px;
-        justify-content: center;
+        padding: 0;
+        gap: 20px;
+        align-items: center;
     }
 
     .jpd-page-title {
         font-size: 30px;
+        font-weight: 700;
         text-align: center;
+        height: 54px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        line-height: 1.4;
+        padding: 0 16px;
+        box-sizing: border-box;
     }
 
     /* GM: Container — pt=40, pb=40, pl=16, pr=16, gap=30 */
@@ -355,5 +363,6 @@
     /* GM: 안내 문구 — fs=16 */
     .jpd-note {
         font-size: 16px;
+        line-height: 26px;
     }
 }
