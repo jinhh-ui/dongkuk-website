@@ -344,7 +344,7 @@
 /* 화살표 */
 .env-goal-arrow {
     flex-shrink: 0;
-    width: 32px;
+    width: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -580,7 +580,7 @@
 
 .env-solar-fc-unit {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 700;
     color: #4E4E4E;
     line-height: 1.6;
     padding-bottom: 4px;
@@ -647,6 +647,7 @@
     font-weight: 700;
     color: #F27100;
     line-height: 1.5;
+    margin-bottom: 16px;
 }
 
 .env-solar-fc-total-num {
@@ -664,7 +665,7 @@
 
 .env-solar-fc-total-unit {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 700;
     color: #4E4E4E;
     padding-bottom: 6px;
 }
@@ -1326,7 +1327,7 @@
     }
 
     .env-goal-arrow {
-        width: 31px;
+        width: 12px;
         transform: rotate(90deg);
     }
 
