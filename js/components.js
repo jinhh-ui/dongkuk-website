@@ -24,7 +24,7 @@
     if (supportEl) {
         supportEl.outerHTML = `
     <section class="support-section">
-        <div class="support-banner">
+        <div class="support-banner" onclick="location.href='${prefix}contact/contact.html'" style="cursor:pointer;">
             <div class="support-icon"></div>
             <div class="support-content-box">
                 <div class="support-info">

@@ -110,15 +110,17 @@
                                 <input type="text" class="ct-input ct-email-domain" placeholder="직접입력" id="emailDomain">
                                 <div class="ct-email-select" id="emailSelect" role="combobox" aria-label="도메인 선택" aria-expanded="false" tabindex="0">
                                     <span class="ct-email-select-current">직접입력</span>
-                                    <span class="ct-email-select-arrow"></span>
+                                    <span class="ct-email-select-arrow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12.7809 17.0239C12.3805 17.5243 11.6195 17.5243 11.2191 17.0239L5.29976 9.6247C4.77595 8.96993 5.24212 8 6.08062 8L17.9194 8C18.7579 8 19.2241 8.96993 18.7002 9.6247L12.7809 17.0239Z" fill="#4E4E4E"/></svg>
+                                    </span>
                                     <ul class="ct-email-select-list" role="listbox">
                                         <li role="option" data-value="" class="is-selected">직접입력</li>
-                                        <li role="option" data-value="gmail.com">gmail.com</li>
                                         <li role="option" data-value="naver.com">naver.com</li>
-                                        <li role="option" data-value="daum.net">daum.net</li>
-                                        <li role="option" data-value="kakao.com">kakao.com</li>
-                                        <li role="option" data-value="hanmail.net">hanmail.net</li>
+                                        <li role="option" data-value="gmail.com">gmail.com</li>
+                                        <li role="option" data-value="daum.com">daum.com</li>
                                         <li role="option" data-value="nate.com">nate.com</li>
+                                        <li role="option" data-value="hanmail.com">hanmail.com</li>
+                                        <li role="option" data-value="hotmail.com">hotmail.com</li>
                                     </ul>
                                 </div>
                             </div>
@@ -160,8 +162,20 @@
                             <label class="ct-file-btn" for="fileInput">파일선택</label>
                             <input type="file" id="fileInput" class="ct-file-input" multiple accept=".jpg,.gif,.png,.xls,.xlsx,.doc,.docx,.ppt,.pdf,.txt,.zip">
                             <div class="ct-drop-area" id="dropArea">
-                                <img class="ct-drop-icon" src="../assets/common/ic_file_upload.svg" alt="" width="36" height="36">
-                                <p class="ct-drop-text">첨부할 파일을 여기에 끌어다 놓거나, 파일 선택 버튼을 눌러 직접 선택해 주세요.</p>
+                                <!-- 기본 상태: 드래그 안내 -->
+                                <div class="ct-drop-default" id="dropDefault">
+                                    <img class="ct-drop-icon" src="../assets/common/ic_file_upload.svg" alt="" width="36" height="36">
+                                    <p class="ct-drop-text">첨부할 파일을 여기에 끌어다 놓거나,<br class="mo-br"> 파일 선택 버튼을 눌러 직접 선택해 주세요.</p>
+                                </div>
+                                <!-- 파일 첨부 상태: 파일 목록 -->
+                                <div class="ct-drop-files" id="dropFiles" style="display:none;">
+                                    <div class="ct-drop-header">
+                                        <button type="button" class="ct-drop-clear" id="dropClearAll">모두 삭제</button>
+                                        <span class="ct-drop-divider"></span>
+                                        <span class="ct-drop-count">첨부파일 <span class="ct-drop-count-current" id="fileCountCurrent">0</span>개 / 5개</span>
+                                    </div>
+                                    <div class="ct-file-list" id="fileList"></div>
+                                </div>
                             </div>
                             <ul class="ct-attach-notes">
                                 <li>jpg, gif, png, xls, xlsx, doc, docx, ppt, pdf, txt, zip 파일만 업로드가 가능합니다.</li>
@@ -312,18 +326,90 @@
         }, { passive: true });
     }
 
-    // 드래그&드롭
+    // 드래그&드롭 + 파일 목록
     var dropArea = document.getElementById('dropArea');
+    var dropDefault = document.getElementById('dropDefault');
+    var dropFiles = document.getElementById('dropFiles');
     var fileInput = document.getElementById('fileInput');
+    var fileList = document.getElementById('fileList');
+    var fileCountCurrent = document.getElementById('fileCountCurrent');
+    var dropClearAll = document.getElementById('dropClearAll');
+    var uploadedFiles = [];
+
+    function formatFileSize(bytes) {
+        if (bytes >= 1048576) return (bytes / 1048576).toFixed(1) + 'MB';
+        if (bytes >= 1024) return (bytes / 1024).toFixed(1) + 'KB';
+        return bytes + 'B';
+    }
+
+    function renderFiles() {
+        fileList.innerHTML = '';
+        fileCountCurrent.textContent = uploadedFiles.length;
+        if (uploadedFiles.length === 0) {
+            dropDefault.style.display = '';
+            dropFiles.style.display = 'none';
+            dropArea.classList.remove('has-files');
+            return;
+        }
+        dropDefault.style.display = 'none';
+        dropFiles.style.display = '';
+        dropArea.classList.add('has-files');
+        uploadedFiles.forEach(function(file, idx) {
+            var row = document.createElement('div');
+            row.className = 'ct-file-row';
+            row.innerHTML = '<button type="button" class="ct-file-remove" data-idx="' + idx + '" aria-label="삭제">' +
+                '<svg width="24" height="24" viewBox="0 0 21.5 21.5" fill="none"><path d="M10.7455 0.75V20.75" stroke="#4E4E4E" stroke-width="1.5" stroke-linecap="round"/><path d="M20.75 10.7545H0.749999" stroke="#4E4E4E" stroke-width="1.5" stroke-linecap="round"/></svg>' +
+                '</button>' +
+                '<span class="ct-file-name">' + file.name + '</span>' +
+                '<span class="ct-file-size">(' + formatFileSize(file.size) + ')</span>';
+            fileList.appendChild(row);
+        });
+        fileList.querySelectorAll('.ct-file-remove').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var idx = parseInt(this.getAttribute('data-idx'));
+                uploadedFiles.splice(idx, 1);
+                renderFiles();
+            });
+        });
+    }
+
+    function addFiles(files) {
+        for (var i = 0; i < files.length; i++) {
+            if (uploadedFiles.length >= 5) {
+                alert('최대 5개까지 등록 가능합니다.');
+                break;
+            }
+            if (files[i].size > 3 * 1024 * 1024) {
+                alert('첨부파일 크기는 3MB를 초과할 수 없습니다.');
+                continue;
+            }
+            uploadedFiles.push(files[i]);
+        }
+        renderFiles();
+    }
+
     if (dropArea && fileInput) {
         dropArea.addEventListener('dragover', function(e) { e.preventDefault(); dropArea.classList.add('is-over'); });
         dropArea.addEventListener('dragleave', function() { dropArea.classList.remove('is-over'); });
         dropArea.addEventListener('drop', function(e) {
             e.preventDefault();
             dropArea.classList.remove('is-over');
-            fileInput.files = e.dataTransfer.files;
+            addFiles(e.dataTransfer.files);
         });
-        dropArea.addEventListener('click', function() { fileInput.click(); });
+        dropArea.addEventListener('click', function(e) {
+            if (e.target.closest('.ct-file-remove') || e.target.closest('.ct-drop-clear')) return;
+            fileInput.click();
+        });
+        fileInput.addEventListener('change', function() {
+            if (this.files.length) addFiles(this.files);
+            this.value = '';
+        });
+        dropClearAll.addEventListener('click', function(e) {
+            e.stopPropagation();
+            uploadedFiles = [];
+            renderFiles();
+        });
     }
 
     // 문의하기 버튼 → 유효성 검사 후 완료 페이지 이동
