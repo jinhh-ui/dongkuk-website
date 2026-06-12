@@ -1,0 +1,356 @@
+/* ══════════════════════════════════════
+   제보접수 완료 (ethics-report-complete.html)
+   GP: 1920px  /  GM: 360px
+   Figma: 568-15424 (실명), 568-15375 (익명)
+   Mobile: 568-16332
+══════════════════════════════════════ */
+
+/* ── 완료 콘텐츠 섹션 ── */
+/* GP: px=120, pb=30, gap=60, items-center */
+.erc-section {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 0 120px 30px;
+    width: 100%;
+}
+
+/* ── 아이콘 + 타이틀 그룹 ── */
+/* GP: gap=10, items-center */
+.erc-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* GP: 아이콘 — 112×112 */
+.erc-icon {
+    width: 112px;
+    height: 112px;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* GP: 타이틀 — fs=44, fw=700, lh=1.5, color=#000, center */
+.erc-title {
+    font-size: 44px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+}
+
+/* ── 접수번호 카드 ── */
+/* GP: bg=#F8F9FB, py=60, px=24, radius=30, w=1390 */
+.erc-card {
+    background: #F8F9FB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 1390px;
+}
+
+.erc-card-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* GP: 접수번호/비밀번호 행 — gap=24 */
+.erc-card-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* GP: 라벨 — fs=30, fw=500, lh=1.5, color=#7A7A7A */
+.erc-card-label {
+    font-size: 30px;
+    font-weight: 500;
+    color: #7A7A7A;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* GP: 값 그룹 — gap=16 */
+.erc-card-value-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* GP: 값 — fs=30, fw=700, lh=1.5, color=#000 */
+.erc-card-value {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* GP: 복사 아이콘 — 36x36 */
+.erc-copy-btn {
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.erc-copy-btn svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* 복사 성공 툴팁 */
+.erc-copy-tooltip {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #363636;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+
+.erc-copy-tooltip.is-visible {
+    opacity: 1;
+}
+
+/* ── 콘텐츠 + 카드 래퍼 ── */
+.erc-contents-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+/* ── 설명 불릿 리스트 ── */
+/* GP: gap=6 */
+.erc-desc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    max-width: 1390px;
+}
+
+.erc-desc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+/* GP: 불릿 dot — 6x6 */
+.erc-desc-dot {
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
+    border-radius: 50%;
+    background: #7A7A7A;
+    margin-top: 11px;
+    flex-shrink: 0;
+}
+
+/* GP: 텍스트 — fs=18, fw=500, lh=1.6, color=#7A7A7A */
+.erc-desc-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #7A7A7A;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.erc-desc-text strong {
+    font-weight: 700;
+    color: #000;
+}
+
+/* ── 버튼 섹션 ── */
+/* GP: pt=60 */
+.erc-btn-section {
+    padding: 60px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+/* GP: 홈으로 이동 버튼 — w=346, h=80, radius=10, fs=24, fw=700, bg=#F27100, color=#fff */
+.erc-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #F27100;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: opacity 0.2s;
+}
+
+.erc-btn-primary:hover {
+    opacity: 0.85;
+}
+
+/* GP: 제보결과 확인하기 — w=346, h=80, radius=10, border 1px #F27100, fs=24, fw=700, color=#F27100 */
+.erc-btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 346px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    background: #fff;
+    color: #F27100;
+    border: 1px solid #F27100;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: opacity 0.2s;
+}
+
+.erc-btn-outline:hover {
+    opacity: 0.85;
+}
+
+
+/* ══════════════════════════════════════
+   태블릿 (768px ~ 1279px)
+══════════════════════════════════════ */
+@media (max-width: 1279px) {
+    .erc-section {
+        padding: 0 40px 30px;
+    }
+
+    .erc-card {
+        padding: 40px 20px;
+        border-radius: 20px;
+    }
+
+    .erc-card-label {
+        font-size: 24px;
+    }
+
+    .erc-card-value {
+        font-size: 24px;
+    }
+
+    .erc-title {
+        font-size: 36px;
+    }
+
+    .erc-btn-primary,
+    .erc-btn-outline {
+        width: 300px;
+        height: 70px;
+        font-size: 20px;
+    }
+}
+
+
+/* ══════════════════════════════════════
+   모바일 (~ 767px)
+   GM frame: 568-16332
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+    .erc-section {
+        padding: 0 16px 20px;
+        gap: 30px;
+    }
+
+    .erc-icon {
+        width: 84px;
+        height: 84px;
+    }
+
+    .erc-title {
+        font-size: 26px;
+    }
+
+    .erc-card {
+        padding: 30px 16px;
+        border-radius: 16px;
+    }
+
+    .erc-card-inner {
+        gap: 12px;
+    }
+
+    .erc-card-row {
+        gap: 16px;
+    }
+
+    .erc-card-label {
+        font-size: 18px;
+    }
+
+    .erc-card-value {
+        font-size: 18px;
+    }
+
+    .erc-copy-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .erc-contents-wrap {
+        gap: 20px;
+    }
+
+    .erc-desc-text {
+        font-size: 14px;
+    }
+
+    .erc-desc-dot {
+        width: 5px;
+        height: 5px;
+        min-width: 5px;
+        margin-top: 9px;
+    }
+
+    .erc-btn-section {
+        padding: 20px 16px 0;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .erc-btn-primary,
+    .erc-btn-outline {
+        width: 100%;
+        max-width: 328px;
+        height: 56px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+}
