@@ -576,6 +576,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-top: -36px;
     margin-left: 184px;
     display: flex;
     flex-direction: column;
@@ -901,6 +902,7 @@
 
     .erf-pw-notes {
         margin-left: 154px;
+        margin-top: -12px;
     }
 
     .erf-pw-notes li {
@@ -1191,6 +1193,7 @@
     /* GM: 비밀번호 안내 — fs=16, dot 4px */
     .erf-pw-notes {
         margin-left: 0;
+        margin-top: 0;
     }
 
     .erf-pw-notes li {

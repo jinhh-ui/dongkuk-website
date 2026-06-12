@@ -347,45 +347,37 @@
     white-space: nowrap;
 }
 
-/* 화살표 아이콘 */
+/* 드롭다운 화살표 — SVG 삼각형 */
 .ct-email-select-arrow {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-}
-
-.ct-email-select-arrow::after {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid #A7A7A7;
-    border-bottom: 2px solid #A7A7A7;
-    transform: rotate(45deg) translateY(-3px);
     transition: transform 0.2s;
 }
 
-.ct-email-select.is-open .ct-email-select-arrow::after {
-    transform: rotate(-135deg) translateY(-3px);
+.ct-email-select-arrow svg {
+    width: 24px;
+    height: 24px;
 }
 
-/* 드롭다운 목록 */
+.ct-email-select.is-open .ct-email-select-arrow {
+    transform: rotate(180deg);
+}
+
+/* 드롭다운 리스트 — border=1 solid #A7A7A7, radius=10, items h=60 px=24 */
 .ct-email-select-list {
     display: none;
     position: fixed;
     background: #fff;
     border: 1px solid #A7A7A7;
     border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
     z-index: 9999;
     list-style: none;
-    padding: 8px 0;
+    padding: 0;
     margin: 0;
-    min-width: 100%;
     overflow: hidden;
 }
 
@@ -393,34 +385,28 @@
     display: block;
 }
 
+/* 각 항목 — h=60, px=24, fs=22, color=#000 */
 .ct-email-select-list li {
-    padding: 12px 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
     font-size: 22px;
-    color: #1B1B1B;
+    color: #000;
     cursor: pointer;
     white-space: nowrap;
     transition: background 0.1s;
 }
 
 .ct-email-select-list li:hover {
-    background: #F8F9FB;
+    background: #F1F3F7;
 }
 
+/* 선택된 항목 — bg=#F1F3F7 */
 .ct-email-select-list li.is-selected {
-    color: #F27100;
-    font-weight: 600;
-}
-
-.ct-email-local:focus {
-    border-color: #F27100;
-}
-
-.ct-email-domain:focus {
-    border-color: #F27100;
-}
-
-.ct-email-select:focus {
-    border-color: #F27100;
+    background: #F1F3F7;
+    color: #000;
+    font-weight: 400;
 }
 
 
@@ -525,6 +511,127 @@
     position: absolute;
     left: 2px;
     top: 12px;
+}
+
+/* ── 첨부파일 상태 토글 ── */
+.ct-drop-area.has-files {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 220px;
+    height: auto;
+    padding: 24px;
+    gap: 20px;
+    cursor: default;
+}
+
+.ct-drop-default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    flex: 1;
+}
+
+.ct-drop-files {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.ct-drop-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+.ct-drop-clear {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+.ct-drop-clear:hover {
+    text-decoration: underline;
+}
+
+.ct-drop-divider {
+    width: 1px;
+    height: 16px;
+    background: #A7A7A7;
+    flex-shrink: 0;
+}
+
+.ct-drop-count {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+.ct-drop-count-current {
+    font-weight: 500;
+    color: #F27100;
+}
+
+.ct-file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ct-file-row {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.ct-file-remove {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+.ct-file-remove svg {
+    width: 24px;
+    height: 24px;
+}
+
+.ct-file-name {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+.ct-file-size {
+    font-size: 16px;
+    font-weight: 400;
+    color: #A7A7A7;
+    line-height: 1.6;
 }
 
 
@@ -645,12 +752,12 @@
     transition: opacity 0.15s;
 }
 
-.ct-checkbox-input:checked + .ct-checkbox-box {
+.ct-checkbox-input:checked+.ct-checkbox-box {
     background: #F27100;
     border-color: #F27100;
 }
 
-.ct-checkbox-input:checked + .ct-checkbox-box::after {
+.ct-checkbox-input:checked+.ct-checkbox-box::after {
     opacity: 1;
 }
 
@@ -736,7 +843,9 @@
 }
 
 /* 데스크탑: 줄바꿈 없음 */
-.ct-mo-br { display: none; }
+.ct-mo-br {
+    display: none;
+}
 
 /* GP: title — fs=32, fw=700, color=#1B1B1B */
 .ct-support-title {
@@ -1075,6 +1184,26 @@
     }
 
     .ct-attach-notes li {
+        font-size: 16px;
+    }
+
+    /* GM: 이메일 드롭다운 리스트 항목 */
+    .ct-email-select-list li {
+        height: 48px;
+        font-size: 18px;
+        padding: 0 16px;
+    }
+
+    /* GM: 파일 첨부 상태 모바일 */
+    .ct-drop-header {
+        font-size: 16px;
+    }
+
+    .ct-file-name {
+        font-size: 16px;
+    }
+
+    .ct-file-size {
         font-size: 14px;
     }
 
@@ -1174,7 +1303,9 @@
     }
 
     /* 모바일: 줄바꿈 표시 */
-    .ct-mo-br { display: inline; }
+    .ct-mo-br {
+        display: inline;
+    }
 
     /* GM: desc — fs=16, lh=1.6 */
     .ct-support-desc {

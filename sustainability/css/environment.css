@@ -321,6 +321,12 @@
 .env-goal-circle-pair {
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+/* 겹침 영역 (vesica) - 기본 숨김 */
+.env-goal-vesica {
+    display: none;
 }
 
 .env-goal-circle {
@@ -446,6 +452,8 @@
     border-radius: 30px;
     position: relative;
     overflow: hidden;
+    padding: 60px 50px;
+    box-sizing: border-box;
 }
 
 /* 한국 지도 이미지 */
@@ -610,10 +618,10 @@
     display: none;
 }
 
-/* 시흥공장 A동 카드 위치 -> 좌측 기준 고정 */
+/* 시흥공장 A동 카드 위치 -> 좌상단 */
 .env-solar-fc-siheung {
-    bottom: 72.42%;
-    left: 24px;
+    top: 60px;
+    left: 50px;
 }
 
 /* 포항공장 카드 그룹 */
@@ -631,15 +639,17 @@
     width: 100%;
 }
 
+/* 포항공장 그룹 -> 우상단 */
 .env-solar-fc-pohang-group {
-    right: 24px;
-    top: 9.39%;
+    right: 50px;
+    top: 60px;
 }
 
-/* 총 설비량 카드 */
+/* 총 설비량 카드 -> 우하단 */
 .env-solar-fc.env-solar-fc-total {
-    right: 24px;
-    top: 67.87%;
+    right: 50px;
+    bottom: 60px;
+    top: auto;
 }
 
 .env-solar-fc-total-label {
@@ -673,7 +683,7 @@
 /* 화살표 (가로, 데스크탑/태블릿) */
 .env-solar-arrow-h {
     flex-shrink: 0;
-    width: 30px;
+    width: 20px;
     align-self: center;
 }
 
@@ -707,7 +717,11 @@
     flex-direction: column;
     gap: 20px;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.env-solar-result-item:last-child {
+    justify-content: flex-end;
 }
 
 .env-solar-result-divider {
@@ -788,7 +802,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 8px;
 }
 
 .env-cert-card-wrap {
@@ -1013,31 +1027,34 @@
     .env-solar-map-card {
         width: 100%;
         max-width: none;
-        height: 500px;
+        height: 650px;
         flex: none;
+        padding: 40px 30px;
+        box-sizing: border-box;
     }
 
     .env-solar-fc-siheung {
+        top: 40px;
+        left: 30px;
         bottom: auto;
         right: auto;
-        left: 20px;
-        top: 20px;
         width: 100%;
         max-width: 280px;
     }
 
     .env-solar-fc-pohang-group {
+        right: 30px;
+        top: 40px;
         left: auto;
-        right: 20px;
-        top: 20px;
         width: 100%;
         max-width: 280px;
     }
 
     .env-solar-fc.env-solar-fc-total {
-        left: 20px;
+        right: 30px;
+        bottom: 40px;
+        left: auto;
         top: auto;
-        bottom: 20px;
         width: 100%;
         max-width: 280px;
     }
@@ -1061,7 +1078,7 @@
     }
 
     .env-solar-mob-arrow img {
-        width: 31px;
+        width: 12px;
         height: auto;
         transform: rotate(90deg);
         display: block;
@@ -1324,6 +1341,33 @@
 
     .env-goal-circle+.env-goal-circle {
         margin-left: -38px;
+    }
+
+    /* vesica: 겹침 영역 표현 */
+    .env-goal-vesica {
+        display: block;
+        position: absolute;
+        width: 166px;
+        height: 166px;
+        border-radius: 50%;
+        overflow: hidden;
+        left: 128px;
+        top: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .env-goal-vesica::after {
+        content: '';
+        position: absolute;
+        width: 166px;
+        height: 166px;
+        border-radius: 50%;
+        left: -128px;
+        top: 0;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
     }
 
     .env-goal-arrow {
