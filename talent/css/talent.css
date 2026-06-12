@@ -20,6 +20,10 @@
     margin: 0;
     line-height: 1.4;
     text-align: center;
+    height: 106px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -56,6 +60,10 @@
     color: #E9E9E9;
     white-space: nowrap;
     text-align: center;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tal-intro-title .char {
@@ -231,7 +239,7 @@
     font-size: 22px;
     font-weight: 400;
     color: rgb(54, 54, 54);
-    line-height: 1.6;
+    line-height: 35px;
     margin: 0;
     word-break: keep-all;
 }
@@ -334,20 +342,20 @@
     /* 페이지 헤더 */
     /* GM node 10:1375 — pb=30, gap=20 */
     .tal-page-header { padding: 0; gap: 20px; align-items: center; }
-    .tal-page-title { font-size: 30px; font-weight: 700; text-align: center; margin-top: 20px; margin-bottom: 30px; line-height: 1.4; padding: 0 16px; box-sizing: border-box; }
+    .tal-page-title { font-size: 30px; font-weight: 700; text-align: center; height: 54px; margin-top: 20px; margin-bottom: 30px; line-height: 1.4; padding: 0 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
 
     /* 도입 섹션 — 모바일에서 sticky 해제, 애니메이션 없이 텍스트 바로 표시 */
     /* GM node 10:1379 — pt=40, pb=40, pl=16, pr=16, gap=24 */
     .tal-intro-outer { min-height: unset; }
-    .tal-intro-inner { position: relative; padding-bottom: 40px; }
-    .tal-intro-text-section { padding: 40px 16px 24px; }
+    .tal-intro-inner { position: relative; padding: 40px 16px; gap: 24px; }
+    .tal-intro-text-section { padding: 0; }
     /* GM node 10:1380 — fontSize=24, left-align, 글자 모두 보임 */
-    .tal-intro-title { font-size: 24px; text-align: center; line-height: 1.5; white-space: normal; color: #363636; }
+    .tal-intro-title { font-size: 24px; text-align: center; line-height: 1.5; white-space: normal; color: #363636; display: block; height: auto; }
     .tal-intro-title .char { color: #363636; }
-    .tal-intro-image-section { padding: 0 16px; }
+    .tal-intro-image-section { padding: 0; }
     /* GM node 10:1381 — w=328, h=448, radius=16 */
     .tal-intro-image-wrapper { height: 448px; border-radius: 16px; }
-    .tal-intro-img { object-position: 63% 61%; }
+    .tal-intro-img { object-position: 63% 63%; }
 
     /* HCP 섹션 — GP 공통 배경 해제, 개별 섹션에서 처리 */
     .tal-hcp-section {
@@ -375,9 +383,9 @@
     /* GM ic_투자 — 66×66 */
     .tal-talent-icon { width: 66px; height: 66px; }
     /* GM node 10:1391 — gap≈15, HORIZONTAL */
-    .tal-talent-name-row { gap: 15px; align-items: baseline; }
+    .tal-talent-name-row { gap: 15px; align-items: baseline; height: 59px; }
     /* GM English title — fontSize=36 */
-    .tal-talent-en { font-size: 36px; line-height: 1.4; }
+    .tal-talent-en { font-size: 36px; line-height: 54px; }
     /* GM Korean subtitle — fontSize=24 */
     .tal-talent-kr { font-size: 24px; line-height: 1.5; }
     /* GM quote — fontSize=18, h=58(2줄) → lh=58/(2×18)≈1.6 */
@@ -403,7 +411,7 @@
     /* GM 창의/전문성 카드 헤더 — Korean only 26px */
     .tal-card-header-solo { font-size: 26px; }
     /* GM card desc — fontSize=16, color=rgb(78,78,78) */
-    .tal-card-desc { font-size: 16px; color: rgb(78, 78, 78); }
+    .tal-card-desc { font-size: 16px; color: rgb(78, 78, 78); line-height: 26px; min-height: 52px; }
 
     /* 버튼 섹션 */
     /* GM node 10:1459 — pt=20, pb=20, pl=20, pr=20, gap=10 */
