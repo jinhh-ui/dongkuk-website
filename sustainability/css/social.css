@@ -139,7 +139,7 @@
 .soc-intro-image-wrapper {
     width: 100%;
     max-width: 1860px;
-    height: clamp(300px, 28vw, 540px);
+    height: clamp(300px, 28.125vw, 540px);
     border-radius: 30px;
     overflow: hidden;
     position: relative;
@@ -222,12 +222,12 @@
 }
 
 .soc-policy-left {
-    flex: 0 1 37.44%;
-    max-width: 629px;
+    flex: 0 1 40.6548%;
+    max-width: 683px;
 }
 
 .soc-policy-left h2 {
-    font-size: clamp(30px, 2.6vw, 50px);
+    font-size: clamp(30px, 2.61vw, 50px);
     font-weight: 700;
     color: #000;
     line-height: 1.4;
@@ -760,7 +760,7 @@
 /* img3: 885×561, rounded top-left + bottom-right only */
 .soc-gallery-item-3 {
     width: 885px;
-    height: 561px;
+    height: 560px;
     border-radius: 50px 0 50px 0;
 }
 
@@ -892,10 +892,10 @@
 .soc-value-content {
     background: #F8F9FB;
     border-radius: 30px;
-    padding: clamp(30px, 5.2vw, 100px) clamp(20px, 4.17vw, 80px);
+    padding: clamp(30px, 5.21vw, 100px) clamp(20px, 4.17vw, 80px);
     display: flex;
     align-items: center;
-    gap: clamp(10px, 1.56vw, 30px);
+    gap: clamp(10px, 1.57vw, 30px);
 }
 
 .soc-value-ellipse-wrap {
@@ -908,15 +908,16 @@
 
 .soc-value-oval {
     background: #F1F3F7;
-    border: 3px dashed #D3D3D3;
+    outline: 3px dashed #D3D3D3;
+    outline-offset: -3px;
     border-radius: 9999px;
     width: 100%;
-    padding: clamp(15px, 2.08vw, 40px);
+    padding: clamp(15px, 2.09vw, 40px);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    gap: clamp(8px, 1.04vw, 20px);
+    gap: clamp(8px, 1.05vw, 20px);
 }
 
 .soc-value-circle {
@@ -964,7 +965,7 @@
 }
 
 .soc-value-circle-desc {
-    font-size: clamp(12px, 1.145vw, 22px);
+    font-size: clamp(12px, 1.15vw, 22px);
     font-weight: 400;
     color: #363636;
     line-height: 1.6;
@@ -991,7 +992,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: clamp(40px, 5.52vw, 106px);
+    width: clamp(40px, 5.53vw, 106px);
     height: 10px;
     flex-shrink: 0;
 }
@@ -999,11 +1000,11 @@
 .soc-value-arrow-wrap img {
     transform: rotate(-90deg);
     width: 10px;
-    height: clamp(40px, 5.52vw, 106px);
+    height: clamp(40px, 5.53vw, 106px);
 }
 
 .soc-value-result {
-    width: clamp(140px, 17.7vw, 340px);
+    width: clamp(140px, 17.71vw, 340px);
     aspect-ratio: 1;
     border-radius: 50%;
     background: #F27100;
@@ -1073,7 +1074,7 @@
     flex-direction: column;
     gap: 60px;
     flex: 1;
-    padding-top: clamp(10px, 2.08vw, 40px);
+    padding-top: clamp(10px, 2.09vw, 40px);
 }
 
 .soc-activity-icon {

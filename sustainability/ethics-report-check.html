@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제보결과 확인 - 동국산업</title>
+    <meta name="description" content="동국산업 윤리강령 위반신고 제보결과를 확인합니다.">
+    <link rel="icon" type="image/svg+xml" href="../assets/common/favicon.svg">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/gnb.css">
+    <link rel="stylesheet" href="css/ethics-report-check.css">
+    <link rel="stylesheet" href="css/ethics-report-form.css">
+</head>
+
+<body data-page="sustainability">
+
+    <!-- GNB (PC) -->
+    <header class="gnb">
+        <div class="gnb-logo">
+            <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
+        </div>
+        <nav class="gnb-nav">
+            <div class="gnb-nav-item"><a href="../company/company-info.html" class="gnb-nav-link">회사정보</a></div>
+            <div class="gnb-nav-item"><a href="../product/product-center.html" class="gnb-nav-link">제품정보</a></div>
+            <div class="gnb-nav-item"><a href="../invest/invest-center.html" class="gnb-nav-link">투자정보</a></div>
+            <div class="gnb-nav-item"><a href="environment.html" class="gnb-nav-link">지속가능경영</a></div>
+            <div class="gnb-nav-item"><a href="../talent/talent.html" class="gnb-nav-link">인재경영</a></div>
+        </nav>
+        <div class="gnb-utils">
+            <div class="gnb-utils-links">
+                <a href="../contact/contact.html">문의</a>
+                <a href="#">KR</a>
+            </div>
+            <span class="gnb-divider"></span>
+            <button class="gnb-menu-btn" aria-label="메뉴"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- 페이지 헤더 -->
+    <section class="page-header">
+        <h1>제보결과 확인</h1>
+    </section>
+
+    <!-- 조회 정보 입력 -->
+    <section class="erck-section">
+        <div class="erck-inner">
+            <div class="erck-title-group">
+                <h2 class="erck-title">조회 정보 입력</h2>
+                <p class="erck-subtitle">익명 제보 접수 시 발급받은 접수번호와 설정하신 비밀번호를 입력해 주세요.</p>
+            </div>
+            <div class="erck-fields">
+                <div class="erck-field">
+                    <label class="erck-field-label" for="checkReceiptNo">접수번호</label>
+                    <div class="erck-field-input-wrap">
+                        <input type="text" class="erck-field-input" id="checkReceiptNo" placeholder="접수번호를 입력해 주세요.">
+                    </div>
+                </div>
+                <div class="erck-field">
+                    <label class="erck-field-label" for="checkPassword">비밀번호</label>
+                    <div class="erck-field-input-wrap">
+                        <div class="erf-pw-input-wrap">
+                            <input type="password" class="erck-field-input" id="checkPassword" placeholder="비밀번호를 입력해 주세요.">
+                            <button type="button" class="erf-pw-toggle" data-target="checkPassword" aria-label="비밀번호 표시">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M12 5C5.636 5 2 12 2 12s3.636 7 10 7 10-7 10-7-3.636-7-10-7Z" stroke="#A7A7A7" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="#A7A7A7" stroke-width="1.5"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 확인 버튼 -->
+    <div class="erck-btn-section">
+        <button type="button" class="erck-submit-btn" id="checkSubmitBtn">확인</button>
+    </div>
+
+    <!-- 고객지원 -->
+    <div id="support-placeholder"></div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 상단 이동 버튼 -->
+    <div id="btn-top-placeholder"></div>
+
+    <!-- 시스템 알림창 -->
+    <div class="erf-alert-overlay" id="alertOverlay" style="display:none;">
+        <div class="erf-alert-popup" id="alertPopup">
+            <div class="erf-alert-body">
+                <p class="erf-alert-msg" id="alertMsg"></p>
+            </div>
+            <div class="erf-alert-btns" id="alertBtns"></div>
+        </div>
+    </div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/gnb.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        var alertOverlay = document.getElementById('alertOverlay');
+        var alertMsg = document.getElementById('alertMsg');
+        var alertBtns = document.getElementById('alertBtns');
+
+        function showAlert(msg, opts) {
+            opts = opts || {};
+            alertMsg.textContent = msg;
+            alertBtns.innerHTML = '';
+            var okBtn = document.createElement('button');
+            okBtn.type = 'button';
+            okBtn.className = 'erf-alert-btn erf-alert-btn--ok';
+            okBtn.textContent = '확인';
+            okBtn.onclick = function() {
+                hideAlert();
+                if (opts.onConfirm) opts.onConfirm();
+            };
+            alertBtns.appendChild(okBtn);
+            alertOverlay.style.display = '';
+        }
+
+        function hideAlert() { alertOverlay.style.display = 'none'; }
+
+        alertOverlay.addEventListener('click', function(e) {
+            if (e.target === alertOverlay) hideAlert();
+        });
+
+        // 비밀번호 토글
+        document.querySelectorAll('.erf-pw-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var input = document.getElementById(this.getAttribute('data-target'));
+                if (input) {
+                    input.type = input.type === 'password' ? 'text' : 'password';
+                    this.classList.toggle('is-visible');
+                }
+            });
+        });
+
+        // 확인 버튼
+        document.getElementById('checkSubmitBtn').addEventListener('click', function() {
+            var receiptNo = document.getElementById('checkReceiptNo').value.trim();
+            var password = document.getElementById('checkPassword').value.trim();
+
+            if (!receiptNo) {
+                showAlert('접수번호를 입력해 주세요.', {
+                    onConfirm: function() { document.getElementById('checkReceiptNo').focus(); }
+                });
+                return;
+            }
+            if (!password) {
+                showAlert('비밀번호를 입력해 주세요.', {
+                    onConfirm: function() { document.getElementById('checkPassword').focus(); }
+                });
+                return;
+            }
+
+            // 결과 페이지로 이동
+            window.location.href = 'ethics-report-result.html?receipt=' + encodeURIComponent(receiptNo);
+        });
+    })();
+    </script>
+</body>
+</html>

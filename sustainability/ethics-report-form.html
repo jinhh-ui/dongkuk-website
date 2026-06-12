@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제보하기 - 동국산업</title>
+    <meta name="description" content="동국산업 윤리경영 위반 신고 제보하기">
+    <link rel="icon" type="image/svg+xml" href="../assets/common/favicon.svg">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/gnb.css">
+    <link rel="stylesheet" href="css/ethics-report-form.css">
+</head>
+
+<body data-page="ethics-report-form">
+
+    <!-- GNB (PC) -->
+    <header class="gnb">
+        <div class="gnb-logo">
+            <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
+        </div>
+        <nav class="gnb-nav">
+            <div class="gnb-nav-item">
+                <a href="../company/company-info.html" class="gnb-nav-link">회사정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../product/product-center.html" class="gnb-nav-link">제품정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../invest/invest-center.html" class="gnb-nav-link">투자정보</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="environment.html" class="gnb-nav-link" style="font-weight:700;">지속가능경영</a>
+            </div>
+            <div class="gnb-nav-item">
+                <a href="../talent/talent.html" class="gnb-nav-link">인재경영</a>
+            </div>
+        </nav>
+        <div class="gnb-utils">
+            <div class="gnb-utils-links">
+                <a href="../contact/contact.html">문의</a>
+                <a href="#">KR</a>
+            </div>
+            <span class="gnb-divider"></span>
+            <button class="gnb-menu-btn" aria-label="메뉴"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- 페이지 헤더 -->
+    <section class="erf-page-header">
+        <h1 class="erf-page-title">제보하기</h1>
+    </section>
+
+    <!-- 폼 컨테이너 -->
+    <section class="erf-container">
+
+        <!-- ① 제보방식 선택 -->
+        <div class="erf-item">
+            <div class="erf-item-header">
+                <h2 class="erf-item-title">제보방식 선택</h2>
+            </div>
+            <div class="erf-item-line"></div>
+            <div class="erf-radio-group">
+                <label class="erf-radio">
+                    <input type="radio" name="reportType" value="real" checked class="erf-radio-input">
+                    <span class="erf-radio-circle"></span>
+                    <span class="erf-radio-label">실명제보</span>
+                </label>
+                <label class="erf-radio">
+                    <input type="radio" name="reportType" value="anon" class="erf-radio-input">
+                    <span class="erf-radio-circle"></span>
+                    <span class="erf-radio-label">익명제보</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- ② 제보자 정보 -->
+        <div class="erf-item" id="reporterInfo">
+            <div class="erf-item-header">
+                <h2 class="erf-item-title">제보자 정보</h2>
+                <p class="erf-required-note"><span class="erf-req-star">*</span>는 필수 입력 항목입니다.</p>
+            </div>
+            <div class="erf-item-line"></div>
+            <div class="erf-fields">
+                <!-- 이름 -->
+                <div class="erf-field" data-field="name">
+                    <div class="erf-field-title">
+                        <span class="erf-field-label">이름</span><span class="erf-required">*</span>
+                    </div>
+                    <div class="erf-field-input-wrap">
+                        <input type="text" class="erf-input" placeholder="이름을 입력해 주세요." autocomplete="name" id="inputName">
+                    </div>
+                </div>
+                <!-- 연락처 -->
+                <div class="erf-field" data-field="phone">
+                    <div class="erf-field-title">
+                        <span class="erf-field-label">연락처</span><span class="erf-required">*</span>
+                    </div>
+                    <div class="erf-field-input-wrap">
+                        <input type="tel" class="erf-input" placeholder="-없이 연락처를 입력해주세요." autocomplete="tel" id="inputPhone">
+                    </div>
+                </div>
+                <!-- 이메일 -->
+                <div class="erf-field erf-field--email" data-field="email">
+                    <div class="erf-field-title">
+                        <span class="erf-field-label">이메일</span><span class="erf-required">*</span>
+                    </div>
+                    <div class="erf-field-input-wrap erf-field-input-wrap--full">
+                        <div class="erf-email-wrap">
+                            <input type="text" class="erf-input erf-email-local" placeholder="이메일 주소" autocomplete="off" id="emailLocal">
+                            <span class="erf-at">@</span>
+                            <div class="erf-email-domain-wrap">
+                                <input type="text" class="erf-input erf-email-domain" placeholder="직접입력" id="emailDomain">
+                                <!-- 피그마 dropdown: w=257, h=60, border, radius=10 -->
+                                <div class="erf-email-select" id="emailSelect" role="combobox" aria-label="도메인 선택" aria-expanded="false" tabindex="0">
+                                    <span class="erf-email-select-current">직접입력</span>
+                                    <span class="erf-email-select-arrow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12.7809 17.0239C12.3805 17.5243 11.6195 17.5243 11.2191 17.0239L5.29976 9.6247C4.77595 8.96993 5.24212 8 6.08062 8L17.9194 8C18.7579 8 19.2241 8.96993 18.7002 9.6247L12.7809 17.0239Z" fill="#4E4E4E"/></svg>
+                                    </span>
+                                    <!-- 피그마: dropdown list — border=1 solid #A7A7A7, radius=10, each item h=60, px=24, selected bg=#F1F3F7 -->
+                                    <ul class="erf-email-select-list" role="listbox">
+                                        <li role="option" data-value="" class="is-selected">직접입력</li>
+                                        <li role="option" data-value="naver.com">naver.com</li>
+                                        <li role="option" data-value="gmail.com">gmail.com</li>
+                                        <li role="option" data-value="daum.com">daum.com</li>
+                                        <li role="option" data-value="nate.com">nate.com</li>
+                                        <li role="option" data-value="hanmail.com">hanmail.com</li>
+                                        <li role="option" data-value="hotmail.com">hotmail.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ③ 제보내용 -->
+        <div class="erf-item">
+            <div class="erf-item-header">
+                <h2 class="erf-item-title">제보내용</h2>
+                <p class="erf-required-note"><span class="erf-req-star">*</span>는 필수 입력 항목입니다.</p>
+            </div>
+            <div class="erf-item-line"></div>
+            <div class="erf-fields">
+                <!-- 제목 -->
+                <div class="erf-field erf-field--full" data-field="title">
+                    <div class="erf-field-title">
+                        <span class="erf-field-label">제목</span><span class="erf-required">*</span>
+                    </div>
+                    <div class="erf-field-input-wrap erf-field-input-wrap--full">
+                        <input type="text" class="erf-input" placeholder="제목을 입력해 주세요." id="inputTitle">
+                    </div>
+                </div>
+                <!-- 내용 -->
+                <div class="erf-field erf-field--full erf-field--textarea" data-field="content">
+                    <div class="erf-field-title">
+                        <span class="erf-field-label">내용</span><span class="erf-required">*</span>
+                    </div>
+                    <div class="erf-field-input-wrap erf-field-input-wrap--full">
+                        <textarea class="erf-textarea" placeholder="내용을 입력해 주세요." id="inputContent"></textarea>
+                    </div>
+                </div>
+                <!-- 첨부파일 -->
+                <div class="erf-field erf-field--full erf-field--attach">
+                    <div class="erf-field-title">
+                        <span class="erf-field-label">첨부파일</span>
+                    </div>
+                    <div class="erf-field-input-wrap erf-field-input-wrap--full">
+                        <div class="erf-attach-wrap">
+                            <label class="erf-file-btn" for="fileInput">파일선택</label>
+                            <input type="file" id="fileInput" class="erf-file-input" multiple accept=".jpg,.gif,.png,.xls,.xlsx,.doc,.docx,.ppt,.pdf,.txt,.zip">
+                            <!-- 피그마: 파일 첨부 상태 — 파일 목록 영역 -->
+                            <div class="erf-drop-area" id="dropArea">
+                                <!-- 기본 상태: 드래그 안내 -->
+                                <div class="erf-drop-default" id="dropDefault">
+                                    <img class="erf-drop-icon" src="../assets/common/ic_file_upload.svg" alt="" width="36" height="36">
+                                    <p class="erf-drop-text">첨부할 파일을 여기에 끌어다 놓거나, 파일선택 버튼을 눌러 직접 선택해 주세요.</p>
+                                </div>
+                                <!-- 파일 첨부 상태: 파일 목록 -->
+                                <div class="erf-drop-files" id="dropFiles" style="display:none;">
+                                    <div class="erf-drop-header">
+                                        <button type="button" class="erf-drop-clear" id="dropClearAll">모두 삭제</button>
+                                        <span class="erf-drop-divider"></span>
+                                        <span class="erf-drop-count">첨부파일 <span class="erf-drop-count-current" id="fileCountCurrent">0</span>개 / 5개</span>
+                                    </div>
+                                    <div class="erf-file-list" id="fileList"></div>
+                                </div>
+                            </div>
+                            <ul class="erf-attach-notes">
+                                <li>jpg, gif, png, xls, xlsx, doc, docx, ppt, pdf, txt, zip 파일만 업로드가 가능합니다.</li>
+                                <li>파일당 최대 3MB / 최대 5개까지 등록 가능합니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ④ 결과 조회용 비밀번호 -->
+        <div class="erf-item">
+            <div class="erf-item-header">
+                <h2 class="erf-item-title">결과 조회용 비밀번호</h2>
+                <p class="erf-required-note"><span class="erf-req-star">*</span>는 필수 입력 항목입니다.</p>
+            </div>
+            <div class="erf-item-line"></div>
+            <div class="erf-pw-row">
+                <div class="erf-field" data-field="password">
+                    <div class="erf-field-title">
+                        <span class="erf-field-label">비밀번호</span><span class="erf-required">*</span>
+                    </div>
+                    <div class="erf-field-input-wrap">
+                        <div class="erf-pw-input-wrap">
+                            <input type="password" class="erf-input erf-input--pw" placeholder="6자 이상의 영문,숫자를 입력해 주세요." id="inputPw">
+                            <button type="button" class="erf-pw-toggle" aria-label="비밀번호 보기">
+                                <svg class="erf-pw-icon-hide" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <g transform="translate(2,5)"><path d="M10 0.75C12.5176 0.75 14.8504 2.00191 16.582 3.49316C17.4424 4.23408 18.1312 5.01491 18.5986 5.6875C18.8326 6.02409 19.0037 6.32273 19.1133 6.56641C19.23 6.82589 19.25 6.96489 19.25 7C19.25 7.03511 19.23 7.17412 19.1133 7.43359C19.0037 7.67727 18.8326 7.97591 18.5986 8.3125C18.1312 8.98509 17.4424 9.76592 16.582 10.5068C14.8504 11.9981 12.5176 13.25 10 13.25C7.48238 13.25 5.14963 11.9981 3.41797 10.5068C2.55762 9.76592 1.86882 8.98509 1.40137 8.3125C1.16744 7.97591 0.996333 7.67727 0.886719 7.43359C0.770016 7.17412 0.75 7.03511 0.75 7C0.75 6.96489 0.770015 6.82589 0.886719 6.56641C0.996333 6.32273 1.16744 6.02409 1.40137 5.6875C1.86882 5.01491 2.55762 4.23408 3.41797 3.49316C5.14963 2.00191 7.48238 0.75 10 0.75Z" stroke="#4E4E4E" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="7" r="3.25" stroke="#4E4E4E" stroke-width="1.5"/></g>
+                                    <line x1="5" y1="19" x2="19" y2="5" stroke="#4E4E4E" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <svg class="erf-pw-icon-show" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none;">
+                                    <g transform="translate(2,5)"><path d="M10 0.75C12.5176 0.75 14.8504 2.00191 16.582 3.49316C17.4424 4.23408 18.1312 5.01491 18.5986 5.6875C18.8326 6.02409 19.0037 6.32273 19.1133 6.56641C19.23 6.82589 19.25 6.96489 19.25 7C19.25 7.03511 19.23 7.17412 19.1133 7.43359C19.0037 7.67727 18.8326 7.97591 18.5986 8.3125C18.1312 8.98509 17.4424 9.76592 16.582 10.5068C14.8504 11.9981 12.5176 13.25 10 13.25C7.48238 13.25 5.14963 11.9981 3.41797 10.5068C2.55762 9.76592 1.86882 8.98509 1.40137 8.3125C1.16744 7.97591 0.996333 7.67727 0.886719 7.43359C0.770016 7.17412 0.75 7.03511 0.75 7C0.75 6.96489 0.770015 6.82589 0.886719 6.56641C0.996333 6.32273 1.16744 6.02409 1.40137 5.6875C1.86882 5.01491 2.55762 4.23408 3.41797 3.49316C5.14963 2.00191 7.48238 0.75 10 0.75Z" stroke="#4E4E4E" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="7" r="3.25" stroke="#4E4E4E" stroke-width="1.5"/></g>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="erf-field-error" id="pwError"></p>
+                    </div>
+                </div>
+                <div class="erf-field" data-field="passwordConfirm">
+                    <div class="erf-field-title">
+                        <span class="erf-field-label">비밀번호 확인</span><span class="erf-required">*</span>
+                    </div>
+                    <div class="erf-field-input-wrap">
+                        <div class="erf-pw-input-wrap">
+                            <input type="password" class="erf-input erf-input--pw" placeholder="비밀번호를 다시 한 번 입력해 주세요." id="inputPwConfirm">
+                            <button type="button" class="erf-pw-toggle" aria-label="비밀번호 보기">
+                                <svg class="erf-pw-icon-hide" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <g transform="translate(2,5)"><path d="M10 0.75C12.5176 0.75 14.8504 2.00191 16.582 3.49316C17.4424 4.23408 18.1312 5.01491 18.5986 5.6875C18.8326 6.02409 19.0037 6.32273 19.1133 6.56641C19.23 6.82589 19.25 6.96489 19.25 7C19.25 7.03511 19.23 7.17412 19.1133 7.43359C19.0037 7.67727 18.8326 7.97591 18.5986 8.3125C18.1312 8.98509 17.4424 9.76592 16.582 10.5068C14.8504 11.9981 12.5176 13.25 10 13.25C7.48238 13.25 5.14963 11.9981 3.41797 10.5068C2.55762 9.76592 1.86882 8.98509 1.40137 8.3125C1.16744 7.97591 0.996333 7.67727 0.886719 7.43359C0.770016 7.17412 0.75 7.03511 0.75 7C0.75 6.96489 0.770015 6.82589 0.886719 6.56641C0.996333 6.32273 1.16744 6.02409 1.40137 5.6875C1.86882 5.01491 2.55762 4.23408 3.41797 3.49316C5.14963 2.00191 7.48238 0.75 10 0.75Z" stroke="#4E4E4E" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="7" r="3.25" stroke="#4E4E4E" stroke-width="1.5"/></g>
+                                    <line x1="5" y1="19" x2="19" y2="5" stroke="#4E4E4E" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <svg class="erf-pw-icon-show" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none;">
+                                    <g transform="translate(2,5)"><path d="M10 0.75C12.5176 0.75 14.8504 2.00191 16.582 3.49316C17.4424 4.23408 18.1312 5.01491 18.5986 5.6875C18.8326 6.02409 19.0037 6.32273 19.1133 6.56641C19.23 6.82589 19.25 6.96489 19.25 7C19.25 7.03511 19.23 7.17412 19.1133 7.43359C19.0037 7.67727 18.8326 7.97591 18.5986 8.3125C18.1312 8.98509 17.4424 9.76592 16.582 10.5068C14.8504 11.9981 12.5176 13.25 10 13.25C7.48238 13.25 5.14963 11.9981 3.41797 10.5068C2.55762 9.76592 1.86882 8.98509 1.40137 8.3125C1.16744 7.97591 0.996333 7.67727 0.886719 7.43359C0.770016 7.17412 0.75 7.03511 0.75 7C0.75 6.96489 0.770015 6.82589 0.886719 6.56641C0.996333 6.32273 1.16744 6.02409 1.40137 5.6875C1.86882 5.01491 2.55762 4.23408 3.41797 3.49316C5.14963 2.00191 7.48238 0.75 10 0.75Z" stroke="#4E4E4E" stroke-width="1.5" stroke-linejoin="round"/><circle cx="10" cy="7" r="3.25" stroke="#4E4E4E" stroke-width="1.5"/></g>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="erf-field-error" id="pwConfirmError"></p>
+                    </div>
+                </div>
+            </div>
+            <ul class="erf-pw-notes">
+                <li>제보접수 완료 후 결과를 확인하기 위해 사용되는 비밀번호입니다. (분실 시 재발급 및 조회 불가)</li>
+            </ul>
+        </div>
+
+        <!-- ⑤ 개인정보 수집 안내 -->
+        <div class="erf-item" id="privacySection">
+            <div class="erf-item-header">
+                <h2 class="erf-item-title">개인정보 수집 안내</h2>
+            </div>
+            <div class="erf-item-line"></div>
+            <div class="erf-privacy-wrap">
+                <div class="erf-privacy-table">
+                    <div class="erf-privacy-row erf-privacy-row--head">
+                        <span class="erf-privacy-num">1.</span>
+                        <span>수집 및 이용목적</span>
+                    </div>
+                    <div class="erf-privacy-row erf-privacy-row--body">
+                        <ul class="erf-privacy-list">
+                            <li>불만신고 및 민원처리</li>
+                        </ul>
+                    </div>
+                    <div class="erf-privacy-row erf-privacy-row--head">
+                        <span class="erf-privacy-num">2.</span>
+                        <span>수집항목</span>
+                    </div>
+                    <div class="erf-privacy-row erf-privacy-row--body">
+                        <ul class="erf-privacy-list">
+                            <li>이름, 이메일, 연락처</li>
+                            <li>익명 제보 시 수집하지 않음.</li>
+                            <li>서비스 이용과정에서 아래와 같은 정보들이 생성되어 수집될 수 있음. (서비스 이용기록, 접속로그, 쿠키)</li>
+                        </ul>
+                    </div>
+                    <div class="erf-privacy-row erf-privacy-row--head">
+                        <span class="erf-privacy-num">3.</span>
+                        <span>보유ㆍ이용기간</span>
+                    </div>
+                    <div class="erf-privacy-row erf-privacy-row--body">
+                        <ul class="erf-privacy-list">
+                            <li>삭제 요청 시 즉시파기</li>
+                        </ul>
+                    </div>
+                </div>
+                <label class="erf-checkbox-wrap">
+                    <input type="checkbox" class="erf-checkbox-input" id="agreeCheck">
+                    <span class="erf-checkbox-box"></span>
+                    <span class="erf-checkbox-label">(필수) 동의하기</span>
+                </label>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 제출 버튼 -->
+    <div class="erf-btn-section">
+        <button type="button" class="erf-submit-btn" id="submitBtn">제보하기</button>
+    </div>
+
+    <!-- 시스템 알림창 (Alert Popup) — 피그마 popup_1(1버튼), popup_2(2버튼) -->
+    <div class="erf-alert-overlay" id="alertOverlay" style="display:none;">
+        <div class="erf-alert-popup" id="alertPopup">
+            <div class="erf-alert-body">
+                <p class="erf-alert-msg" id="alertMsg"></p>
+            </div>
+            <div class="erf-alert-btns" id="alertBtns">
+                <!-- 동적으로 1버튼 or 2버튼 생성 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 고객지원 -->
+    <div id="support-placeholder"></div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 상단 이동 버튼 -->
+    <div id="btn-top-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/gnb.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        // ── 시스템 알림창 ──
+        var alertOverlay = document.getElementById('alertOverlay');
+        var alertPopup = document.getElementById('alertPopup');
+        var alertMsg = document.getElementById('alertMsg');
+        var alertBtns = document.getElementById('alertBtns');
+
+        function showAlert(msg, opts) {
+            opts = opts || {};
+            alertMsg.textContent = msg;
+            alertBtns.innerHTML = '';
+
+            if (opts.confirm) {
+                // 2버튼 (취소 + 확인)
+                var cancelBtn = document.createElement('button');
+                cancelBtn.type = 'button';
+                cancelBtn.className = 'erf-alert-btn erf-alert-btn--cancel';
+                cancelBtn.textContent = '취소';
+                cancelBtn.onclick = function() {
+                    hideAlert();
+                    if (opts.onCancel) opts.onCancel();
+                };
+                var okBtn = document.createElement('button');
+                okBtn.type = 'button';
+                okBtn.className = 'erf-alert-btn erf-alert-btn--ok';
+                okBtn.textContent = '확인';
+                okBtn.onclick = function() {
+                    hideAlert();
+                    if (opts.onConfirm) opts.onConfirm();
+                };
+                alertBtns.appendChild(cancelBtn);
+                alertBtns.appendChild(okBtn);
+            } else {
+                // 1버튼 (확인)
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'erf-alert-btn erf-alert-btn--ok erf-alert-btn--full';
+                btn.textContent = '확인';
+                btn.onclick = function() {
+                    hideAlert();
+                    if (opts.onConfirm) opts.onConfirm();
+                };
+                alertBtns.appendChild(btn);
+            }
+
+            alertOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideAlert() {
+            alertOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        alertOverlay.addEventListener('click', function(e) {
+            if (e.target === alertOverlay) hideAlert();
+        });
+
+        // ── 제보방식 라디오 전환 ──
+        document.querySelectorAll('input[name="reportType"]').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                var info = document.getElementById('reporterInfo');
+                info.style.display = this.value === 'anon' ? 'none' : '';
+            });
+        });
+
+        // ── 이메일 드롭다운 ──
+        var emailSelect = document.getElementById('emailSelect');
+        var emailDomain = document.getElementById('emailDomain');
+        if (emailSelect && emailDomain) {
+            function positionDropdown() {
+                var list = emailSelect.querySelector('.erf-email-select-list');
+                var rect = emailSelect.getBoundingClientRect();
+                list.style.top = rect.bottom + 'px';
+                list.style.left = rect.left + 'px';
+                list.style.width = rect.width + 'px';
+            }
+            emailSelect.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var isOpen = this.classList.toggle('is-open');
+                this.setAttribute('aria-expanded', isOpen);
+                if (isOpen) positionDropdown();
+            });
+            emailSelect.querySelectorAll('.erf-email-select-list li').forEach(function(li) {
+                li.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var val = this.getAttribute('data-value');
+                    emailSelect.querySelector('.erf-email-select-current').textContent = this.textContent;
+                    emailSelect.querySelectorAll('li').forEach(function(l) { l.classList.remove('is-selected'); });
+                    this.classList.add('is-selected');
+                    emailSelect.classList.remove('is-open');
+                    emailSelect.setAttribute('aria-expanded', 'false');
+                    if (val) {
+                        emailDomain.value = val;
+                        emailDomain.readOnly = true;
+                    } else {
+                        emailDomain.value = '';
+                        emailDomain.readOnly = false;
+                        emailDomain.focus();
+                    }
+                });
+            });
+            document.addEventListener('click', function() {
+                emailSelect.classList.remove('is-open');
+                emailSelect.setAttribute('aria-expanded', 'false');
+            });
+            window.addEventListener('scroll', function() {
+                if (emailSelect.classList.contains('is-open')) positionDropdown();
+            }, { passive: true });
+        }
+
+        // ── 파일 첨부 ──
+        var dropArea = document.getElementById('dropArea');
+        var dropDefault = document.getElementById('dropDefault');
+        var dropFiles = document.getElementById('dropFiles');
+        var fileInput = document.getElementById('fileInput');
+        var fileList = document.getElementById('fileList');
+        var fileCountCurrent = document.getElementById('fileCountCurrent');
+        var dropClearAll = document.getElementById('dropClearAll');
+        var uploadedFiles = [];
+
+        function formatFileSize(bytes) {
+            if (bytes >= 1048576) return (bytes / 1048576).toFixed(1) + 'MB';
+            if (bytes >= 1024) return (bytes / 1024).toFixed(1) + 'KB';
+            return bytes + 'B';
+        }
+
+        function renderFiles() {
+            fileList.innerHTML = '';
+            fileCountCurrent.textContent = uploadedFiles.length;
+            if (uploadedFiles.length === 0) {
+                dropDefault.style.display = '';
+                dropFiles.style.display = 'none';
+                dropArea.classList.remove('has-files');
+                return;
+            }
+            dropDefault.style.display = 'none';
+            dropFiles.style.display = '';
+            dropArea.classList.add('has-files');
+            uploadedFiles.forEach(function(file, idx) {
+                var row = document.createElement('div');
+                row.className = 'erf-file-row';
+                row.innerHTML = '<button type="button" class="erf-file-remove" data-idx="' + idx + '" aria-label="삭제">' +
+                    '<svg width="24" height="24" viewBox="0 0 21.5 21.5" fill="none"><path d="M10.7455 0.75V20.75" stroke="#4E4E4E" stroke-width="1.5" stroke-linecap="round"/><path d="M20.75 10.7545H0.749999" stroke="#4E4E4E" stroke-width="1.5" stroke-linecap="round"/></svg>' +
+                    '</button>' +
+                    '<span class="erf-file-name">' + file.name + '</span>' +
+                    '<span class="erf-file-size">(' + formatFileSize(file.size) + ')</span>';
+                fileList.appendChild(row);
+            });
+            // 삭제 버튼 이벤트
+            fileList.querySelectorAll('.erf-file-remove').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var idx = parseInt(this.getAttribute('data-idx'));
+                    uploadedFiles.splice(idx, 1);
+                    renderFiles();
+                });
+            });
+        }
+
+        function addFiles(files) {
+            for (var i = 0; i < files.length; i++) {
+                if (uploadedFiles.length >= 5) {
+                    showAlert('최대 5개까지 등록 가능합니다.');
+                    break;
+                }
+                if (files[i].size > 3 * 1024 * 1024) {
+                    showAlert('첨부파일 크기는 3MB를 초과할 수 없습니다.');
+                    continue;
+                }
+                uploadedFiles.push(files[i]);
+            }
+            renderFiles();
+        }
+
+        if (dropArea && fileInput) {
+            dropArea.addEventListener('dragover', function(e) { e.preventDefault(); dropArea.classList.add('is-over'); });
+            dropArea.addEventListener('dragleave', function() { dropArea.classList.remove('is-over'); });
+            dropArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                dropArea.classList.remove('is-over');
+                addFiles(e.dataTransfer.files);
+            });
+            dropArea.addEventListener('click', function(e) {
+                if (e.target.closest('.erf-file-remove') || e.target.closest('.erf-drop-clear')) return;
+                fileInput.click();
+            });
+            fileInput.addEventListener('change', function() {
+                if (this.files.length) addFiles(this.files);
+                this.value = '';
+            });
+            dropClearAll.addEventListener('click', function(e) {
+                e.stopPropagation();
+                uploadedFiles = [];
+                renderFiles();
+            });
+        }
+
+        // ── 비밀번호 토글 ──
+        document.querySelectorAll('.erf-pw-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var wrap = this.closest('.erf-pw-input-wrap');
+                var input = wrap.querySelector('.erf-input--pw');
+                var iconHide = this.querySelector('.erf-pw-icon-hide');
+                var iconShow = this.querySelector('.erf-pw-icon-show');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    iconHide.style.display = 'none';
+                    iconShow.style.display = '';
+                } else {
+                    input.type = 'password';
+                    iconHide.style.display = '';
+                    iconShow.style.display = 'none';
+                }
+            });
+        });
+
+        // ── 비밀번호 Validation ──
+        var inputPw = document.getElementById('inputPw');
+        var inputPwConfirm = document.getElementById('inputPwConfirm');
+        var pwError = document.getElementById('pwError');
+        var pwConfirmError = document.getElementById('pwConfirmError');
+
+        function validatePw() {
+            var val = inputPw.value;
+            if (!val) {
+                pwError.textContent = '';
+                inputPw.classList.remove('is-error');
+                return true;
+            }
+            // 피그마: 입력 조건에 맞지 않은 경우 → "영문,숫자를 조합하여 6자 이상 입력해 주세요."
+            var hasLetter = /[a-zA-Z]/.test(val);
+            var hasNumber = /[0-9]/.test(val);
+            var onlyAlphaNum = /^[a-zA-Z0-9]+$/.test(val);
+            if (!onlyAlphaNum || !hasLetter || !hasNumber || val.length < 6) {
+                pwError.textContent = '영문,숫자를 조합하여 6자 이상 입력해 주세요.';
+                inputPw.classList.add('is-error');
+                return false;
+            }
+            pwError.textContent = '';
+            inputPw.classList.remove('is-error');
+            return true;
+        }
+
+        function validatePwConfirm() {
+            if (!inputPwConfirm.value) {
+                pwConfirmError.textContent = '';
+                inputPwConfirm.classList.remove('is-error');
+                return true;
+            }
+            // 피그마: 비밀번호와 일치하지 않은 경우 → "비밀번호가 일치하지 않습니다."
+            if (inputPw.value !== inputPwConfirm.value) {
+                pwConfirmError.textContent = '비밀번호가 일치하지 않습니다.';
+                inputPwConfirm.classList.add('is-error');
+                return false;
+            }
+            pwConfirmError.textContent = '';
+            inputPwConfirm.classList.remove('is-error');
+            return true;
+        }
+
+        inputPw.addEventListener('input', validatePw);
+        inputPwConfirm.addEventListener('input', validatePwConfirm);
+
+        // ── 제보하기 제출 ──
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            var isAnon = document.querySelector('input[name="reportType"]:checked').value === 'anon';
+
+            // 실명 제보: 이름/연락처/이메일 필수
+            if (!isAnon) {
+                var name = document.getElementById('inputName');
+                if (!name.value.trim()) {
+                    showAlert('이름을 입력해 주세요.', { onConfirm: function() { name.focus(); } });
+                    return;
+                }
+                var phone = document.getElementById('inputPhone');
+                if (!phone.value.trim()) {
+                    showAlert('연락처를 입력해주세요.', { onConfirm: function() { phone.focus(); } });
+                    return;
+                }
+                var emailLocal = document.getElementById('emailLocal');
+                var emailDomainVal = document.getElementById('emailDomain');
+                if (!emailLocal.value.trim()) {
+                    showAlert('이메일을 입력해주세요.', { onConfirm: function() { emailLocal.focus(); } });
+                    return;
+                }
+                // 피그마: 이메일에 영문,숫자,특수문자 외 다른 문자 → "올바르지 않은 이메일 형식입니다."
+                if (!/^[a-zA-Z0-9._%+\-]+$/.test(emailLocal.value.trim())) {
+                    showAlert('올바르지 않은 이메일 형식입니다.', { onConfirm: function() { emailLocal.focus(); } });
+                    return;
+                }
+                // 피그마: 도메인 주소 미입력 → "도메인을 입력해 주세요."
+                if (!emailDomainVal.value.trim()) {
+                    showAlert('도메인을 입력해 주세요.', { onConfirm: function() { emailDomainVal.focus(); } });
+                    return;
+                }
+            }
+
+            // 피그마: 제목 미입력 → "제목을 입력해주세요."
+            var title = document.getElementById('inputTitle');
+            if (!title.value.trim()) {
+                showAlert('제목을 입력해주세요.', { onConfirm: function() { title.focus(); } });
+                return;
+            }
+
+            // 피그마: 내용 미입력 → "내용을 입력해주세요."
+            var content = document.getElementById('inputContent');
+            if (!content.value.trim()) {
+                showAlert('내용을 입력해주세요.', { onConfirm: function() { content.focus(); } });
+                return;
+            }
+
+            // 피그마: 비밀번호 미입력 → "비밀번호를 입력해주세요."
+            if (!inputPw.value.trim()) {
+                showAlert('비밀번호를 입력해주세요.', { onConfirm: function() { inputPw.focus(); } });
+                return;
+            }
+            if (!validatePw()) {
+                showAlert('영문,숫자를 조합하여 6자 이상 입력해 주세요.', { onConfirm: function() { inputPw.focus(); } });
+                return;
+            }
+
+            // 피그마: 비밀번호 확인 미입력 → "비밀번호 확인을 입력해 주세요."
+            if (!inputPwConfirm.value.trim()) {
+                showAlert('비밀번호 확인을 입력해 주세요.', { onConfirm: function() { inputPwConfirm.focus(); } });
+                return;
+            }
+            if (!validatePwConfirm()) {
+                showAlert('비밀번호가 일치하지 않습니다.', { onConfirm: function() { inputPwConfirm.focus(); } });
+                return;
+            }
+
+            // 피그마: 동의하기 미선택 → "개인정보 수집을 동의해 주세요."
+            var agree = document.getElementById('agreeCheck');
+            if (!agree.checked) {
+                showAlert('개인정보 수집을 동의해 주세요.', { onConfirm: function() {
+                    document.getElementById('privacySection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }});
+                return;
+            }
+
+            // 피그마: 모든 통과 → "신고 및 제보하시겠습니까?" (2버튼)
+            showAlert('신고 및 제보하시겠습니까?', {
+                confirm: true,
+                onConfirm: function() {
+                    // 실명/익명에 따라 파라미터 전달
+                    var type = isAnon ? 'anon' : 'real';
+                    var url = 'ethics-report-complete.html?type=' + type;
+                    if (isAnon) {
+                        url += '&pw=' + encodeURIComponent(inputPw.value);
+                    }
+                    window.location.href = url;
+                }
+            });
+        });
+    })();
+    </script>
+    <!-- ★ 임시 플로팅 내비 (나중에 삭제) ★ -->
+    <div style="position:fixed;bottom:20px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:8px;">
+        <a href="ethics-report-complete.html?type=real" style="background:#F27100;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">실명 결과</a>
+        <a href="ethics-report-complete.html?type=anon" style="background:#F27100;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">익명 결과</a>
+        <a href="ethics-report-check.html" style="background:#363636;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">결과 조회</a>
+        <a href="ethics-report-result.html" style="background:#1B6B93;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">결과 확인</a>
+    </div>
+</body>
+</html>

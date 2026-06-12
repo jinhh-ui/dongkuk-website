@@ -84,7 +84,7 @@ html::-webkit-scrollbar {
 }
 
 html {
-    font-size: clamp(12px, 0.833vw, 16px);
+    font-size: clamp(12px, 0.84vw, 16px);
     background: #fff;
     /* 1920px 바깥 배경 */
 }
@@ -741,11 +741,11 @@ body {
     max-width: 1680px;
     margin: 0 auto;
     background: #F8F9FB;
-    border-radius: clamp(12px, 1.04vw, 20px);
+    border-radius: clamp(12px, 1.05vw, 20px);
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 40px 50px 40px 30px;
+    padding: clamp(24px, 2.09vw, 40px) clamp(20px, 2.61vw, 50px) clamp(24px, 2.09vw, 40px) clamp(16px, 1.57vw, 30px);
     gap: 20px;
     box-sizing: border-box;
 }
@@ -791,7 +791,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     padding: 0;
-    gap: 16px;
+    gap: clamp(6px, 0.53vw, 10px);
     flex: 1;
     min-width: 0;
 }
@@ -800,8 +800,8 @@ body {
     font-family: 'Pretendard', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(22px, 1.66vw, 32px);
-    line-height: 48px;
+    font-size: clamp(22px, 1.67vw, 32px);
+    line-height: 150%;
     color: #1B1B1B;
     margin: 0;
     word-break: keep-all;
@@ -811,8 +811,8 @@ body {
     font-family: 'Pretendard', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: clamp(16px, 1.14vw, 22px);
-    line-height: 35px;
+    font-size: clamp(16px, 1.15vw, 22px);
+    line-height: 160%;
     color: #4E4E4E;
     margin: 0;
     word-break: keep-all;
@@ -860,13 +860,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: clamp(40px, 3.33vw, 64px);
-    height: clamp(40px, 3.33vw, 64px);
+    width: clamp(40px, 3.34vw, 64px);
+    height: clamp(40px, 3.34vw, 64px);
     align-self: center;
     text-decoration: none;
     flex: none;
     cursor: pointer;
-    font-size: clamp(20px, 1.56vw, 30px);
+    font-size: clamp(20px, 1.57vw, 30px);
     transition: transform 0.2s ease;
 }
 
