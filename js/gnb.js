@@ -136,6 +136,9 @@
         }
         h += '</div>';
       }
+      for (var p = c.items.length; p < 5; p++) {
+        h += '<div class="sitemap-item-col" style="visibility:hidden;"></div>';
+      }
       h += '</div></div>';
     }
     return h + '</div>';

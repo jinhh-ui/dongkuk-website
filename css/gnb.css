@@ -111,9 +111,9 @@
 .sitemap-row-items {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap; /* 1열 절대 유지 */
+  flex-wrap: nowrap;
   gap: clamp(4px, 0.41cqw, 8px);
-  flex-grow: 1; /* 빈 공간이 오른쪽에 남도록 채움 */
+  flex-grow: 1;
 }
 
 .sitemap-item-col {
