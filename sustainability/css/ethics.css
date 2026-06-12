@@ -14,8 +14,9 @@
     font-weight: 700;
     color: #000;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.4;
     text-align: center;
+    height: 106px;
 }
 
 /* ── 탭 모바일 전용 요소 (기본은 데스크톱 상태) ── */
@@ -47,12 +48,17 @@
     font-weight: 700;
     color: #A7A7A7;
     text-decoration: none;
-    padding: 16px 20px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 316px;
     text-align: center;
     border-bottom: 2px solid transparent;
     transition: color 0.2s, border-color 0.2s;
     white-space: nowrap;
+    box-sizing: border-box;
+    margin-bottom: -1px;
 }
 
 .eth-tab-item:hover {
@@ -306,12 +312,11 @@
 }
 
 .eth-accordion-intro {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 400;
     color: #4E4E4E;
-    line-height: 1.8;
+    line-height: 1.6;
     margin: 0;
-    max-width: 900px;
     word-break: keep-all;
 }
 
