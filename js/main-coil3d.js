@@ -213,7 +213,7 @@
          THREE.JS 기본 설정
          ════════════════════════════════════════════════════ */
       var isMobile = window.innerWidth <= 767;
-      var renderer = new THREE.WebGLRenderer({ canvas: canvas3d, antialias: !isMobile, alpha: true, premultipliedAlpha: false });
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas3d, antialias: !isMobile, alpha: true, premultipliedAlpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 2 : 3));
       renderer.setClearColor(0x000000, 0); /* 완전 투명 */
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -1343,7 +1343,6 @@
 
       window.addEventListener('resize', function () {
         resize3d();
-        if (window._composer) window._composer.setSize(renderer.domElement.width, renderer.domElement.height);
       }, { passive: true });
 
       /* 초기: 뷰포트 크기 설정 + 줌인 상태로 중앙에 표시 */

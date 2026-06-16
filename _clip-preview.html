@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>코일 클립 디자인 비교</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f4f5f7; font-family: 'Pretendard', sans-serif; overflow: hidden; }
+    .container { display: flex; width: 100vw; height: 100vh; padding-top: 60px; }
+    .panel { flex: 1; position: relative; border-right: 1px solid #ddd; }
+    .panel:last-child { border-right: none; }
+    .panel canvas { width: 100% !important; height: 100% !important; }
+    .label {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.75); color: #fff; padding: 10px 24px;
+      border-radius: 50px; font-size: 15px; font-weight: 600;
+      white-space: nowrap; backdrop-filter: blur(8px); z-index: 10;
+    }
+    .label small { display: block; font-weight: 400; font-size: 12px; color: #aaa; margin-top: 3px; text-align: center; }
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; height: 60px; z-index: 100;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e0e0e0; font-size: 18px; font-weight: 700; color: #222;
+    }
+    .header span { color: #999; font-weight: 400; font-size: 14px; margin-left: 12px; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/lights/RectAreaLightUniformsLib.js"></script>
+</head>
+<body>
+  <div class="header">스트랩 씰 디자인 비교 <span>마우스 드래그로 자유 회전 / 스크롤로 줌 (자동 회전 중)</span></div>
+  <div class="container" id="container"></div>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var SCALE = 1.5 / 3;
+    var OUTER_R = 1.0 * SCALE;
+    var INNER_R = OUTER_R * 0.48;
+    var MAIN_H = 1.05 * SCALE;
+    var STRAP_R = OUTER_R + 0.003;
+    var BAND_WIDTH = 0.018;
+    var BAND_DEPTH = 0.002;
+    var BULGE_AMOUNT = 0.003;  /* 씰 부분 약간만 솟음 */
+    var BULGE_WIDTH = Math.PI / 6;
+    var clipAngle = Math.PI * 1.52;
+
+    function buildCapCanvas(size) {
+      var cv = document.createElement('canvas'); cv.width = cv.height = size;
+      var ctx = cv.getContext('2d'), cx = size/2, cy = size/2, r = size/2;
+      var g = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+      g.addColorStop(0,'#cdd0d5'); g.addColorStop(0.5,'#b5b9c0'); g.addColorStop(1,'#9a9ea5');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fill();
+      ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.clip();
+      var p = 2;
+      while(p < r) { p += 2+Math.random()*6; if(p>=r) break;
+        ctx.strokeStyle = Math.random()>0.65 ? 'rgba(255,255,255,0.12)' : 'rgba(10,18,28,0.10)';
+        ctx.lineWidth = 0.4+Math.random()*0.8;
+        ctx.beginPath(); ctx.arc(cx,cy,p,0,Math.PI*2); ctx.stroke();
+      }
+      ctx.restore(); return cv;
+    }
+    function buildSideCanvas(w,h) {
+      var cv = document.createElement('canvas'); cv.width=w; cv.height=h;
+      var ctx = cv.getContext('2d');
+      ctx.fillStyle = '#c0c4ca'; ctx.fillRect(0,0,w,h);
+      for(var i=0;i<300;i++) {
+        ctx.strokeStyle = 'rgba(10,15,25,'+(0.01+Math.random()*0.02)+')';
+        ctx.lineWidth = 0.3; ctx.beginPath(); ctx.moveTo(0,(i/300)*h); ctx.lineTo(w,(i/300)*h); ctx.stroke();
+      }
+      return cv;
+    }
+
+    /* ═══ 씰 디자인 — 실제 푸셔씰 레퍼런스 ═══ */
+    var clipR = STRAP_R + BULGE_AMOUNT + BAND_DEPTH/2 + 0.0005;
+    var sealH = 0.006;               /* 씰 높이 (방사 방향) */
+    var sealW = 0.032;               /* 스트랩 진행방향 길이 */
+    var sealD = BAND_WIDTH + 0.004;  /* 스트랩 폭방향 */
+
+    /* 공통: 슬롯이 있는 푸셔씰 Shape 생성 */
+    function makeSealShape(W, H, slotW, slotH, divW, wallT, round) {
+      var sh = new THREE.Shape();
+      if (round) {
+        var cr = Math.min(wallT, 0.002);
+        sh.moveTo(-W/2+cr, 0); sh.lineTo(W/2-cr, 0);
+        sh.quadraticCurveTo(W/2, 0, W/2, cr); sh.lineTo(W/2, H-cr);
+        sh.quadraticCurveTo(W/2, H, W/2-cr, H); sh.lineTo(-W/2+cr, H);
+        sh.quadraticCurveTo(-W/2, H, -W/2, H-cr); sh.lineTo(-W/2, cr);
+        sh.quadraticCurveTo(-W/2, 0, -W/2+cr, 0);
+      } else {
+        sh.moveTo(-W/2, 0); sh.lineTo(W/2, 0);
+        sh.lineTo(W/2, H); sh.lineTo(-W/2, H); sh.lineTo(-W/2, 0);
+      }
+      /* 슬롯 1 (좌측) */
+      var sY = wallT;
+      var h1 = new THREE.Path();
+      h1.moveTo(-divW/2 - slotW, sY);
+      h1.lineTo(-divW/2, sY);
+      h1.lineTo(-divW/2, sY + slotH);
+      h1.lineTo(-divW/2 - slotW, sY + slotH);
+      h1.lineTo(-divW/2 - slotW, sY);
+      sh.holes.push(h1);
+      /* 슬롯 2 (우측) */
+      var h2 = new THREE.Path();
+      h2.moveTo(divW/2, sY);
+      h2.lineTo(divW/2 + slotW, sY);
+      h2.lineTo(divW/2 + slotW, sY + slotH);
+      h2.lineTo(divW/2, sY + slotH);
+      h2.lineTo(divW/2, sY);
+      sh.holes.push(h2);
+      return sh;
+    }
+
+    var designs = [
+      { name:'A. 표준 푸셔씰', desc:'2슬롯 직사각 프레임',
+        create: function(m) {
+          var g = new THREE.Group();
+          var W = sealW, H = sealH;
+          var wallT = H * 0.22;     /* 상하판 두께 */
+          var divW = W * 0.12;      /* 중앙 디바이더 폭 */
+          var slotW = (W - divW) / 2 - wallT * 1.5;  /* 슬롯 가로 */
+          var slotH = H - wallT * 2; /* 슬롯 세로 (스트랩 통과) */
+
+          var sh = makeSealShape(W, H, slotW, slotH, divW, wallT, false);
+          var geo = new THREE.ExtrudeGeometry(sh, {
+            depth: sealD, bevelEnabled: true,
+            bevelThickness: 0.0003, bevelSize: 0.0003, bevelSegments: 2
+          });
+          geo.translate(0, 0, -sealD/2);
+          var mesh = new THREE.Mesh(geo, m);
+          g.add(mesh);
+
+          /* 상판 위 그립 텍스처 (세로 리브 5개) */
+          var rm = m.clone(); rm.roughness = 0.8;
+          for (var i = 0; i < 5; i++) {
+            var rib = new THREE.Mesh(new THREE.BoxGeometry(W * 0.8, 0.0004, 0.001), rm);
+            rib.position.set(0, H + 0.0002, (i - 2) * sealD * 0.18);
+            g.add(rib);
+          }
+          return g;
+        }
+      },
+      { name:'B. 라운드 푸셔씰', desc:'라운드 코너 + 세레이션',
+        create: function(m) {
+          var g = new THREE.Group();
+          var W = sealW + 0.004, H = sealH;
+          var wallT = H * 0.25;
+          var divW = W * 0.10;
+          var slotW = (W - divW) / 2 - wallT * 1.5;
+          var slotH = H - wallT * 2;
+
+          var sh = makeSealShape(W, H, slotW, slotH, divW, wallT, true);
+          var geo = new THREE.ExtrudeGeometry(sh, {
+            depth: sealD, bevelEnabled: true,
+            bevelThickness: 0.0005, bevelSize: 0.0005, bevelSegments: 3
+          });
+          geo.translate(0, 0, -sealD/2);
+          g.add(new THREE.Mesh(geo, m));
+
+          /* 세레이션 — 대각선 줄무늬 */
+          var sm = m.clone(); sm.roughness = 0.9; sm.color.set(0x6a3810);
+          for (var i = 0; i < 7; i++) {
+            var ser = new THREE.Mesh(new THREE.BoxGeometry(W * 0.6, 0.0003, 0.0008), sm);
+            ser.position.set(0, H + 0.0001, (i - 3) * sealD * 0.12);
+            ser.rotation.y = 0.3;
+            g.add(ser);
+          }
+          return g;
+        }
+      },
+      { name:'C. 오픈 씰 (Snap-On)', desc:'C자형 스냅온 클립',
+        create: function(m) {
+          var g = new THREE.Group();
+          var W = sealW - 0.004, H = sealH * 0.8;
+          var wallT = 0.0012;
+
+          /* 바닥판 */
+          var base = new THREE.Mesh(new THREE.BoxGeometry(W, wallT, sealD), m);
+          base.position.y = wallT/2;
+          g.add(base);
+
+          /* 양쪽 측벽 — C자형 (위쪽이 안쪽으로 꺾임) */
+          [-1, 1].forEach(function(s) {
+            /* 수직 벽 */
+            var wall = new THREE.Mesh(new THREE.BoxGeometry(W, H, wallT), m);
+            wall.position.set(0, H/2, s * (sealD/2 - wallT/2));
+            g.add(wall);
+            /* 안쪽으로 꺾인 립 (crimped edge) */
+            var lip = new THREE.Mesh(new THREE.BoxGeometry(W, wallT, sealD * 0.12), m);
+            lip.position.set(0, H, s * (sealD/2 - sealD*0.06));
+            g.add(lip);
+          });
+
+          /* 상판 — 크림프 자국이 있는 부분 */
+          var topW = sealD * 0.5;
+          var top = new THREE.Mesh(new THREE.BoxGeometry(W, wallT, topW), m);
+          top.position.y = H;
+          g.add(top);
+
+          /* 크림프 텍스처 */
+          var cm = m.clone(); cm.roughness = 0.85;
+          for (var i = 0; i < 6; i++) {
+            var crimp = new THREE.Mesh(new THREE.BoxGeometry(0.001, wallT*1.5, topW*0.8), cm);
+            crimp.position.set((i-2.5) * W * 0.15, H + wallT*0.3, 0);
+            g.add(crimp);
+          }
+          return g;
+        }
+      }
+    ];
+
+    function createStrapGeo(angle) {
+      var segs=256, hW=BAND_WIDTH/2, hD=BAND_DEPTH/2, R=STRAP_R;
+      var pos=[], nrm=[], idx=[];
+      for(var i=0;i<=segs;i++){
+        var th=(i/segs)*Math.PI*2, r=R;
+        var d=th-angle; while(d>Math.PI)d-=Math.PI*2; while(d<-Math.PI)d+=Math.PI*2;
+        if(Math.abs(d)<BULGE_WIDTH){var t=1-Math.abs(d)/BULGE_WIDTH; r=R+BULGE_AMOUNT*t*t*t;}
+        var c=Math.cos(th),s=Math.sin(th),rO=r+hD,rI=r-hD;
+        pos.push(rO*c,rO*s,-hW, rO*c,rO*s,hW, rI*c,rI*s,-hW, rI*c,rI*s,hW);
+        nrm.push(c,s,0, c,s,0, -c,-s,0, -c,-s,0);
+        pos.push(rO*c,rO*s,hW, rI*c,rI*s,hW, rO*c,rO*s,-hW, rI*c,rI*s,-hW);
+        nrm.push(0,0,1, 0,0,1, 0,0,-1, 0,0,-1);
+      }
+      for(var i=0;i<segs;i++){
+        var b=i*8,n=(i+1)*8;
+        idx.push(b,n,b+1,b+1,n,n+1, b+2,b+3,n+2,b+3,n+3,n+2, b+4,n+4,b+5,b+5,n+4,n+5, b+6,b+7,n+6,b+7,n+7,n+6);
+      }
+      var geo=new THREE.BufferGeometry();
+      geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+      geo.setAttribute('normal',new THREE.Float32BufferAttribute(nrm,3));
+      geo.setIndex(idx); return geo;
+    }
+
+    /* ═══ 공유 회전 ═══ */
+    var autoRotate = true;
+    var camTheta = Math.PI;  /* 씰이 있는 -Z 방향 */
+    var camPhi = 0.25;
+    var camDist = 0.7;
+    var isDrag = false, px = 0, py = 0;
+    document.addEventListener('mousedown', function(e) { isDrag = true; autoRotate = false; px = e.clientX; py = e.clientY; });
+    document.addEventListener('mouseup', function() { isDrag = false; });
+    document.addEventListener('mousemove', function(e) {
+      if (!isDrag) return;
+      camTheta -= (e.clientX - px) * 0.005;
+      camPhi += (e.clientY - py) * 0.005;
+      camPhi = Math.max(-1.2, Math.min(1.2, camPhi));
+      px = e.clientX; py = e.clientY;
+    });
+    document.addEventListener('wheel', function(e) {
+      camDist += e.deltaY * 0.001;
+      camDist = Math.max(0.4, Math.min(2.5, camDist));
+    });
+
+    /* ═══ 패널 생성 ═══ */
+    var container = document.getElementById('container');
+    var panels = [];
+
+    designs.forEach(function(design) {
+      var div = document.createElement('div');
+      div.className = 'panel';
+      container.appendChild(div);
+      var lbl = document.createElement('div');
+      lbl.className = 'label';
+      lbl.innerHTML = design.name + '<small>' + design.desc + '</small>';
+      div.appendChild(lbl);
+      var canvas = document.createElement('canvas');
+      div.appendChild(canvas);
+
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0xf4f5f7, 1);
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.1;
+      renderer.outputEncoding = THREE.sRGBEncoding;
+
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(42, 1, 0.01, 100);
+
+      scene.add(new THREE.AmbientLight(0x8898a8, 0.15));
+      var kl = new THREE.DirectionalLight(0xffffff, 1.8); kl.position.set(0, 2.5, 1.7); scene.add(kl);
+      var fl = new THREE.DirectionalLight(0xd0dce8, 0.4); fl.position.set(0, 0, -3); scene.add(fl);
+      THREE.RectAreaLightUniformsLib.init();
+      var rl = new THREE.RectAreaLight(0xffffff, 12, 0.3, 3); rl.position.set(2.5, 0, 1.5); rl.lookAt(0,0,0); scene.add(rl);
+
+      var eW=2048, eH=1024, ec=document.createElement('canvas'); ec.width=eW; ec.height=eH;
+      var ex=ec.getContext('2d');
+      ex.fillStyle='#020304'; ex.fillRect(0,0,eW,eH);
+      var mb=ex.createRadialGradient(eW*0.22,eH*0.28,0,eW*0.22,eH*0.28,eW*0.3);
+      mb.addColorStop(0,'rgba(255,252,248,1)'); mb.addColorStop(0.3,'rgba(240,238,235,0.65)');
+      mb.addColorStop(0.8,'rgba(80,90,110,0.06)'); mb.addColorStop(1,'rgba(0,0,0,0)');
+      ex.fillStyle=mb; ex.fillRect(0,0,eW,eH);
+      var st=ex.createLinearGradient(0,eH*0.4,0,eH*0.58);
+      st.addColorStop(0,'rgba(0,0,0,0)'); st.addColorStop(0.5,'rgba(255,255,255,1)'); st.addColorStop(1,'rgba(0,0,0,0)');
+      ex.fillStyle=st; ex.fillRect(0,eH*0.38,eW,eH*0.22);
+      var et=new THREE.CanvasTexture(ec); et.mapping=THREE.EquirectangularReflectionMapping;
+      var pm=new THREE.PMREMGenerator(renderer); pm.compileEquirectangularShader();
+      scene.environment=pm.fromEquirectangular(et).texture; et.dispose(); pm.dispose(); renderer.setRenderTarget(null);
+
+      var ct=new THREE.CanvasTexture(buildCapCanvas(1024)); ct.encoding=THREE.sRGBEncoding;
+      var mCap=new THREE.MeshPhysicalMaterial({map:ct,color:0xffffff,roughness:0.3,metalness:0.85,envMapIntensity:2.5,clearcoat:0.5,clearcoatRoughness:0.04});
+      var sv=buildSideCanvas(512,128); var sT=new THREE.CanvasTexture(sv); sT.encoding=THREE.sRGBEncoding; sT.wrapS=THREE.RepeatWrapping; sT.repeat.set(3,1);
+      var mSide=new THREE.MeshPhysicalMaterial({map:sT,color:0xffffff,roughness:0.04,metalness:0.85,envMapIntensity:2.5});
+      var mStrap=mSide.clone(); mStrap.map=null; mStrap.roughness=0.05; mStrap.metalness=0.8; mStrap.needsUpdate=true;
+      var mBore=new THREE.MeshPhysicalMaterial({color:0xd8dce4,roughness:0.12,metalness:0.85,envMapIntensity:1.2,side:THREE.BackSide});
+      var mClip=new THREE.MeshPhysicalMaterial({color:0x8B4513,roughness:0.4,metalness:0.9,envMapIntensity:2.5});  /* 갈변 금속색 — 확실히 구분 */
+
+      var coilGroup = new THREE.Group();
+      coilGroup.rotation.z = -Math.PI / 2;
+      scene.add(coilGroup);
+
+      coilGroup.add(new THREE.Mesh(new THREE.CylinderGeometry(OUTER_R, OUTER_R, MAIN_H, 128, 1, true), mSide));
+      var tc=new THREE.Mesh(new THREE.RingGeometry(INNER_R+0.005,OUTER_R+0.004,128,1),mCap);
+      tc.rotation.x=-Math.PI/2; tc.position.y=MAIN_H/2; coilGroup.add(tc);
+      var bc=new THREE.Mesh(new THREE.RingGeometry(INNER_R+0.005,OUTER_R+0.004,128,1),mCap);
+      bc.rotation.x=Math.PI/2; bc.position.y=-MAIN_H/2; coilGroup.add(bc);
+      coilGroup.add(new THREE.Mesh(new THREE.CylinderGeometry(INNER_R, INNER_R, MAIN_H, 128, 1, true), mBore));
+
+      var sg = createStrapGeo(clipAngle);
+      [0.25, -0.25].forEach(function(f) {
+        var s = new THREE.Mesh(sg, mStrap);
+        s.rotation.x = Math.PI / 2;
+        s.position.y = MAIN_H * f;
+        coilGroup.add(s);
+      });
+
+      /* 클립 배치 — 코일 표면, 방향 행렬로 정렬 */
+      function posClip(mesh, y, a) {
+        var r = clipR;
+        mesh.position.set(r * Math.cos(a), y, r * Math.sin(a));
+        /* X(클립 가로=스트랩 진행) → 접선 방향
+           Y(클립 높이=바닥→상판)  → 방사 방향 (바깥)
+           Z(클립 폭=스트랩 폭)   → 실린더 축 */
+        var m4 = new THREE.Matrix4();
+        m4.makeBasis(
+          new THREE.Vector3(-Math.sin(a), 0, Math.cos(a)),
+          new THREE.Vector3(Math.cos(a), 0, Math.sin(a)),
+          new THREE.Vector3(0, 1, 0)
+        );
+        mesh.setRotationFromMatrix(m4);
+      }
+      var c1 = design.create(mClip); posClip(c1, MAIN_H * 0.25, clipAngle); coilGroup.add(c1);
+      var c2 = design.create(mClip); posClip(c2, -MAIN_H * 0.25, clipAngle); coilGroup.add(c2);
+
+      panels.push({ renderer: renderer, scene: scene, camera: camera });
+    });
+
+    function resize() {
+      var pw = window.innerWidth / panels.length, ph = window.innerHeight - 60;
+      panels.forEach(function(p) {
+        p.renderer.setSize(pw, ph, false);
+        p.camera.aspect = pw / ph;
+        p.camera.updateProjectionMatrix();
+      });
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (autoRotate) camTheta += 0.003;
+      panels.forEach(function(p) {
+        p.camera.position.set(
+          Math.sin(camTheta) * Math.cos(camPhi) * camDist,
+          Math.sin(camPhi) * camDist,
+          Math.cos(camTheta) * Math.cos(camPhi) * camDist
+        );
+        p.camera.lookAt(0, 0, 0);
+        p.renderer.render(p.scene, p.camera);
+      });
+    }
+    animate();
+  })();
+  </script>
+</body>
+</html>
