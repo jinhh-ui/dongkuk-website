@@ -585,7 +585,7 @@ img.ic-download {
 }
 
 .spec-head {
-    height: clamp(60px, 4.69vw, 90px);
+    height: clamp(60px, 5.21vw, 100px);
     background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF;
     border-top: 1px solid #000000;
     display: flex;
@@ -599,7 +599,7 @@ img.ic-download {
 }
 
 .spec-value {
-    height: clamp(60px, 4.69vw, 90px);
+    height: clamp(60px, 5.21vw, 100px);
     background: #FFFFFF;
     border-top: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
@@ -750,6 +750,13 @@ img.ic-download {
 }
 
 /* 아이콘 공통 및 좌우 반전(Soft) */
+@media (min-width: 1440px) {
+    .umi-icon {
+        width: 16px;
+        height: 45px;
+    }
+}
+
 .umi-icon {
     width: 26px;
     height: 53px;
@@ -2397,7 +2404,7 @@ img.ic-download {
         flex-direction: column !important;
         width: 100% !important;
         padding: 0 var(--section-padding-x) !important;
-        gap: clamp(24px, 6.7vw, 30px) !important;
+        gap: 40px !important;
     }
 
     .story-title {
@@ -2417,7 +2424,10 @@ img.ic-download {
     }
 
     .story-title-desktop {
-        display: none !important;
+        display: block !important;
+        height: 42px !important;
+        text-align: center !important;
+        justify-content: center !important;
     }
 
     .story-desc {
@@ -2425,7 +2435,7 @@ img.ic-download {
         line-height: 1.6;
         width: 100% !important;
         max-width: 100% !important;
-        height: auto !important;
+        height: 156px !important;
         min-height: auto !important;
         display: block !important;
         text-align: center !important;
@@ -2433,7 +2443,7 @@ img.ic-download {
 
     .story-desc-sub {
         max-width: 100% !important;
-        margin-top: 12px !important;
+        margin-top: 0 !important;
         text-align: center !important;
     }
 
@@ -2448,7 +2458,7 @@ img.ic-download {
     /* --- 카드 세로 배치 --- */
     .story-txt {
         order: 1;
-        gap: 20px !important;
+        gap: 30px !important;
         width: 100% !important;
         max-width: 100% !important;
         align-items: flex-start !important;
@@ -2504,6 +2514,10 @@ img.ic-download {
 
 
 
+    .bi-section {
+        padding: 40px 0;
+    }
+
     .bi-section .inner {
         padding: 0 16px;
         gap: 30px;
@@ -2516,32 +2530,32 @@ img.ic-download {
     }
 
     .bi-section .bi-title {
-        font-size: clamp(24px, 8.3vw, 30px);
-        height: auto;
+        font-size: 30px;
+        height: 42px;
     }
 
     .bi-section .bi-header-row {
         flex-direction: column;
         align-items: flex-start;
         height: auto;
-        gap: clamp(16px, 4.4vw, 20px);
+        gap: 20px;
     }
 
     .bi-section .bi-desc {
-        font-size: clamp(14px, 4.4vw, 16px);
-        height: auto;
+        font-size: 16px;
+        height: 104px;
         max-width: 100%;
     }
 
     .bi-section .btn-brochure {
         width: auto;
-        height: auto;
+        height: 46px;
         padding: 10px 12px 10px 18px;
         border-radius: 100px;
     }
 
     .bi-section .btn-brochure span {
-        font-size: clamp(14px, 4.4vw, 16px);
+        font-size: 16px;
     }
 
     .bi-section .btn-brochure svg {
@@ -2553,20 +2567,20 @@ img.ic-download {
     .bi-section .logo-usage-block {
         margin-bottom: 0;
         height: auto;
-        gap: 16px;
+        gap: 20px;
     }
 
     .bi-section .logo-usage-label,
     .bi-section .lmg-col-label {
         font-size: 24px;
-        height: auto;
+        height: 36px;
         min-height: 0;
     }
 
     .bi-section .lmg-col-label {
         display: flex;
         font-size: 24px;
-        height: auto;
+        height: 36px;
         min-height: 0;
     }
 
@@ -2600,12 +2614,12 @@ img.ic-download {
 
     .bi-section .logo-margin-cards {
         flex-direction: column;
-        gap: 10px;
+        gap: 16px;
     }
 
     .bi-section .lmg-col {
         width: 100%;
-        gap: 10px;
+        gap: 16px;
     }
 
     .bi-section .logo-margin-card {
@@ -2618,12 +2632,12 @@ img.ic-download {
     /* --- 모노로고 (BI 색상활용) --- */
     .bi-section .mono-logo-block {
         margin-bottom: 0;
-        gap: 16px;
+        gap: 20px;
     }
 
     .bi-section .mono-logo-subtitle {
         font-size: 24px;
-        height: auto;
+        height: 36px;
         min-height: 0;
     }
 
@@ -2679,16 +2693,16 @@ img.ic-download {
 
     .bi-section .bi-color-grid {
         flex-direction: column;
-        padding: calc(100vw * 45 / 1920) 0;
+        padding: 0;
         height: auto;
-        gap: 20px;
+        gap: 24px;
     }
 
     .bi-section .bi-color-card {
         width: 100%;
         max-width: 100%;
         height: auto;
-        gap: 24px;
+        gap: 30px;
     }
 
     .bi-section .color-circle {
@@ -2762,8 +2776,8 @@ img.ic-download {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(20px, 2.34vw, 45px) 0;
-    gap: clamp(20px, 2.08vw, 40px);
+    padding: 0;
+    gap: 40px;
 
     width: 100%;
     max-width: 1064px;
@@ -2778,7 +2792,7 @@ img.ic-download {
 .story-title {
     width: 100%;
     max-width: 1064px;
-    height: auto;
+    height: 70px;
 
     /* heading/Medium */
     font-family: 'Pretendard';
@@ -2808,7 +2822,7 @@ img.ic-download {
 
 .story-desc {
     width: 100%;
-    height: auto;
+    height: 105px;
 
     font-family: 'Pretendard';
     font-style: normal;
@@ -2841,8 +2855,8 @@ img.ic-download {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(20px, 2.34vw, 45px) 0;
-    gap: 20px;
+    padding: 0;
+    gap: 40px;
 
     width: 100%;
     max-width: 1064px;
@@ -3350,7 +3364,7 @@ img.ic-download {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(14px, 0.94vw, 18px);
+    font-size: 24px;
     font-weight: 700;
     color: #363636;
 }
@@ -3405,7 +3419,7 @@ img.ic-download {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: clamp(20px, 2.34vw, 45px) 0;
+    padding: 45px 0;
     gap: clamp(20px, 1.56vw, 30px);
     width: 100%;
     height: auto;
@@ -3519,7 +3533,7 @@ img.ic-download {
 
 .logo-usage-card {
     width: 100%;
-    height: clamp(280px, 28.64vw, 550px);
+    height: 550px;
     background: #F1F3F7;
     border-radius: clamp(16px, 1.56vw, 30px);
     position: relative;
@@ -3854,28 +3868,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
-    gap: 0;
+    padding: 70px 0 100px;
+    gap: clamp(40px, 3.65vw, 70px);
     width: 100%;
-    background: #FFFFFF;
+    max-width: 1920px;
+    margin: 0 auto;
+    background: #ffffff;
 }
 
 .page-header h1 {
-    width: 100%;
-    max-width: 948px;
-    height: 106px;
-    margin: 70px auto 5.2083vw;
-    /* bottom: 100px / 1920px */
-    padding: 0 16px;
+    margin: 0;
     font-family: 'Pretendard', sans-serif;
-    font-size: clamp(30px, 4.16vw, 80px);
     font-weight: 700;
-    color: #000000;
+    font-size: clamp(40px, 4.16vw, 80px);
     line-height: 140%;
+    text-align: center;
+    color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
 /* ===== 탭 내비게이션 ===== */
@@ -5145,19 +5156,21 @@ body {
     /* Columns styling */
     .spec-ann-col {
         flex: none;
-        width: 150px;
+        width: 150px !important;
+        min-width: 150px !important;
         height: auto;
         border-right: 1px solid #D6D6D6;
         box-sizing: border-box;
     }
 
-    .spec-ann-col:nth-child(4) {
-        width: 220px;
+    .spec-ann-col:nth-child(5) {
+        width: 177px !important;
+        min-width: 177px !important;
     }
 
     .spec-ann-col.wide {
-        width: 480px;
-        min-width: 480px;
+        width: 480px !important;
+        min-width: 480px !important;
         border-right: none;
     }
 
@@ -5278,17 +5291,46 @@ body {
            ════════════════════════════════════ */
 @media (max-width: 767px) {
 
-    /* ── 페이지 헤더: 피그마 MOB gap-[20px] 타이틀 30px ── */
+    /* ── 페이지 헤더: 피그마 MOB ── */
     .page-header {
-        gap: 20px;
+        padding: 20px 16px 30px 16px;
+        height: auto;
+        justify-content: center;
+    }
+
+    .page-header .page-label {
+        font-size: 14px;
     }
 
     .page-header h1 {
-        font-size: 30px;
-        line-height: 1.4;
-        margin-top: 20px;
-        margin-bottom: 30px;
+        width: 100%;
+        max-width: 328px;
         height: 54px;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 140%;
+        color: #000;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .pi-desc {
+        height: 78px;
+    }
+
+    .spec-ann-sub-head {
+        font-size: 16px !important;
+    }
+
+    .color-val-text {
+        height: 26px !important;
+    }
+
+    .color-name {
+        height: 29px !important;
     }
 
     /* ── 탭 내비게이션: 피그마 MOB h-[66px] w-[120px] per tab ── */
@@ -5700,7 +5742,7 @@ body {
     .battery-compare {
         display: flex !important;
         flex-direction: column !important;
-        gap: 16px !important;
+        gap: 24px !important;
     }
 
     /* compare-row: 세로 배열, overflow 보이기 */
@@ -5719,7 +5761,7 @@ body {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 12px !important;
+        gap: 18px !important;
         height: auto !important;
         width: 100% !important;
     }
@@ -6027,7 +6069,7 @@ body {
         font-size: 30px !important;
         padding: 0 16px !important;
         line-height: 1.5 !important;
-        margin-bottom: 40px !important;
+        margin-bottom: 30px !important;
     }
 
     /* 피그마 MOB: 데스크탑 디자인 반영 (비율 및 특수 라운드 조정) */
@@ -6135,7 +6177,7 @@ body {
 }
 
 /* ═══ 태블릿 mcard 제목 폰트 축소 (한 줄 유지) ═══ */
-@media (max-width: 1439px) {
+@media (min-width: 768px) and (max-width: 1439px) {
     .mcard-title {
         font-size: clamp(18px, 2.4vw, 24px);
         white-space: nowrap;
@@ -6152,5 +6194,83 @@ body {
 
     .value-inner-box {
         padding: 15vh var(--section-padding-x);
+    }
+}
+@media (min-width: 1920px) {
+    .page-header h1 {
+        font-size: 80px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .fcards-row {
+        height: 540px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .pi-title {
+        height: 70px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .pi-subtitle {
+        height: 39px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .pi-desc {
+        height: 70px;
+    }
+}
+@media (min-width: 1920px) {
+    .spec-ann-col .spec-head,
+    .spec-ann-col.wide .spec-head {
+        font-size: 24px !important;
+    }
+}
+@media (min-width: 1920px) {
+    .spec-ann-col .spec-value {
+        font-size: 20px !important;
+    }
+}
+
+@media (min-width: 1920px) {
+    .tab-nav {
+        height: 70px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .material-cards {
+        gap: 24px;
+    }
+
+    .mcard {
+        height: 580px;
+        padding: 40px 40px 60px;
+        gap: 40px;
+    }
+
+    .mcard-illus {
+        height: 250px;
+    }
+
+    .mcard-txt {
+        gap: 24px;
+    }
+
+    .mcard-title {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 150%;
+    }
+
+    .mcard-desc {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 150%;
     }
 }

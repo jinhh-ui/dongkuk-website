@@ -8,13 +8,13 @@
     align-items: center;
     justify-content: center;
     background: #fff;
-    padding-top: var(--section-padding-y);
+    padding-top: 70px;
     padding-bottom: var(--section-padding-y);
     box-sizing: border-box;
 }
 
 .page-header h1 {
-    font-size: clamp(30px, 3.125vw, 60px);
+    font-size: 80px;
     font-weight: 700;
     color: #1b1b1b;
     margin: 0;
@@ -212,7 +212,7 @@
 .info-card-bottom {
     display: flex;
     flex-direction: column;
-    gap: clamp(20px, 1.66vw, 32px);
+    gap: 32px;
 }
 
 .info-item {
@@ -224,8 +224,9 @@
 .address-row {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px 16px;
     width: 100%;
 }
 
@@ -462,6 +463,14 @@
    ══════════════════════════════════════════ */
 @media (max-width: 767px) {
 
+    .page-header {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    .page-header h1 {
+        font-size: 30px;
+    }
 
     .hero-text-outer {
         min-height: 200vh;
@@ -507,6 +516,10 @@
         padding: 0 16px;
     }
 
+    .overseas-section .inner {
+        gap: 20px;
+    }
+
     .cards-row {
         flex-direction: column;
         gap: 12px;
@@ -529,32 +542,33 @@
         display: flex;
         flex: none;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: flex-start;
         width: 100%;
-        height: 308px;
+        height: auto;
         padding: 20px 16px;
-        gap: 0;
+        gap: 20px;
         border-radius: 16px;
     }
 
     .overseas-card {
-        gap: 54px;
+        gap: 60px;
     }
 
     .overseas-card:last-child {
         justify-content: flex-start;
-        gap: 28px;
+        gap: 60px;
     }
 
     .overseas-card .address-row {
         flex-direction: row;
         align-items: flex-start;
-        gap: 16px;
+        gap: 4px 10px;
     }
 
     .overseas-card .address-text {
-        white-space: nowrap;
+        white-space: normal;
+        width: 100%;
     }
 
     .info-card {
@@ -581,8 +595,9 @@
     .combined-card .info-card {
         background: #FFFFFF;
         border-radius: 0 0 16px 16px;
-        height: 308px;
-        gap: 0;
+        height: auto;
+        gap: 20px;
+        justify-content: flex-start;
     }
 
     .info-card-top {
@@ -592,11 +607,13 @@
     .location-tag {
         gap: 8px;
         font-size: 16px;
+        min-height: 26px;
     }
 
     .card-title {
         font-size: 30px;
         line-height: 150%;
+        min-height: 90px;
     }
 
     .title-group {
@@ -608,6 +625,11 @@
         right: 16px;
         padding: 6px 12px;
         font-size: 16px;
+        height: 38px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .info-card-bottom {
@@ -620,6 +642,7 @@
 
     .address-row {
         gap: 10px;
+        min-height: 26px;
     }
 
     .address-text,
@@ -632,6 +655,7 @@
 
     .contact-row {
         gap: 16px;
+        min-height: 26px;
     }
 
     .hero-image-wrapper {

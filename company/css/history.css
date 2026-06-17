@@ -3,6 +3,11 @@
     display: block;
 }
 
+/* Page Header */
+.page-header h1 {
+    font-size: 80px;
+}
+
 .mo-br,
 .m-br {
     display: none;
@@ -30,6 +35,10 @@
 
 /* Standardized breakpoints to match common.css */
 @media (max-width: 767px) {
+    .page-header h1 {
+        font-size: 30px;
+    }
+
     .hero-text-inner {
         top: 72px;
         height: auto;
@@ -533,4 +542,9 @@
         width: 32px;
         height: 32px;
     }
+}
+
+/* 데스크탑 전용 줄바꿈 */
+@media (min-width: 768px) {
+    .award-line1::after { content: '\A'; white-space: pre; }
 }

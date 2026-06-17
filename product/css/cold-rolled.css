@@ -5,20 +5,31 @@
     display: none;
 }
 
+.pc-br {
+    display: block;
+}
+
 /* ===== Page Header (sticky hero 전용 오버라이드) ===== */
 .page-header {
-    padding: 0;
-    gap: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 0 100px;
+    gap: clamp(40px, 3.65vw, 70px);
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    background: #ffffff;
 }
 
 .page-header h1 {
-    margin: 70px auto 0;
+    margin: 0;
     font-size: clamp(40px, 4.16vw, 80px);
 }
 
 /* ===== 탭 내비게이션 (오버라이드) ===== */
 .tab-nav {
-    margin-top: 100px;
+    margin-top: 0;
     border-bottom-color: #ffffff;
 }
 
@@ -342,6 +353,7 @@
     align-items: center;
     color: #000000;
     margin: 0;
+    height: 70px;
 }
 
 .pi-subtitle-group {
@@ -359,6 +371,7 @@
     line-height: 150%;
     color: #1B1B1B;
     margin: 0;
+    height: 39px;
 }
 
 .pi-description-stack {
@@ -371,6 +384,7 @@
 
 .pi-desc {
     width: 100%;
+    height: 70px;
     font-size: clamp(16px, 1.14vw, 22px);
     font-weight: 400;
     line-height: 160%;
@@ -1415,9 +1429,29 @@ img.ic-download {
         overflow-x: hidden;
     }
 
+    .page-header {
+        padding: 20px 16px 30px 16px;
+        height: auto;
+        justify-content: center;
+    }
+
+    .page-header .page-label {
+        font-size: 14px;
+    }
+
     .page-header h1 {
+        width: 100%;
+        max-width: 328px;
+        height: 54px;
         font-size: 30px;
-        line-height: 1.4;
+        font-weight: 700;
+        line-height: 140%;
+        color: #000;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     .hero-text-outer {
@@ -1641,11 +1675,18 @@ img.ic-download {
         order: 2;
         width: 100%;
         max-width: 100%;
-        height: 232px;
+        height: 232px !important;
+        max-height: 232px !important;
         aspect-ratio: unset;
         border-radius: 16px;
         flex-shrink: 0;
         overflow: hidden;
+    }
+
+    .pi-right img {
+        width: 100%;
+        height: 232px !important;
+        object-fit: cover;
     }
 
     .pi-main-texts {
@@ -1675,7 +1716,7 @@ img.ic-download {
         order: 4;
         width: 100%;
         gap: 16px;
-        padding-bottom: 20px;
+        padding-bottom: 0;
     }
 
     .pi-top-content,
@@ -1697,15 +1738,21 @@ img.ic-download {
         font-size: 16px;
         line-height: 1.6;
         width: 100%;
+        height: 78px;
     }
 
-    .pi-desc br {
+    .pi-desc:last-child {
+        height: 52px;
+    }
+
+    .pi-desc br:not(.mo-br) {
         display: none;
     }
 
     .pi-brochure-label {
         font-size: 18px;
         line-height: 1.6;
+        height: 29px;
     }
 
     .pi-brochure-btns {
@@ -1791,8 +1838,8 @@ img.ic-download {
     }
 
     .acc-dropdown-icon img {
-        width: 22px;
-        height: 22px;
+        width: 42px;
+        height: 42px;
     }
 
     .acc-body {
@@ -3176,8 +3223,31 @@ img.ic-download {
         display: none !important;
     }
 
+    .col-label-txt {
+        font-size: 16px !important;
+        height: 26px !important;
+    }
+
+    .sub-label-txt {
+        height: 26px !important;
+    }
+
+    .sub-label-sm {
+        height: 21px !important;
+    }
+
+    .desktop-only.legend-box {
+        display: flex !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .mo-br {
         display: block;
+    }
+
+    .pc-br {
+        display: none;
     }
 }
 

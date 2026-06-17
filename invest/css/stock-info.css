@@ -3543,7 +3543,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--section-padding-y) 0 var(--section-padding-y);
+    padding: 70px 0 var(--section-padding-y);
     width: 100%;
     background: #FFFFFF;
 }
@@ -3575,7 +3575,7 @@ body {
     align-items: flex-end;
     padding: 0px;
     width: 100%;
-    height: clamp(50px, 3.6458vw, 70px);
+    height: 70px;
     background: #FFFFFF;
     border-bottom: 1px solid #E9E9E9;
     flex: none;
@@ -4963,16 +4963,28 @@ body {
 
     /* ── 페이지 헤더: 피그마 MOB gap-[20px] 타이틀 30px ── */
     .page-header {
-        padding: 30px 16px;
+        padding: 20px 16px 30px 16px;
+        height: auto;
         justify-content: center;
-        align-items: center;
+    }
+
+    .page-header .page-label {
+        font-size: 14px;
     }
 
     .page-header h1 {
+        width: 100%;
+        max-width: 328px;
+        height: 54px;
         font-size: 30px;
-        line-height: 1.4;
+        font-weight: 700;
+        line-height: 140%;
+        color: #000;
         margin: 0;
-        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     /* ── 탭 내비게이션: 피그마 MOB h-[66px] w-[120px] per tab ── */
@@ -6193,8 +6205,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: clamp(20px, 1.56vw, 30px);
-    gap: clamp(20px, 1.56vw, 30px);
+    padding: 30px clamp(20px, 1.56vw, 30px);
+    gap: 30px;
     width: 100%;
     background: #F8F9FB;
     border-radius: clamp(16px, 1.56vw, 30px);
@@ -6279,6 +6291,7 @@ body {
     color: #4E4E4E;
     text-align: center;
     width: 100%;
+    height: 32px;
     display: flex;
     justify-content: flex-start;
 }
@@ -6565,7 +6578,7 @@ body {
 
     /* 상단 (종목명 + 코드) */
     .stock-pb-top {
-        height: auto;
+        height: 29px;
         gap: 10px;
         padding: 0;
     }
@@ -6629,7 +6642,7 @@ body {
 
     /* 등락률 / 전일대비 행 */
     .stock-pb-bot {
-        height: auto;
+        height: 60px;
         padding: 0;
         gap: 10px;
         width: 100%;
@@ -6667,6 +6680,7 @@ body {
 
     .stock-pb-label {
         font-size: 16px;
+        height: 30px;
     }
 
     .stock-pb-rate-group .stock-pb-val-wrap,
@@ -6711,7 +6725,7 @@ body {
 
     .stock-mc-label {
         width: auto;
-        height: auto;
+        height: 29px;
         font-size: 18px;
         line-height: 160%;
         color: #4E4E4E;
@@ -6995,7 +7009,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: var(--section-padding-y) var(--section-padding-x);
-    gap: clamp(20px, 2.08vw, 40px);
+    gap: 40px;
     width: 100%;
     max-width: 1920px;
     background: #FFFFFF;
@@ -7005,6 +7019,7 @@ body {
 
 .dividend-policy-title {
     width: auto;
+    height: 70px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
@@ -7019,7 +7034,7 @@ body {
 .dividend-policy-desc {
     width: 100%;
     max-width: 1407px;
-    height: auto;
+    height: 105px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
@@ -7035,7 +7050,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: var(--section-padding-y) var(--section-padding-x);
-    gap: clamp(20px, 2.08vw, 40px);
+    gap: 40px;
     width: 100%;
     max-width: 1920px;
     background: #FFFFFF;
@@ -7045,6 +7060,7 @@ body {
 
 .dividend-status-title {
     width: auto;
+    height: 70px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
@@ -7217,13 +7233,19 @@ body {
         width: 100%;
     }
 
-    .dividend-policy-title,
+    .dividend-policy-title {
+        font-size: 30px;
+        height: 40px;
+    }
+
     .dividend-status-title {
         font-size: 30px;
+        height: 40px;
     }
 
     .dividend-policy-desc {
         font-size: 16px;
+        height: 182px;
         word-break: keep-all;
     }
 
@@ -7288,7 +7310,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: var(--section-padding-y) var(--section-padding-x);
-    gap: clamp(30px, 2.08vw, 40px);
+    gap: 20px;
     width: 100%;
     max-width: 1920px;
     background: #F1F3F7;
@@ -7339,7 +7361,7 @@ body {
     align-items: center;
     padding: 0px;
     width: 100%;
-    height: clamp(120px, 10.4vw, 200px);
+    height: 200px;
     background: #F8F9FB;
     border-radius: 24px 24px 0px 0px;
     flex: none;
@@ -7356,10 +7378,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: clamp(12px, 1.04vw, 20px);
-    gap: clamp(20px, 2.08vw, 40px);
+    padding: 20px;
+    gap: 40px;
     width: 100%;
-    height: auto;
+    height: 218px;
     box-sizing: border-box;
 }
 
@@ -7410,7 +7432,7 @@ body {
     .investment-strengths-section {
         padding: 40px 24px;
         height: auto;
-        gap: 30px;
+        gap: 20px;
     }
 
     .strengths-cards {
@@ -7433,7 +7455,7 @@ body {
     .investment-strengths-section {
         padding: 40px 16px;
         height: auto;
-        gap: 30px;
+        gap: 20px;
     }
 
     .strengths-title {
@@ -7552,7 +7574,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: clamp(20px, 2.08vw, 40px);
+    gap: 40px;
     width: 100%;
 }
 
@@ -7564,6 +7586,9 @@ body {
     line-height: 140%;
     color: #000000;
     margin: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .fs-body {
@@ -7879,7 +7904,7 @@ body {
     flex: 1 1 0;
     width: auto;
     min-width: 0;
-    height: clamp(70px, 1.92vw + 63.1px, 100px);
+    height: 100px;
     background: #FFFFFF;
     outline: none;
 
@@ -8017,6 +8042,9 @@ body {
     .fs-title {
         font-size: 30px;
         line-height: 140%;
+        height: 42px;
+        display: flex;
+        align-items: center;
     }
 
     .fs-body {
@@ -8309,7 +8337,7 @@ body {
 
 @media (max-width: 767px) {
     .fs-graph-box {
-        height: clamp(304px, 90vw, 328px);
+        height: 328px;
     }
 
     .fs-chart-area {
@@ -8365,3 +8393,5 @@ body {
 .fs-bar:hover {
     z-index: 5 !important;
 }
+
+@media (min-width: 1920px) { .investment-strengths-section { gap: 40px; } }
