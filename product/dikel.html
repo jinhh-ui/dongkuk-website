@@ -39,7 +39,7 @@
         <nav class="tab-nav">
             <div class="tab-item active" data-tab="tab-product">제품소개</div>
             <div class="tab-item" data-tab="tab-dikel">DiKel 가치</div>
-            <div class="tab-item" data-tab="tab-brand">브랜드 리소스</div>
+            <div class="tab-item" data-tab="tab-brand">브랜드 가이드</div>
         </nav>
         <!-- Hero Text + Feature Cards -->
         <div class="hero-text-outer">
@@ -141,7 +141,7 @@
                         <div class="acc-header" onclick="toggleAcc(this)">
                             <div class="acc-header-left">
                                 <div class="acc-dot"></div>
-                                <span class="acc-title">제품사양</span>
+                                <span class="acc-title">제품물성</span>
                             </div>
                             <div class="acc-dropdown-icon">
                                 <img src="../assets/common/ic-dropdown.svg" class="plus" alt="열기">
@@ -160,7 +160,7 @@
                                     <div class="spec-table-container">
                                         <div class="spec-grid-row">
                                             <div class="spec-grid-col">
-                                                <div class="spec-head">C</div>
+                                                <div class="spec-head">C (탄소)</div>
                                                 <div class="spec-value">Max. 0.08</div>
                                             </div>
                                             <div class="spec-grid-col">
@@ -186,9 +186,9 @@
                                         <div class="scroll-thumb"></div>
                                     </div>
                                 </div>
-                                <!-- 기계적 물성 -->
+                                <!-- 기계적 성질 -->
                                 <div class="spec-grid-group">
-                                    <h3 class="spec-grid-label">기계적 물성</h3>
+                                    <h3 class="spec-grid-label">기계적 성질</h3>
                                     <div class="spec-table-container">
                                         <div class="spec-grid-row">
                                             <div class="spec-grid-col">
@@ -233,7 +233,7 @@
                         <div class="acc-header" onclick="toggleAcc(this)">
                             <div class="acc-header-left">
                                 <div class="acc-dot"></div>
-                                <span class="acc-title">생산범위</span>
+                                <span class="acc-title">생산가능 범위</span>
                             </div>
                             <div class="acc-dropdown-icon">
                                 <img src="../assets/common/ic-dropdown.svg" class="plus" alt="열기">
@@ -243,25 +243,6 @@
                         <div class="acc-body">
                             <div class="acc-content-box">
                                 <!-- 제품 규격 -->
-                                <div class="spec-grid-group">
-                                    <h3 class="spec-grid-label">제품 규격</h3>
-                                    <div class="spec-table-container">
-                                        <div class="spec-grid-row">
-                                            <div class="spec-grid-col">
-                                                <div class="spec-head">투입 두께</div>
-                                                <div class="spec-value">0.2~1.0mm</div>
-                                            </div>
-                                            <div class="spec-grid-col">
-                                                <div class="spec-head">투입 폭</div>
-                                                <div class="spec-value">25~1,219mm</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="scroll-horizontal mo-only">
-                                        <div class="scroll-track"></div>
-                                        <div class="scroll-thumb"></div>
-                                    </div>
-                                </div>
                                 <!-- Nickel Plating Line -->
                                 <div class="spec-grid-group">
                                     <h3 class="spec-grid-label">니켈도금 Nickel Plating Line</h3>
@@ -302,7 +283,7 @@
                                                 <div class="spec-value">750~1,219mm</div>
                                             </div>
                                             <div class="spec-grid-col">
-                                                <div class="spec-head">출축 폭</div>
+                                                <div class="spec-head">출측 폭</div>
                                                 <div class="spec-value">Min. 25mm 이상</div>
                                             </div>
                                             <div class="spec-grid-col">
@@ -324,36 +305,41 @@
                                         <div class="spec-ann-grid-row">
                                             <!-- Col 1: 소둔 유형 -->
                                             <div class="spec-ann-col">
-                                                <div class="spec-head">소둔 유형</div>
-                                                <div class="spec-value">Batch</div>
-                                                <div class="spec-value">Continuous</div>
+                                                <div class="spec-head" style="font-size: 16px;">소둔 유형</div>
+                                                <div class="spec-value" style="font-weight: 700; font-size: 16px; color: #000000;">Batch</div>
+                                                <div class="spec-value" style="font-weight: 700; font-size: 16px; color: #000000;">Continuous</div>
                                             </div>
-                                            <!-- Col 2: 투입 폭 -->
+                                            <!-- Col 2: 분위기 가스 -->
                                             <div class="spec-ann-col">
-                                                <div class="spec-head">투입 폭</div>
+                                                <div class="spec-head" style="font-size: 16px;">분위기 가스</div>
                                                 <div class="spec-value">H 100%</div>
                                                 <div class="spec-value">H, N Mix</div>
                                             </div>
-                                            <!-- Col 3: 출축 폭 -->
+                                            <!-- Col 3: 투입두께 -->
                                             <div class="spec-ann-col">
-                                                <div class="spec-head">출축 폭</div>
+                                                <div class="spec-head" style="font-size: 16px;">투입두께</div>
+                                                <div class="spec-value">-</div>
+                                                <div class="spec-value">0.2~0.1mm</div>
+                                            </div>
+                                            <!-- Col 4: 투입폭 -->
+                                            <div class="spec-ann-col" style="width: 200px; min-width: 200px;">
+                                                <div class="spec-head" style="font-size: 16px;">투입폭</div>
                                                 <div class="spec-value">150~1,320mm</div>
                                                 <div class="spec-value">750~1,219mm</div>
                                             </div>
-                                            <!-- Col 4: Capa. -->
-                                            <div class="spec-ann-col">
-                                                <div class="spec-head">Capa.</div>
+                                            <!-- Col 5: Capa. -->
+                                            <div class="spec-ann-col" style="width: 300px; min-width: 300px;">
+                                                <div class="spec-head" style="font-size: 16px;">Capa.</div>
                                                 <div class="spec-value">-</div>
-                                                <div class="spec-value">80,000 (Ton/年)<br>(130,000까지 확충 예정)
-                                                </div>
+                                                <div class="spec-value">80,000 (Ton/年)<br>(130,000까지 확충 예정)</div>
                                             </div>
-                                            <!-- Col 5: 추가 설비 (Wide) -->
+                                            <!-- Col 6: 추가 설비 (Wide) -->
                                             <div class="spec-ann-col wide">
-                                                <div class="spec-head">추가 설비 (SPM, 4Hi 1Stand CAL inline)</div>
+                                                <div class="spec-head" style="font-size: 16px;">추가 설비 (SPM, 4-Hi 1-Stand)</div>
                                                 <div class="spec-ann-sub-header-row">
-                                                    <div class="spec-ann-sub-head">투입 두께</div>
-                                                    <div class="spec-ann-sub-head">투입 폭</div>
-                                                    <div class="spec-ann-sub-head">Capa.</div>
+                                                    <div class="spec-ann-sub-head" style="font-size: 24px;">투입 두께</div>
+                                                    <div class="spec-ann-sub-head" style="font-size: 24px;">투입 폭</div>
+                                                    <div class="spec-ann-sub-head" style="font-size: 24px;">Capa.</div>
                                                 </div>
                                                 <div class="spec-value">-
                                                 </div>
@@ -887,12 +873,12 @@
 
     </div>
 
-    <!-- TAB: 브랜드 리소스 -->
+    <!-- TAB: 브랜드 가이드 -->
     <div id="tab-brand" class="tab-panel">
         <nav class="tab-nav">
             <div class="tab-item" data-tab="tab-product">제품소개</div>
             <div class="tab-item" data-tab="tab-dikel">DiKel 가치</div>
-            <div class="tab-item active" data-tab="tab-brand">브랜드 리소스</div>
+            <div class="tab-item active" data-tab="tab-brand">브랜드 가이드</div>
         </nav>
 
         <!-- Product Tabs -->
@@ -903,7 +889,6 @@
         </div>
         <section class="story-section">
             <div class="inner">
-                <h2 class="story-title story-title-mobile">DiKel 스토리</h2>
                 <div class="story-txt">
                     <h2 class="story-title story-title-desktop">DiKel이 무엇인가요?</h2>
                     <div class="story-desc-group">
@@ -990,7 +975,7 @@
                             <p class="lmg-col-label">영문</p>
                             <div class="logo-margin-card">
                                 <img src="assets/dikel/brand/en.svg" alt="DiKel 영문 로고 여백 가이드" class="pc-only"
-                                    style="width: 100%; height: 100%; object-fit: contain;">
+                                    style="width: 100%; height: 386px; object-fit: contain;">
                                 <img src="assets/dikel/brand/en-m.svg" alt="DiKel 영문 로고 여백 가이드" class="mo-only"
                                     style="width: 100%; height: 100%; object-fit: contain;">
                             </div>
@@ -1127,7 +1112,7 @@
         <nav class="tab-nav">
             <div class="tab-item" data-tab="tab-product">제품소개</div>
             <div class="tab-item active" data-tab="tab-dikel">DiKel 가치</div>
-            <div class="tab-item" data-tab="tab-brand">브랜드 리소스</div>
+            <div class="tab-item" data-tab="tab-brand">브랜드 가이드</div>
         </nav>
 
         <!-- Product Tabs -->
@@ -1674,8 +1659,45 @@
                 }, 200);
             });
 
-            activateStep(0);
-            startAutoPlay();
+            // 공정과정 섹션이 뷰포트에 진입할 때 애니메이션 시작
+            let diagramStarted = false;
+
+            function startDiagram() {
+                if (diagramStarted) return;
+                diagramStarted = true;
+                activateStep(0);
+                startAutoPlay();
+            }
+
+            // 데스크탑: process-section 진입 시
+            const processSection = document.getElementById('process-section');
+            if (processSection) {
+                const diagramObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            startDiagram();
+                            diagramObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                diagramObserver.observe(processSection);
+            } else {
+                startDiagram();
+            }
+
+            // 모바일: ps-mobile-diagram-bulk 진입 시
+            const mobileDiagram = document.getElementById('ps-mobile-diagram-bulk');
+            if (mobileDiagram) {
+                const mobileDiagramObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            startDiagram();
+                            mobileDiagramObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                mobileDiagramObserver.observe(mobileDiagram);
+            }
 
             // 1. 진행 바 클릭 시 타이머 리셋 로직
             document.querySelectorAll('.ps-steps .ps-step').forEach((el) => {

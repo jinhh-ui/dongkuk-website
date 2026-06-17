@@ -369,7 +369,7 @@ body {
     line-height: 160%;
     color: var(--gray-500);
     width: 100%;
-    height: auto;
+    height: 70px;
     display: block;
 }
 
@@ -434,13 +434,13 @@ body {
 .color-codes {
     display: flex;
     flex-direction: column;
-    gap: clamp(2px, 0.2vw, 4px);
+    gap: 4px;
 }
 
 .color-codes span {
     font-weight: 500;
     font-size: clamp(14px, 0.94vw, 18px);
-    line-height: 160%;
+    line-height: 29px;
     color: var(--gray-300);
 }
 
@@ -529,6 +529,7 @@ body {
 
     .bi-item.signature-images {
         padding-top: 0;
+        padding-bottom: 0;
     }
 
     .sig-txt {
@@ -577,6 +578,13 @@ body {
 
     .mono-logo {
         gap: 16px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .bi-item.corporate-colors {
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .mono-row {
@@ -602,9 +610,9 @@ body {
     }
 
     .colors-intro {
-        font-size: clamp(14px, 4.44vw, 16px);
+        font-size: 16px;
         line-height: 160%;
-        height: auto;
+        height: 130px;
         text-align: left;
         max-width: 100%;
     }
@@ -635,7 +643,7 @@ body {
     }
 
     .color-info-card {
-        gap: clamp(16px, 4.16vw, 30px);
+        gap: 30px;
         align-items: center;
         width: auto;
     }
@@ -654,14 +662,22 @@ body {
     }
 
     .color-name {
-        font-size: clamp(18px, 5.5vw, 24px);
+        font-size: 18px;
     }
 
     .color-codes {
-        gap: clamp(2px, 1.1vw, 4px);
+        gap: 4px;
     }
 
     .color-codes span {
-        font-size: clamp(12px, 3.8vw, 16px);
+        font-size: 16px;
+        line-height: 162.5%;
+    }
+}
+
+@media (min-width: 1920px) {
+    .sig-img-box.en-text-box {
+        width: 828px;
+        height: 390px;
     }
 }
