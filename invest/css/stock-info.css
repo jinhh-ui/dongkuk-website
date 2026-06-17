@@ -3538,65 +3538,13 @@ body {
     border-radius: 50px;
 }
 
-/* ===== Page Header ===== */
-.page-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 70px 0 var(--section-padding-y);
-    width: 100%;
-    background: #FFFFFF;
-}
 
 
 
-/* ===== 탭 내비게이션 ===== */
-.tab-nav {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 0px;
-    width: 100%;
-    height: 70px;
-    background: #FFFFFF;
-    border-bottom: 1px solid #E9E9E9;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    z-index: 1;
-    margin-top: 0;
-}
 
-.tab-item {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px clamp(12px, 1.0416vw, 20px);
-    width: clamp(120px, 16.4583vw, 316px);
-    height: clamp(40px, 3.125vw, 60px);
-    border-bottom: 2px solid #E9E9E9;
-    flex: none;
-    flex-grow: 0;
-    cursor: pointer;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: clamp(18px, 1.3541vw, 26px);
-    line-height: 150%;
-    text-align: center;
-    color: #A7A7A7;
-    transition: all 0.2s;
-    margin-bottom: -1px;
-}
 
-.tab-item.active {
-    border-bottom: 2px solid #A7A7A7;
-    color: #1B1B1B;
-}
+
+
 
 /* 📍 ===== Hero (요청하신 padding 0 30px 30px 반영) ===== */
 .hero-wrap {
@@ -4945,12 +4893,7 @@ body {
            ════════════════════════════════════ */
 @media (max-width: 767px) {
 
-    /* ── 페이지 헤더: 피그마 MOB gap-[20px] 타이틀 30px ── */
-    .page-header {
-        padding: 20px 16px 30px 16px;
-        height: auto;
-        justify-content: center;
-    }
+
 
     .page-header .page-label {
         font-size: 14px;
@@ -4958,28 +4901,9 @@ body {
 
 
 
-    /* ── 탭 내비게이션: 피그마 MOB h-[66px] w-[120px] per tab ── */
-    .tab-nav {
-        margin-top: 0;
-        height: 66px;
-        border-bottom: 2px solid #E9E9E9;
-    }
 
-    .tab-item {
-        min-width: 0;
-        width: 120px;
-        height: 66px;
-        padding: 20px 10px;
-        font-size: 16px;
-        border-bottom: 2px solid #E9E9E9;
-        color: #A7A7A7;
-        margin-bottom: -2px;
-    }
 
-    .tab-item.active {
-        border-bottom: 2px solid #A7A7A7;
-        color: #1B1B1B;
-    }
+
 
     .hero-bg-decor {
         width: 148vw;

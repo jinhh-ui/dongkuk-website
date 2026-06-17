@@ -5,25 +5,8 @@
 ══════════════════════════════════════ */
 
 
-/* ── 페이지 헤더 ── */
-/* GP: Page Header — flex-col, gap=70, pb=100, title center */
-.erf-page-header {
-    padding: 70px 120px 100px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-/* GP: heading/XL — fs=80, fw=700, lh=1.4 */
-.erf-page-title {
-    font-size: 80px;
-    font-weight: 700;
-    color: #000;
-    margin: 0;
-    line-height: 1.4;
-    text-align: center;
-}
+
 
 
 /* ── 폼 컨테이너 ── */
@@ -765,13 +748,7 @@
 ══════════════════════════════════════ */
 @media (max-width: 1439px) {
 
-    .erf-page-header {
-        padding: 50px 40px 60px;
-    }
 
-    .erf-page-title {
-        font-size: clamp(36px, 5vw, 60px);
-    }
 
     .erf-container {
         padding: 60px 40px;
@@ -946,15 +923,7 @@
 ══════════════════════════════════════ */
 @media (max-width: 767px) {
 
-    /* GM: Page Header — gap=20, pb=30, title fs=30 lh=1.4 */
-    .erf-page-header {
-        padding: 20px 16px 30px;
-    }
 
-    .erf-page-title {
-        font-size: 30px;
-        line-height: 1.4;
-    }
 
     /* GM: container — px=16, py=40, gap=60 */
     .erf-container {

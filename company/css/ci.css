@@ -31,18 +31,7 @@ body {
     }
 }
 
-/* Page Header */
-.page-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 70px 0 var(--section-padding-y);
-    gap: clamp(40px, 3.65vw, 70px);
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    background: var(--white);
-}
+
 
 .page-header .page-label {
     font-weight: 500;
@@ -442,15 +431,26 @@ body {
     .color-info-card {
         width: auto;
     }
+
+    .sig-txt {
+        gap: clamp(20px, 2.6vw, 40px);
+        min-height: auto;
+    }
+
+    .signature h2 {
+        min-height: auto;
+        height: auto;
+    }
+
+    .sig-title {
+        min-height: auto;
+        height: auto;
+    }
 }
 
 /* Responsive (Mobile 360px) */
 @media (max-width: 767px) {
-    .page-header {
-        padding: 20px 16px 30px 16px;
-        height: auto;
-        justify-content: center;
-    }
+
 
     .page-header .page-label {
         font-size: 14px;

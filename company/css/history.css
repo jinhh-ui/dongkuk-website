@@ -3,10 +3,7 @@
     display: block;
 }
 
-/* Page Header */
-.page-header h1 {
-    font-size: 80px;
-}
+
 
 .mo-br,
 .m-br {
@@ -35,9 +32,7 @@
 
 /* Standardized breakpoints to match common.css */
 @media (max-width: 767px) {
-    .page-header h1 {
-        font-size: 30px;
-    }
+
 
     .hero-text-inner {
         top: 72px;

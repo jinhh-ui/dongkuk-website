@@ -13,51 +13,16 @@
     display: block;
 }
 
-/* ===== Page Header ===== */
-.page-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 70px 0 100px;
-    gap: clamp(40px, 3.65vw, 70px);
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    background: #ffffff;
-}
 
 
 
-/* ===== 탭 내비게이션 ===== */
-.tab-nav {
-    margin-top: 0;
-    border-bottom-color: #ffffff;
-}
 
-.tab-item {
-    max-width: 316px;
-    height: 60px;
-    padding: 0 20px 21px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    font-family: 'Pretendard', sans-serif;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 150%;
-    letter-spacing: 0%;
-    color: #A7A7A7;
-    cursor: pointer;
-    box-sizing: border-box;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: color 0.2s, border-color 0.2s;
-}
 
-.tab-item.active {
-    color: #1B1B1B;
-    border-bottom: 2px solid #1B1B1B;
-}
+
+
+
+
+
 
 /* ===== Hero Text (sticky wrapper) ===== */
 .hero-text-outer {
@@ -807,7 +772,7 @@ img.ic-download {
     width: auto;
     max-width: 492px;
     margin: 0 0 0 40px;
-    font-size: 22px;
+    font-size: clamp(16px, 1.14vw, 22px);
     font-weight: 400;
     line-height: 160%;
     color: #A7A7A7;
@@ -891,7 +856,7 @@ img.ic-download {
 
 .utc-footer-info {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 6px;
     width: 100%;
@@ -902,6 +867,7 @@ img.ic-download {
     height: 30px;
     object-fit: contain;
     flex-shrink: 0;
+    margin-top: calc((clamp(16px, 1.14vw, 22px) * 1.6 - 30px) / 2);
 }
 
 .utc-footer-text {
