@@ -352,6 +352,110 @@
     color: #fff;
 }
 
+/* ══════════════════════════════════════════
+   TABLET (768px ~ 1439px)
+   ══════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1439px) {
+
+    /* 타임라인 라인 위치: 전체 너비의 4/9 지점 */
+    .history-line-wrapper {
+        left: calc(44.44% - 12px);
+    }
+
+    /* 내부 패딩 clamp */
+    .history-inner {
+        padding: clamp(60px, 8vw, 120px) clamp(24px, 4vw, 60px) 15vh;
+        gap: clamp(60px, 8vw, 120px);
+    }
+
+    /* 좌우 4:5 비율 — 타임라인 선 기준 */
+    .history-year-row {
+        gap: 0;
+        align-items: flex-start;
+    }
+
+    .history-year-heading {
+        width: calc(44.44% - 12px);
+        flex-shrink: 0;
+        min-width: 0;
+        overflow: hidden;
+        gap: clamp(20px, 3vw, 40px);
+        padding-right: clamp(16px, 2.5vw, 40px);
+        box-sizing: border-box;
+    }
+
+    .history-content-area {
+        width: calc(55.56% - 12px);
+        flex-shrink: 0;
+        flex-grow: 0;
+        min-width: 0;
+        padding-top: clamp(5px, 0.8vw, 12px);
+        padding-left: clamp(16px, 2.5vw, 40px);
+        gap: clamp(30px, 5vw, 60px);
+        box-sizing: border-box;
+    }
+
+    /* 연도 폰트 clamp */
+    .history-year-heading h2 {
+        font-size: clamp(40px, 6vw, 70px);
+    }
+
+    /* 월/설명 폰트 clamp */
+    .history-month-label {
+        font-size: clamp(18px, 2.2vw, 26px);
+        width: clamp(50px, 6vw, 70px);
+    }
+
+    .history-desc-item {
+        font-size: clamp(18px, 2.2vw, 26px);
+    }
+
+    .history-month-item {
+        gap: clamp(16px, 2.5vw, 40px);
+    }
+
+    /* 이미지 clamp */
+    .history-image-box {
+        max-width: clamp(240px, 40vw, 450px);
+        border-radius: clamp(20px, 3vw, 40px) 0;
+    }
+
+    /* 뱃지 넘침 방지 */
+    .award-badge {
+        max-width: 100%;
+        padding: clamp(10px, 1.5vw, 16px) clamp(14px, 2vw, 24px) clamp(10px, 1.5vw, 16px) clamp(12px, 1.5vw, 18px);
+        gap: clamp(8px, 1vw, 12px);
+    }
+
+    .award-badge .award-icon {
+        width: clamp(28px, 3.5vw, 40px);
+        height: clamp(28px, 3.5vw, 40px);
+        flex-shrink: 0;
+    }
+
+    .award-badge .award-text {
+        font-size: clamp(12px, 1.5vw, 18px);
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    /* FAB 네비게이션 clamp */
+    .history-fab {
+        height: clamp(60px, 8vw, 78px);
+        padding: clamp(6px, 1vw, 10px);
+        gap: clamp(2px, 0.5vw, 4px);
+    }
+
+    .fab-btn {
+        padding: clamp(10px, 1.5vw, 16px) clamp(12px, 2vw, 20px);
+        height: clamp(44px, 6vw, 58px);
+    }
+
+    .fab-btn span {
+        font-size: clamp(14px, 1.8vw, 18px);
+    }
+}
+
 /* Tablet/Mobile: 프로그레스바 왼쪽 이동은 모바일에서만 */
 @media (max-width: 767px) {
     .history-line-wrapper {

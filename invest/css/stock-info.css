@@ -3548,23 +3548,7 @@ body {
     background: #FFFFFF;
 }
 
-.page-header h1 {
-    width: 100%;
-    max-width: 948px;
-    height: 106px;
-    margin: 0;
-    /* bottom: 30px / 1920px */
-    padding: 0 16px;
-    font-family: 'Pretendard', sans-serif;
-    font-size: clamp(30px, 4.16vw, 80px);
-    font-weight: 700;
-    color: #000000;
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+
 
 /* ===== 탭 내비게이션 ===== */
 .tab-nav {
@@ -4972,20 +4956,7 @@ body {
         font-size: 14px;
     }
 
-    .page-header h1 {
-        width: 100%;
-        max-width: 328px;
-        height: 54px;
-        font-size: 30px;
-        font-weight: 700;
-        line-height: 140%;
-        color: #000;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+
 
     /* ── 탭 내비게이션: 피그마 MOB h-[66px] w-[120px] per tab ── */
     .tab-nav {

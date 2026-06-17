@@ -13,13 +13,7 @@
     box-sizing: border-box;
 }
 
-.page-header h1 {
-    font-size: 80px;
-    font-weight: 700;
-    color: #1b1b1b;
-    margin: 0;
-    word-break: keep-all;
-}
+
 
 /* ===== Hero Text Section (Subtitle Specs) ===== */
 .hero-text-outer {
@@ -223,10 +217,9 @@
 
 .address-row {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 8px 16px;
+    gap: 16px;
     width: 100%;
 }
 
@@ -338,7 +331,7 @@
 .overseas-card {
     flex: 1;
     min-width: 280px;
-    height: clamp(308px, 25.5vw, 490px);
+    height: clamp(308px, 26vw, 490px);
     border-radius: clamp(16px, 1.56vw, 30px);
     padding: clamp(20px, 2.29vw, 44px) clamp(16px, 2.08vw, 40px);
     display: flex;
@@ -561,7 +554,7 @@
     }
 
     .overseas-card .address-row {
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         gap: 4px 10px;
     }
