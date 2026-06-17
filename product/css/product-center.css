@@ -393,8 +393,10 @@ body .no-transition *,
     padding: 8px;
 }
 
-.slider-nav-btn:hover {
-    background: #f5f5f5;
+@media (hover: hover) {
+    .slider-nav-btn:hover {
+        background: #f5f5f5;
+    }
 }
 
 .standards-swiper .swiper-pagination {
@@ -731,9 +733,11 @@ body .no-transition *,
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.pc-btn-group:hover .pc-btn-icon {
-    background-color: #F27100;
-    border-color: #F27100;
+@media (hover: hover) {
+    .pc-btn-group:hover .pc-btn-icon {
+        background-color: #F27100;
+        border-color: #F27100;
+    }
 }
 
 /* 카드가 확장되면 -> 설명글 노출 */
@@ -764,7 +768,7 @@ body .no-transition *,
 /* =================================================================
    Desktop Hover Accordion (CSS Fallback / JS Enhancement)
    ================================================================= */
-@media (min-width: 768px) {
+@media (min-width: 768px) and (hover: hover) {
 
     /* 마우스가 컨테이너에 들어오면, 일단 모든 카드를 축소 상태로 만듦 */
     .products-container:hover .product-card {

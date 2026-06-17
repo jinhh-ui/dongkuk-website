@@ -77,7 +77,7 @@
 
 /* ===== Hero Image (Expanding on scroll) ===== */
 .hero-image-section {
-    padding-top: var(--section-padding-y);
+    padding-top: 60px;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -213,7 +213,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: clamp(12px, 1.04vw, 20px);
+    gap: 20px;
     width: 100%;
 }
 
@@ -267,7 +267,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: clamp(10px, 0.83vw, 16px);
+    gap: 16px;
     text-align: left;
     width: 100%;
     max-width: 1680px;
@@ -289,6 +289,9 @@
     color: #000000;
     margin: 0;
     word-break: keep-all;
+    height: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .mission-desc {
@@ -308,6 +311,7 @@
     gap: clamp(16px, 1.25vw, 24px);
     width: 100%;
     max-width: 1680px;
+    height: clamp(200px, 20.8vw, 400px);
 }
 
 .mission-card {
@@ -356,7 +360,7 @@
     justify-content: center;
     align-items: center;
     padding: var(--section-padding-y) var(--section-padding-x);
-    gap: clamp(24px, 2.08vw, 40px);
+    gap: 40px;
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
@@ -368,7 +372,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: clamp(10px, 0.83vw, 16px);
+    gap: 8px;
     text-align: left;
     width: 100%;
     max-width: 1680px;
@@ -390,6 +394,9 @@
     color: #000000;
     margin: 0;
     word-break: keep-all;
+    height: 126px;
+    display: flex;
+    align-items: center;
 }
 
 .philosophy-content {
@@ -516,7 +523,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(30px, 2.6vw, 50px);
+    gap: 50px;
     width: 100%;
     max-width: 1680px;
     padding: 0;
@@ -527,7 +534,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: clamp(30px, 3.64vw, 70px);
+    gap: 70px;
     width: 100%;
 }
 
@@ -560,12 +567,15 @@
     line-height: 140%;
     color: #000000;
     margin: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .ph-detail-desc-group {
     display: flex;
     flex-direction: column;
-    gap: clamp(12px, 1.04vw, 20px);
+    gap: 20px;
 }
 
 .ph-detail-motto {
@@ -575,6 +585,9 @@
     line-height: 150%;
     color: #1B1B1B;
     margin: 0;
+    height: 39px;
+    display: flex;
+    align-items: center;
 }
 
 .ph-detail-desc {
@@ -585,6 +598,13 @@
     color: #4E4E4E;
     margin: 0;
     max-width: 840px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.ph-detail-item:nth-child(3) .ph-detail-desc {
+    height: 105px;
 }
 
 .ph-detail-footnote {
@@ -613,9 +633,8 @@
 }
 
 .ph-detail-img {
-    width: clamp(300px, 31.7vw, 610px);
-    aspect-ratio: 610 / 351;
-    height: auto;
+    width: 610px;
+    height: 351px;
     flex-shrink: 0;
 }
 
@@ -2793,7 +2812,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    padding: 70px 0 var(--section-padding-y);
     gap: 0;
     width: 100%;
     background: #FFFFFF;
@@ -2803,8 +2822,7 @@ body {
     width: 100%;
     max-width: 948px;
     height: 106px;
-    margin: 70px auto 1.5625vw;
-    /* bottom: 30px / 1920px */
+    margin: 0 auto;
     padding: 0 16px;
     font-family: 'Pretendard', sans-serif;
     font-size: clamp(30px, 4.16vw, 80px);
@@ -4219,17 +4237,27 @@ body {
            ════════════════════════════════════ */
 @media (max-width: 767px) {
 
-    /* ── 페이지 헤더: 피그마 MOB gap-[20px] 타이틀 30px ── */
+    /* ── 페이지 헤더: CI 모바일과 동일 구조 ── */
     .page-header {
-        gap: 20px;
+        padding: 20px 16px 30px 16px;
+        height: auto;
+        justify-content: center;
+        gap: 0;
     }
 
     .page-header h1 {
-        font-size: 30px;
-        line-height: 1.4;
-        margin-top: 20px;
-        margin-bottom: 30px;
+        width: 100%;
+        max-width: 328px;
         height: 54px;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 140%;
+        color: #000;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     /* ── 탭 내비게이션: 피그마 MOB h-[66px] w-[120px] per tab ── */
@@ -5080,8 +5108,13 @@ body {
         padding: var(--section-padding-y) 20px 0;
     }
 
+    .hero-image-section {
+        padding-top: 24px;
+    }
+
     .hero-text-section h2 {
         font-size: clamp(24px, 6.66vw, 30px);
+        height: 72px;
     }
 
     .hero-image-overlay {
@@ -5116,57 +5149,77 @@ body {
     .ceo-msg-heading {
         max-width: 100%;
         font-size: clamp(28px, 7.77vw, 50px);
+        height: 168px;
+    }
+
+    .ceo-msg-top {
+        gap: 8px;
     }
 
     .ceo-msg-paragraphs-wrap {
         max-width: 100%;
+        gap: 20px;
+    }
+
+    .ceo-msg-paragraphs {
+        gap: 16px;
+    }
+
+    .ceo-msg-paragraphs p {
+        font-size: 16px;
+        line-height: 26px;
     }
 
     /* Mission Section Mobile */
     .mission-section {
-        padding: var(--section-padding-y) var(--section-padding-x);
-        gap: clamp(24px, 6.66vw, 40px);
+        padding: 40px 16px;
+        gap: 30px;
     }
 
     .mission-top {
-        gap: 0;
+        gap: 8px;
     }
 
     .mission-label {
-        margin-bottom: clamp(8px, 2.22vw, 16px);
+        margin-bottom: 0;
+        height: 29px;
     }
 
     .mission-heading {
-        margin-bottom: clamp(20px, 5.55vw, 40px);
+        height: 126px;
+        margin-bottom: 12px;
+        padding: 0;
     }
 
     .mission-cards {
         flex-direction: row;
-        gap: clamp(8px, 2.22vw, 24px);
+        gap: 10px;
         justify-content: center;
+        height: auto;
     }
 
     .mission-card {
         flex: 1;
         max-width: none;
-        height: auto;
-        aspect-ratio: 159 / 120;
+        height: 120px;
     }
 
     .mission-card.change {
-        border-radius: clamp(12px, 3.3vw, 20px) clamp(12px, 3.3vw, 20px) 0 clamp(12px, 3.3vw, 20px);
+        border-radius: 16px 16px 0 16px;
     }
 
     .mission-card.innovation {
-        border-radius: 0 clamp(12px, 3.3vw, 20px) clamp(12px, 3.3vw, 20px) clamp(12px, 3.3vw, 20px);
+        border-radius: 0 16px 16px 16px;
     }
 
     .mission-card h3 {
-        font-size: clamp(24px, 6.66vw, 60px);
+        font-size: 24px;
+        line-height: 150%;
     }
 
     .mission-desc {
-        font-size: clamp(16px, 4.44vw, 24px);
+        font-size: 16px;
+        line-height: 26px;
     }
 
     /* Philosophy Section Mobile */
@@ -5214,7 +5267,7 @@ body {
 
     /* Philosophy Detail Mobile */
     .philosophy-detail-section {
-        padding: var(--section-padding-y) var(--section-padding-x);
+        padding: 40px 16px;
     }
 
     .ph-detail-container {
@@ -5222,29 +5275,65 @@ body {
     }
 
     .ph-detail-item {
-        gap: clamp(20px, 5.55vw, 70px);
+        gap: 0;
+    }
+
+    .ph-detail-item:not(:first-child) {
+        border-top: 1px solid #E9E9E9;
+        padding-top: 20px;
     }
 
     .ph-detail-content {
         flex-direction: column-reverse;
-        gap: clamp(20px, 5.55vw, 80px);
+        gap: 20px;
     }
 
     .ph-detail-txt {
-        gap: clamp(20px, 5.55vw, 60px);
-        padding-top: 0;
+        padding-top: 6px;
+        gap: 20px;
     }
 
     .ph-detail-title {
-        font-size: clamp(24px, 6.66vw, 50px);
+        font-size: 24px;
+        line-height: 150%;
+        height: 36px;
     }
 
     .ph-detail-motto {
-        font-size: clamp(18px, 5vw, 26px);
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 160%;
+        height: auto;
+    }
+
+    .ph-detail-item:nth-child(1) .ph-detail-motto,
+    .ph-detail-item:nth-child(2) .ph-detail-motto,
+    .ph-detail-item:nth-child(4) .ph-detail-motto {
+        height: 58px;
+    }
+
+    .ph-detail-item:nth-child(1) .ph-detail-desc,
+    .ph-detail-item:nth-child(2) .ph-detail-desc,
+    .ph-detail-item:nth-child(4) .ph-detail-desc {
+        height: 104px;
+    }
+
+    .ph-detail-item:nth-child(3) .ph-detail-motto {
+        height: 29px;
     }
 
     .ph-detail-desc {
-        font-size: clamp(16px, 4.44vw, 22px);
+        font-size: 16px;
+        line-height: 160%;
+        height: auto;
+    }
+
+    .ph-detail-item:nth-child(3) .ph-detail-desc {
+        height: 130px;
+    }
+
+    .ph-detail-desc-group {
+        gap: 8px;
     }
 
     .ph-detail-footnote {
@@ -5258,8 +5347,8 @@ body {
 
     .ph-detail-img {
         width: 100%;
-        height: auto;
-        aspect-ratio: 610/351;
+        height: 189px;
+        aspect-ratio: unset;
     }
 
     .ph-detail-img img {
@@ -5270,6 +5359,10 @@ body {
     .core-values-section {
         padding: var(--section-padding-y) var(--section-padding-x);
         gap: clamp(8px, 2.22vw, 50px);
+    }
+
+    .values-top {
+        height: 29px;
     }
 
     .values-label {
