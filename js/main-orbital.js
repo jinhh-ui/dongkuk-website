@@ -40,10 +40,10 @@
         isMobile = window.innerWidth <= 767;
         cx = W * 0.50;
         cy = H * 0.50;
-        /* 모바일: 코일 궤도 반경 — 코일보다 훨씬 넓게 */
-        const COIL_R = isMobile ? Math.min(W * 0.8, H * 0.42, 380) : 420;
+        /* 궤도 반경: 화면 너비에 비례 (기준 1920px → inner 420, outer 516) */
+        const COIL_R = isMobile ? Math.min(W * 0.8, H * 0.42, 380) : Math.max(350, W * 0.219);
         rx_in = COIL_R; ry_in = COIL_R;
-        const R_OUT = isMobile ? Math.min(W * 1.0, H * 0.52, 460) : Math.min(W * 0.7, H * 0.7);
+        const R_OUT = isMobile ? Math.min(W * 1.0, H * 0.52, 460) : Math.max(430, W * 0.269);
         rx_out = R_OUT; ry_out = R_OUT;
 
         svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
@@ -54,8 +54,9 @@
 
         coil.style.left = cx + 'px';
         coil.style.top = cy + 'px';
-        /* 모바일: orb-coil 크기 동적 조절 (인라인 style 오버라이드) */
-        var coilSize = isMobile ? Math.min(W * 0.7, H * 0.4, 320) : Math.max(560, W * 0.4);
+        /* orb-coil 크기 동적 조절 */
+        var isTablet = !isMobile && window.innerWidth <= 1439;
+        var coilSize = isMobile ? Math.min(W * 0.7, H * 0.4, 320) : isTablet ? Math.max(280, W * 0.28) : Math.max(560, W * 0.4);
         coil.style.width = coilSize + 'px';
         coil.style.height = coilSize + 'px';
 
@@ -428,7 +429,7 @@
           var vh = window.innerHeight;
           var vw = window.innerWidth;
           var fixedWrap = document.getElementById('coil-3d-fixed');
-          var mobCoil = vw <= 1439;
+          var mobCoil = vw <= 767;
           var mobUp = mobCoil ? Math.round(vh * -0.20) : 0; /* 모바일/태블릿: 20vh 위로 */
 
           if (rect.top > 0 && rect.top < vh) {

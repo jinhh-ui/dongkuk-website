@@ -1173,10 +1173,19 @@
       var deg3 = -39 * (Math.PI / 180);
 
       var ROLL_END = Math.PI * 5.50;
-      function _getIsMob() { return window.innerWidth <= 1439; }
+      function _getIsMob() { return window.innerWidth <= 767; }
+      function _getIsTablet() { return !_getIsMob() && window.innerWidth <= 1439; }
       function _getXEnd() { return _getIsMob() ? 0.6 : 0.5; }
       function _getCamYEnd() { return _getIsMob() ? 1.2 : 0.53; }
-      function _getCamZEnd() { return _getIsMob() ? 3.2 : 2.7; }
+      function _getCamZEnd() {
+        if (_getIsMob()) return 3.2;
+        if (_getIsTablet()) {
+          var vw = window.innerWidth;
+          /* 768px → 4.2 (멀리), 1440px → 2.7 (가까이) 선형 보간 */
+          return 4.2 - (vw - 768) / (1440 - 768) * (4.2 - 2.7);
+        }
+        return 2.7;
+      }
       var CAM_Y_START = 0.3;
       var CAM_Z_START = 2.8;
 
@@ -1290,8 +1299,7 @@
           /* 모바일: 카드 우상단에 안착 → X 더 크게, Y 더 크게 */
           var _mobNow = _getIsMob();
           var vw = window.innerWidth;
-          var _isTablet = vw >= 768 && vw <= 1439;
-          var modelXEnd = ov.modelX !== undefined ? ov.modelX : (_isTablet ? 0.85 : (_mobNow ? 0.55 : 0.75));
+          var modelXEnd = ov.modelX !== undefined ? ov.modelX : (_mobNow ? 0.55 : 0.75);
           var modelYEnd = ov.modelY !== undefined ? ov.modelY : (_mobNow ? 1.2 : 0.3);
           var curScale = yawGroup.scale.x;
           yawGroup.position.set(

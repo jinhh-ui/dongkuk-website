@@ -403,15 +403,15 @@ body {
   height: calc(100svh - 80px);
   max-height: 930px;
   background: linear-gradient(135deg, #E46116 0%, #FF7824 66%, #F98039 100%);
-  border-radius: clamp(16px, 1.458vw, 28px);
+  border-radius: clamp(22px, 1.458vw, 28px);
   overflow: visible;
   display: flex;
   align-items: flex-start;
-  padding: clamp(30px, 3.125vw, 60px) clamp(36px, 3.75vw, 72px);
+  padding: clamp(45px, 3.125vw, 60px) clamp(54px, 3.75vw, 72px);
 }
 
 .product-left {
-  flex: 0 0 clamp(280px, 27.083vw, 520px);
+  flex: 0 0 clamp(400px, 27.083vw, 520px);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -427,8 +427,8 @@ body {
 }
 
 .product-dikel-icon {
-  width: clamp(28px, 2.292vw, 44px);
-  height: clamp(28px, 2.292vw, 44px);
+  width: clamp(36px, 2.292vw, 44px);
+  height: clamp(36px, 2.292vw, 44px);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -436,7 +436,7 @@ body {
 }
 
 .product-dikel-name {
-  font-size: clamp(15px, 1.354vw, 26px);
+  font-size: clamp(20px, 1.354vw, 26px);
   font-weight: 700;
   color: #fff;
   transition: opacity 0.4s ease;
@@ -445,8 +445,8 @@ body {
 #prod-steps {
   flex: 1;
   position: relative;
-  min-height: clamp(200px, 18.75vw, 360px);
-  margin-top: clamp(16px, 1.563vw, 30px) !important;
+  min-height: clamp(280px, 18.75vw, 360px);
+  margin-top: clamp(22px, 1.563vw, 30px) !important;
 }
 
 .prod-step {
@@ -489,7 +489,7 @@ body {
 
 .product-title {
   font-family: 'Pretendard', sans-serif;
-  font-size: clamp(36px, 4.167vw, 80px) !important;
+  font-size: clamp(56px, 4.167vw, 80px) !important;
   font-weight: 600 !important;
   line-height: 1.4 !important;
   letter-spacing: 0 !important;
@@ -502,12 +502,12 @@ body {
 
 .product-info-card {
   position: absolute;
-  bottom: calc(clamp(18px, 1.87vw, 36px) + 40px);
+  bottom: calc(clamp(28px, 1.87vw, 36px) + 40px);
   margin-top: 0;
   background: #fff;
   border-radius: 20px;
-  width: clamp(350px, 36.46vw, 700px);
-  height: clamp(160px, 16.67vw, 320px);
+  width: clamp(540px, 36.46vw, 700px);
+  height: clamp(250px, 16.67vw, 320px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   padding: 0;
   overflow: hidden;
@@ -515,15 +515,15 @@ body {
 
 .product-info-text h3 {
   position: absolute;
-  left: clamp(15px, 1.5625vw, 30px);
-  top: clamp(15px, 1.5625vw, 30px);
+  left: clamp(22px, 1.5625vw, 30px);
+  top: clamp(22px, 1.5625vw, 30px);
 
   /* 📍 핵심 수정: 아래 p 태그와 너비(width)를 완벽하게 똑같이 맞췄습니다! */
-  width: clamp(180px, 19vw, 365px);
+  width: clamp(280px, 19vw, 365px);
 
-  height: clamp(45px, 4.6875vw, 90px);
+  height: clamp(70px, 4.6875vw, 90px);
   /* (이 높이는 피그마 디자인에 맞게 그대로 두셔도 됩니다) */
-  font-size: clamp(18px, 1.56vw, 30px);
+  font-size: clamp(24px, 1.56vw, 30px);
   font-weight: 600;
   color: #070707;
   line-height: 1.5;
@@ -535,13 +535,13 @@ body {
 
 .product-info-text p {
   position: absolute;
-  left: clamp(15px, 1.5625vw, 30px);
-  bottom: clamp(15px, 1.5625vw, 30px);
+  left: clamp(22px, 1.5625vw, 30px);
+  bottom: clamp(22px, 1.5625vw, 30px);
 
   /* 📍 기준이 되는 너비 */
-  width: clamp(180px, 19vw, 365px);
+  width: clamp(280px, 19vw, 365px);
 
-  font-size: clamp(14px, 1.15vw, 22px);
+  font-size: clamp(18px, 1.15vw, 22px);
   font-weight: 400;
   color: #4e4e4e;
   line-height: 1.6;
@@ -551,20 +551,20 @@ body {
 
 .product-info-img {
   position: absolute;
-  right: clamp(15px, 1.5625vw, 30px);
+  right: clamp(22px, 1.5625vw, 30px);
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(132px, 13.75vw, 264px);
-  height: clamp(132px, 13.75vw, 264px);
+  width: clamp(200px, 13.75vw, 264px);
+  height: clamp(200px, 13.75vw, 264px);
   background: linear-gradient(135deg, #f0f4f8, #d0dee8);
   border-radius: 12px;
 }
 
 .product-bottom {
   position: absolute;
-  bottom: clamp(18px, 1.875vw, 36px);
-  left: clamp(36px, 3.75vw, 72px);
-  right: clamp(36px, 3.75vw, 72px);
+  bottom: clamp(28px, 1.875vw, 36px);
+  left: clamp(54px, 3.75vw, 72px);
+  right: clamp(54px, 3.75vw, 72px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -588,13 +588,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: clamp(70px, 7.03vw, 135px);
-  height: clamp(15px, 1.56vw, 30px);
+  width: clamp(100px, 7.03vw, 135px);
+  height: clamp(22px, 1.56vw, 30px);
   justify-content: center;
 }
 
 .keep-scrolling span {
-  font-size: clamp(14px, 1.04vw, 20px);
+  font-size: clamp(16px, 1.04vw, 20px);
   font-weight: 700;
   color: #fff;
   line-height: 1.5;
@@ -605,21 +605,21 @@ body {
 .mouse-icon-box {
   width: 48px;
   height: 48px;
-  margin-left: clamp(250px, 26.3vw, 505px);
+  margin-left: clamp(380px, 26.3vw, 505px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .product-loading-container {
-  width: clamp(340px, 35.83vw, 688px);
-  height: clamp(18px, 1.87vw, 36px);
+  width: clamp(520px, 35.83vw, 688px);
+  height: clamp(28px, 1.87vw, 36px);
   display: flex;
   align-items: center;
 }
 
 .product-loading-track {
-  width: clamp(338px, 35.625vw, 684px);
+  width: clamp(520px, 35.625vw, 684px);
   height: 5px;
   background: rgba(255, 255, 255, 0.5);
   position: relative;
@@ -652,9 +652,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: clamp(40px, 3.177vw, 61px);
-  padding: 0 clamp(16px, 1.25vw, 24px);
-  font-size: clamp(13px, 0.937vw, 18px);
+  height: clamp(50px, 3.177vw, 61px);
+  padding: 0 clamp(20px, 1.25vw, 24px);
+  font-size: clamp(15px, 0.937vw, 18px);
   font-weight: 500;
   color: #000;
   background: #fff;
@@ -665,8 +665,8 @@ body {
 }
 
 .product-detail-btn .circle-arrow {
-  width: clamp(40px, 3.177vw, 61px);
-  height: clamp(40px, 3.177vw, 61px);
+  width: clamp(50px, 3.177vw, 61px);
+  height: clamp(50px, 3.177vw, 61px);
   border-radius: 14px;
   border: 1.5px solid #fff;
   background: none;
@@ -694,11 +694,11 @@ body {
 
 .product-coil {
   position: absolute;
-  right: clamp(-30px, -3.125vw, -20px);
+  right: clamp(-25px, -1.3vw, -20px);
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(400px, 44.792vw, 860px);
-  height: clamp(400px, 44.792vw, 860px);
+  width: clamp(640px, 44.792vw, 860px);
+  height: clamp(640px, 44.792vw, 860px);
   z-index: 1;
   pointer-events: none;
 }
@@ -1369,51 +1369,51 @@ body {
   transition-delay: 0.2s;
 }
 
-/* ══ 반응형 — 태블릿 전용 (768~1439) ══ */
 @media (min-width: 768px) and (max-width: 1439px) {
 
-  /* ── Product Section ── */
+  /* ── Product Section: 피그마 태블릿 레이아웃 (좌측 컨텐츠 + 우측 코일) ── */
   #product-wrapper {
-    padding: 0 16px;
-  }
-
-  .product-sticky {
-    align-items: flex-end;
-    padding: 0;
+    padding: 0 30px;
   }
 
   .product-card {
-    width: 100%;
-    height: 80svh;
-    padding: 30px 24px 24px;
-    border-radius: 20px;
-    margin: 0 0 16px;
-    position: relative;
-    overflow: hidden;
+    border-radius: 30px;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    box-sizing: border-box;
+    align-items: stretch;
+    overflow: hidden;
   }
 
   .product-left {
     flex: none;
-    width: 100%;
-    height: auto !important;
-    z-index: 3;
+    width: clamp(340px, 42vw, 560px);
+    height: 100% !important;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
+    padding: 40px 20px 120px 30px;
+    position: relative;
+    z-index: 3;
+    justify-content: flex-start;
+    box-sizing: border-box;
   }
 
-  .product-title {
-    font-size: clamp(30px, 4.5vw, 50px) !important;
-    white-space: normal !important;
+  .product-dikel {
+    gap: 16px;
+  }
+
+  .product-dikel-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .product-dikel-name {
+    font-size: 32px;
+    font-weight: 700;
   }
 
   #prod-steps {
-    flex: 0 0 auto;
+    flex: 1;
     position: relative;
     min-height: 0 !important;
     margin-top: 0 !important;
@@ -1427,13 +1427,21 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 16px;
   }
 
   .prod-step.prod-active {
     position: relative;
   }
 
+  .product-title {
+    font-size: clamp(40px, 5.56vw, 60px) !important;
+    font-weight: 700 !important;
+    white-space: normal !important;
+  }
+
+  /* info-card: 흰색 박스 해체 → 카드 위에 직접 텍스트 표시 */
   .product-info-card {
     position: relative !important;
     bottom: auto !important;
@@ -1446,8 +1454,10 @@ body {
     padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
+    gap: 20px !important;
     overflow: visible !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
   }
 
   .product-info-text {
@@ -1455,7 +1465,7 @@ body {
     width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 6px;
+    gap: 16px;
   }
 
   .product-info-text h3 {
@@ -1464,14 +1474,13 @@ body {
     top: auto !important;
     width: 100% !important;
     height: auto !important;
-    font-size: clamp(16px, 2.2vw, 24px) !important;
+    font-size: clamp(22px, 2.78vw, 30px) !important;
     font-weight: 700 !important;
     color: #fff !important;
     opacity: 0.8;
     padding: 0 !important;
     margin: 0 !important;
-    line-height: 1.6 !important;
-    white-space: nowrap !important;
+    line-height: 1.5 !important;
   }
 
   .product-info-text h3 br {
@@ -1483,11 +1492,11 @@ body {
     left: auto !important;
     bottom: auto !important;
     width: 100% !important;
-    font-size: clamp(14px, 1.6vw, 18px) !important;
+    font-size: clamp(18px, 2.22vw, 24px) !important;
     font-weight: 400 !important;
     color: #fff !important;
     opacity: 0.8;
-    line-height: 1.6 !important;
+    line-height: 1.5 !important;
     padding: 0 !important;
     margin: 0 !important;
   }
@@ -1502,26 +1511,33 @@ body {
     right: auto !important;
     top: auto !important;
     transform: none !important;
-    height: 25svh !important;
-    width: calc(25svh * 296 / 126) !important;
-    max-width: 100% !important;
-    border-radius: 10px !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 652 / 277;
+    border-radius: 20px !important;
     overflow: hidden !important;
     background: transparent !important;
   }
 
+  /* 코일: 우측 중앙 — 카드 내 절대 위치 */
   .product-coil {
-    display: none !important;
+    display: block !important;
+    position: absolute;
+    right: clamp(-40px, -2vw, -20px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(250px, 35vw, 520px);
+    height: clamp(250px, 35vw, 520px);
   }
 
+  /* 하단 버튼: 좌측 하단 절대 위치 */
   .product-bottom {
-    position: relative !important;
-    left: auto !important;
+    position: absolute !important;
+    left: 30px !important;
     right: auto !important;
-    bottom: auto !important;
-    margin-top: 16px;
-    width: 100%;
-    z-index: 3;
+    bottom: 40px !important;
+    width: auto;
+    z-index: 10;
   }
 
   .product-bottom-group-wrap {
@@ -1537,26 +1553,26 @@ body {
   }
 
   .product-detail-btn {
-    width: 100%;
+    display: flex;
+    gap: 4px;
   }
 
   .product-detail-btn a:not(.circle-arrow) {
-    width: auto;
-    padding: 12px 20px;
     height: auto;
-    font-size: 16px;
-    font-weight: 400;
+    padding: 16px 24px;
+    font-size: 20px;
+    font-weight: 500;
     border-radius: 14px;
     background: #fff !important;
     color: #000 !important;
   }
 
   .product-detail-btn .circle-arrow {
-    width: 48px;
-    height: 48px;
-    padding: 12px;
+    width: 64px;
+    height: 64px;
     border-radius: 14px;
     border-color: #fff !important;
+    padding: 20px;
   }
 
   .mouse-icon-box {
@@ -1993,9 +2009,9 @@ body {
     right: auto !important;
     top: auto !important;
     transform: none !important;
-    height: 15svh !important;
-    width: calc(15svh * 296 / 126) !important;
-    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 296 / 126;
     border-radius: 8px !important;
     overflow: hidden;
     background: transparent !important;
