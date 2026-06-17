@@ -213,8 +213,8 @@
          THREE.JS 기본 설정
          ════════════════════════════════════════════════════ */
       var isMobile = window.innerWidth <= 767;
-      var renderer = new THREE.WebGLRenderer({ canvas: canvas3d, antialias: !isMobile, alpha: true, premultipliedAlpha: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 2 : 3));
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas3d, antialias: true, alpha: true, premultipliedAlpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
       renderer.setClearColor(0x000000, 0); /* 완전 투명 */
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.10;

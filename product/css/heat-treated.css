@@ -26,10 +26,7 @@
     background: #ffffff;
 }
 
-.page-header h1 {
-    margin: 0;
-    font-size: clamp(40px, 4.16vw, 80px);
-}
+
 
 /* ===== 탭 내비게이션 ===== */
 .tab-nav {
@@ -1342,30 +1339,7 @@ img.ic-download {
         overflow-x: hidden;
     }
 
-    .page-header {
-        padding: 20px 16px 30px 16px;
-        height: auto;
-        justify-content: center;
-    }
 
-    .page-header .page-label {
-        font-size: 14px;
-    }
-
-    .page-header h1 {
-        width: 100%;
-        max-width: 328px;
-        height: 54px;
-        font-size: 30px;
-        font-weight: 700;
-        line-height: 140%;
-        color: #000;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
 
     /* Hero Text */
     .hero-text-outer {

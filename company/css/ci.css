@@ -52,20 +52,7 @@ body {
     margin: 0;
 }
 
-.page-header h1 {
-    width: 100%;
-    max-width: 948px;
-    height: 106px;
-    font-weight: 700;
-    font-size: clamp(30px, 4.17vw, 80px);
-    line-height: 140%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--gray-900);
-    margin: 0 auto;
-}
+
 
 /* Main Content Container */
 .ci-content {
@@ -469,20 +456,7 @@ body {
         font-size: 14px;
     }
 
-    .page-header h1 {
-        width: 100%;
-        max-width: 328px;
-        height: 54px;
-        font-size: 30px;
-        font-weight: 700;
-        line-height: 140%;
-        color: #000;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+
 
     .bi-section {
         padding: 0;

@@ -5,12 +5,7 @@
             text-align: center;
         }
 
-        .page-header h1 {
-            font-size: clamp(30px, 4.17vw, 80px);
-            font-weight: 700;
-            color: #000;
-            line-height: 140%;
-        }
+
 
         /* ===== Subtitle (sticky scroll-to-color) ===== */
         .hero-text-outer {
@@ -296,9 +291,7 @@
                 padding: 20px 0 30px;
             }
 
-            .page-header h1 {
-                font-size: 30px;
-            }
+
 
             /* Subtitle */
             .hero-text-outer {
