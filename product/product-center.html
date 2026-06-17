@@ -168,7 +168,7 @@
             <div class="products-container">
 
                 <div class="product-card expanded" data-href="dikel.html"
-                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url('assets/product-center/nickel-plate.png');">
+                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%), url('assets/product-center/nickel-plate.png');">
                     <div class="pc-content">
                         <div class="pc-text-block">
                             <h3 class="pc-title-small">니켈도금강판</h3>
@@ -188,7 +188,7 @@
                 </div>
 
                 <div class="product-card" data-href="cold-rolled.html"
-                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url('assets/product-center/cold-rolled.png');">
+                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%), url('assets/product-center/cold-rolled.png');">
                     <div class="pc-content">
                         <div class="pc-text-block">
                             <h3 class="pc-title-small">냉연강판</h3>
@@ -208,7 +208,7 @@
                 </div>
 
                 <div class="product-card" data-href="heat-treated.html"
-                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url('assets/product-center/heat-treated-plate.png');">
+                    style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%), url('assets/product-center/heat-treated-plate.png');">
                     <div class="pc-content">
                         <div class="pc-text-block">
                             <h3 class="pc-title-small">Q/T 열처리강판</h3>
@@ -263,21 +263,21 @@
             const wrapperWidth = wrapper.clientWidth;
             const winWidth = window.innerWidth;
             const isMobile = winWidth <= 767;
+            const isTablet = winWidth >= 768 && winWidth <= 1439;
 
             // CSS 브레이크포인트와 정확히 매칭
-            // ≤767px: 모바일 고정값
-            // 768~1439px: vw 비율 (카드 25.9375vw + gap 1.5625vw, 활성 37.2916vw)
-            // ≥1440px: CSS 고정값 (카드 498px + gap 30px = 528px, 활성 716px)
             let cardFullWidth, activeHalfWidth;
             if (isMobile) {
                 cardFullWidth = 320;
                 activeHalfWidth = 155;
-            } else if (winWidth >= 1440) {
+            } else if (isTablet) {
+                // 태블릿: 카드 300px 고정 + gap 1.5625vw
+                const gap = winWidth * 0.015625;
+                cardFullWidth = 300 + gap;
+                activeHalfWidth = 150; // 300px / 2
+            } else {
                 cardFullWidth = 528;  // 498px + 30px gap
                 activeHalfWidth = 358; // 716px / 2
-            } else {
-                cardFullWidth = winWidth * 0.275;
-                activeHalfWidth = winWidth * 0.186458;
             }
 
             return (wrapperWidth / 2) - (index * cardFullWidth + activeHalfWidth);

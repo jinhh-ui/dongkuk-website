@@ -27,7 +27,12 @@
 }
 
 p,
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     word-break: keep-all;
     overflow-wrap: break-word;
 }
@@ -502,6 +507,7 @@ body {
 
 /* ===== TABLET/MOBILE (≤1439px): PC GNB 숨기고, 모바일 전용 바 표시 ===== */
 @media (max-width: 1439px) {
+
     /* PC GNB 완전 숨김 */
     .gnb {
         display: none !important;
@@ -626,7 +632,7 @@ body {
 
 .page-header h1 {
     width: 100%;
-    height: auto;
+    height: 106px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
@@ -650,7 +656,6 @@ body {
     width: 100%;
     max-width: none;
     height: 70px;
-    margin-top: 30px;
     background: #FFFFFF;
     border-bottom: 1px solid #E9E9E9;
 }
@@ -659,11 +664,11 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 0px 20px;
-    gap: 10px;
     width: 316px;
-    height: 60px;
+    gap: 10px;
+    padding-bottom: 21px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
@@ -1038,8 +1043,13 @@ body {
         font-size: clamp(13px, 0.93vw, 14px);
     }
 
+    .page-header {
+        padding: 40px 0 60px;
+    }
+
     .page-header h1 {
         font-size: 60px;
+        height: auto;
     }
 }
 
@@ -1107,7 +1117,8 @@ body {
 
     /* ── Page Header ── */
     .page-header {
-        padding: 0;
+        padding-top: 20px;
+        padding-bottom: 30px;
         gap: 20px;
         width: 100%;
         max-width: 100%;

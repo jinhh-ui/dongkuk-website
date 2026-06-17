@@ -13,53 +13,11 @@
 .erp-br-gp { display: inline; }   /* GP only */
 .erp-br-gm { display: none; }     /* GM only */
 
-/* ── 페이지 헤더 ── */
-/* GP: h=366, GNB=90, gap=70, padBottom=100 */
-.erp-page-header {
-    padding: 70px 120px 100px;
-    background: #fff;
-}
 
-.erp-page-title {
-    font-size: 80px;
-    font-weight: 700;
-    color: #000;
-    margin: 0;
-    line-height: 1.2;
-    text-align: center;
-}
 
-/* ── 탭 내비게이션 ── */
-/* GP node 1:695 — y=366, h=70 */
-.erp-tab-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    border-bottom: 1px solid #e0e0e0;
-    background: #fff;
-    padding: 0;
-}
 
-/* GP: 3 tabs at x=486/802/1118, each w=316, padLeft/Right=20 */
-.erp-tab-item {
-    font-size: 26px;
-    font-weight: 700;
-    color: #A7A7A7;
-    text-decoration: none;
-    padding: 16px 20px;
-    min-width: 316px;
-    text-align: center;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-}
 
-.erp-tab-item:hover { color: #222; }
-.erp-tab-item.active {
-    color: #1B1B1B;
-    border-bottom-color: #A7A7A7;
-}
+
 
 /* ── 제보유형 / 제보자 보호관련 안내 ── */
 /* GP node 1:696 — padTop/Bot=100, padLeft/Right=120, gap=60 */
@@ -301,9 +259,7 @@
    반응형 - 태블릿 (768~1439px)
 ══════════════════════════════════════ */
 @media (max-width: 1439px) {
-    .erp-page-header { padding: 40px 60px 60px; }
-    .erp-page-title { font-size: 48px; }
-    .erp-tab-item { font-size: 20px; min-width: 240px; }
+
 
     .erp-info-section { padding: 80px 60px; }
     .erp-info-inner { gap: 50px; }
@@ -341,15 +297,11 @@
     .erp-tab-desk-text { display: none; }
     .erp-tab-mob-text { display: inline; }
 
-    /* 페이지 헤더 */
-    /* GM node 1:789 — h=176, padBottom=30, GNB=72 */
-    .erp-page-header { padding: 20px 16px 30px; }
-    /* GM node 1:792 — fontSize=30 */
-    .erp-page-title { font-size: 30px; font-weight: 700; text-align: left; margin: 0; }
 
-    /* 탭 — GM node 1:793 — h=66 */
-    .erp-tab-nav { padding: 0; }
-    .erp-tab-item {
+
+
+
+    .tab-item {
         flex: 1;
         min-width: 0;
         font-size: 16px;

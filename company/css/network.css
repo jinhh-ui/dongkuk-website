@@ -1,17 +1,7 @@
 /* Using utility classes from common.css (.mo-br, .m-br, etc.) */
 
 
-/* ===== Page Header ===== */
-.page-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    padding-top: 70px;
-    padding-bottom: var(--section-padding-y);
-    box-sizing: border-box;
-}
+
 
 
 
@@ -217,8 +207,8 @@
 
 .address-row {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     gap: 16px;
     width: 100%;
 }
@@ -372,6 +362,11 @@
     color: #D3D3D3;
 }
 
+.overseas-card .address-row {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .established-text {
     font-weight: 500;
     font-size: clamp(14px, 1.04vw, 20px);
@@ -383,10 +378,7 @@
    ══════════════════════════════════════════ */
 @media (min-width: 768px) and (max-width: 1439px) {
 
-    .page-header {
-        padding-top: 72px;
-        padding-bottom: 60px;
-    }
+
 
     .hero-text-inner {
         top: 72px;
@@ -440,13 +432,35 @@
         min-width: 300px;
     }
 
-    /* 해외: 가로 유지 */
+    /* 해외: 세로 배치 */
     .overseas-section .cards-row {
-        flex-direction: row;
+        flex-direction: column;
+        gap: 24px;
     }
 
     .overseas-card {
-        height: clamp(280px, 35vw, 400px);
+        height: auto;
+        min-height: clamp(280px, 35vw, 400px);
+        min-width: 0;
+        width: 100%;
+        padding: clamp(28px, 4vw, 44px) clamp(24px, 3.5vw, 40px);
+        gap: 24px;
+    }
+
+    .overseas-card .info-card-top {
+        gap: 16px;
+    }
+
+    .overseas-card .info-card-bottom {
+        gap: 24px;
+    }
+
+    .overseas-card .info-item {
+        gap: 16px;
+    }
+
+    .overseas-card .address-row {
+        gap: 12px;
     }
 }
 
@@ -456,14 +470,7 @@
    ══════════════════════════════════════════ */
 @media (max-width: 767px) {
 
-    .page-header {
-        padding-top: 20px;
-        padding-bottom: 30px;
-    }
 
-    .page-header h1 {
-        font-size: 30px;
-    }
 
     .hero-text-outer {
         min-height: 200vh;

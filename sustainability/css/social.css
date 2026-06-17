@@ -20,67 +20,11 @@
     margin-bottom: 50px;
 }
 
-/* ══════════════════════════════════════
-   페이지 헤더
-══════════════════════════════════════ */
-.soc-page-header {
-    background: #fff;
-    padding-top: 70px;
-    padding-bottom: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 70px;
-}
 
-.soc-page-title {
-    font-size: 80px;
-    font-weight: 700;
-    color: #000;
-    line-height: 1.4;
-    text-align: center;
-    margin: 0;
-}
 
-/* ══════════════════════════════════════
-   탭 내비게이션
-══════════════════════════════════════ */
-.soc-tab-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    border-bottom: 1px solid #e0e0e0;
-    background: #fff;
-    padding: 0;
-}
 
-.soc-tab-item {
-    font-size: 26px;
-    font-weight: 700;
-    color: #A7A7A7;
-    text-decoration: none;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 316px;
-    text-align: center;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-    box-sizing: border-box;
-    margin-bottom: -1px;
-}
 
-.soc-tab-item:hover {
-    color: #000;
-}
 
-.soc-tab-item.active {
-    color: #000;
-    border-bottom-color: #A7A7A7;
-}
 
 /* ══════════════════════════════════════
    도입 섹션 (sticky scroll animation)
@@ -1369,9 +1313,8 @@
         display: none;
     }
 
-    .soc-page-title {
-        font-size: clamp(32px, 5.5vw, 60px);
-    }
+
+
 
     .soc-intro-title {
         white-space: normal;
@@ -1387,7 +1330,7 @@
         min-height: 150vh;
     }
 
-    .soc-tab-item {
+    .tab-item {
         font-size: 20px;
     }
 
@@ -1584,13 +1527,9 @@
         height: auto;
     }
 
-    /* ── 탭 네비게이션 ── */
-    .soc-tab-nav {
-        padding: 0;
-        gap: 0;
-    }
 
-    .soc-tab-item {
+
+    .tab-item {
         flex: 1;
         min-width: 0;
         font-size: 16px;

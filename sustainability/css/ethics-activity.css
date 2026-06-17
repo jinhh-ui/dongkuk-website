@@ -16,53 +16,11 @@
     display: inline;
 }
 
-/* ── 페이지 헤더 ── */
-.act-page-header {
-    padding: 70px 120px 100px;
-    background: #fff;
-}
 
-.act-page-title {
-    font-size: 80px;
-    font-weight: 700;
-    color: #222;
-    margin: 0;
-    line-height: 1.2;
-    text-align: center;
-}
 
-/* ── 탭 내비게이션 ── */
-.act-tab-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    border-bottom: 1px solid #e0e0e0;
-    background: #fff;
-    padding: 0;
-}
 
-.act-tab-item {
-    font-size: 26px;
-    font-weight: 700;
-    color: #aaa;
-    text-decoration: none;
-    padding: 16px 20px;
-    min-width: 316px;
-    text-align: center;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-}
 
-.act-tab-item:hover {
-    color: #222;
-}
 
-.act-tab-item.active {
-    color: #1b1b1b;
-    border-bottom-color: #a7a7a7;
-}
 
 /* ── 도입 섹션 ── */
 .act-intro-outer {
@@ -210,17 +168,7 @@
    반응형 - 태블릿 (768~1439px)
 ══════════════════════════════════════ */
 @media (max-width: 1439px) {
-    .act-page-header {
-        padding: 40px 60px 60px;
-    }
 
-    .act-page-title {
-        font-size: 48px;
-    }
-
-    .act-tab-item {
-        font-size: 20px;
-    }
 
     .act-intro-outer {
         min-height: 180vh;
@@ -286,24 +234,12 @@
         display: inline;
     }
 
-    /* 페이지 헤더 */
-    .act-page-header {
-        padding: 20px 16px 30px;
-    }
 
-    .act-page-title {
-        font-size: 30px;
-        font-weight: 700;
-        text-align: left;
-        margin: 0;
-    }
 
-    /* 탭 */
-    .act-tab-nav {
-        padding: 0;
-    }
 
-    .act-tab-item {
+
+
+    .tab-item {
         flex: 1;
         min-width: 0;
         font-size: 16px;

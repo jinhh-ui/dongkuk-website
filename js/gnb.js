@@ -72,7 +72,6 @@
       title: '지속가능경영',
       img: 'gnb/img_sustainability.png',
       items: [
-        { text: '지속가능경영 센터', href: B + 'sustainability/environment.html', key: 'environment' },
         { text: '환경경영', href: B + 'sustainability/environment.html', key: 'environment' },
         { text: '사회경영', href: B + 'sustainability/social-safety.html', key: 'social-safety', tabs: [
           { text: '안전경영', href: B + 'sustainability/social-safety.html' },

@@ -1,9 +1,5 @@
 
-        /* ===== Page Header ===== */
-        .page-header {
-            padding: 40px 0 var(--section-padding-y);
-            text-align: center;
-        }
+
 
 
 
@@ -286,10 +282,7 @@
                 padding-top: 0;
             }
 
-            /* Page Header */
-            .page-header {
-                padding: 20px 0 30px;
-            }
+
 
 
 

@@ -3,21 +3,8 @@
    GP: 1920px / GM: 360px
 ══════════════════════════════════════ */
 
-/* ── 페이지 헤더 ── */
-.eth-page-header {
-    padding: clamp(40px, 3.65vw, 70px) clamp(16px, 6.25vw, 120px) clamp(60px, 5.21vw, 100px);
-    background: #fff;
-}
 
-.eth-page-title {
-    font-size: 80px;
-    font-weight: 700;
-    color: #000;
-    margin: 0;
-    line-height: 1.4;
-    text-align: center;
-    height: 106px;
-}
+
 
 /* ── 탭 모바일 전용 요소 (기본은 데스크톱 상태) ── */
 .eth-tab-mob-br {
@@ -32,43 +19,8 @@
     display: inline;
 }
 
-/* ── 탭 내비게이션 ── */
-.eth-tab-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    border-bottom: 1px solid #e0e0e0;
-    background: #fff;
-    padding: 0;
-}
 
-.eth-tab-item {
-    font-size: 26px;
-    font-weight: 700;
-    color: #A7A7A7;
-    text-decoration: none;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 316px;
-    text-align: center;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-    white-space: nowrap;
-    box-sizing: border-box;
-    margin-bottom: -1px;
-}
 
-.eth-tab-item:hover {
-    color: #000;
-}
-
-.eth-tab-item.active {
-    color: #000;
-    border-bottom-color: #A7A7A7;
-}
 
 /* ── 도입 섹션 (sticky scroll animation) ── */
 .eth-intro-outer {
@@ -498,13 +450,7 @@
    반응형 - 태블릿 (768~1439px)
 ══════════════════════════════════════ */
 @media (max-width: 1439px) {
-    .eth-page-title {
-        font-size: 48px;
-    }
 
-    .eth-tab-item {
-        font-size: 20px;
-    }
 
     .eth-intro-outer {
         min-height: 180vh;
@@ -564,32 +510,12 @@
         display: inline;
     }
 
-    /* 페이지 헤더 */
-    .eth-page-header {
-        padding: 0;
-        gap: 20px;
-        align-items: center;
-    }
 
-    .eth-page-title {
-        font-size: 30px;
-        font-weight: 700;
-        text-align: center;
-        height: 54px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        line-height: 1.4;
-        padding: 0 16px;
-        box-sizing: border-box;
-    }
 
-    /* 탭 */
-    .eth-tab-nav {
-        padding: 0;
-        gap: 0;
-    }
 
-    .eth-tab-item {
+
+
+    .tab-item {
         flex: 1;
         min-width: 0;
         font-size: 16px;

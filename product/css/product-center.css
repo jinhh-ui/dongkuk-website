@@ -645,21 +645,21 @@ body .no-transition *,
     position: absolute;
     bottom: clamp(20px, 2.0833vw, 40px);
     left: clamp(16px, 2.0833vw, 40px);
-    top: auto;
     display: flex;
     flex-direction: column;
     gap: clamp(8px, 1.0416vw, 20px);
     z-index: 10;
+    transform: translateY(0);
     transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        top 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        left 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 카드가 확장되면 -> 위쪽 50px, 왼쪽 50px 간격 설정 */
+/* 카드가 확장되면 -> bottom을 카드 상단 근처로 이동 + translateY로 top edge 보정 */
 .product-card.expanded .pc-text-block {
-    top: clamp(24px, 2.604vw, 50px);
-    bottom: auto;
+    bottom: calc(100% - clamp(24px, 2.604vw, 50px));
     left: clamp(24px, 2.604vw, 50px);
+    transform: translateY(100%);
 }
 
 /* 닫혀있을 때 하단 타이틀 */
@@ -686,13 +686,13 @@ body .no-transition *,
     color: #FFFFFF;
     margin: 0;
 
-    /* 닫혀있을 때 숨김 설정 */
+    /* 닫혀있을 때: 제목 아래 숨어있음 */
     opacity: 0;
     pointer-events: none;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.3s ease;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease 0.15s;
 }
 
 /* 버튼 그룹: 우측 하단 */
@@ -742,11 +742,11 @@ body .no-transition *,
 
 /* 카드가 확장되면 -> 설명글 노출 */
 .product-card.expanded .pc-desc {
-    height: clamp(24px, 2.0312vw, 39px);
+    max-height: 100px;
     opacity: 0.8;
     pointer-events: auto;
-    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.3s ease 0.2s;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease 0.2s;
 }
 
 /* 버튼: 기본 숨김 및 클릭 방지 */
@@ -776,9 +776,9 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card .pc-text-block {
-        top: auto;
         bottom: clamp(20px, 2.0833vw, 40px);
         left: clamp(16px, 2.0833vw, 40px);
+        transform: translateY(0);
     }
 
     .products-container:hover .product-card .pc-title-small {
@@ -786,7 +786,7 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card .pc-desc {
-        height: 0;
+        max-height: 0;
         opacity: 0;
         pointer-events: none;
     }
@@ -802,9 +802,9 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card:hover .pc-text-block {
-        top: clamp(24px, 2.604vw, 50px);
-        bottom: auto;
+        bottom: calc(100% - clamp(24px, 2.604vw, 50px));
         left: clamp(24px, 2.604vw, 50px);
+        transform: translateY(100%);
     }
 
     .products-container:hover .product-card:hover .pc-title-small {
@@ -812,7 +812,7 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card:hover .pc-desc {
-        height: clamp(24px, 2.0312vw, 39px);
+        max-height: 100px;
         opacity: 0.8;
         pointer-events: auto;
     }
@@ -887,11 +887,93 @@ body .no-transition *,
    1920px 초과 — 카드 크기 고정
    (vw 기반 카드가 무한히 커지는 것 방지)
    ════════════════════════════════════ */
+/* TABLET (768px ~ 1439px) */
+@media (min-width: 768px) and (max-width: 1439px) {
+    .global-title {
+        font-size: clamp(36px, 3.125vw, 60px);
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-desc {
+        font-size: 16px;
+    }
+
+    .standard-card.active .card-title {
+        font-size: 18px;
+    }
+
+    .standard-card.active .card-desc {
+        font-size: 16px;
+    }
+
+    .stat-box {
+        width: 15vw;
+        height: 15vw;
+    }
+
+    .stat-box p {
+        font-size: 16px;
+    }
+
+    .stat-box strong {
+        font-size: 44px;
+    }
+
+    .slider-wrapper {
+        height: 360px;
+    }
+
+    .standard-card {
+        width: 300px;
+        height: 240px;
+        border-radius: 16px;
+    }
+
+    .standard-card.active {
+        width: 300px;
+        height: 360px;
+        border-radius: 16px;
+    }
+
+    .standard-card.active .card-text-area {
+        top: 78px;
+        left: 20px;
+        right: 20px;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .standard-card.active .card-title {
+        width: auto;
+        height: auto;
+    }
+
+    .standard-card.active .card-desc {
+        width: auto;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .marker-china {
+        bottom: 23%;
+    }
+
+    .marker-japan {
+        bottom: 23%;
+    }
+
+    .pc-btn-icon {
+        border-width: 1px;
+    }
+}
+
 @media (min-width: 1440px) {
 
     /* 섹션 높이 고정: 1333px (= 69.427vw × 1920px) */
-    .standards-section {
-    }
+    .standards-section {}
 
     .section-title {
         font-size: 60px;
