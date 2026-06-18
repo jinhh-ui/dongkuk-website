@@ -40,10 +40,10 @@
         isMobile = window.innerWidth <= 767;
         cx = W * 0.50;
         cy = H * 0.50;
-        /* 궤도 반경: 화면 너비에 비례 (기준 1920px → inner 420, outer 516) */
-        const COIL_R = isMobile ? Math.min(W * 0.8, H * 0.42, 380) : Math.max(350, W * 0.219);
+        /* 궤도 반경: 고정 오프셋 + 화면 비례 (1920→420/516, 모바일→1050px 기준 고정) */
+        const COIL_R = isMobile ? 244 : 88 + W * 0.173;
         rx_in = COIL_R; ry_in = COIL_R;
-        const R_OUT = isMobile ? Math.min(W * 1.0, H * 0.52, 460) : Math.max(430, W * 0.269);
+        const R_OUT = isMobile ? 350 : 109 + W * 0.212;
         rx_out = R_OUT; ry_out = R_OUT;
 
         svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
