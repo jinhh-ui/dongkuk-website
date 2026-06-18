@@ -737,13 +737,11 @@ img.ic-download {
 
 /* 아이콘 공통 및 좌우 반전(Soft) */
 .umi-icon {
-    width: 26px;
-    height: 53px;
+    width: clamp(15px, calc(5.86px + 1.19vw), 23px);
+    height: clamp(30px, calc(11.72px + 2.38vw), 46px);
     background-size: contain;
     background-repeat: no-repeat;
     flex-shrink: 0;
-    transform: scaleX(1);
-    /* 좌우 반전 */
 }
 
 /* 💡 로컬 절대 경로 대신 상대 경로 사용 */
@@ -1170,6 +1168,291 @@ img.ic-download {
     color: #F27100;
 }
 
+
+/* ═══════════════════════════════════════════
+   공정과정 태블릿 (768px ~ 1439px)
+   ═══════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1439px) {
+
+    .process-scroll-outer {
+        padding: 0 30px var(--section-padding-y);
+        height: auto !important;
+        overflow: visible;
+    }
+
+    .process-sticky {
+        display: block;
+        height: auto !important;
+        position: relative;
+    }
+
+    .process-card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: clamp(30px, 4vw, 50px) clamp(24px, 4vw, 40px);
+        border-radius: clamp(16px, 2vw, 30px);
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: clamp(30px, 4vw, 50px);
+        transform: none !important;
+    }
+
+    .ps-header {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    .ps-label {
+        display: none;
+    }
+
+    .ps-title {
+        font-size: clamp(24px, 3.5vw, 40px);
+        line-height: 1.4;
+    }
+
+    .ps-diagram-area {
+        display: none;
+    }
+
+    .ps-bubble {
+        display: none;
+    }
+
+    .ps-progress {
+        display: none;
+    }
+
+    /* 모바일과 동일한 ps-mob-icon 기반 1행 다이어그램 */
+    .ps-mobile-diagram {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        aspect-ratio: 328 / 160;
+        overflow: visible;
+    }
+
+    .ps-mobile-diagram-inner {
+        width: 100%;
+        aspect-ratio: 328 / 120;
+        position: relative;
+    }
+
+    .ps-mobile-row {
+        display: contents;
+    }
+
+    .ps-mob-group {
+        display: contents;
+    }
+
+    .ps-mob-icon {
+        position: absolute;
+        object-fit: contain;
+        object-position: bottom;
+        cursor: pointer;
+        opacity: 0.4;
+        filter: grayscale(1);
+        transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .ps-mob-icon.active {
+        opacity: 1;
+        filter: grayscale(0);
+    }
+
+    /* 1행: 냉연코일세팅, 열처리, 정밀컷팅, 포장정리 */
+    .ps-mob-icon[data-step="0"] {
+        right: 75%;
+        top: calc(10% + 4px);
+        width: calc(25% - 10px);
+    }
+
+    .ps-mob-icon[data-step="1"] {
+        left: 20%;
+        top: 15%;
+        width: 30%;
+    }
+
+    .ps-mob-icon[data-step="2"] {
+        left: calc(49% - 1px);
+        top: calc(7% + 11px);
+        width: calc(22% - 10px);
+    }
+
+    .ps-mob-icon[data-step="3"] {
+        left: calc(74% - 20px);
+        top: 28%;
+        width: 26%;
+    }
+
+    /* 공정 라벨 */
+    .ps-mobile-step-label {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+        z-index: 20;
+        transform: translateX(-50%) translateY(-100%);
+        margin-top: -25px;
+    }
+
+    .ps-mobile-step-label.visible {
+        opacity: 1;
+    }
+
+    .ps-mobile-step-label span {
+        font-family: 'Pretendard', sans-serif;
+        font-size: clamp(13px, 1.6vw, 16px);
+        font-weight: 700;
+        line-height: 1.5;
+        color: #4E4E4E;
+        white-space: nowrap;
+    }
+
+    .ps-mobile-step-label .label-arrow {
+        width: 0;
+        height: 0;
+        border-left: 5.5px solid transparent;
+        border-right: 5.5px solid transparent;
+        border-top: 9px solid #F27100;
+    }
+
+    /* 각 step 라벨 위치 (모바일과 동일) */
+    .ps-mobile-step-label[data-step="0"] {
+        left: calc(12% + 8px);
+        top: 15%;
+    }
+
+    .ps-mobile-step-label[data-step="1"] {
+        left: 35%;
+        top: 31%;
+    }
+
+    .ps-mobile-step-label[data-step="2"] {
+        left: calc(60% - 10px);
+        top: 32%;
+    }
+
+    .ps-mobile-step-label[data-step="3"] {
+        left: calc(87% - 25px);
+        top: calc(28% + 110px);
+    }
+
+    /* 하단 그룹 */
+    .ps-mobile-bottom-group {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(10px, 1.5vw, 16px);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .ps-mobile-indicators {
+        display: flex !important;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .ps-mobile-dot {
+        width: clamp(34px, 5vw, 50px);
+        height: 6px;
+        border-radius: 3px;
+        background: #D3D3D3;
+        position: relative;
+        overflow: hidden;
+        flex: none;
+    }
+
+    .ps-mobile-dot::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background: #F27100;
+    }
+
+    .ps-mobile-dot.active::after {
+        width: 100%;
+        transition: width 3s linear;
+    }
+
+    .ps-mobile-dot.done::after {
+        width: 100%;
+        transition: none;
+    }
+
+    .ps-mobile-info-card {
+        display: flex !important;
+        flex-direction: column;
+        gap: clamp(8px, 1.2vw, 14px);
+        background: #FFFFFF;
+        border-radius: clamp(12px, 1.5vw, 20px);
+        padding: clamp(16px, 2.5vw, 24px) clamp(20px, 3vw, 30px);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .ps-mobile-info-header {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .ps-mobile-info-num {
+        font-size: clamp(16px, 2vw, 22px);
+        font-weight: 700;
+        line-height: 1.6;
+        color: #F27100;
+    }
+
+    .ps-mobile-info-name {
+        font-size: clamp(16px, 2vw, 22px);
+        font-weight: 700;
+        line-height: 1.6;
+        color: #000;
+    }
+
+    .ps-mobile-info-desc {
+        font-size: clamp(14px, 1.8vw, 18px);
+        font-weight: 400;
+        line-height: 1.6;
+        color: #4E4E4E;
+        margin: 0;
+        min-height: calc(clamp(14px, 1.8vw, 18px) * 1.6 * 2);
+    }
+
+    /* 태블릿에서 공정 관련 mobile-only 요소 강제 표시 */
+    .ps-mobile-diagram.mobile-only,
+    .ps-mobile-bottom-group.mobile-only {
+        display: flex !important;
+    }
+
+    .ps-mobile-diagram.mobile-only {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
 
 /* ===== Responsive: 1280–1760 ===== */
 @media (max-width: 1439px) {
@@ -1999,11 +2282,12 @@ img.ic-download {
     }
 
     .umi-icon {
+        width: 15px !important;
         height: 30px !important;
     }
 
     .umi-header {
-        gap: 0 !important;
+        gap: 8px !important;
         height: auto !important;
     }
 
