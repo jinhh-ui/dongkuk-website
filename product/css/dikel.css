@@ -2888,7 +2888,7 @@ img.ic-download {
     width: clamp(200px, 22vw, 320px);
     height: clamp(160px, 18vw, 260px);
     background: #F27100;
-    border-radius: 50px 50px 0px 50px;
+    border-radius: clamp(20px, 2.6vw, 50px) clamp(20px, 2.6vw, 50px) 0px clamp(20px, 2.6vw, 50px);
     position: relative;
     z-index: 0;
 }
@@ -2920,7 +2920,7 @@ img.ic-download {
     width: clamp(220px, 25vw, 376px);
     height: clamp(160px, 18vw, 260px);
     background: #CDEBFB;
-    border-radius: 50px;
+    border-radius: clamp(20px, 2.6vw, 50px);
     position: relative;
     z-index: 1;
 }
@@ -2951,7 +2951,7 @@ img.ic-download {
     justify-content: center;
     width: clamp(200px, 22vw, 320px);
     height: clamp(160px, 18vw, 260px);
-    border-radius: 0px 50px 50px 50px;
+    border-radius: 0px clamp(20px, 2.6vw, 50px) clamp(20px, 2.6vw, 50px) clamp(20px, 2.6vw, 50px);
     position: relative;
     z-index: 2;
     overflow: hidden;

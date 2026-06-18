@@ -511,23 +511,6 @@
     }
 
 
-
-
-
-
-    .tab-item {
-        flex: 1;
-        min-width: 0;
-        font-size: 16px;
-        font-weight: 700;
-        padding: 20px 10px;
-        margin-right: 0;
-        text-align: center;
-        white-space: normal;
-        word-break: keep-all;
-        line-height: 1.3;
-    }
-
     /* 도입 */
     .eth-intro-outer {
         min-height: unset;

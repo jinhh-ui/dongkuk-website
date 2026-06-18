@@ -1330,10 +1330,6 @@
         min-height: 150vh;
     }
 
-    .tab-item {
-        font-size: 20px;
-    }
-
     .soc-content-section,
     .soc-content-section-gray,
     .soc-cert-section,
@@ -1527,21 +1523,6 @@
         height: auto;
     }
 
-
-
-    .tab-item {
-        flex: 1;
-        min-width: 0;
-        font-size: 16px;
-        font-weight: 700;
-        padding: 20px 10px;
-        text-align: center;
-        white-space: normal;
-        word-break: keep-all;
-        line-height: 1.3;
-        height: auto;
-        margin-bottom: -1px;
-    }
 
     /* ── 도입(인트로) 섹션 ── */
     .soc-intro-outer {

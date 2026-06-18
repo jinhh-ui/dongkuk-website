@@ -685,6 +685,10 @@ body {
     border-bottom-color: #A7A7A7;
 }
 
+.mob-br {
+    display: none;
+}
+
 
 /* ===== BTN TOP ===== */
 /* bottom 위치는 gnb.js에서 인라인으로 제어 (데스크탑 80px, 모바일 66px) */
@@ -1140,6 +1144,7 @@ body {
         height: auto;
         width: 100%;
         justify-content: center;
+        align-items: stretch;
         gap: 0;
         border-bottom: 1px solid #E9E9E9;
     }
@@ -1147,12 +1152,16 @@ body {
     .tab-item {
         width: auto;
         height: auto;
-        padding: 10px 12px;
-        font-size: 14px;
+        padding: 20px 10px;
+        font-size: 16px;
         line-height: 150%;
         flex: 1;
         text-align: center;
         justify-content: center;
+    }
+
+    .mob-br {
+        display: inline;
     }
 
     /* ── Support Section ── */
