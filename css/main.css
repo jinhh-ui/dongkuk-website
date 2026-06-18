@@ -309,7 +309,7 @@ body {
 .orb-cta-group {
   display: inline-flex;
   align-items: center;
-  gap: clamp(2px, 0.208vw, 4px);
+  gap: 4px;
   margin-top: 28px;
   opacity: 0;
   will-change: opacity;
@@ -320,10 +320,10 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(120px, 9.06vw, 174px);
-  height: clamp(40px, 3.33vw, 64px);
-  padding: 0 clamp(16px, 1.25vw, 24px);
-  font-size: clamp(14px, 1.04vw, 20px);
+  width: 174px;
+  height: 64px;
+  padding: 0 24px;
+  font-size: 20px;
   font-weight: 500;
   color: #fff;
   background: #111;
@@ -333,8 +333,8 @@ body {
 }
 
 .orb-btn-circle {
-  width: clamp(40px, 3.125vw, 60px);
-  height: clamp(40px, 3.33vw, 64px);
+  width: 60px;
+  height: 64px;
   border-radius: 16px;
   border: 1.5px solid #000;
   display: flex;
@@ -352,16 +352,16 @@ body {
 }
 
 .orb-inner-box {
-  width: clamp(14px, 1.04vw, 20px);
-  height: clamp(14px, 1.04vw, 20px);
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .orb-arrow-svg {
-  width: clamp(10px, 0.729vw, 14px);
-  height: clamp(8px, 0.573vw, 11px);
+  width: 14px;
+  height: 11px;
 }
 
 
@@ -806,7 +806,7 @@ body {
   padding: var(--section-padding-y) 90px;
   display: flex;
   flex-direction: column;
-  gap: 44px;
+  gap: 100px;
 }
 
 .invest-title-block {
@@ -1281,11 +1281,11 @@ body {
 }
 
 .support-heading {
-  font-size: clamp(32px, 3.125vw, 60px);
+  font-size: 60px;
   font-weight: 700;
   color: #070707;
   line-height: 1.4;
-    margin-bottom: clamp(30px, 3.125vw, 60px);
+  margin-bottom: clamp(30px, 3.125vw, 60px);
   width: min(1680px, 100%);
   display: flex;
   align-items: center;
@@ -1651,7 +1651,7 @@ body {
     gap: 14px;
   }
 
-  .inv-card-col > * {
+  .inv-card-col>* {
     flex: 1;
   }
 
@@ -1683,6 +1683,7 @@ body {
 
   .support-heading {
     width: auto;
+    font-size: 40px;
   }
 
   .footer-btns {

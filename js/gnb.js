@@ -214,7 +214,7 @@
       + '<a href="' + B + 'index.html"><img src="' + LOGO + '" alt="동국산업 로고"></a>'
       + '</div>'
       + '<button class="gnb-mob-bar-btn" aria-label="메뉴"><span></span><span></span><span></span></button>';
-    header.insertAdjacentElement('afterend', mobBar);
+    document.body.insertBefore(mobBar, document.body.firstChild);
 
     // 모바일 햄버거 → 동일 메뉴 열기
     mobBar.querySelector('.gnb-mob-bar-btn').addEventListener('click', function(e) {
