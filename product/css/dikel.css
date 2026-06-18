@@ -4788,7 +4788,7 @@ body {
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
-    width: 50%;
+    width: 46%;
     height: auto;
     max-width: none;
     max-height: none;
@@ -5894,7 +5894,7 @@ body {
     .battery-system {
         height: auto !important;
         padding: 0 !important;
-        margin-top: 16px !important;
+        margin-top: 40px !important;
         gap: 30px !important;
     }
 
@@ -5952,14 +5952,14 @@ body {
 
     .bsys-circle-gray .bsys-img {
         position: absolute !important;
-        top: 42px !important;
+        top: 30px !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
     }
 
     .bsys-circle-dark .bsys-img {
         position: relative !important;
-        top: auto !important;
+        top: -20px !important;
         left: auto !important;
         transform: none !important;
         width: 219px !important;
