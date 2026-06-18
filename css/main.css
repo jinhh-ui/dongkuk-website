@@ -800,7 +800,7 @@ body {
   max-width: calc(100vw - 60px);
   min-height: 1044px;
   background: #F1EDEA;
-  border-radius: 30px;
+  border-radius: clamp(0px, 1.5625vw, 30px);
   overflow: hidden;
   flex-shrink: 0;
   padding: var(--section-padding-y) 90px;
@@ -879,7 +879,7 @@ body {
   min-width: 0;
   min-height: 556px;
   background: #fff;
-  border-radius: 30px;
+  border-radius: clamp(16px, 1.5625vw, 30px);
   padding: 32px 40px;
   display: flex;
   flex-direction: column;
@@ -917,7 +917,7 @@ body {
   font-size: 20px;
   font-weight: 500;
   color: #F27100;
-  line-height: normal;
+  line-height: 1.5;
 }
 
 .inv-stock-body {
@@ -947,8 +947,8 @@ body {
 
 .inv-change-box {
   background: #F8F9FB;
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: clamp(6px, 0.833vw, 16px);
+  padding: 16px 20px;
 }
 
 .inv-change-inner {
@@ -991,6 +991,12 @@ body {
   border-radius: 1px;
 }
 
+.inv-change-val .tri img {
+  width: 20px;
+  height: auto;
+  vertical-align: middle;
+}
+
 .inv-divider-thin {
   width: 100%;
   height: 1px;
@@ -1008,7 +1014,7 @@ body {
 
 .inv-card-market {
   flex: 1;
-  border-radius: 20px;
+  border-radius: clamp(16px, 1.042vw, 20px);
   padding: 32px;
   position: relative;
   overflow: hidden;
@@ -1024,7 +1030,7 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.2));
-  border-radius: 20px;
+  border-radius: clamp(16px, 1.042vw, 20px);
   pointer-events: none;
 }
 
@@ -1036,7 +1042,7 @@ body {
 .inv-card-accum {
   flex: 1;
   background: #fff;
-  border-radius: 20px;
+  border-radius: clamp(16px, 1.042vw, 20px);
   padding: 32px;
   overflow: hidden;
   display: flex;
@@ -1129,7 +1135,7 @@ body {
 .inv-card-ir {
   flex: 1;
   background: #F27100;
-  border-radius: 30px;
+  border-radius: clamp(16px, 1.5625vw, 30px);
   padding: 32px 40px;
   display: flex;
   flex-direction: column;
@@ -1212,7 +1218,7 @@ body {
 .ir-doc-desc-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 64px;
   flex: 1;
 }
@@ -1300,8 +1306,11 @@ body {
 
 .support-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
   cursor: pointer;
+  flex-wrap: wrap;
 }
 
 .support-card-img {
@@ -1325,11 +1334,11 @@ body {
   transform: scale(1.05);
 }
 
-.support-card-title-row {
+.support-card-text-group {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: clamp(8px, 0.83vw, 16px);
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
 }
 
 .support-card-title {
@@ -1339,10 +1348,8 @@ body {
   color: #1B1B1B;
 }
 
-/* support-card-arrow 호버는 common.css에서 공통 정의 */
-
 .support-card-desc {
-  font-size: clamp(14px, 1.15vw, 22px);
+  font-size: clamp(16px, 1.15vw, 22px);
   font-weight: 400;
   line-height: 1.6;
   color: #4E4E4E;
@@ -1634,6 +1641,7 @@ body {
   .inv-card-stock .inv-stock-body {
     flex: 1;
     min-width: 200px;
+    gap: 10px
   }
 
   .inv-card-stock .inv-change-box {
@@ -1721,6 +1729,10 @@ body {
   #orb-card-4 {
     display: none;
   }
+
+  .inv-change-val .tri img {
+    width: 18px;
+  }
 }
 
 /* ════════════════════════════════════
@@ -1793,16 +1805,48 @@ body {
     height: min(70vw, 40svh) !important;
   }
 
-  .orb-svg,
-  .orb-dot {
-    display: none !important;
+  .orb-card {
+    border-radius: 12px;
   }
 
-  #orb-card-1,
-  #orb-card-2,
-  #orb-card-3,
+  .orb-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #orb-card-1 {
+    width: 220px;
+    right: auto;
+    bottom: auto;
+    left: 22%;
+    top: 14%;
+  }
+
+  #orb-card-2 {
+    width: 220px;
+    left: 4%;
+    top: auto;
+    right: auto;
+    bottom: 16%;
+    max-width: none;
+  }
+
+  #orb-card-3 {
+    width: 170px;
+    right: 4%;
+    top: 16%;
+    left: auto;
+    bottom: auto;
+  }
+
   #orb-card-4 {
-    display: none !important;
+    width: 240px;
+    right: 10%;
+    bottom: 0%;
+    left: auto;
+    top: auto;
+    max-width: none;
   }
 
   .orb-btn-main {
@@ -2081,7 +2125,7 @@ body {
     height: auto;
     font-size: 14px;
     font-weight: 400;
-    border-radius: 14px;
+    border-radius: 10px;
     background: #fff !important;
     color: #000 !important;
   }
@@ -2090,7 +2134,7 @@ body {
     width: 42px;
     height: 42px;
     padding: 11px;
-    border-radius: 14px;
+    border-radius: 10px;
     border-color: #fff !important;
   }
 
@@ -2152,11 +2196,12 @@ body {
     padding: 10px 16px;
     font-size: 14px;
     border-radius: 10px;
+    height: 42px;
   }
 
   .invest-btn-outline {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 10px;
   }
 
@@ -2247,8 +2292,9 @@ body {
 
   .inv-change-row {
     display: flex !important;
+    justify-content: space-between !important;
     gap: 6px !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     height: 26px !important;
   }
 
@@ -2257,7 +2303,7 @@ body {
     font-weight: 400 !important;
     color: #1B1B1B !important;
     line-height: 1.6 !important;
-    width: auto !important;
+    width: 84px !important;
   }
 
   .inv-change-val {
@@ -2273,6 +2319,10 @@ body {
     align-items: center !important;
     position: relative !important;
     top: -2px !important;
+  }
+
+  .inv-change-val .tri img {
+    width: 16px;
   }
 
   .inv-divider-thin {
@@ -2411,6 +2461,10 @@ body {
 
   .support-card-arrow {
     display: none !important;
+  }
+
+  .support-card-text-group {
+    gap: 8px !important;
   }
 
   /* ── Footer (Figma MOB 기준) ── */

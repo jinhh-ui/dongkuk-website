@@ -892,7 +892,7 @@ body {
 /* ===== FOOTER ===== */
 .footer {
     width: 100%;
-    padding: 80px 0px 40px;
+    padding: 80px 80px 40px;
     box-sizing: border-box;
     background: #FFFFFF;
     border-top: 1px solid #D3D3D3;
@@ -907,9 +907,7 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    padding: 0 80px;
     box-sizing: border-box;
-    margin: 0 auto;
 }
 
 .footer-logo {
@@ -943,6 +941,7 @@ body {
     box-sizing: border-box;
     height: 60px;
     padding: 0 24px;
+    min-width: 160px;
 }
 
 .footer-btn img,
@@ -959,9 +958,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 0 80px;
     box-sizing: border-box;
-    margin: 0 auto;
 }
 
 .footer-divider {
@@ -1007,9 +1004,6 @@ body {
     text-decoration: none;
 }
 
-.footer-links a:first-child {
-    color: #111111;
-}
 
 .footer-links .bar {
     width: 1px;
@@ -1057,6 +1051,30 @@ body {
     }
 }
 
+
+/* ════════════════════════════════════════════════════════
+   TABLET — 768px ~ 1439px (Footer)
+   ════════════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1439px) {
+    .footer {
+        padding: 40px 60px 20px;
+        gap: 40px;
+    }
+
+    .footer-top {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .footer-btn-group {
+        height: auto;
+        gap: 12px;
+    }
+
+    .footer-btn {
+        min-width: 160px;
+    }
+}
 
 /* ════════════════════════════════════════════════════════
    MOBILE — max-width: 767px
