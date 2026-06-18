@@ -46,7 +46,7 @@ function scaleProcessCard() {
     const card = document.getElementById('process-card');
     const sticky = card?.parentElement;
     if (!card || !sticky) return;
-    if (window.innerWidth <= 767) {
+    if (window.innerWidth <= 1439) {
         card.style.transform = '';
         sticky.style.height = '';
         return;
