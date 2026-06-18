@@ -934,7 +934,7 @@ body .no-transition *,
 
     .standard-card.active {
         width: 300px;
-        height: 360px;
+        height: 320px;
         border-radius: 16px;
     }
 
@@ -1401,26 +1401,22 @@ body .no-transition *,
     }
 
     /* 모바일에서는 확장/축소 없이 모두 동일 */
-    .pc-text-block {
+    .pc-text-block,
+    .product-card:hover .pc-text-block,
+    .product-card.expanded .pc-text-block {
         position: relative;
         top: auto;
         bottom: auto;
         left: auto;
+        transform: none;
         display: flex;
         flex-direction: column;
         gap: 8px;
     }
 
-    /* 모바일 호버 및 확장 시 위치 변동 방지 */
-    .product-card:hover .pc-text-block,
-    .product-card.expanded .pc-text-block {
-        position: relative;
-        top: auto;
-        left: auto;
-        bottom: auto;
-    }
-
-    .pc-title-small {
+    .pc-title-small,
+    .product-card:hover .pc-title-small,
+    .product-card.expanded .pc-title-small {
         position: relative;
         bottom: auto;
         left: auto;
@@ -1429,40 +1425,33 @@ body .no-transition *,
         line-height: 1.5;
         padding: 0;
         transition: none;
-        opacity: 1;
-    }
-
-    .product-card:hover .pc-title-small,
-    .product-card.expanded .pc-title-small {
-        bottom: auto;
-        left: auto;
-        font-size: 20px;
         transform: none;
         opacity: 1;
     }
 
     .pc-content {
         position: relative;
+        inset: auto;
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 8px;
         padding: 20px 16px;
+        height: 100%;
+        box-sizing: border-box;
     }
 
-    .pc-desc {
+    .pc-desc,
+    .product-card:hover .pc-desc,
+    .product-card.expanded .pc-desc {
         font-size: 16px;
         font-weight: 400;
         line-height: 1.6;
         opacity: 1;
         height: auto;
+        max-height: none;
+        overflow: visible;
         pointer-events: auto;
-    }
-
-    /* 모바일 호버 및 확장 시 설명글 스타일 유지 */
-    .product-card:hover .pc-desc,
-    .product-card.expanded .pc-desc {
-        height: auto;
-        opacity: 1;
     }
 
     .pc-btn-group,

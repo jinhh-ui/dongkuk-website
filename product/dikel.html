@@ -1561,13 +1561,6 @@
                     inner.style.left = (-cfg.cropX * scale) + 'px';
                     inner.style.top = (-cfg.cropY * scale) + 'px';
 
-                    // 기본 흑백 이미지 추가 (누락 복원)
-                    const defaultImg = document.createElement('img');
-                    defaultImg.className = 'ps-diagram-default';
-                    defaultImg.src = cfg.defaultSrc;
-                    defaultImg.alt = '';
-                    inner.appendChild(defaultImg);
-
 
 
                     // 각 step의 focus 오버레이 SVG
