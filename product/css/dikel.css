@@ -4539,8 +4539,8 @@ body {
     width: 100%;
     aspect-ratio: 1;
     border: 8px solid #FFFFFF;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
 }
 
 .img-box-side {
@@ -4891,11 +4891,11 @@ body {
     }
 
     .battery-compare {
-        gap: 2.98cqw;
+        gap: 10cqw;
     }
 
     .battery-sub-title {
-        font-size: clamp(20px, 2.62cqw, 44px);
+        font-size: clamp(28px, 2.62cqw, 44px);
     }
 
     .battery-sub-desc {
@@ -4983,6 +4983,7 @@ body {
     }
 
 }
+
 /* 📍 ===== 디켈 경쟁력 Gallery ===== */
 .gallery-section {
     background: #fff;
@@ -5712,11 +5713,11 @@ body {
 
     .bat-circle-inner {
         width: 100vw !important;
-        border-width: 8px !important;
+        border-width: 6px !important;
         clip-path: inset(0 0 50% 0) !important;
         -webkit-mask-image: none !important;
         mask-image: none !important;
-        top: 70% !important;
+        top: 60% !important;
     }
 
     .battery-section .inner {
@@ -6158,6 +6159,47 @@ body {
 
 /* ═══ 태블릿 mcard 제목 폰트 축소 (한 줄 유지) ═══ */
 @media (min-width: 768px) and (max-width: 1439px) {
+
+    /* 내부 원: 30%만 보이게 (파우치-각형 잇는 호 정도) */
+    .bat-circle-inner {
+        clip-path: inset(0 0 70% 0);
+        top: 125%;
+    }
+
+    /* 외부 원: 태블릿에서 숨김 */
+    .bat-circle-outer {
+        display: none;
+    }
+
+    /* 파우치/각형 배터리: 원통형보다 아래로 */
+    .compare-images {
+        align-items: flex-start;
+    }
+
+    .img-box-side {
+        margin-top: 35%;
+    }
+
+    /* 주황 태그: compare-images 아래로 완전 분리 */
+    .compare-row {
+        padding-bottom: 60px;
+    }
+
+    .bat-float-tags {
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        margin-top: 0;
+        z-index: 2;
+        gap: 10px;
+    }
+
+    .bat-float-tag {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
 
     .mcard {
         height: auto;
