@@ -1219,6 +1219,384 @@ img.ic-download {
 
 
 
+/* ═══════════════════════════════════════════
+   공정과정 태블릿 (768px ~ 1439px)
+   모바일과 동일, 토글만 우상단
+   ═══════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 1439px) {
+
+    .process-scroll-outer {
+        padding: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .process-sticky {
+        align-items: stretch !important;
+        display: block !important;
+        height: auto !important;
+        position: relative !important;
+    }
+
+    .process-card {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 40px 30px 40px;
+        border-radius: 0;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        transform: none;
+    }
+
+    /* ── Header: 타이틀 + 토글 가로 배치 (토글 우상단) ── */
+    .ps-header {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0 !important;
+    }
+
+    .ps-label {
+        display: none;
+    }
+
+    .ps-title {
+        font-size: 30px !important;
+        line-height: 1.5 !important;
+    }
+
+    .ps-diagram-area {
+        display: none !important;
+    }
+
+    .ps-bubble {
+        display: none !important;
+    }
+
+    .ps-progress {
+        display: none !important;
+    }
+
+    .ps-mobile-diagram {
+        display: block !important;
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        overflow: visible;
+    }
+
+    #ps-mobile-diagram-bulk {
+        background-color: #F1EDEA;
+        width: 500px;
+        height: 422px;
+        margin: 0 auto;
+        overflow: visible;
+        position: relative;
+    }
+
+    #ps-mobile-diagram-special {
+        position: relative;
+        background-color: #F1EDEA;
+        background-image: url('../assets/dikel/니켈도금강판_특수.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 500px;
+        height: 422px;
+        margin: 0 auto;
+        overflow: visible;
+    }
+
+    #ps-mobile-diagram-special .ps-mobile-row {
+        display: none;
+    }
+
+    #ps-mobile-diagram-special .ps-step-img {
+        position: absolute;
+        opacity: 0;
+        filter: grayscale(1);
+        transition: opacity 0.4s ease, filter 0.4s ease;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+
+    #ps-mobile-diagram-special .ps-step-img.visible {
+        opacity: 1;
+        filter: grayscale(0);
+    }
+
+    #ps-mobile-diagram-special .ps-step-img[data-mobile-step="0"] {
+        left: 13px; top: 14px; width: 34px; height: 58px;
+    }
+    #ps-mobile-diagram-special .ps-step-img[data-mobile-step="1"] {
+        left: 43px; top: 14px; width: 176.76px; height: 71.87px;
+    }
+    #ps-mobile-diagram-special .ps-step-img[data-mobile-step="2"] {
+        left: 210.26px; top: 14px; width: 110px; height: 86px;
+    }
+    #ps-mobile-diagram-special .ps-step-img[data-mobile-step="3"] {
+        left: 90.16px; top: 114px; width: 64.75px; height: 66px;
+    }
+    #ps-mobile-diagram-special .ps-step-img[data-mobile-step="4"] {
+        left: 154.91px; top: 126.58px; width: 82.1px; height: 53.43px;
+    }
+    #ps-mobile-diagram-special .ps-step-img[data-mobile-step="5"] {
+        left: 35px; top: 201px; width: 104.84px; height: 75.32px;
+    }
+    #ps-mobile-diagram-special .ps-step-img[data-mobile-step="6"] {
+        left: 139.84px; top: 201px; width: 110.9px; height: 75.32px;
+    }
+
+    #ps-mobile-diagram-special .ps-mobile-step-label {
+        position: absolute;
+        transform: translateX(-50%);
+        z-index: 20;
+    }
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="0"] {
+        left: 35px; top: -6px; margin-top: 0;
+    }
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="1"] {
+        left: 131.38px; top: -6px; margin-top: 0;
+    }
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="2"] {
+        left: 265.26px; top: 4px; margin-top: 0;
+    }
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="3"] {
+        left: 112.54px; top: 103px; margin-top: 0;
+    }
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="4"] {
+        left: 195.96px; top: 110px; margin-top: 0;
+    }
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="5"] {
+        left: 92.42px; top: 199px; margin-top: 0;
+    }
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="6"] {
+        left: 191.29px; top: 214px; margin-top: 0;
+    }
+
+    .ps-mobile-row {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+
+    .ps-mobile-row:first-child {
+        margin-top: 35px;
+        left: -10px;
+    }
+
+    .ps-mobile-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .ps-mobile-row:nth-child(2) {
+        margin-top: 5px;
+        left: 20px;
+        width: calc(100% - 20px);
+    }
+
+    .ps-mobile-row:nth-child(3) {
+        margin-top: 5px;
+        left: 16px;
+        width: calc(100% - 16px);
+    }
+
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="0"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="1"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="2"] {
+        margin-top: -5px;
+        margin-left: -10px;
+    }
+
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="3"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="4"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="5"] {
+        margin-top: -22px;
+        margin-left: 20px;
+    }
+
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="3"],
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="4"] {
+        margin-top: -20px;
+    }
+
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="6"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="7"] {
+        margin-top: -48px;
+        margin-left: 16px;
+    }
+
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="5"],
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="6"] {
+        margin-top: -35px;
+    }
+
+    .ps-row-inner {
+        position: absolute;
+        width: 1860px;
+        height: 486px;
+        left: 0;
+        top: 0;
+    }
+
+    .ps-row-inner img.ps-diagram-default {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        inset: 0;
+    }
+
+    .ps-row-inner .ps-step-img {
+        position: absolute;
+        opacity: 0.3;
+        filter: grayscale(1);
+        transition: filter 0.4s ease, opacity 0.4s ease;
+        pointer-events: auto;
+        cursor: pointer;
+    }
+
+    .ps-row-inner .ps-step-img.visible {
+        opacity: 1;
+        filter: grayscale(0);
+    }
+
+    .ps-mobile-step-label {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+        z-index: 20;
+    }
+
+    .ps-mobile-step-label.visible {
+        opacity: 1;
+    }
+
+    .ps-mobile-step-label span {
+        font-family: 'Pretendard', sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: #4E4E4E;
+        white-space: nowrap;
+    }
+
+    .ps-mobile-step-label .label-arrow {
+        width: 0;
+        height: 0;
+        border-left: 5.5px solid transparent;
+        border-right: 5.5px solid transparent;
+        border-top: 9px solid #F27100;
+    }
+
+    .ps-mobile-bottom-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .ps-mobile-indicators {
+        display: flex !important;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .ps-mobile-dot {
+        width: 34px;
+        height: 6px;
+        border-radius: 3px;
+        background: #D3D3D3;
+        position: relative;
+        overflow: hidden;
+        flex: none;
+    }
+
+    .ps-mobile-dot::after {
+        content: "";
+        position: absolute;
+        left: 0; top: 0;
+        height: 100%; width: 0;
+        background: #F27100;
+    }
+
+    .ps-mobile-dot.active::after {
+        width: 100%;
+        transition: width 3s linear;
+    }
+
+    .ps-mobile-dot.done::after {
+        width: 100%;
+        transition: none;
+    }
+
+    .ps-mobile-info-card {
+        display: flex !important;
+        flex-direction: column;
+        gap: 10px;
+        background: #FFFFFF;
+        border-radius: 16px;
+        padding: 16px 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .ps-mobile-indicators.is-hidden,
+    .ps-mobile-info-card.is-hidden,
+    .ps-mobile-diagram.is-hidden,
+    .ps-mobile-bottom-group.is-hidden {
+        display: none !important;
+    }
+
+    .ps-mobile-info-header {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .ps-mobile-info-num {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.6;
+        color: #F27100;
+    }
+
+    .ps-mobile-info-name {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.6;
+        color: #000;
+    }
+
+    .ps-mobile-info-desc {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: #4E4E4E;
+        margin: 0;
+        min-height: calc(16px * 1.6 * 2);
+    }
+}
+
+
 
 /* ===== Responsive: 1280–1760 ===== */
 @media (max-width: 1439px) {
@@ -2234,11 +2612,11 @@ img.ic-download {
 
     .ps-row-inner .ps-step-img {
         position: absolute;
-        opacity: 0;
-        /* 비활성 시 완전히 숨김 (0.25 -> 0) */
+        opacity: 0.3;
         filter: grayscale(1);
         transition: filter 0.4s ease, opacity 0.4s ease;
-        pointer-events: none;
+        pointer-events: auto;
+        cursor: pointer;
     }
 
     .ps-row-inner .ps-step-img.visible {

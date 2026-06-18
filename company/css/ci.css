@@ -425,7 +425,7 @@ body {
 @media (min-width: 768px) and (max-width: 1439px) {
     .colors-flex {
         gap: clamp(60px, 10vw, 160px);
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .color-info-card {
@@ -445,6 +445,10 @@ body {
     .sig-title {
         min-height: auto;
         height: auto;
+    }
+
+    .colors-intro .pc-br {
+        display: none;
     }
 }
 

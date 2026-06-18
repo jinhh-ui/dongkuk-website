@@ -164,6 +164,13 @@
     gap: 16px;
 }
 
+.info-card-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .location-tag {
     display: flex;
     align-items: center;
@@ -249,15 +256,14 @@
 }
 
 .type-badge {
-    position: absolute;
-    top: clamp(20px, 2.08vw, 40px);
-    right: clamp(16px, 1.875vw, 36px);
     padding: 6px 12px;
     background: #FCE3CC;
     border-radius: 1000px;
     font-weight: 500;
-    font-size: clamp(16px, 1.04vw, 20px);
+    font-size: clamp(16px, 1.1vw, 20px);
     color: #F27100;
+    flex-shrink: 0;
+    line-height: 1.6;
 }
 
 /* ===== Factory/Office Section (공장/영업소) ===== */
@@ -602,6 +608,7 @@
 
     .info-card-top {
         gap: 16px;
+        align-self: stretch;
     }
 
     .location-tag {
@@ -621,8 +628,6 @@
     }
 
     .type-badge {
-        top: 20px;
-        right: 16px;
         padding: 6px 12px;
         font-size: 16px;
         height: 38px;
