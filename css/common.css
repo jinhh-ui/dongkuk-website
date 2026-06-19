@@ -667,7 +667,7 @@ body {
     max-width: none;
     height: 70px;
     background: #FFFFFF;
-    border-bottom: 1px solid #E9E9E9;
+    /* border-bottom: 1px solid #E9E9E9; */
 }
 
 .tab-item {
@@ -1174,7 +1174,7 @@ body {
         justify-content: center;
         align-items: stretch;
         gap: 0;
-        border-bottom: 1px solid #E9E9E9;
+        /* border-bottom: 1px solid #E9E9E9; */
     }
 
     .tab-item {
