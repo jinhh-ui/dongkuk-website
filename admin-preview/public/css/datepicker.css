@@ -1,0 +1,85 @@
+/* flatpickr 달력 커스텀 — 기획서 Date Picker 기준 */
+
+.flatpickr-calendar {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.08) !important;
+    border: 1px solid #d9d9d9 !important;
+    font-family: var(--font) !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}
+/* static 모드: wrapper가 인풋 너비를 따라감 */
+.flatpickr-wrapper {
+    display: block !important;
+    width: 100% !important;
+}
+.flatpickr-calendar.static {
+    position: absolute !important;
+    width: 100% !important;
+    top: 100% !important;
+    left: 0 !important;
+    margin-top: 8px !important;
+}
+
+/* 헤더 */
+.flatpickr-months { height: 48px !important; margin-bottom: 12px !important; }
+.flatpickr-months .flatpickr-month { height: 48px !important; }
+.flatpickr-current-month { font-size: 20px !important; font-weight: 700 !important; padding-top: 8px !important; }
+.flatpickr-current-month .flatpickr-monthDropdown-months { font-size: 20px !important; font-weight: 700 !important; }
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month { padding: 12px !important; }
+.flatpickr-months .flatpickr-prev-month svg,
+.flatpickr-months .flatpickr-next-month svg { width: 16px !important; height: 16px !important; }
+
+/* 요일 */
+.flatpickr-weekdays { height: 36px !important; }
+span.flatpickr-weekday { font-size: 15px !important; font-weight: 500 !important; color: #999 !important; }
+
+/* 컨테이너 */
+.flatpickr-days { width: 100% !important; }
+.dayContainer {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+}
+
+/* 날짜 셀: 7열 (14.28%) */
+.flatpickr-day {
+    flex-basis: 14.28% !important;
+    max-width: 14.28% !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 16px !important;
+    border-radius: 0 !important;
+    border: none !important;
+    position: relative;
+}
+.flatpickr-day:hover { background: #f5f5f5 !important; }
+
+/* 선택: 정원 */
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.selected:focus {
+    background: transparent !important;
+    color: #fff !important;
+}
+.flatpickr-day.selected::before {
+    content: '';
+    position: absolute;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #003592;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* 오늘 */
+.flatpickr-day.today:not(.selected) { border: none !important; font-weight: 700 !important; color: #003592 !important; }
+
+/* 비활성 */
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay { color: #ccc !important; }

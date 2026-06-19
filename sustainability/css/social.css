@@ -1,8 +1,5 @@
 /* ===== 사회경영 공통 스타일 ===== */
 
-.desk-br {
-    display: inline;
-}
 
 .mo-br {
     display: none;
@@ -1305,11 +1302,8 @@
    반응형 - 태블릿 (768~1439px)
 ══════════════════════════════════════ */
 @media (max-width: 1439px) {
-    .desk-br {
-        display: none;
-    }
-
-    .mo-br {
+    
+.mo-br {
         display: none;
     }
 
@@ -2517,11 +2511,8 @@
     }
 
     /* ── br 태그 제어 ── */
-    .desk-br {
-        display: none;
-    }
-
-    .mo-br {
+    
+.mo-br {
         display: inline;
     }
 }

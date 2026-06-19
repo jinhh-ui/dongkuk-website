@@ -3,9 +3,7 @@
     display: none;
 }
 
-.desk-br {
-    display: inline;
-}
+
 
 .pc-only {
     display: inline-block !important;
@@ -1675,9 +1673,6 @@ img.ic-download {
         font-size: 16px !important;
     }
 
-    .pc-br {
-        display: none;
-    }
 
     .pi-desc br {
         display: none;
@@ -5559,9 +5554,7 @@ body {
         display: block !important;
     }
 
-    .desk-br {
-        display: none !important;
-    }
+
 
     /* Brand Resource 탭 패널 */
     .brand-section,
@@ -6660,9 +6653,7 @@ body {
         gap: 40px;
     }
 
-    .mcard .pc-br {
-        display: none;
-    }
+
 
     .mcard-title {
         font-size: clamp(18px, 2.4vw, 24px);

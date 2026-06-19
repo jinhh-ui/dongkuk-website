@@ -832,15 +832,11 @@ body .no-transition *,
     display: none;
 }
 
-.desk-br {
-    display: inline;
-}
+
 
 
 @media (max-width: 767px) {
-    .desk-br {
-        display: none;
-    }
+
 
     .mob-br {
         display: inline;
@@ -1302,9 +1298,7 @@ body .no-transition *,
         line-height: 1.5;
     }
 
-    .global-title .desk-br {
-        display: none;
-    }
+
 
     .global-title .mob-br {
         display: inline;

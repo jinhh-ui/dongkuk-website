@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뉴스 기사 관리</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow open">
+                </a>
+                <div class="lnb-submenu show">
+                    <a href="../../video/list/index.html" class="lnb-sub ">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub active">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item "><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item "><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item "><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item "><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item "><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item "><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+<div class="content-header">
+    <h1 class="content-title">뉴스 기사 관리</h1>
+    <a href="../../news/create/index.html" class="btn-primary">뉴스 기사 등록</a>
+</div>
+
+<div class="content-body">
+    <div class="list-toolbar">
+        <div class="toolbar-left">
+            <span class="selected-count hidden" id="newsSelectedCount">0개 선택됨</span>
+            <div class="toolbar-divider hidden" id="newsDeleteDivider"><img src="../../public/img/icon_divider_vert_v2.svg" alt=""></div>
+            <button class="btn-delete-text hidden" id="newsDeleteBtn">삭제</button>
+        </div>
+        <form method="get" action="../../news/list/index.html">
+            <div class="search-box">
+                <img src="../../public/img/icon_search_v2.svg" alt="검색">
+                <input type="text" name="keyword" class="search-input" placeholder="검색하기" value="">
+            </div>
+        </form>
+    </div>
+
+    <div class="list-content"><div class="list-table">
+        <div class="table-header has-edit">
+            <div class="row-title-group">
+                <div class="cell-check"><input type="checkbox" id="checkAll" onclick="toggleAll(this)"></div>
+                <span class="th th-title">뉴스 제목</span>
+            </div>
+            <span class="th w-200">게시일</span>
+            <span class="th w-200">최종업데이트</span>
+        </div>
+
+        <div class="table-body">
+                                    <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="1" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_01.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=1" class="td-title">동국산업, 2025년 상반기 매출 역대 최고 달성</a>
+                    </div>
+                    <span class="td td-date w-200">2025.06.15</span>
+                    <span class="td td-date w-200">2025.06.15</span>
+                </div>
+                <a href="../../news/edit/index.html?id=1" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="2" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_02.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=2" class="td-title">글로벌 자동차 OEM 3사와 신규 공급 계약 체결</a>
+                    </div>
+                    <span class="td td-date w-200">2025.06.10</span>
+                    <span class="td td-date w-200">2025.06.10</span>
+                </div>
+                <a href="../../news/edit/index.html?id=2" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="3" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_03.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=3" class="td-title">Q/T 열처리강판 신제품 라인업 확대 발표</a>
+                    </div>
+                    <span class="td td-date w-200">2025.05.28</span>
+                    <span class="td td-date w-200">2025.05.28</span>
+                </div>
+                <a href="../../news/edit/index.html?id=3" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="4" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_04.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=4" class="td-title">친환경 수소 열처리 설비 가동 1주년 기념 행사</a>
+                    </div>
+                    <span class="td td-date w-200">2025.05.15</span>
+                    <span class="td td-date w-200">2025.05.15</span>
+                </div>
+                <a href="../../news/edit/index.html?id=4" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="5" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_05.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=5" class="td-title">산업통상자원부 장관 표창 수상 — 소재 혁신 부문</a>
+                    </div>
+                    <span class="td td-date w-200">2025.04.30</span>
+                    <span class="td td-date w-200">2025.04.30</span>
+                </div>
+                <a href="../../news/edit/index.html?id=5" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="6" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_06.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=6" class="td-title">2025 국제 철강 전시회 참가 및 DiKel 브랜드 소개</a>
+                    </div>
+                    <span class="td td-date w-200">2025.04.15</span>
+                    <span class="td td-date w-200">2025.04.15</span>
+                </div>
+                <a href="../../news/edit/index.html?id=6" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="7" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_07.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=7" class="td-title">동국산업, ESG 경영 우수기업 선정</a>
+                    </div>
+                    <span class="td td-date w-200">2025.03.28</span>
+                    <span class="td td-date w-200">2025.03.28</span>
+                </div>
+                <a href="../../news/edit/index.html?id=7" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="8" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_08.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=8" class="td-title">부산 본사 제2공장 증설 착공식 개최</a>
+                    </div>
+                    <span class="td td-date w-200">2025.03.15</span>
+                    <span class="td td-date w-200">2025.03.15</span>
+                </div>
+                <a href="../../news/edit/index.html?id=8" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="9" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_09.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=9" class="td-title">냉연강판 생산량 월간 최고 기록 경신</a>
+                    </div>
+                    <span class="td td-date w-200">2025.02.28</span>
+                    <span class="td td-date w-200">2025.02.28</span>
+                </div>
+                <a href="../../news/edit/index.html?id=9" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                        <div class="table-row news-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="10" class="news-check"></div>
+                        <div class="news-thumb">
+                                                        <img src="../../public/img/news_thumb_10.png" alt="">
+                                                    </div>
+                        <a href="../../news/detail/index.html?id=10" class="td-title">2025년 신년사 — 도전과 혁신으로 미래를 열다</a>
+                    </div>
+                    <span class="td td-date w-200">2025.01.02</span>
+                    <span class="td td-date w-200">2025.01.02</span>
+                </div>
+                <a href="../../news/edit/index.html?id=10" class="btn-row-edit">뉴스 기사 수정</a>
+            </div>
+                                </div>
+    </div>
+
+        <div class="pagination">
+                <a href="../../news/list/index.html?page=1" class="page-num active">1</a><a href="../../news/list/index.html?page=2" class="page-num ">2</a><a href="../../news/list/index.html?page=3" class="page-num ">3</a><a href="../../news/list/index.html?page=4" class="page-num ">4</a><a href="../../news/list/index.html?page=5" class="page-num ">5</a><a href="../../news/list/index.html?page=6" class="page-num ">6</a><a href="../../news/list/index.html?page=7" class="page-num ">7</a><a href="../../news/list/index.html?page=8" class="page-num ">8</a><a href="../../news/list/index.html?page=9" class="page-num ">9</a><a href="../../news/list/index.html?page=10" class="page-num ">10</a>        <a href="../../news/list/index.html?page=2" class="page-arrow"><img src="../../public/img/icon_page_next.svg" alt="다음"></a>    </div>
+    </div></div>
+
+<script>
+function toggleAll(el) {
+    document.querySelectorAll('.news-check').forEach(function(c) { c.checked = el.checked; });
+    updateCount();
+}
+document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('news-check')) {
+        updateCount();
+        var all = document.querySelectorAll('.news-check');
+        var allChecked = document.querySelectorAll('.news-check:checked');
+        document.getElementById('checkAll').checked = (all.length === allChecked.length && all.length > 0);
+    }
+});
+function updateCount() {
+    var cnt = document.querySelectorAll('.news-check:checked').length;
+    ['newsSelectedCount','newsDeleteDivider','newsDeleteBtn'].forEach(function(id) {
+        document.getElementById(id).classList.toggle('hidden', !cnt);
+    });
+    document.getElementById('newsSelectedCount').textContent = cnt + '개 선택됨';
+}
+document.getElementById('newsDeleteBtn').addEventListener('click', function() {
+    var checked = document.querySelectorAll('.news-check:checked');
+    if (checked.length === 0) return;
+    if (!confirm(checked.length + '건의 뉴스 기사를 삭제하시겠습니까?\n삭제된 데이터는 복구할 수 없습니다.')) return;
+    // TODO: AJAX POST /news/deleteMulti
+    checked.forEach(function(c) { c.closest('.news-row').remove(); });
+    document.getElementById('checkAll').checked = false;
+    updateCount();
+    alert('삭제가 완료되었습니다.');
+});
+document.querySelector('.search-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); this.closest('form').submit(); }
+});
+document.querySelector('.search-box img').addEventListener('click', function() {
+    this.closest('form').submit();
+});
+</script>
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>

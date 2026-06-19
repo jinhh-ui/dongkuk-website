@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채용공고 관리</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow ">
+                </a>
+                <div class="lnb-submenu ">
+                    <a href="../../video/list/index.html" class="lnb-sub ">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub ">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item "><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item "><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item active"><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item "><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item "><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item "><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+<div class="content-header">
+    <h1 class="content-title">채용공고</h1>
+    <a href="../../recruit/create/index.html" class="btn-primary">채용공고 등록</a>
+</div>
+
+<div class="category-tabs">
+        <a href="../../recruit/list/index.html" class="tab active">
+        <span>전체</span>
+        <span class="tab-count">0</span>
+    </a>
+        <a href="../../recruit/list/index.html?status=waiting" class="tab ">
+        <span>게시 대기</span>
+        <span class="tab-count">0</span>
+    </a>
+        <a href="../../recruit/list/index.html?status=active" class="tab ">
+        <span>게시 중</span>
+        <span class="tab-count">0</span>
+    </a>
+        <a href="../../recruit/list/index.html?status=closed" class="tab ">
+        <span>마감</span>
+        <span class="tab-count">0</span>
+    </a>
+    </div>
+
+<div class="content-body">
+    <div class="list-toolbar">
+        <div class="toolbar-left">
+            <span class="selected-count hidden" id="recruitSelectedCount">0개 선택됨</span>
+            <div class="toolbar-divider hidden" id="recruitDeleteDivider"><img src="../../public/img/icon_divider_vert_v2.svg" alt=""></div>
+            <button class="btn-delete-text hidden" id="recruitDeleteBtn">삭제</button>
+        </div>
+        <form method="get" action="../../recruit/list/index.html">
+                        <div class="search-box">
+                <img src="../../public/img/icon_search_v2.svg" alt="검색">
+                <input type="text" name="keyword" class="search-input" placeholder="검색하기" value="">
+            </div>
+        </form>
+    </div>
+
+    <div class="list-content"><div class="list-table">
+        <div class="table-header">
+            <div class="row-title-group">
+                <div class="cell-check"><input type="checkbox" id="checkAllRecruit" onclick="toggleAllRecruit(this)"></div>
+                <span class="th th-title">채용공고명</span>
+            </div>
+            <span class="th w-80">직군</span>
+            <span class="th w-220">채용정보</span>
+            <span class="th w-404">채용기간</span>
+        </div>
+
+        <div class="table-body">
+                                                <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="1" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">2025년 상반기 생산기술직 신입사원 모집</p>
+                                                        <a href="https://saramin.co.kr" target="_blank" class="recruit-chip">
+                                <span>사람인 공고 확인</span>
+                                <img src="../../public/img/icon_external_link.svg" alt="">
+                            </a>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">생산기술</span>
+                    <span class="td td-text w-220">정규직 · 부산</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_active.svg" alt="">
+                            <span>게시 중</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">D-14</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.06.01 ~ 2025.06.30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="2" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">품질관리 경력사원 채용</p>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">품질관리</span>
+                    <span class="td td-text w-220">정규직 · 부산</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_active.svg" alt="">
+                            <span>게시 중</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">D-7</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.06.10 ~ 2025.06.25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="3" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">연구개발 석·박사급 연구원 채용</p>
+                                                        <a href="https://saramin.co.kr" target="_blank" class="recruit-chip">
+                                <span>사람인 공고 확인</span>
+                                <img src="../../public/img/icon_external_link.svg" alt="">
+                            </a>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">R&amp;D</span>
+                    <span class="td td-text w-220">정규직 · 부산</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_active.svg" alt="">
+                            <span>게시 중</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">D-21</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.06.01 ~ 2025.07.10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="4" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">경영지원 사무직 채용</p>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">경영지원</span>
+                    <span class="td td-text w-220">정규직 · 서울</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_active.svg" alt="">
+                            <span>게시 중</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">D-10</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.06.05 ~ 2025.06.28</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="5" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">환경안전 담당자 모집</p>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">환경안전</span>
+                    <span class="td td-text w-220">정규직 · 부산</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_active.svg" alt="">
+                            <span>게시 중</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">D-5</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.06.10 ~ 2025.06.23</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="6" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">IT 시스템 운영 담당자 모집</p>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">IT</span>
+                    <span class="td td-text w-220">정규직 · 서울</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_closed.svg" alt="">
+                            <span>마감</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">마감</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.05.01 ~ 2025.05.31</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="7" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">해외영업 경력사원 채용</p>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">영업</span>
+                    <span class="td td-text w-220">정규직 · 서울</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_closed.svg" alt="">
+                            <span>마감</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">마감</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.04.15 ~ 2025.05.15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="8" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">설비보전 기술직 채용</p>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">설비보전</span>
+                    <span class="td td-text w-220">정규직 · 부산</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_closed.svg" alt="">
+                            <span>마감</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">마감</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.04.01 ~ 2025.04.30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="9" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">구매/자재관리 경력사원</p>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">구매</span>
+                    <span class="td td-text w-220">정규직 · 부산</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_closed.svg" alt="">
+                            <span>마감</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">마감</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2025.03.15 ~ 2025.04.15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <div class="table-row recruit-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="10" class="recruit-check"></div>
+                        <div class="recruit-title-wrap">
+                            <p class="recruit-title-text">2024년 하반기 인턴십 프로그램</p>
+                                                        <a href="https://saramin.co.kr" target="_blank" class="recruit-chip">
+                                <span>사람인 공고 확인</span>
+                                <img src="../../public/img/icon_external_link.svg" alt="">
+                            </a>
+                                                    </div>
+                    </div>
+                    <span class="td td-text w-80">전체</span>
+                    <span class="td td-text w-220">인턴 · 부산/서울</span>
+                    <div class="recruit-period-pill">
+                        <div class="recruit-period-left">
+                            <img src="../../public/img/icon_dot_recruit_closed.svg" alt="">
+                            <span>마감</span>
+                        </div>
+                        <div class="recruit-period-right">
+                            <span class="recruit-period-dday">마감</span>
+                            <div class="recruit-period-divider"><img src="../../public/img/icon_divider_vert_period.svg" alt=""></div>
+                            <span class="recruit-period-dates">2024.11.01 ~ 2024.11.30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                </div>
+    </div>
+
+        <div class="pagination">
+                <a href="../../recruit/list/index.html?page=1" class="page-num active">1</a><a href="../../recruit/list/index.html?page=2" class="page-num ">2</a><a href="../../recruit/list/index.html?page=3" class="page-num ">3</a><a href="../../recruit/list/index.html?page=4" class="page-num ">4</a><a href="../../recruit/list/index.html?page=5" class="page-num ">5</a><a href="../../recruit/list/index.html?page=6" class="page-num ">6</a><a href="../../recruit/list/index.html?page=7" class="page-num ">7</a><a href="../../recruit/list/index.html?page=8" class="page-num ">8</a><a href="../../recruit/list/index.html?page=9" class="page-num ">9</a><a href="../../recruit/list/index.html?page=10" class="page-num ">10</a>        <a href="../../recruit/list/index.html?page=2" class="page-arrow"><img src="../../public/img/icon_page_next.svg" alt="다음"></a>    </div>
+    </div></div>
+
+<script>
+function toggleAllRecruit(el) {
+    document.querySelectorAll('.recruit-check').forEach(function(c) { c.checked = el.checked; });
+    updateRecruitCount();
+}
+document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('recruit-check')) {
+        updateRecruitCount();
+        var all = document.querySelectorAll('.recruit-check');
+        var allChecked = document.querySelectorAll('.recruit-check:checked');
+        document.getElementById('checkAllRecruit').checked = (all.length === allChecked.length && all.length > 0);
+    }
+});
+function updateRecruitCount() {
+    var cnt = document.querySelectorAll('.recruit-check:checked').length;
+    ['recruitSelectedCount','recruitDeleteDivider','recruitDeleteBtn'].forEach(function(id) {
+        document.getElementById(id).classList.toggle('hidden', !cnt);
+    });
+    document.getElementById('recruitSelectedCount').textContent = cnt + '개 선택됨';
+}
+document.getElementById('recruitDeleteBtn').addEventListener('click', function() {
+    var checked = document.querySelectorAll('.recruit-check:checked');
+    if (checked.length === 0) return;
+    if (!confirm(checked.length + '건의 채용공고를 삭제하시겠습니까?\n삭제된 데이터는 복구할 수 없습니다.')) return;
+    checked.forEach(function(c) { c.closest('.recruit-row').remove(); });
+    document.getElementById('checkAllRecruit').checked = false;
+    updateRecruitCount();
+    alert('삭제가 완료되었습니다.');
+});
+document.querySelector('.search-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); this.closest('form').submit(); }
+});
+document.querySelector('.search-box img').addEventListener('click', function() {
+    this.closest('form').submit();
+});
+</script>
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>

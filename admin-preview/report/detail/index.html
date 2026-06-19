@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제보 상세</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow ">
+                </a>
+                <div class="lnb-submenu ">
+                    <a href="../../video/list/index.html" class="lnb-sub ">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub ">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item "><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item "><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item "><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item active"><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item "><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item "><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+<!-- Title: gap-8 -->
+<div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start; justify-content:flex-end; width:100%;">
+    <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+        <!-- 36px Bold black line-1.5 -->
+        <p style="font-size:36px; font-weight:700; color:#000; margin:0; line-height:1.5;">내부 비리 관련 제보합니다</p>
+        <!-- 삭제 btn: bg-white border-#003592 w-121 rounded-8 px-24 py-14 16px Bold #003592 -->
+        <button type="button" id="openDeleteModal" style="display:flex; align-items:center; justify-content:center; width:121px; padding:14px 24px; border:1px solid #003592; border-radius:8px; background:#fff; font-size:16px; font-weight:700; color:#003592; line-height:1.6; cursor:pointer; font-family:var(--font); box-sizing:border-box;">삭제</button>
+    </div>
+</div>
+
+<!-- 본문: gap-100 -->
+<div style="display:flex; flex-direction:column; gap:100px; width:100%;">
+    <!-- 좌+우: gap-20 -->
+    <div style="display:flex; gap:20px; align-items:flex-start; width:100%;">
+        <!-- 좌: flex-1 gap-20 -->
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:20px;">
+            <!-- "제보 내용": 18px Medium #7a7a7a line-1.6 -->
+            <p style="font-size:18px; font-weight:500; color:#7a7a7a; line-height:1.6; margin:0;">제보 내용</p>
+            <!-- 내용: gap-24 -->
+            <div style="display:flex; gap:24px; align-items:flex-start; width:100%;">
+                <!-- Title: w-160 h-58 center -->
+                <div style="width:160px; flex-shrink:0; height:58px; display:flex; align-items:center;">
+                    <p style="font-size:24px; font-weight:700; color:#363636; line-height:1.5; margin:0;">내용</p>
+                </div>
+                <!-- con: flex-1 22px Regular black line-1.6 -->
+                <div style="flex:1; min-width:0;">
+                    <p style="font-size:22px; font-weight:400; color:#000; line-height:1.6; margin:0;">제보 내용이 여기에 표시됩니다. 내부 비리 관련 사실을 발견하여 제보합니다.</p>
+                </div>
+            </div>
+            <!-- 첨부파일: gap-24 -->
+            <div style="display:flex; gap:24px; align-items:flex-start; width:100%;">
+                <!-- Title: w-160 py-12 -->
+                <div style="width:160px; flex-shrink:0; padding:12px 0; display:flex; align-items:center;">
+                    <p style="font-size:24px; font-weight:700; color:#363636; line-height:1.5; margin:0;">첨부파일</p>
+                </div>
+                <!-- 파일 목록: flex-1 gap-16 -->
+                <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:16px;">
+                                        <span style="font-size:20px; font-weight:400; color:#7a7a7a; line-height:1.6;">첨부파일이 없습니다.</span>
+                                    </div>
+            </div>
+        </div>
+
+        <!-- 우: shrink-0 gap-12 pt-50 -->
+        <div style="flex-shrink:0; padding-top:50px; display:flex; flex-direction:column; gap:12px;">
+            <!-- 상태카드: bg-#e0eaf9 rounded-20 p-32 w-440 -->
+            <div style="background:#e0eaf9; border-radius:20px; padding:32px; width:440px; box-sizing:border-box; display:flex; align-items:center;">
+                <!-- w-200: dot+label gap-6, 상태변경btn gap-8 -->
+                <div style="display:flex; gap:8px; align-items:center; width:200px;">
+                    <div style="display:flex; gap:6px; align-items:center;">
+                        <img src="../../public/img/icon_dot_report_received.svg" alt="" style="width:12px; height:12px; flex-shrink:0;">
+                        <span style="font-size:18px; font-weight:600; color:#222; line-height:normal; white-space:nowrap;">제보접수</span>
+                    </div>
+                                        <!-- 상태변경: bg-white border-#d3d3d3 rounded-52 px-12 py-6 14px Regular black -->
+                    <button type="button" id="openStatusModal" style="display:inline-flex; align-items:center; justify-content:center; padding:6px 12px; border:1px solid #d3d3d3; border-radius:52px; background:#fff; font-size:14px; font-weight:400; color:#000; line-height:1.5; cursor:pointer; font-family:var(--font); white-space:nowrap;">상태변경</button>
+                                    </div>
+            </div>
+            <!-- 정보카드: bg-white border-#d3d3d3 rounded-20 p-32 w-440 gap-40 -->
+            <div style="background:#fff; border:1px solid #d3d3d3; border-radius:20px; padding:32px; width:440px; box-sizing:border-box; display:flex; flex-direction:column; gap:40px;">
+                <!-- 제보자 정보: gap-30 line-1.6 -->
+                <div style="display:flex; flex-direction:column; gap:30px; line-height:1.6; width:100%;">
+                    <p style="font-size:18px; font-weight:700; color:#363636; margin:0;">제보자 정보</p>
+                    <!-- rows: 20px Medium gap-24, label w-100 #7a7a7a, val #1b1b1b -->
+                    <div style="display:flex; flex-direction:column; gap:24px; font-size:20px; font-weight:500; width:100%;">
+                        <div style="display:flex; gap:10px; align-items:center; width:100%;"><span style="color:#7a7a7a; width:100px; flex-shrink:0;">제보방식</span><span style="color:#1b1b1b;">익명</span></div>
+                        <div style="display:flex; gap:10px; align-items:center; width:100%;"><span style="color:#7a7a7a; width:100px; flex-shrink:0;">이름</span><span style="color:#1b1b1b;">-</span></div>
+                        <div style="display:flex; gap:10px; align-items:center; width:100%;"><span style="color:#7a7a7a; width:100px; flex-shrink:0;">연락처</span><span style="color:#1b1b1b;">-</span></div>
+                        <div style="display:flex; gap:10px; align-items:center; width:100%;"><span style="color:#7a7a7a; width:100px; flex-shrink:0;">이메일</span><span style="color:#1b1b1b;">-</span></div>
+                    </div>
+                </div>
+                <!-- 구분선: h-0 1px -->
+                <div style="width:100%; height:1px; background:#d3d3d3;"></div>
+                <!-- 접수 정보: gap-30 line-1.6 -->
+                <div style="display:flex; flex-direction:column; gap:30px; line-height:1.6; width:100%;">
+                    <p style="font-size:18px; font-weight:700; color:#363636; margin:0;">접수 정보</p>
+                    <div style="display:flex; flex-direction:column; gap:24px; font-size:20px; font-weight:500; width:100%;">
+                        <div style="display:flex; gap:10px; align-items:center; width:100%;"><span style="color:#7a7a7a; width:100px; flex-shrink:0;">접수 일시</span><span style="color:#1b1b1b;">2025.06.14</span></div>
+                        <div style="display:flex; gap:10px; align-items:center; width:100%;"><span style="color:#7a7a7a; width:100px; flex-shrink:0;">접수 번호</span><span style="color:#1b1b1b;">RPT-2025-001</span></div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 답변 영역 -->
+        <!-- 미완료: 답변 입력 bg-white rounded-20 px-24 py-30 gap-24 items-end -->
+    <form method="post" action="../../report/answer/index.html?id=1" id="answerForm">
+        <div style="background:#fff; border-radius:20px; padding:30px 24px; display:flex; flex-direction:column; gap:24px; align-items:flex-end;">
+            <!-- "*는 필수 입력 항목입니다.": 18px Medium #7a7a7a -->
+            <p style="font-size:18px; font-weight:500; color:#7a7a7a; line-height:1.6; margin:0;"><span style="color:red; line-height:1.6;">*</span><span style="line-height:1.6;">는 필수 입력 항목입니다.</span></p>
+            <!-- 제보결과 작성: gap-24 h-302 -->
+            <div style="display:flex; gap:24px; align-items:flex-start; width:100%; height:302px;">
+                <!-- label: w-160 py-12 gap-4 -->
+                <div style="width:160px; flex-shrink:0; display:flex; gap:4px; align-items:center; padding:12px 0;">
+                    <p style="font-size:24px; font-weight:700; color:#363636; line-height:1.5; margin:0;">제보결과 작성</p>
+                    <p style="font-size:20px; font-weight:400; color:rgba(255,0,0,0.8); line-height:32px; margin:0;">*</p>
+                </div>
+                <!-- textarea: flex-1 h-302 border-#d3d3d3 rounded-10 px-24 py-12 22px Regular placeholder #a7a7a7 -->
+                <textarea name="answer_content" id="answerContent" placeholder="내용을 입력해 주세요." style="flex:1; height:302px; border:1px solid #d3d3d3; border-radius:10px; padding:12px 24px; font-size:22px; font-weight:400; color:#000; line-height:1.6; font-family:var(--font); resize:vertical; box-sizing:border-box; background:#fff;" required></textarea>
+            </div>
+            <!-- 작성자 명: gap-24 -->
+            <div style="display:flex; gap:24px; align-items:flex-start; width:100%;">
+                <div style="width:160px; flex-shrink:0; display:flex; gap:4px; align-items:center; padding:12px 0;">
+                    <p style="font-size:24px; font-weight:700; color:#363636; line-height:1.5; margin:0;">작성자 명</p>
+                    <p style="font-size:20px; font-weight:400; color:rgba(255,0,0,0.8); line-height:32px; margin:0;">*</p>
+                </div>
+                <!-- input: flex-1 border-#d3d3d3 rounded-10 px-24 py-12 22px Regular placeholder #a7a7a7 -->
+                <input type="text" name="answer_author" id="answerAuthor" placeholder="작성자 명을 입력해 주세요." style="flex:1; border:1px solid #d3d3d3; border-radius:10px; padding:12px 24px; font-size:22px; font-weight:400; color:#000; line-height:1.6; font-family:var(--font); box-sizing:border-box; background:#fff;" required>
+            </div>
+            <!-- 등록 btn: bg-#d3d3d3 h-68 rounded-10 px-40 py-20 20px Bold #7a7a7a -->
+            <button type="submit" id="reportSubmitBtn" style="display:flex; align-items:center; justify-content:center; padding:20px 40px; height:68px; background:#d3d3d3; border-radius:10px; border:none; font-size:20px; font-weight:700; color:#7a7a7a; cursor:pointer; font-family:var(--font); line-height:1.5;">등록</button>
+        </div>
+    </form>
+    </div>
+
+<!-- 목록 btn 영역: py-60 center -->
+<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 0; width:100%;">
+    <!-- bg-white → border-#003592 rounded-10 w-346 h-80 px-40 py-15 24px Bold #003592 -->
+    <a href="../../report/list/index.html" style="display:flex; align-items:center; justify-content:center; width:346px; height:80px; border:1px solid #003592; border-radius:10px; padding:15px 40px; box-sizing:border-box; text-decoration:none; background:#fff;">
+        <span style="font-size:24px; font-weight:700; color:#003592; line-height:1.5;">목록</span>
+    </a>
+</div>
+
+<!-- ========== 삭제(파기) 팝업 모달 ========== -->
+<div id="deleteModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:20px; width:732px; box-shadow:0 4px 40px rgba(0,0,0,0.15);">
+        <div style="padding:40px 40px 0 40px;">
+            <h2 style="font-size:28px; font-weight:700; color:#000; margin:0; line-height:1.5;">삭제 확인</h2>
+        </div>
+        <div style="padding:24px 40px 0 40px;">
+            <div style="background:#f8f9fb; border-radius:10px; padding:12px;">
+                <p style="font-size:18px; font-weight:400; color:#363636; line-height:1.6; margin:0;">삭제 시 개인정보를 포함한 모든 데이터가 즉시 파기되며 복구가 불가합니다.<br>관리자 명을 입력 후 삭제를 진행해 주세요. <span style="color:red;">*</span>는 필수 입력 항목입니다.</p>
+            </div>
+        </div>
+        <form method="post" action="../../report/delete/index.html?id=1" id="deleteForm">
+            <div style="padding:24px 40px;">
+                <div style="display:flex; gap:12px; align-items:center;">
+                    <label style="font-size:20px; font-weight:700; color:#363636; white-space:nowrap;">파기자 명 <span style="color:red;">*</span></label>
+                    <input type="text" name="destroyer_name" id="destroyerName" placeholder="파기자 명을 입력해 주세요." style="flex:1; height:52px; border:1px solid #d3d3d3; border-radius:10px; padding:0 20px; font-size:18px; font-weight:400; color:#000; font-family:var(--font); box-sizing:border-box;">
+                </div>
+                <div id="destroyerError" style="display:none; margin-top:8px; font-size:16px; color:#e53e3e;">파기자 명을 입력해 주세요.</div>
+            </div>
+            <div style="display:flex; gap:12px; justify-content:flex-end; padding:0 40px 40px 40px;">
+                <button type="button" id="cancelDelete" style="display:flex; align-items:center; justify-content:center; width:120px; height:52px; background:#fff; border:1px solid rgba(34,34,34,0.2); border-radius:10px; font-size:18px; font-weight:600; color:#000; cursor:pointer; font-family:var(--font);">취소</button>
+                <button type="submit" style="display:flex; align-items:center; justify-content:center; width:120px; height:52px; background:#e53e3e; border:none; border-radius:10px; font-size:18px; font-weight:600; color:#fff; cursor:pointer; font-family:var(--font);">삭제</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ========== 상태변경 팝업 모달 ========== -->
+<div id="statusModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:20px; width:480px; box-shadow:0 4px 40px rgba(0,0,0,0.15);">
+        <div style="padding:40px 40px 0 40px;">
+            <h2 style="font-size:28px; font-weight:700; color:#000; margin:0; line-height:1.5;">상태 변경</h2>
+        </div>
+        <form method="post" id="statusChangeForm">
+            <div style="padding:24px 40px;">
+                <p style="font-size:18px; font-weight:400; color:#363636; line-height:1.6; margin:0 0 24px 0;">변경할 상태를 선택해 주세요.</p>
+                <div style="display:flex; flex-direction:column; gap:12px;" id="statusOptions">
+                    <label style="display:flex; gap:12px; align-items:center; padding:16px 20px; border:1px solid #d3d3d3; border-radius:10px; cursor:pointer;" data-value="received">
+                        <input type="radio" name="new_status" value="received" checked style="width:20px; height:20px;">
+                        <img src="../../public/img/icon_dot_report_received.svg" alt="" style="width:12px; height:12px;">
+                        <span style="font-size:18px; font-weight:500; color:#363636;">제보접수</span>
+                    </label>
+                    <label style="display:flex; gap:12px; align-items:center; padding:16px 20px; border:1px solid #d3d3d3; border-radius:10px; cursor:pointer;" data-value="review">
+                        <input type="radio" name="new_status" value="review"  style="width:20px; height:20px;">
+                        <img src="../../public/img/icon_dot_report_review.svg" alt="" style="width:12px; height:12px;">
+                        <span style="font-size:18px; font-weight:500; color:#363636;">검토 중</span>
+                    </label>
+                    <label style="display:flex; gap:12px; align-items:center; padding:16px 20px; border:1px solid #d3d3d3; border-radius:10px; cursor:pointer;" data-value="done">
+                        <input type="radio" name="new_status" value="done" style="width:20px; height:20px;">
+                        <img src="../../public/img/icon_dot_report_done.svg" alt="" style="width:12px; height:12px;">
+                        <span style="font-size:18px; font-weight:500; color:#363636;">처리완료</span>
+                    </label>
+                </div>
+            </div>
+            <div style="display:flex; gap:12px; justify-content:flex-end; padding:0 40px 40px 40px;">
+                <button type="button" id="cancelStatusModal" style="display:flex; align-items:center; justify-content:center; width:120px; height:52px; background:#fff; border:1px solid rgba(34,34,34,0.2); border-radius:10px; font-size:18px; font-weight:600; color:#000; cursor:pointer; font-family:var(--font);">취소</button>
+                <button type="submit" style="display:flex; align-items:center; justify-content:center; width:120px; height:52px; background:#003592; border:none; border-radius:10px; font-size:18px; font-weight:600; color:#fff; cursor:pointer; font-family:var(--font);">변경</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+(function() {
+    // 답변 폼 활성화
+    var contentEl = document.getElementById('answerContent');
+    var authorEl = document.getElementById('answerAuthor');
+    if (contentEl && authorEl) {
+        [contentEl, authorEl].forEach(function(el) {
+            el.addEventListener('input', function() {
+                var btn = document.getElementById('reportSubmitBtn');
+                if (contentEl.value.trim() && authorEl.value.trim()) { btn.style.background = '#003592'; btn.style.color = '#fff'; }
+                else { btn.style.background = '#d3d3d3'; btn.style.color = '#7a7a7a'; }
+            });
+        });
+    }
+
+    // 삭제 모달
+    var deleteModal = document.getElementById('deleteModal');
+    document.getElementById('openDeleteModal').addEventListener('click', function() { deleteModal.style.display = 'flex'; });
+    document.getElementById('cancelDelete').addEventListener('click', function() { deleteModal.style.display = 'none'; });
+    deleteModal.addEventListener('click', function(e) { if (e.target === deleteModal) deleteModal.style.display = 'none'; });
+    document.getElementById('deleteForm').addEventListener('submit', function(e) {
+        var name = document.getElementById('destroyerName').value.trim();
+        if (!name) { e.preventDefault(); document.getElementById('destroyerError').style.display = ''; document.getElementById('destroyerName').style.borderColor = '#e53e3e'; document.getElementById('destroyerName').focus(); return; }
+        document.getElementById('destroyerError').style.display = 'none';
+    });
+
+    // 상태변경 모달
+    var statusModal = document.getElementById('statusModal');
+    var statusBtn = document.getElementById('openStatusModal');
+    if (statusModal && statusBtn) {
+        statusBtn.addEventListener('click', function() {
+            var current = 'received';
+            document.querySelectorAll('#statusOptions label').forEach(function(label) {
+                label.style.borderColor = (label.dataset.value === current) ? '#003592' : '#d3d3d3';
+                label.style.background = (label.dataset.value === current) ? '#f0f4ff' : '#fff';
+            });
+            statusModal.style.display = 'flex';
+        });
+        document.getElementById('cancelStatusModal').addEventListener('click', function() { statusModal.style.display = 'none'; });
+        statusModal.addEventListener('click', function(e) { if (e.target === statusModal) statusModal.style.display = 'none'; });
+        document.querySelectorAll('#statusOptions input[name="new_status"]').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('#statusOptions label').forEach(function(l) { l.style.borderColor = '#d3d3d3'; l.style.background = '#fff'; });
+                this.closest('label').style.borderColor = '#003592'; this.closest('label').style.background = '#f0f4ff';
+            });
+        });
+        document.getElementById('statusChangeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var selected = this.querySelector('input[name="new_status"]:checked');
+            if (!selected) return;
+            // TODO: AJAX POST /report/changeStatus/1            alert('상태가 변경되었습니다.');
+            statusModal.style.display = 'none'; location.reload();
+        });
+    }
+})();
+</script>
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>

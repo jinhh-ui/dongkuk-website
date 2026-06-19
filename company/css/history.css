@@ -1,9 +1,4 @@
 /* Breakpoint Helper Classes */
-.desk-br {
-    display: block;
-}
-
-
 
 .mo-br,
 .m-br {
@@ -463,11 +458,8 @@
 }
 
 @media (max-width: 767px) {
-    .desk-br {
-        display: none;
-    }
-
-    .mo-br,
+    
+.mo-br,
     .m-br {
         display: block;
     }

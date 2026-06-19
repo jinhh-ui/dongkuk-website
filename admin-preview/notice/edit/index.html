@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공고 수정</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow ">
+                </a>
+                <div class="lnb-submenu ">
+                    <a href="../../video/list/index.html" class="lnb-sub ">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub ">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item active"><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item "><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item "><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item "><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item "><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item "><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+<!-- 헤더 -->
+<div class="content-header">
+    <h1 class="content-title">공고 수정</h1>
+</div>
+
+<!-- 폼 -->
+<form method="post" action="../../notice/update/index.html?id=1" id="noticeForm" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="1">    <input type="hidden" name="mode" value="edit">
+
+    <div style="display:flex; flex-direction:column; gap:40px;">
+        <!-- 필수 표시: 우측, 18px Medium -->
+        <div style="display:flex; justify-content:flex-end;">
+            <span style="font-size:18px; font-weight:500; color:#000; line-height:1.6;"><span style="color:red;">*</span>는 필수 입력 항목입니다.</span>
+        </div>
+
+        <!-- 공고명: label w-160 + input h-60 border #a7a7a7 rounded-10 px-24 -->
+        <div style="display:flex; gap:24px; align-items:center; height:60px;">
+            <div style="width:160px; flex-shrink:0; padding:12px 0; display:flex; gap:4px; align-items:center;">
+                <span style="font-size:24px; font-weight:700; color:#363636; line-height:1.5;">공고명</span>
+                <span style="font-size:20px; font-weight:400; color:rgba(255,0,0,0.8); line-height:32px;">*</span>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+                <input type="text" name="title" id="inputTitle" value="2025년 제2회 임시주주총회 소집 공고" placeholder="공고명을 입력해주세요." style="width:100%; height:60px; border:1px solid #a7a7a7; border-radius:10px; padding:0 24px; font-size:22px; font-weight:400; color:#000; line-height:1.6; font-family:var(--font); box-sizing:border-box;">
+                <div id="titleError" style="display:none; font-size:16px; color:#e53e3e;"></div>
+            </div>
+        </div>
+
+        <!-- 게시 일시: label + date(flex-1 h-60) + time(flex-1 h-60) -->
+        <div style="display:flex; gap:24px; align-items:center;">
+            <div style="width:160px; flex-shrink:0; padding:12px 0; display:flex; gap:4px; align-items:center;">
+                <span style="font-size:24px; font-weight:700; color:#363636; line-height:1.5;">게시 일시</span>
+                <span style="font-size:20px; font-weight:400; color:rgba(255,0,0,0.8); line-height:32px;">*</span>
+            </div>
+            <div style="flex:1; display:flex; gap:16px; align-items:center;">
+                <div style="flex:1; position:relative;">
+                    <input type="text" name="publish_date" id="noticeDate" value="2025-06-10" class="picker-input" placeholder="YYYY-MM-DD" readonly>
+                    <svg style="position:absolute; right:20px; top:50%; transform:translateY(-50%); pointer-events:none;" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="14" rx="2" stroke="#999" stroke-width="1.5"/><path d="M2 8h16" stroke="#999" stroke-width="1.5"/><path d="M6 2v4M14 2v4" stroke="#999" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <div style="flex:1; position:relative;">
+                    <input type="text" name="publish_time" id="noticeTime" value="09:00" class="picker-input" readonly>
+                    <svg style="position:absolute; right:20px; top:50%; transform:translateY(-50%); pointer-events:none;" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#999" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- 구분: label + radio 3개 (결산공고/주주총회/기타) -->
+        <div style="display:flex; gap:24px; align-items:center; height:60px;">
+            <div style="width:160px; flex-shrink:0; padding:12px 0; display:flex; gap:4px; align-items:center;">
+                <span style="font-size:24px; font-weight:700; color:#363636; line-height:1.5;">구분</span>
+                <span style="font-size:20px; font-weight:400; color:rgba(255,0,0,0.8); line-height:32px;">*</span>
+            </div>
+            <div style="display:flex; gap:24px; align-items:center;">
+                                <label style="display:flex; gap:16px; align-items:center; width:172px; cursor:pointer;">
+                    <input type="radio" name="category" value="settlement"  style="display:none;" class="notice-radio">
+                    <img src="../../public/img/icon_radio_off.svg" alt="" style="width:36px; height:36px;" class="radio-img">
+                    <span style="font-size:22px; font-weight:400; color:#000; line-height:1.6;">결산공고</span>
+                </label>
+                                <label style="display:flex; gap:16px; align-items:center; width:172px; cursor:pointer;">
+                    <input type="radio" name="category" value="shareholder"  style="display:none;" class="notice-radio">
+                    <img src="../../public/img/icon_radio_off.svg" alt="" style="width:36px; height:36px;" class="radio-img">
+                    <span style="font-size:22px; font-weight:400; color:#000; line-height:1.6;">주주총회</span>
+                </label>
+                                <label style="display:flex; gap:16px; align-items:center; width:172px; cursor:pointer;">
+                    <input type="radio" name="category" value="etc"  style="display:none;" class="notice-radio">
+                    <img src="../../public/img/icon_radio_off.svg" alt="" style="width:36px; height:36px;" class="radio-img">
+                    <span style="font-size:22px; font-weight:400; color:#000; line-height:1.6;">기타</span>
+                </label>
+                            </div>
+        </div>
+
+        <!-- 첨부파일: label + 파일선택(bg #003592 h-52 rounded-10 px-20) + dropzone(h-200) + 안내 -->
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+            <div style="width:160px; flex-shrink:0; padding:12px 0;">
+                <span style="font-size:24px; font-weight:700; color:#363636; line-height:1.5;">첨부파일</span>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:24px;">
+                <!-- 파일선택 버튼: bg #003592 h-52 rounded-10 px-20 18px Medium white -->
+                <div style="padding-top:4px;">
+                    <label for="noticeFile" style="display:inline-flex; align-items:center; justify-content:center; height:52px; padding:0 20px; background:#003592; border-radius:10px; font-size:18px; font-weight:500; color:#fff; cursor:pointer; line-height:1.6;">
+                        파일선택
+                    </label>
+                    <input type="file" name="file" id="noticeFile" style="display:none;" accept=".jpg,.gif,.png,.xls,.xlsx,.doc,.docx,.ppt,.pdf,.txt,.zip">
+                    <span id="fileNameDisplay" style="margin-left:12px; font-size:18px; color:#363636;"></span>
+                </div>
+                <!-- 드롭존: bg #f8f9fb border dashed #a7a7a7 h-200 rounded-10 gap-10 -->
+                <div id="noticeDropzone" style="width:100%; height:200px; border:1px dashed #a7a7a7; border-radius:10px; background:#f8f9fb; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:13px 24px;">
+                    <img src="../../public/img/icon_file_cog.svg" alt="" style="width:36px; height:36px;">
+                    <span style="font-size:20px; font-weight:400; color:#4e4e4e; line-height:1.6;">첨부할 파일을 여기에 끌어다 놓거나, 파일선택 버튼을 눌러 직접 선택해 주세요.</span>
+                </div>
+                <!-- 안내문: dot(6x6) + 20px Regular #7a7a7a -->
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <div style="display:flex; gap:6px; align-items:flex-start;">
+                        <div style="display:flex; align-items:center; height:32px; padding:0 5px;"><span style="display:inline-block; width:6px; height:6px; background:#7a7a7a; border-radius:50%;"></span></div>
+                        <span style="font-size:20px; font-weight:400; color:#7a7a7a; line-height:1.6;">jpg, gif, png, xls, xlsx, doc, docx, ppt, pdf, txt, zip 파일만 업로드가 가능합니다.</span>
+                    </div>
+                    <div style="display:flex; gap:6px; align-items:flex-start;">
+                        <div style="display:flex; align-items:center; height:32px; padding:0 5px;"><span style="display:inline-block; width:6px; height:6px; background:#7a7a7a; border-radius:50%;"></span></div>
+                        <span style="font-size:20px; font-weight:400; color:#7a7a7a; line-height:1.6;">파일은 최대 20MB,  1개까지 등록 가능합니다.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 버튼: gap-16, center, py-60 -->
+    <div class="form-actions" style="display:flex; gap:16px; align-items:center; justify-content:center; padding:60px 0;">
+        <a href="../../notice/list/index.html" id="cancelBtn" style="display:flex; align-items:center; justify-content:center; width:346px; height:80px; border:1px solid #003592; border-radius:10px; font-size:24px; font-weight:700; color:#003592; line-height:1.5;">
+            취소
+        </a>
+        <button type="submit" style="display:flex; align-items:center; justify-content:center; width:346px; height:80px; background:#003592; border:1px solid #003592; border-radius:10px; font-size:24px; font-weight:700; color:#fff; line-height:1.5; cursor:pointer; font-family:var(--font);">
+            수정        </button>
+    </div>
+</form>
+
+<!-- 외부 라이브러리 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="../../public/css/datepicker.css">
+<link rel="stylesheet" href="../../public/css/timepicker.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+<script src="../../public/js/timepicker.js"></script>
+
+<script>
+(function(){
+    var dirty = false;
+    var form = document.getElementById('noticeForm');
+
+    // 날짜 피커 (flatpickr)
+    var dateInput = document.getElementById('noticeDate');
+    flatpickr(dateInput, {
+        locale: 'ko',
+        dateFormat: 'Y-m-d',
+        defaultDate: dateInput.value || 'today',
+        disableMobile: true,
+        static: true,
+        appendTo: dateInput.parentElement,
+        onChange: function() { dirty = true; }
+    });
+
+    // 시간 피커 (커스텀)
+    new TimePicker('#noticeTime', {
+        onChange: function() { dirty = true; }
+    });
+
+    // 라디오 이미지 토글
+    document.querySelectorAll('.notice-radio').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            document.querySelectorAll('.radio-img').forEach(function(img) {
+                img.src = '../../public/img/icon_radio_off.svg';
+            });
+            this.parentElement.querySelector('.radio-img').src = '../../public/img/icon_radio_on.svg';
+            dirty = true;
+        });
+    });
+
+    // 파일 드롭존
+    var dz = document.getElementById('noticeDropzone');
+    var fileInput = document.getElementById('noticeFile');
+    var fileDisplay = document.getElementById('fileNameDisplay');
+
+    dz.addEventListener('dragover', function(e) { e.preventDefault(); this.style.borderColor = '#003592'; });
+    dz.addEventListener('dragleave', function() { this.style.borderColor = '#a7a7a7'; });
+    dz.addEventListener('drop', function(e) {
+        e.preventDefault(); this.style.borderColor = '#a7a7a7';
+        fileInput.files = e.dataTransfer.files;
+        showFileName(e.dataTransfer.files);
+        dirty = true;
+    });
+    fileInput.addEventListener('change', function() {
+        showFileName(this.files);
+        dirty = true;
+    });
+
+    function showFileName(files) {
+        if (!files || files.length === 0) return;
+        var file = files[0];
+        var sizeMB = (file.size / (1024 * 1024)).toFixed(1);
+        var maxMB = 20;
+
+        // 드롭존을 Input Container(피그마 744:7427) 상태로 변환
+        dz.style.height = 'auto';
+        dz.style.alignItems = 'flex-start';
+        dz.style.justifyContent = 'flex-start';
+        dz.style.gap = '20px';
+        dz.style.padding = '24px';
+        dz.innerHTML = '' +
+            /* 상단: 파일용량 + 구분선 + 첨부파일 */
+            '<div style="display:flex; gap:16px; align-items:center; width:100%;">' +
+                '<div style="display:flex; gap:16px; align-items:center; white-space:nowrap; line-height:1.6;">' +
+                    '<span style="font-size:18px; font-weight:500; color:#4e4e4e;">파일용량</span>' +
+                    '<div style="display:flex; gap:4px; align-items:center;">' +
+                        '<span style="font-size:18px; font-weight:500; color:#003592;">' + sizeMB + 'MB</span>' +
+                        '<span style="font-size:20px; font-weight:400; color:#4e4e4e;">/</span>' +
+                        '<span style="font-size:18px; font-weight:500; color:#4e4e4e;">' + maxMB + 'MB</span>' +
+                    '</div>' +
+                '</div>' +
+                '<div style="width:0; height:16px; display:flex; align-items:center; justify-content:center;">' +
+                    '<div style="width:16px; height:0; border-top:1px solid #d3d3d3; transform:rotate(90deg);"></div>' +
+                '</div>' +
+                '<div style="display:flex; gap:16px; align-items:center; white-space:nowrap; line-height:1.6;">' +
+                    '<span style="font-size:18px; font-weight:500; color:#4e4e4e;">첨부파일</span>' +
+                    '<div style="display:flex; gap:4px; align-items:center;">' +
+                        '<span style="font-size:18px; font-weight:500; color:#003592;">1개</span>' +
+                        '<span style="font-size:20px; font-weight:400; color:#4e4e4e;">/</span>' +
+                        '<span style="font-size:18px; font-weight:500; color:#4e4e4e;">1개</span>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            /* 파일 항목 */
+            '<div style="display:flex; flex-direction:column; gap:8px; width:100%;">' +
+                '<div style="display:flex; gap:24px; align-items:center; padding:12px 15px; background:#fff; border-radius:8px;">' +
+                    '<span class="file-remove-btn" style="display:flex; align-items:center; justify-content:center; width:24px; height:24px; cursor:pointer; font-size:18px; color:#a7a7a7; font-weight:400; flex-shrink:0;">✕</span>' +
+                    '<div style="display:flex; gap:16px; align-items:center; line-height:1.6;">' +
+                        '<span style="font-size:20px; font-weight:400; color:#4e4e4e; white-space:nowrap;">' + file.name + '</span>' +
+                        '<span style="font-size:16px; font-weight:400; color:#a7a7a7; line-height:1.6;">(' + sizeMB + 'MB)</span>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+
+        // X 버튼 클릭 → 파일 삭제 후 원래 드롭존 복원
+        dz.querySelector('.file-remove-btn').addEventListener('click', function() {
+            fileInput.value = '';
+            fileDisplay.textContent = '';
+            resetDropzone();
+        });
+    }
+
+    function resetDropzone() {
+        dz.style.height = '200px';
+        dz.style.alignItems = 'center';
+        dz.style.justifyContent = 'center';
+        dz.style.gap = '10px';
+        dz.style.padding = '13px 24px';
+        dz.innerHTML = '<img src="../../public/img/icon_file_cog.svg" alt="" style="width:36px; height:36px;">' +
+            '<span style="font-size:20px; font-weight:400; color:#4e4e4e; line-height:1.6;">첨부할 파일을 여기에 끌어다 놓거나, 파일선택 버튼을 눌러 직접 선택해 주세요.</span>';
+    }
+
+    // dirty 플래그
+    form.addEventListener('input', function(){ dirty = true; });
+    form.addEventListener('change', function(){ dirty = true; });
+
+    // 페이지 이탈 경고
+    window.addEventListener('beforeunload', function(e){
+        if (dirty) { e.preventDefault(); e.returnValue = ''; return ''; }
+    });
+
+    // 취소 버튼
+    document.getElementById('cancelBtn').addEventListener('click', function(e){
+        if (dirty) {
+            e.preventDefault();
+            if (confirm('변경사항이 저장되지 않았습니다.\n이 페이지를 벗어나시겠습니까?')) {
+                dirty = false;
+                location.href = this.href;
+            }
+        }
+    });
+
+    // 폼 제출
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var titleInput = document.getElementById('inputTitle');
+        var titleError = document.getElementById('titleError');
+        if (!titleInput.value.trim()) {
+            titleError.textContent = '공고명을 입력해 주세요.';
+            titleError.style.display = '';
+            titleInput.style.borderColor = '#e53e3e';
+            titleInput.focus();
+            return;
+        }
+        titleError.style.display = 'none';
+        titleInput.style.borderColor = '#a7a7a7';
+
+        dirty = false;
+        form.submit();
+    });
+})();
+</script>
+
+<style>
+.picker-input {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #a7a7a7;
+    border-radius: 10px;
+    padding: 0 50px 0 24px;
+    font-size: 22px;
+    font-family: var(--font);
+    color: #000;
+    box-sizing: border-box;
+    background: #fff;
+    cursor: pointer;
+    line-height: 1.6;
+}
+.picker-input:focus { border-color: #003592; outline: none; }
+</style>
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>

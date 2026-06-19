@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 상세</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow ">
+                </a>
+                <div class="lnb-submenu ">
+                    <a href="../../video/list/index.html" class="lnb-sub ">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub ">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item "><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item "><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item "><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item "><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item active"><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item "><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+<div class="content-header">
+    <h1 class="content-title">DiKel 니켈도금강판 샘플 요청</h1>
+    <button type="button" id="openDeleteModal" class="btn-row-edit">삭제</button>
+</div>
+
+<div class="detail-body">
+    <div class="detail-body-columns">
+        <div class="detail-main">
+            <p class="detail-section-label">문의 내용</p>
+            <div class="detail-row detail-row-top">
+                <div class="detail-label">내용</div>
+                <div class="detail-value">&lt;p&gt;DiKel 니켈도금강판 샘플을 요청드립니다. 현재 자동차 배터리 케이스용으로 검토 중입니다.&lt;/p&gt;</div>
+            </div>
+                    </div>
+
+        <div class="detail-sidebar">
+            <div class="detail-status-card">
+                <div class="detail-status-inner">
+                    <span class="badge-dot"><img src="../../public/img/icon_dot_inquiry_waiting.svg" alt="">답변대기</span>
+                                        <button type="button" id="openStatusModal" class="btn-status-change">상태변경</button>
+                                    </div>
+            </div>
+            <div class="detail-info-card">
+                <div class="detail-info-section">
+                    <span class="detail-info-title">문의자 정보</span>
+                    <div class="detail-info-rows">
+                        <div class="detail-info-row"><span class="detail-info-label">이름</span><span class="detail-info-value">김담당</span></div>
+                        <div class="detail-info-row"><span class="detail-info-label">연락처</span><span class="detail-info-value">010-1234-5678</span></div>
+                        <div class="detail-info-row"><span class="detail-info-label">이메일</span><span class="detail-info-value">sample@example.com</span></div>
+                    </div>
+                </div>
+                <div class="detail-info-divider"></div>
+                <div class="detail-info-section">
+                    <span class="detail-info-title">접수 정보</span>
+                    <div class="detail-info-rows">
+                        <div class="detail-info-row"><span class="detail-info-label">접수 일시</span><span class="detail-info-value">2025.06.15</span></div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <form method="post" action="../../inquiry/answer/index.html?id=1" id="answerForm">
+        <div class="detail-answer-card detail-answer-form">
+            <p class="detail-required-note"><span class="text-red">*</span>는 필수 입력 항목입니다.</p>
+            <div class="detail-row detail-row-top">
+                <div class="detail-label">답변 작성 <span class="text-red">*</span></div>
+                <textarea name="answer_content" id="answerContent" placeholder="내용을 입력해 주세요." class="detail-textarea" required></textarea>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">작성자 명 <span class="text-red">*</span></div>
+                <input type="text" name="answer_author" id="answerAuthor" placeholder="작성자 명을 입력해 주세요." class="detail-input" required>
+            </div>
+            <button type="submit" id="submitBtn" class="btn-submit-answer disabled">등록</button>
+        </div>
+    </form>
+    </div>
+
+<div class="detail-footer">
+    <a href="../../inquiry/list/index.html" class="btn-back-list">목록</a>
+</div>
+
+<!-- 삭제(파기) 모달 -->
+<div id="deleteModal" class="modal-overlay hidden">
+    <div class="modal-box modal-box-wide">
+        <h2 class="modal-title">삭제 확인</h2>
+        <div class="modal-warning">
+            <p>삭제 시 개인정보를 포함한 모든 데이터가 즉시 파기되며 복구가 불가합니다.<br>관리자 명을 입력 후 삭제를 진행해 주세요. <span class="text-red">*</span>는 필수 입력 항목입니다.</p>
+        </div>
+        <form method="post" action="../../inquiry/delete/index.html?id=1" id="deleteForm">
+            <div class="modal-field">
+                <label class="modal-field-label">파기자 명 <span class="text-red">*</span></label>
+                <input type="text" name="destroyer_name" id="destroyerName" placeholder="파기자 명을 입력해 주세요." class="modal-field-input">
+                <div id="destroyerError" class="modal-field-error hidden">파기자 명을 입력해 주세요.</div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="cancelDelete" class="btn-modal-cancel">취소</button>
+                <button type="submit" class="btn-modal-danger">삭제</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- 상태변경 모달 -->
+<div id="statusModal" class="modal-overlay hidden">
+    <div class="modal-box">
+        <h2 class="modal-title">상태 변경</h2>
+        <form method="post" id="statusChangeForm">
+            <p class="modal-desc">변경할 상태를 선택해 주세요.</p>
+            <div class="status-options" id="statusOptions">
+                <label class="status-option" data-value="waiting">
+                    <input type="radio" name="new_status" value="waiting" checked>
+                    <img src="../../public/img/icon_dot_inquiry_waiting.svg" alt="">
+                    <span>답변대기</span>
+                </label>
+                <label class="status-option" data-value="done">
+                    <input type="radio" name="new_status" value="done">
+                    <img src="../../public/img/icon_dot_inquiry_done.svg" alt="">
+                    <span>답변완료</span>
+                </label>
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="cancelStatusModal" class="btn-modal-cancel">취소</button>
+                <button type="submit" class="btn-modal-confirm">변경</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+(function() {
+    // 답변 폼 활성화
+    var contentEl = document.getElementById('answerContent');
+    var authorEl = document.getElementById('answerAuthor');
+    if (contentEl && authorEl) {
+        [contentEl, authorEl].forEach(function(el) {
+            el.addEventListener('input', function() {
+                var btn = document.getElementById('submitBtn');
+                if (contentEl.value.trim() && authorEl.value.trim()) { btn.classList.remove('disabled'); btn.classList.add('active'); }
+                else { btn.classList.add('disabled'); btn.classList.remove('active'); }
+            });
+        });
+    }
+
+    // 삭제 모달
+    var deleteModal = document.getElementById('deleteModal');
+    document.getElementById('openDeleteModal').addEventListener('click', function() { deleteModal.classList.remove('hidden'); });
+    document.getElementById('cancelDelete').addEventListener('click', function() { deleteModal.classList.add('hidden'); });
+    deleteModal.addEventListener('click', function(e) { if (e.target === deleteModal) deleteModal.classList.add('hidden'); });
+    document.getElementById('deleteForm').addEventListener('submit', function(e) {
+        var name = document.getElementById('destroyerName').value.trim();
+        if (!name) { e.preventDefault(); document.getElementById('destroyerError').classList.remove('hidden'); document.getElementById('destroyerName').focus(); return; }
+        document.getElementById('destroyerError').classList.add('hidden');
+    });
+
+    // 상태변경 모달
+    var statusModal = document.getElementById('statusModal');
+    var statusBtn = document.getElementById('openStatusModal');
+    if (statusModal && statusBtn) {
+        statusBtn.addEventListener('click', function() {
+            var current = 'waiting';
+            document.querySelectorAll('#statusOptions .status-option').forEach(function(label) {
+                label.classList.toggle('active', label.dataset.value === current);
+            });
+            statusModal.classList.remove('hidden');
+        });
+        document.getElementById('cancelStatusModal').addEventListener('click', function() { statusModal.classList.add('hidden'); });
+        statusModal.addEventListener('click', function(e) { if (e.target === statusModal) statusModal.classList.add('hidden'); });
+        document.querySelectorAll('#statusOptions input[name="new_status"]').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('#statusOptions .status-option').forEach(function(l) { l.classList.remove('active'); });
+                this.closest('.status-option').classList.add('active');
+            });
+        });
+        document.getElementById('statusChangeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var selected = this.querySelector('input[name="new_status"]:checked');
+            if (!selected) return;
+            alert('상태가 변경되었습니다.');
+            statusModal.classList.add('hidden'); location.reload();
+        });
+    }
+})();
+</script>
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>

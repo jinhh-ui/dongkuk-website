@@ -21,14 +21,9 @@ body {
     overflow-x: hidden;
 }
 
-.pc-br {
-    display: block;
-}
 
 @media (max-width: 767px) {
-    .pc-br {
-        display: none;
-    }
+    
 }
 
 
@@ -447,9 +442,7 @@ body {
         height: auto;
     }
 
-    .colors-intro .pc-br {
-        display: none;
-    }
+    .colors-intro 
 }
 
 /* Responsive (Mobile 360px) */

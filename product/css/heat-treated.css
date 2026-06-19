@@ -1462,9 +1462,6 @@ img.ic-download {
         padding: var(--section-padding-y) 5vw 0;
     }
 
-    .pc-br {
-        display: none;
-    }
 
     .pi-desc br {
         display: none;
@@ -2117,7 +2114,7 @@ img.ic-download {
     }
 
     .mo-br { display: block; }
-    .pc-br { display: none; }
+
 
     /* Accordion — 1680px 고정폭 해제 */
     .accordion {

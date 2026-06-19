@@ -3,9 +3,6 @@
     display: none;
 }
 
-.desk-br {
-    display: inline;
-}
 
 .pc-only {
     display: inline-block;
@@ -15,17 +12,13 @@
     display: none;
 }
 
-/* Tablet (601px ~ 1023px) 자연스러운 줄바꿈을 위해 강제 줄바꿈 해제 */
+/* Tablet/Mobile — 모바일 전용 요소 표시 */
 @media (max-width: 767px) {
-
     .mo-only,
-    .mo-br,
-    .desk-br,
-    .pc-br {
-        display: none;
+    .mo-br {
+        display: block;
     }
 }
-
 
 /* ===== Hero Text (sticky scroll-to-color) ===== */
 .hero-text-outer {
@@ -3945,11 +3938,8 @@ body {
         display: block;
     }
 
-    .desk-br {
-        display: none;
-    }
-
-    /* Brand Resource 탭 패널 */
+    
+/* Brand Resource 탭 패널 */
     .brand-section,
     .brand-inner,
     .brand-row,

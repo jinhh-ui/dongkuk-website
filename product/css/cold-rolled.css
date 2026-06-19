@@ -5,9 +5,7 @@
     display: none;
 }
 
-.pc-br {
-    display: block;
-}
+
 
 
 
@@ -1604,9 +1602,6 @@ img.ic-download {
         padding: var(--section-padding-y) 5vw 0;
     }
 
-    .pc-br {
-        display: none;
-    }
 
     .pi-desc br {
         display: none;
@@ -3530,9 +3525,7 @@ img.ic-download {
         display: block;
     }
 
-    .pc-br {
-        display: none;
-    }
+
 }
 
 @media (max-width: 767px) {
