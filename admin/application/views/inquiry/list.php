@@ -38,14 +38,16 @@ $tabs = [
 
     <div class="list-content"><div class="list-table">
         <div class="table-header">
-            <div class="row-title-group">
-                <div class="cell-check"><input type="checkbox" id="checkAllInq" onclick="toggleAllInq(this)"></div>
-                <span class="th th-title">문의 제목</span>
+            <div class="row-data">
+                <div class="row-title-group">
+                    <div class="cell-check"><input type="checkbox" id="checkAllInq" onclick="toggleAllInq(this)"></div>
+                    <span class="th th-title">문의 제목</span>
+                </div>
+                <span class="th w-200">구분</span>
+                <span class="th w-200">상태</span>
+                <span class="th w-200">접수일</span>
+                <span class="th w-200">답변일</span>
             </div>
-            <span class="th w-200">구분</span>
-            <span class="th w-200">상태</span>
-            <span class="th w-200">접수일</span>
-            <span class="th w-200">답변일</span>
         </div>
 
         <div class="table-body">

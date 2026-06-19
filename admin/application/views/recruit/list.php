@@ -40,13 +40,15 @@ $currentStatus = isset($status) ? $status : '';
 
     <div class="list-content"><div class="list-table">
         <div class="table-header">
-            <div class="row-title-group">
-                <div class="cell-check"><input type="checkbox" id="checkAllRecruit" onclick="toggleAllRecruit(this)"></div>
-                <span class="th th-title">채용공고명</span>
+            <div class="row-data">
+                <div class="row-title-group">
+                    <div class="cell-check"><input type="checkbox" id="checkAllRecruit" onclick="toggleAllRecruit(this)"></div>
+                    <span class="th th-title">채용공고명</span>
+                </div>
+                <span class="th w-80">직군</span>
+                <span class="th w-220">채용정보</span>
+                <span class="th w-404">채용기간</span>
             </div>
-            <span class="th w-80">직군</span>
-            <span class="th w-220">채용정보</span>
-            <span class="th w-404">채용기간</span>
         </div>
 
         <div class="table-body">

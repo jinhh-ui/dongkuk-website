@@ -32,13 +32,15 @@ $currentCategory = isset($category) ? $category : '';
 
     <div class="list-content"><div class="list-table">
         <div class="table-header has-edit">
-            <div class="row-title-group">
-                <div class="cell-check"><input type="checkbox" id="checkAllNotice" onclick="toggleAllNotice(this)"></div>
-                <span class="th th-title">공고명</span>
+            <div class="row-data">
+                <div class="row-title-group">
+                    <div class="cell-check"><input type="checkbox" id="checkAllNotice" onclick="toggleAllNotice(this)"></div>
+                    <span class="th th-title">공고명</span>
+                </div>
+                <span class="th w-200">구분</span>
+                <span class="th w-200">게시일</span>
+                <span class="th w-200">파일</span>
             </div>
-            <span class="th w-200">구분</span>
-            <span class="th w-200">게시일</span>
-            <span class="th w-200">파일</span>
         </div>
 
         <div class="table-body">

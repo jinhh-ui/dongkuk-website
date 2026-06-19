@@ -23,12 +23,14 @@
 
     <div class="list-content"><div class="list-table">
         <div class="table-header has-edit">
-            <div class="row-title-group">
-                <div class="cell-check"><input type="checkbox" id="checkAll" onclick="toggleAll(this)"></div>
-                <span class="th th-title">뉴스 제목</span>
+            <div class="row-data">
+                <div class="row-title-group">
+                    <div class="cell-check"><input type="checkbox" id="checkAll" onclick="toggleAll(this)"></div>
+                    <span class="th th-title">뉴스 제목</span>
+                </div>
+                <span class="th w-200">게시일</span>
+                <span class="th w-200">최종업데이트</span>
             </div>
-            <span class="th w-200">게시일</span>
-            <span class="th w-200">최종업데이트</span>
         </div>
 
         <div class="table-body">

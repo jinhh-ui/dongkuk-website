@@ -39,13 +39,15 @@ $currentCat = isset($category) ? $category : '';
 
     <div class="list-content"><div class="list-table">
         <div class="table-header has-edit">
-            <div class="row-title-group">
-                <div class="cell-check"><input type="checkbox" id="checkAllIR" onclick="toggleAllIR(this)"></div>
-                <span class="th th-title">IR 자료명</span>
+            <div class="row-data">
+                <div class="row-title-group">
+                    <div class="cell-check"><input type="checkbox" id="checkAllIR" onclick="toggleAllIR(this)"></div>
+                    <span class="th th-title">IR 자료명</span>
+                </div>
+                <span class="th w-120">구분</span>
+                <span class="th w-200">등록일</span>
+                <span class="th w-200">최종업데이트</span>
             </div>
-            <span class="th w-120">구분</span>
-            <span class="th w-200">등록일</span>
-            <span class="th w-200">최종업데이트</span>
         </div>
 
         <div class="table-body">

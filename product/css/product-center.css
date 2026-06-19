@@ -929,7 +929,7 @@ body .no-transition *,
     }
 
     .standard-card.active {
-        width: 300px;
+        width: 400px;
         height: 320px;
         border-radius: 16px;
     }
@@ -954,15 +954,25 @@ body .no-transition *,
     }
 
     .marker-china {
-        bottom: 23%;
+        bottom: 30%;
     }
 
     .marker-japan {
-        bottom: 23%;
+        bottom: 30%;
     }
 
     .pc-btn-icon {
         border-width: 1px;
+    }
+
+    .card-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .standard-card.active .card-icon {
+        width: 45px;
+        height: 45px;
     }
 }
 

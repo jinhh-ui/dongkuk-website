@@ -240,6 +240,8 @@ body {
   opacity: 0;
   line-height: 0;
   will-change: transform, opacity;
+  border-radius: clamp(12px, 1.6vw, 20px);
+  overflow: hidden;
 }
 
 .orb-card img {
@@ -1481,7 +1483,7 @@ body {
     top: auto !important;
     width: 100% !important;
     height: auto !important;
-    font-size: clamp(22px, 2.78vw, 30px) !important;
+    font-size: clamp(18px, 2.3vw, 30px) !important;
     font-weight: 700 !important;
     color: #fff !important;
     opacity: 0.8;
@@ -1499,7 +1501,7 @@ body {
     left: auto !important;
     bottom: auto !important;
     width: 100% !important;
-    font-size: clamp(18px, 2.22vw, 24px) !important;
+    font-size: clamp(16px, 2.1vw, 24px) !important;
     font-weight: 400 !important;
     color: #fff !important;
     opacity: 0.8;
@@ -1806,7 +1808,7 @@ body {
   }
 
   .orb-card {
-    border-radius: 12px;
+    /* border-radius: 기본 clamp(12px, 1.6vw, 20px) 상속 */
   }
 
   .orb-card img {
@@ -1911,8 +1913,8 @@ body {
   .product-card {
     width: 100% !important;
     max-width: 100% !important;
-    height: 75svh !important;
-    padding: 24px 16px 20px !important;
+    height: auto !important;
+    padding: 150px 16px 20px !important;
     border-radius: 16px !important;
     margin: 0 0 16px !important;
     position: relative;
@@ -1921,22 +1923,26 @@ body {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
     box-sizing: border-box !important;
   }
 
   /* ── 좌측 컨텐츠 ── */
   .product-left {
+    flex: 0 0 auto !important;
     width: 100%;
+    height: auto !important;
     z-index: 3;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 
   .product-dikel {
     margin-bottom: 0 !important;
     gap: 8px !important;
+    align-items: center !important;
   }
 
   .product-dikel-icon {
@@ -1983,6 +1989,7 @@ body {
     height: auto !important;
     margin-bottom: 0 !important;
     line-height: 1.4 !important;
+    color: #fff !important;
   }
 
   /* ── Info Card: Figma에서는 흰색 카드 없음 → 텍스트 직접 표시 ── */
@@ -2015,7 +2022,7 @@ body {
     top: auto !important;
     width: 100% !important;
     height: auto !important;
-    font-size: clamp(14px, 4vw, 18px) !important;
+    font-size: 18px !important;
     font-weight: 700 !important;
     color: #fff !important;
     opacity: 0.8;
@@ -2098,7 +2105,7 @@ body {
     left: auto !important;
     right: auto !important;
     bottom: auto !important;
-    margin-top: 16px;
+    margin-top: 0;
     width: 100%;
     z-index: 3;
   }
@@ -2121,20 +2128,21 @@ body {
 
   .product-detail-btn a:not(.circle-arrow) {
     width: auto;
-    padding: 10px 16px;
+    padding: 11px 16px 10px !important;
     height: auto;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 10px;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    border-radius: 10px !important;
     background: #fff !important;
     color: #000 !important;
+    line-height: 1.5 !important;
   }
 
   .product-detail-btn .circle-arrow {
     width: 42px;
     height: 42px;
-    padding: 11px;
-    border-radius: 10px;
+    padding: 11px !important;
+    border-radius: 10px !important;
     border-color: #fff !important;
   }
 
