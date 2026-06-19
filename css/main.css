@@ -739,6 +739,7 @@ body {
   overflow: hidden;
   display: flex;
   align-items: center;
+  margin-top: -40px;
 }
 
 .slogan-track {
@@ -794,6 +795,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 80px 30px;
+  padding-top: 0;
 }
 
 /* ══ 투자 섹션 (피그마 리빌드) ══ */
