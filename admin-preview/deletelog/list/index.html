@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파기 이력</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow ">
+                </a>
+                <div class="lnb-submenu ">
+                    <a href="../../video/list/index.html" class="lnb-sub ">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub ">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item "><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item "><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item "><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item "><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item "><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item active"><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+<div class="content-header">
+    <h1 class="content-title">파기 이력</h1>
+</div>
+
+<div class="deletelog-summary">
+    <div class="deletelog-stats">
+        <div class="stat-card stat-card-total">
+            <span class="stat-card-title">전체 파기</span>
+            <div class="stat-card-bottom">
+                <div class="stat-card-value">
+                    <span class="stat-card-num">0</span>
+                    <span class="stat-card-unit">건</span>
+                </div>
+                <span class="stat-card-desc">누적 </span>
+            </div>
+        </div>
+        <div class="stat-card stat-card-split">
+            <div class="stat-card-col">
+                <span class="stat-card-title">자동 파기</span>
+                <div class="stat-card-bottom">
+                    <div class="stat-card-value">
+                        <span class="stat-card-num">0</span>
+                        <span class="stat-card-unit">건</span>
+                    </div>
+                    <span class="stat-card-desc">보유기간 만료</span>
+                </div>
+            </div>
+            <div class="stat-card-divider-v"></div>
+            <div class="stat-card-col">
+                <span class="stat-card-title">수동 파기</span>
+                <div class="stat-card-bottom">
+                    <div class="stat-card-value">
+                        <span class="stat-card-num">0</span>
+                        <span class="stat-card-unit">건</span>
+                    </div>
+                    <span class="stat-card-desc">관리자 직접 삭제</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="deletelog-alert">
+        <img src="../../public/img/icon_info_orange.svg" alt="" class="deletelog-alert-icon">
+        <span class="deletelog-alert-text">파기 이력은 개인정보처리방침에 따라 보존되며, 수정 및 삭제가 불가합니다.</span>
+    </div>
+</div>
+
+<div class="content-body">
+    <form method="get" action="../../deletelog/list/index.html" class="deletelog-filter" id="filterForm">
+        <select name="menu" class="filter-select deletelog-select" onchange="this.form.submit()">
+            <option value="">메뉴</option>
+            <option value="report" >제보하기</option>
+            <option value="inquiry" >문의하기</option>
+        </select>
+        <select name="type" class="filter-select deletelog-select" onchange="this.form.submit()">
+            <option value="">파기 유형</option>
+            <option value="auto" >자동파기</option>
+            <option value="manual" >수동파기</option>
+        </select>
+        <div class="deletelog-date-range">
+            <input type="date" name="start_date" value="" class="filter-date deletelog-date" placeholder="시작일" onchange="this.form.submit()">
+            <span class="filter-date-sep">~</span>
+            <input type="date" name="end_date" value="" class="filter-date deletelog-date" placeholder="종료일" onchange="this.form.submit()">
+        </div>
+    </form>
+
+    <div class="list-content"><div class="list-table">
+        <div class="table-header deletelog-header">
+            <span class="th deletelog-col-date">파기 일시</span>
+            <span class="th deletelog-col-menu">메뉴 명</span>
+            <span class="th deletelog-col-count">건수 파기</span>
+            <span class="th deletelog-col-type">파기 유형 및 사유</span>
+            <span class="th deletelog-col-admin">관리자 명</span>
+        </div>
+
+        <div class="table-body">
+                                                <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.06.15</span>
+                <span class="td td-text deletelog-col-menu">제보하기</span>
+                <span class="td td-text deletelog-col-count">3건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_3.svg" alt="" class="deletelog-dot">
+                        <span>자동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">보유기간 만료 자동 파기</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">SYSTEM</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.06.10</span>
+                <span class="td td-text deletelog-col-menu">문의하기</span>
+                <span class="td td-text deletelog-col-count">5건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_3.svg" alt="" class="deletelog-dot">
+                        <span>자동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">보유기간 만료 자동 파기</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">SYSTEM</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.06.08</span>
+                <span class="td td-text deletelog-col-menu">뉴스 기사</span>
+                <span class="td td-text deletelog-col-count">1건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_2.svg" alt="" class="deletelog-dot">
+                        <span>수동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">관리자 직접 삭제</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">관리자</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.05.30</span>
+                <span class="td td-text deletelog-col-menu">제보하기</span>
+                <span class="td td-text deletelog-col-count">7건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_3.svg" alt="" class="deletelog-dot">
+                        <span>자동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">보유기간 만료 자동 파기</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">SYSTEM</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.05.15</span>
+                <span class="td td-text deletelog-col-menu">IR자료실</span>
+                <span class="td td-text deletelog-col-count">2건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_2.svg" alt="" class="deletelog-dot">
+                        <span>수동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">관리자 직접 삭제</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">관리자</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.05.01</span>
+                <span class="td td-text deletelog-col-menu">문의하기</span>
+                <span class="td td-text deletelog-col-count">12건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_3.svg" alt="" class="deletelog-dot">
+                        <span>자동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">보유기간 만료 자동 파기</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">SYSTEM</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.04.15</span>
+                <span class="td td-text deletelog-col-menu">채용공고</span>
+                <span class="td td-text deletelog-col-count">3건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_2.svg" alt="" class="deletelog-dot">
+                        <span>수동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">관리자 직접 삭제</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">관리자</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.04.01</span>
+                <span class="td td-text deletelog-col-menu">제보하기</span>
+                <span class="td td-text deletelog-col-count">8건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_3.svg" alt="" class="deletelog-dot">
+                        <span>자동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">보유기간 만료 자동 파기</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">SYSTEM</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.03.15</span>
+                <span class="td td-text deletelog-col-menu">공고</span>
+                <span class="td td-text deletelog-col-count">4건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_2.svg" alt="" class="deletelog-dot">
+                        <span>수동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">관리자 직접 삭제</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">관리자</span>
+            </div>
+                                    <div class="table-row deletelog-row">
+                <span class="td td-text deletelog-col-date">2025.03.01</span>
+                <span class="td td-text deletelog-col-menu">문의하기</span>
+                <span class="td td-text deletelog-col-count">15건</span>
+                <div class="deletelog-type-pill">
+                    <div class="deletelog-type-label">
+                        <img src="../../public/img/icon_dot_v2_3.svg" alt="" class="deletelog-dot">
+                        <span>자동파기</span>
+                    </div>
+                    <span class="deletelog-type-divider"></span>
+                    <span class="deletelog-type-reason">보유기간 만료 자동 파기</span>
+                </div>
+                <span class="td td-text deletelog-col-admin">SYSTEM</span>
+            </div>
+                                </div>
+    </div>
+
+        <div class="pagination">
+                        <a href="../../deletelog/list/index.html?page=1" class="page-num active">1</a>
+                <a href="../../deletelog/list/index.html?page=2" class="page-num ">2</a>
+                <a href="../../deletelog/list/index.html?page=3" class="page-num ">3</a>
+                <a href="../../deletelog/list/index.html?page=4" class="page-num ">4</a>
+                <a href="../../deletelog/list/index.html?page=5" class="page-num ">5</a>
+                <a href="../../deletelog/list/index.html?page=6" class="page-num ">6</a>
+                <a href="../../deletelog/list/index.html?page=7" class="page-num ">7</a>
+                <a href="../../deletelog/list/index.html?page=8" class="page-num ">8</a>
+                <a href="../../deletelog/list/index.html?page=9" class="page-num ">9</a>
+                <a href="../../deletelog/list/index.html?page=10" class="page-num ">10</a>
+                        <a href="../../deletelog/list/index.html?page=2" class="page-arrow"><img src="../../public/img/icon_page_next.svg" alt="다음"></a>
+            </div>
+    </div></div>
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>

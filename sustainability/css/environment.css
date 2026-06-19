@@ -1,8 +1,5 @@
 /* ===== 환경경영 전용 스타일 ===== */
 
-.desk-br {
-    display: inline;
-}
 
 .mo-br {
     display: none;
@@ -1163,11 +1160,8 @@
 ══════════════════════════════════════ */
 @media (max-width: 767px) {
 
-    .desk-br {
-        display: none;
-    }
-
-    .mo-br {
+    
+.mo-br {
         display: block;
     }
 

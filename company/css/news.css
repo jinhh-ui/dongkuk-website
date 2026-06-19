@@ -29,7 +29,7 @@ a {
     color: inherit;
 }
 
-.pc-br { display: block; }
+
 .mo-br { display: none; }
 
 /* Layout */
@@ -394,8 +394,8 @@ a {
 
 /* Fluid responsive overrides instead of hard breaks where possible */
 @media (max-width: 767px) {
-    .pc-br { display: none; }
-    .mo-br { display: block; }
+    
+.mo-br { display: block; }
 
     .featured-news {
         flex-direction: column;

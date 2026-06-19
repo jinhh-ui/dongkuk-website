@@ -514,11 +514,8 @@
         object-position: 37.47% center;
     }
 
-    .pc-br {
-        display: none;
-    }
-
-    .network-section .inner {
+    
+.network-section .inner {
         padding: 0 16px;
     }
 

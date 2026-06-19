@@ -111,6 +111,11 @@ body {
     display: none;
 }
 
+/* 데스크탑 전용 줄바꿈 (태블릿·모바일에서 숨김) */
+.pc-br {
+    display: block;
+}
+
 
 /* ===== LAYOUT ===== */
 .inner {
@@ -511,6 +516,11 @@ body {
     /* PC GNB 완전 숨김 */
     .gnb {
         display: none !important;
+    }
+
+    /* 데스크탑 전용 줄바꿈 숨김 */
+    .pc-br {
+        display: none;
     }
 
     /* 모바일 전용 GNB 바 */

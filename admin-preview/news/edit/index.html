@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뉴스 기사 수정</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow open">
+                </a>
+                <div class="lnb-submenu show">
+                    <a href="../../video/list/index.html" class="lnb-sub ">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub active">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item "><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item "><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item "><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item "><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item "><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item "><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+<div class="content-header"><h1 class="content-title">뉴스 기사 수정</h1></div>
+
+<form method="post" action="../../news/save/index.html" id="newsForm" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="1">    <input type="hidden" name="mode" value="edit">
+    <input type="hidden" name="content" id="hiddenContent">
+    <input type="hidden" name="thumbnail" id="hiddenThumbnail">
+
+    <div style="display:flex; flex-direction:column; gap:40px;">
+        <!-- 필수 안내 -->
+        <div style="display:flex; justify-content:flex-end;">
+            <span style="font-size:18px; font-weight:500; color:#000;"><span style="color:red;">*</span>는 필수 입력 항목입니다.</span>
+        </div>
+
+        <!-- 뉴스 제목 (필수) -->
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+            <div style="width:160px; flex-shrink:0; display:flex; gap:4px; align-items:center; padding:18px 0;">
+                <span style="font-size:24px; font-weight:700; color:#363636;">뉴스 제목</span><span style="font-size:20px; color:rgba(255,0,0,0.8);">*</span>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+                <input type="text" name="title" id="inputTitle" value="동국산업, 2025년 상반기 매출 역대 최고 달성"
+                       placeholder="뉴스 제목을 입력해주세요."
+                       style="width:100%; height:60px; border:1px solid #a7a7a7; border-radius:10px; padding:0 24px; font-size:22px; font-family:var(--font); color:#111; box-sizing:border-box;">
+                <div id="titleError" style="display:none; font-size:16px; color:#e53e3e;"></div>
+            </div>
+        </div>
+
+        <!-- 게시일시 (필수) — 날짜 + 시간 50:50 -->
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+            <div style="width:160px; flex-shrink:0; display:flex; gap:4px; align-items:center; padding:18px 0;">
+                <span style="font-size:24px; font-weight:700; color:#363636;">게시일시</span><span style="font-size:20px; color:rgba(255,0,0,0.8);">*</span>
+            </div>
+            <div style="flex:1; display:flex; gap:16px; align-items:center;">
+                <!-- 날짜 -->
+                <div style="flex:1; position:relative;">
+                    <input type="text" name="post_date" id="inputDate" value="2025.06.15"
+                           class="picker-input" placeholder="YYYY-MM-DD" readonly>
+                    <svg style="position:absolute; right:20px; top:50%; transform:translateY(-50%); pointer-events:none;" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="14" rx="2" stroke="#999" stroke-width="1.5"/><path d="M2 8h16" stroke="#999" stroke-width="1.5"/><path d="M6 2v4M14 2v4" stroke="#999" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <!-- 시간 -->
+                <div style="flex:1; position:relative;">
+                    <input type="text" name="post_time" id="inputTime" value=""
+                           class="picker-input" readonly>
+                    <svg style="position:absolute; right:20px; top:50%; transform:translateY(-50%); pointer-events:none;" width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#999" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- 본문 에디터 (WYSIWYG) -->
+        <div style="display:flex; flex-direction:column; gap:0;">
+            <div id="editor" style="min-height:500px;"><p>동국산업이 2025년 상반기 매출에서 역대 최고치를 기록했습니다.</p><p>특히 니켈도금강판과 Q/T 열처리강판 부문에서 전년 동기 대비 23% 성장을 달성하며 시장 점유율을 확대했습니다.</p></div>
+        </div>
+    </div>
+
+    <!-- 버튼 -->
+    <div class="form-actions" style="display:flex; justify-content:center; gap:20px; margin-top:60px;">
+        <a href="../../news/list/index.html" id="cancelBtn" class="btn-outline">취소</a>
+        <button type="submit" class="btn-primary">수정 완료</button>
+    </div>
+</form>
+
+<!-- 외부 라이브러리 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="../../public/css/datepicker.css">
+<link rel="stylesheet" href="../../public/css/timepicker.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+<script src="../../public/js/timepicker.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
+<script>
+(function(){
+    var dirty = false;
+    var form = document.getElementById('newsForm');
+    var editorInstance = null;
+
+    // 날짜 피커 (flatpickr — 인풋 너비에 맞춤)
+    var dateInput = document.getElementById('inputDate');
+    flatpickr(dateInput, {
+        locale: 'ko',
+        dateFormat: 'Y-m-d',
+        defaultDate: dateInput.value || 'today',
+        disableMobile: true,
+        static: true,
+        appendTo: dateInput.parentElement,
+        onChange: function() { dirty = true; }
+    });
+
+    // 시간 피커 (커스텀)
+    new TimePicker('#inputTime', {
+        onChange: function() { dirty = true; }
+    });
+
+    // dirty 플래그
+    form.addEventListener('input', function(){ dirty = true; });
+    form.addEventListener('change', function(){ dirty = true; });
+
+    // 페이지 이탈 경고
+    window.addEventListener('beforeunload', function(e){
+        if (dirty) { e.preventDefault(); e.returnValue = ''; return ''; }
+    });
+
+    // 취소 버튼
+    document.getElementById('cancelBtn').addEventListener('click', function(e){
+        if (dirty) {
+            e.preventDefault();
+            if (confirm('변경사항이 저장되지 않았습니다.\n이 페이지를 벗어나시겠습니까?')) {
+                dirty = false;
+                location.href = this.href;
+            }
+        }
+    });
+
+    // CKEditor 초기화
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            toolbar: ['heading', '|', 'bold', 'italic', 'underline', 'strikethrough', '|',
+                      'fontSize', 'fontColor', 'fontBackgroundColor', '|',
+                      'alignment', '|', 'bulletedList', 'numberedList', '|',
+                      'outdent', 'indent', '|',
+                      'link', 'imageUpload', 'blockQuote', 'insertTable', '|',
+                      'undo', 'redo', '|', 'sourceEditing'],
+            language: 'ko',
+            placeholder: '뉴스 기사 내용을 입력해주세요.'
+        })
+        .then(function(editor) {
+            editorInstance = editor;
+            editor.model.document.on('change:data', function() { dirty = true; });
+        })
+        .catch(function(error) { console.error('CKEditor 초기화 실패:', error); });
+
+    // 폼 제출
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var contentHtml = editorInstance ? editorInstance.getData() : '';
+        document.getElementById('hiddenContent').value = contentHtml;
+
+        // Validation
+        var titleInput = document.getElementById('inputTitle');
+        var titleError = document.getElementById('titleError');
+        if (!titleInput.value.trim()) {
+            titleError.textContent = '뉴스 제목을 입력해 주세요.';
+            titleError.style.display = '';
+            titleInput.style.borderColor = '#e53e3e';
+            titleInput.focus();
+            return;
+        }
+        titleError.style.display = 'none';
+        titleInput.style.borderColor = '#a7a7a7';
+
+        // 썸네일 자동 추출 (본문 첫 이미지)
+        var tmp = document.createElement('div');
+        tmp.innerHTML = contentHtml;
+        var firstImg = tmp.querySelector('img');
+        document.getElementById('hiddenThumbnail').value = firstImg ? firstImg.getAttribute('src') : '';
+
+        dirty = false;
+        form.submit();
+    });
+})();
+</script>
+
+<style>
+.picker-input {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #a7a7a7;
+    border-radius: 10px;
+    padding: 0 50px 0 24px;
+    font-size: 22px;
+    font-family: var(--font);
+    color: #111;
+    box-sizing: border-box;
+    background: #fff;
+    cursor: pointer;
+}
+.picker-input:focus { border-color: #003592; outline: none; }
+
+
+/* CKEditor */
+.ck-editor__editable {
+    min-height: 500px !important;
+    font-size: 18px !important;
+    font-family: var(--font) !important;
+    line-height: 1.8 !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+.ck.ck-editor { border: 1px solid #a7a7a7 !important; border-radius: 10px !important; overflow: hidden; }
+.ck.ck-editor__main > .ck-editor__editable { border: none !important; }
+.ck.ck-toolbar { border: none !important; border-bottom: 1px solid #e9e9e9 !important; }
+.ck.ck-editor__top .ck-sticky-panel .ck-sticky-panel__content { border: none !important; }
+</style>
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>

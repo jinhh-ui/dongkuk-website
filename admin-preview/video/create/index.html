@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대표 영상 등록</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow open">
+                </a>
+                <div class="lnb-submenu show">
+                    <a href="../../video/list/index.html" class="lnb-sub active">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub ">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item "><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item "><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item "><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item "><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item "><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item "><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+
+<!-- 헤더 -->
+<div class="content-header">
+    <h1 class="content-title">영상 정보 수정</h1>
+    <span style="font-size:18px; font-weight:500; color:#7a7a7a;" id="autoSaveLabel"></span>
+</div>
+
+<!-- 필수 항목 안내 -->
+<div style="display:flex; justify-content:flex-end; margin-bottom:20px;">
+    <span style="font-size:18px; font-weight:500; color:#000;"><span style="color:red;">*</span>는 필수 입력 항목입니다.</span>
+</div>
+
+<form method="post" action="../../video/save/index.html" id="videoEditForm">
+        <input type="hidden" name="id" value="1">
+    
+    <!-- 콘텐츠 카드 -->
+    <div class="content-card" style="padding:60px;">
+        <div class="content-body">
+
+            <!-- 1. 제목 (필수, 30자) -->
+            <div class="detail-row" style="align-items:flex-start;">
+                <div class="detail-label" style="padding-top:16px;">
+                    <span>제목</span><span style="color:red; margin-left:4px;">*</span>
+                </div>
+                <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+                    <input type="text" name="title" id="inputTitle" value="철의 역사를 만들어가는 동국산업"
+                           placeholder="제목을 입력해주세요."
+                           maxlength="30"
+                           style="width:100%; height:60px; border:1px solid #a7a7a7; border-radius:10px; padding:0 24px; font-size:22px; font-family:var(--font); color:#111; box-sizing:border-box;">
+                    <div style="display:flex; justify-content:flex-end;">
+                        <span style="font-size:16px; color:#a7a7a7;" id="titleCount">17/30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 구분선 -->
+            <div class="card-divider"><img src="../../public/img/icon_divider_h2.svg" alt=""></div>
+
+            <!-- 2. 설명 (필수, 150자) -->
+            <div class="detail-row" style="align-items:flex-start;">
+                <div class="detail-label" style="padding-top:16px;">
+                    <span>설명</span><span style="color:red; margin-left:4px;">*</span>
+                </div>
+                <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+                    <textarea name="desc" id="inputDesc"
+                              placeholder="상세 설명을 입력해주세요."
+                              maxlength="150"
+                              style="width:100%; height:150px; border:1px solid #a7a7a7; border-radius:10px; padding:16px 24px; font-size:22px; font-family:var(--font); color:#111; resize:none; box-sizing:border-box; line-height:1.6;">동국산업의 최신 홍보영상입니다. 글로벌 철강 소재 기업으로서 혁신과 도전의 역사를 소개합니다.</textarea>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <span style="font-size:16px; color:#a7a7a7;" id="descCount">52/150</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 구분선 -->
+            <div class="card-divider"><img src="../../public/img/icon_divider_h2.svg" alt=""></div>
+
+            <!-- 3. 영상 URL (필수, 유효성 검사 + 썸네일) -->
+            <div class="detail-row" style="align-items:flex-start;">
+                <div class="detail-label" style="padding-top:16px;">
+                    <span>영상 URL</span><span style="color:red; margin-left:4px;">*</span>
+                </div>
+                <div style="flex:1; display:flex; flex-direction:column; gap:16px;">
+                    <input type="text" name="url" id="inputUrl" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                           placeholder="영상 URL을 입력해주세요."
+                           style="width:100%; height:60px; border:1px solid #a7a7a7; border-radius:10px; padding:0 24px; font-size:22px; font-family:var(--font); color:#111; box-sizing:border-box;">
+                    <div id="urlError" style="display:none; font-size:16px; color:#e53e3e;">올바른 영상 URL 주소를 입력해 주세요.</div>
+                    <!-- 썸네일 미리보기 -->
+                    <div id="thumbPreview" style="">
+                        <div style="width:576px; height:324px; overflow:hidden;">
+                            <img id="thumbImg" src="" alt="영상 썸네일" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 구분선 -->
+            <div class="card-divider"><img src="../../public/img/icon_divider_h2.svg" alt=""></div>
+
+            <!-- 4. 해시태그 (3개 제한) -->
+            <div class="detail-row" style="align-items:flex-start;">
+                <div class="detail-label" style="padding-top:16px;">
+                    <span>해시태그</span>
+                </div>
+                <div style="flex:1; display:flex; flex-direction:column; gap:16px;">
+                    <input type="text" id="inputHashtag"
+                           placeholder="해시태그를 입력해 주세요."
+                           style="width:100%; height:60px; border:1px solid #a7a7a7; border-radius:10px; padding:0 24px; font-size:22px; font-family:var(--font); color:#111; box-sizing:border-box;">
+                    <input type="hidden" name="tags" id="hiddenTags" value="#동국산업 #홍보영상 #냉연강판">
+                    <!-- 생성된 해시태그 목록 -->
+                    <div id="tagList" style="display:flex; gap:12px; flex-wrap:wrap;"></div>
+                    <div id="tagMsg" style="display:none; font-size:16px; color:#e53e3e; margin-top:4px;"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <span style="font-size:16px; color:#a7a7a7;" id="tagCount">0/5</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 저장 버튼 -->
+    <div style="display:flex; justify-content:center; margin-top:40px;">
+        <button type="submit" style="display:flex; align-items:center; justify-content:center; width:346px; height:80px; background:#003592; border:none; border-radius:10px; font-size:24px; font-weight:700; color:#fff; cursor:pointer; font-family:var(--font);">저장</button>
+    </div>
+</form>
+
+<!-- 페이지 이탈 경고 (독립 스크립트) -->
+<script>
+(function(){
+    var f = document.getElementById('videoEditForm');
+    if (!f) { alert('폼 못 찾음'); return; }
+    var dirty = false;
+    f.addEventListener('input', function(){ dirty = true; });
+    f.addEventListener('change', function(){ dirty = true; });
+    window.addEventListener('beforeunload', function(e){
+        if (dirty) { e.preventDefault(); e.returnValue = '변경사항'; return '변경사항'; }
+    });
+    f.addEventListener('submit', function(){ dirty = false; });
+})();
+</script>
+
+<script>
+
+// === 인라인 에러 표시 유틸 ===
+function showFieldError(inputEl, msg) {
+    let errEl = inputEl.parentElement.querySelector('.field-error');
+    if (!errEl) {
+        errEl = document.createElement('div');
+        errEl.className = 'field-error';
+        errEl.style.cssText = 'font-size:16px; color:#e53e3e; margin-top:4px;';
+        inputEl.parentElement.appendChild(errEl);
+    }
+    errEl.textContent = msg;
+    errEl.style.display = '';
+    inputEl.style.borderColor = '#e53e3e';
+}
+function clearFieldError(inputEl) {
+    const errEl = inputEl.parentElement.querySelector('.field-error');
+    if (errEl) errEl.style.display = 'none';
+    inputEl.style.borderColor = '#a7a7a7';
+}
+
+// === 글자수 카운팅 ===
+const titleInput = document.getElementById('inputTitle');
+const descInput  = document.getElementById('inputDesc');
+const titleCount = document.getElementById('titleCount');
+const descCount  = document.getElementById('descCount');
+
+titleInput.addEventListener('input', function() {
+    if (this.value.length > 30) this.value = this.value.substring(0, 30);
+    titleCount.textContent = this.value.length + '/30';
+    if (this.value.trim()) clearFieldError(this);
+});
+descInput.addEventListener('input', function() {
+    if (this.value.length > 150) this.value = this.value.substring(0, 150);
+    descCount.textContent = this.value.length + '/150';
+    if (this.value.trim()) clearFieldError(this);
+});
+
+// === 영상 URL 유효성 검사 + 썸네일 ===
+const urlInput     = document.getElementById('inputUrl');
+const urlError     = document.getElementById('urlError');
+const thumbPreview = document.getElementById('thumbPreview');
+const thumbImg     = document.getElementById('thumbImg');
+
+function extractYoutubeId(url) {
+    const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+}
+
+let urlDebounce;
+urlInput.addEventListener('input', function() {
+    clearFieldError(this);
+    clearTimeout(urlDebounce);
+    urlDebounce = setTimeout(() => {
+        const val = this.value.trim();
+        if (!val) {
+            thumbPreview.style.display = 'none';
+            urlError.style.display = 'none';
+            return;
+        }
+        const vid = extractYoutubeId(val);
+        if (vid) {
+            urlError.style.display = 'none';
+            thumbImg.src = 'https://img.youtube.com/vi/' + vid + '/maxresdefault.jpg';
+            thumbPreview.style.display = '';
+            thumbImg.onerror = function() {
+                thumbImg.src = 'https://img.youtube.com/vi/' + vid + '/hqdefault.jpg';
+            };
+        } else {
+            urlError.style.display = '';
+            urlError.textContent = '올바른 영상 URL 주소를 입력해 주세요.';
+            thumbPreview.style.display = 'none';
+            this.style.borderColor = '#e53e3e';
+        }
+    }, 500);
+});
+// 초기값 썸네일
+(function() {
+    const v = urlInput.value.trim();
+    if (v) {
+        const vid = extractYoutubeId(v);
+        if (vid) {
+            thumbImg.src = 'https://img.youtube.com/vi/' + vid + '/maxresdefault.jpg';
+            thumbPreview.style.display = '';
+        }
+    }
+})();
+
+// === 해시태그 관리 ===
+const hashtagInput = document.getElementById('inputHashtag');
+const hiddenTags   = document.getElementById('hiddenTags');
+const tagList      = document.getElementById('tagList');
+const tagCountEl   = document.getElementById('tagCount');
+const tagMsg       = document.getElementById('tagMsg');
+const MAX_TAGS = 5;
+let tags = [];
+
+function parseTags(str) {
+    if (!str) return [];
+    return str.split(/[\s,]+/).filter(t => t.startsWith('#')).map(t => t.trim()).filter(t => t.length > 1).slice(0, MAX_TAGS);
+}
+
+function showTagMsg(msg) {
+    tagMsg.textContent = msg;
+    tagMsg.style.display = '';
+    clearTimeout(showTagMsg._t);
+    showTagMsg._t = setTimeout(() => { tagMsg.style.display = 'none'; }, 2500);
+}
+
+function renderTags() {
+    tagList.innerHTML = '';
+    tags.forEach((tag, i) => {
+        const el = document.createElement('div');
+        el.className = 'tag';
+        el.innerHTML = tag + ' <span style="cursor:pointer; margin-left:8px; font-weight:700;" data-idx="' + i + '">&times;</span>';
+        tagList.appendChild(el);
+    });
+    hiddenTags.value = tags.join(' ');
+    tagCountEl.textContent = tags.length + '/' + MAX_TAGS;
+    hashtagInput.disabled = tags.length >= MAX_TAGS;
+    if (tags.length >= MAX_TAGS) hashtagInput.placeholder = '최대 ' + MAX_TAGS + '개까지 등록 가능합니다.';
+    else hashtagInput.placeholder = '해시태그를 입력해 주세요.';
+}
+
+function addTag(raw) {
+    let val = raw.trim();
+    if (!val) return;
+    if (!val.startsWith('#')) val = '#' + val;
+    if (val.length <= 1) return; // #만 있으면 무시
+    if (tags.length >= MAX_TAGS) { showTagMsg('해시태그는 최대 ' + MAX_TAGS + '개까지 등록 가능합니다.'); return; }
+    if (tags.includes(val)) {
+        // 중복: 조용히 무시, 인풋만 초기화 (IME 조합 대기 후)
+        setTimeout(() => { hashtagInput.value = ''; hashtagInput.focus(); }, 0);
+        return;
+    }
+    tags.push(val);
+    renderTags();
+    setTimeout(() => { hashtagInput.value = ''; hashtagInput.focus(); }, 0);
+    tagMsg.style.display = 'none';
+}
+
+// 삭제 이벤트
+tagList.addEventListener('click', function(e) {
+    if (e.target.dataset.idx !== undefined) {
+        tags.splice(parseInt(e.target.dataset.idx), 1);
+        renderTags();
+    }
+});
+
+// 한글 IME 조합 상태 추적
+let isComposing = false;
+hashtagInput.addEventListener('compositionstart', () => { isComposing = true; });
+hashtagInput.addEventListener('compositionend', function() {
+    isComposing = false;
+    // 조합 완료 후 스페이스/콤마 체크
+    const val = this.value;
+    if (val.endsWith(' ') || val.endsWith(',')) {
+        addTag(val.replace(/[\s,]+$/, ''));
+    }
+});
+
+// 엔터, 스페이스바, 콤마로 태그 생성
+hashtagInput.addEventListener('keydown', function(e) {
+    if (isComposing) return; // IME 조합 중이면 무시
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        addTag(this.value);
+    } else if (e.key === ' ' || e.key === ',') {
+        e.preventDefault();
+        addTag(this.value);
+    }
+});
+// 콤마 입력 감지 (keydown에서 못 잡히는 경우 대비)
+hashtagInput.addEventListener('input', function() {
+    if (this.value.includes(',')) {
+        const parts = this.value.split(',');
+        parts.forEach(p => { if (p.trim()) addTag(p); });
+        this.value = '';
+    }
+});
+
+// 초기 태그 로드
+tags = parseTags(hiddenTags.value);
+renderTags();
+
+// === 저장 버튼 커스텀 Validation ===
+document.getElementById('videoEditForm').addEventListener('submit', function(e) {
+    // 기본 브라우저 validation 제거
+    e.preventDefault();
+
+    // 유효성 검사 전 Trim
+    titleInput.value = titleInput.value.trim();
+    descInput.value = descInput.value.trim();
+    urlInput.value = urlInput.value.trim();
+
+    let firstError = null;
+
+    // 제목
+    if (!titleInput.value) {
+        showFieldError(titleInput, '제목을 입력해 주세요. (최대 30자)');
+        if (!firstError) firstError = titleInput;
+    } else { clearFieldError(titleInput); }
+
+    // 설명
+    if (!descInput.value) {
+        showFieldError(descInput, '영상 상세 설명을 입력해 주세요. (최대 150자)');
+        if (!firstError) firstError = descInput;
+    } else { clearFieldError(descInput); }
+
+    // 영상 URL
+    if (!urlInput.value) {
+        urlError.textContent = '영상 URL 주소를 입력해 주세요.';
+        urlError.style.display = '';
+        urlInput.style.borderColor = '#e53e3e';
+        if (!firstError) firstError = urlInput;
+    } else if (!extractYoutubeId(urlInput.value)) {
+        urlError.textContent = '올바른 영상 URL 주소를 입력해 주세요.';
+        urlError.style.display = '';
+        urlInput.style.borderColor = '#e53e3e';
+        if (!firstError) firstError = urlInput;
+    } else {
+        urlError.style.display = 'none';
+        urlInput.style.borderColor = '#a7a7a7';
+    }
+
+    if (firstError) {
+        firstError.focus();
+        return;
+    }
+
+    // submit 실행
+    this.submit();
+});
+</script>
+
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>

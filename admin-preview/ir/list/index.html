@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IR자료실 관리</title>
+    <link rel="stylesheet" href="../../public/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+<div class="admin-wrap">
+<!-- LNB 사이드바 — 디자인 파일 1:218 (8w3aLuqU0kym8j9AYXh6Bn)
+     w-320 bg-white px-30 py-40 gap-60 flex-col
+     로고: gap-6, img 58x30, text 20px Bold black leading-1.5
+     카테고리: 18px Medium #a7a7a7 px-24 py-4 leading-1.6
+     메뉴: 20px SemiBold #111 px-24 py-10 leading-1.6 rounded-12
+     서브메뉴: 18px Medium #111 px-40 py-10 rounded-12 leading-1.6
+     활성: bg-[#ecf0f9] #003592 SemiBold rounded-12
+     로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 leading-1.6
+-->
+<aside class="lnb">
+    <!-- 로고: gap-6, img 58x30, text 20px Bold — 1:219 -->
+    <a href="../../news/list/index.html" class="lnb-logo">
+        <img src="../../public/img/logo_dongkuk.svg" alt="DK">
+        <span class="lnb-logo-text">동국산업 웹사이트<br>관리 시스템</span>
+    </a>
+
+    <!-- 메뉴 컨테이너: gap-12 — 1:225 -->
+    <nav class="lnb-nav">
+        <!-- 메뉴 그룹: gap-16 — 1:226 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <!-- 카테고리: 18px Medium #a7a7a7 px-24 py-4 — 1:228 -->
+                <div class="lnb-section">게시물 관리</div>
+
+                <!-- 뉴스룸 (토글 부모) — 1:230 -->
+                                <a href="javascript:;" class="lnb-item" onclick="this.nextElementSibling.classList.toggle('show'); var a=this.querySelector('.lnb-arrow'); a.classList.toggle('open');">
+                    <span>뉴스룸</span>
+                    <img src="../../public/img/icon_chevron_down.svg" alt="" class="lnb-arrow ">
+                </a>
+                <div class="lnb-submenu ">
+                    <a href="../../video/list/index.html" class="lnb-sub ">대표 영상 관리</a>
+                    <a href="../../news/list/index.html" class="lnb-sub ">뉴스 기사 관리</a>
+                </div>
+
+                <!-- 1단계 메뉴: 20px SemiBold #111 px-24 py-10 rounded-12 — 1:238~ -->
+                <a href="../../notice/list/index.html" class="lnb-item "><span>공고</span></a>
+                <a href="../../ir/list/index.html" class="lnb-item active"><span>IR자료실</span></a>
+                <a href="../../recruit/list/index.html" class="lnb-item "><span>채용공고</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:244 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 고객지원 그룹 — 1:245 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">고객지원</div>
+                <a href="../../report/list/index.html" class="lnb-item "><span>제보하기</span></a>
+                <a href="../../inquiry/list/index.html" class="lnb-item "><span>문의하기</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:252 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 설정 그룹 — 1:253 -->
+        <div class="lnb-group">
+            <div class="lnb-group-items">
+                <div class="lnb-section">설정</div>
+                <a href="../../deletelog/list/index.html" class="lnb-item "><span>파기 이력</span></a>
+            </div>
+        </div>
+
+        <!-- 구분선 — 1:258 -->
+        <div class="lnb-divider"><img src="../../public/img/icon_divider_h.svg" alt=""></div>
+
+        <!-- 로그아웃: 20px Regular #4c4d4d underline px-24 py-16 h-97 — 1:259 -->
+        <a href="../../logout/index.html" class="lnb-logout">로그아웃</a>
+    </nav>
+</aside>
+
+<!-- 메인 콘텐츠 -->
+<main class="content">
+<div class="content-header">
+    <h1 class="content-title">IR자료실</h1>
+    <a href="../../ir/create/index.html" class="btn-primary">IR자료 등록</a>
+</div>
+
+<div class="category-tabs">
+        <a href="../../ir/list/index.html" class="tab active">
+        <span>전체</span>
+        <span class="tab-count">0</span>
+    </a>
+        <a href="../../ir/list/index.html?category=letter" class="tab ">
+        <span>IR레터</span>
+        <span class="tab-count">0</span>
+    </a>
+        <a href="../../ir/list/index.html?category=book" class="tab ">
+        <span>IR북</span>
+        <span class="tab-count">0</span>
+    </a>
+    </div>
+
+<div class="content-body">
+    <div class="list-toolbar">
+        <div class="toolbar-left">
+            <span class="selected-count hidden" id="irSelectedCount">0개 선택됨</span>
+            <div class="toolbar-divider hidden" id="irDeleteDivider"><img src="../../public/img/icon_divider_vert_v2.svg" alt=""></div>
+            <button class="btn-delete-text hidden" id="irDeleteBtn">삭제</button>
+        </div>
+        <form method="get" action="../../ir/list/index.html">
+                        <div class="search-box">
+                <img src="../../public/img/icon_search_v2.svg" alt="검색">
+                <input type="text" name="keyword" class="search-input" placeholder="검색하기" value="">
+            </div>
+        </form>
+    </div>
+
+    <div class="list-content"><div class="list-table">
+        <div class="table-header has-edit">
+            <div class="row-title-group">
+                <div class="cell-check"><input type="checkbox" id="checkAllIR" onclick="toggleAllIR(this)"></div>
+                <span class="th th-title">IR 자료명</span>
+            </div>
+            <span class="th w-120">구분</span>
+            <span class="th w-200">등록일</span>
+            <span class="th w-200">최종업데이트</span>
+        </div>
+
+        <div class="table-body">
+                                                <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="1" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=1" class="td-title">2025년 1분기 실적 발표 자료</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2025.05.15</span>
+                    <span class="td td-date w-200">2025.05.15</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=1" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="2" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=2" class="td-title">2024년 연간 사업보고서</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2025.03.31</span>
+                    <span class="td td-date w-200">2025.03.31</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=2" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="3" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=3" class="td-title">2024년 4분기 실적 발표 자료</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2025.02.14</span>
+                    <span class="td td-date w-200">2025.02.14</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=3" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="4" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=4" class="td-title">2024년 3분기 실적 발표 자료</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2024.11.15</span>
+                    <span class="td td-date w-200">2024.11.15</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=4" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="5" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=5" class="td-title">2024년 반기 사업보고서</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2024.08.14</span>
+                    <span class="td td-date w-200">2024.08.14</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=5" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="6" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=6" class="td-title">2024년 2분기 실적 발표 자료</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2024.08.10</span>
+                    <span class="td td-date w-200">2024.08.10</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=6" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="7" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=7" class="td-title">2024년 1분기 실적 발표 자료</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2024.05.15</span>
+                    <span class="td td-date w-200">2024.05.15</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=7" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="8" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=8" class="td-title">2023년 연간 사업보고서</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2024.03.31</span>
+                    <span class="td td-date w-200">2024.03.31</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=8" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="9" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=9" class="td-title">2023년 4분기 실적 발표 자료</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2024.02.14</span>
+                    <span class="td td-date w-200">2024.02.14</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=9" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                    <div class="table-row ir-row">
+                <div class="row-data">
+                    <div class="row-title-group">
+                        <div class="cell-check"><input type="checkbox" name="ids[]" value="10" class="ir-check"></div>
+                        <a href="../../ir/detail/index.html?id=10" class="td-title">2023년 3분기 실적 발표 자료</a>
+                    </div>
+                    <div class="td w-120">
+                        <span class="badge-dot"><img src="../../public/img/icon_dot_ir_letter.svg" alt="">기타</span>
+                    </div>
+                    <span class="td td-date w-200">2023.11.15</span>
+                    <span class="td td-date w-200">2023.11.15</span>
+                </div>
+                <a href="../../ir/edit/index.html?id=10" class="btn-row-edit">IR자료 수정</a>
+            </div>
+                                </div>
+    </div>
+
+        <div class="pagination">
+                <a href="../../ir/list/index.html?page=1" class="page-num active">1</a><a href="../../ir/list/index.html?page=2" class="page-num ">2</a><a href="../../ir/list/index.html?page=3" class="page-num ">3</a><a href="../../ir/list/index.html?page=4" class="page-num ">4</a><a href="../../ir/list/index.html?page=5" class="page-num ">5</a><a href="../../ir/list/index.html?page=6" class="page-num ">6</a><a href="../../ir/list/index.html?page=7" class="page-num ">7</a><a href="../../ir/list/index.html?page=8" class="page-num ">8</a><a href="../../ir/list/index.html?page=9" class="page-num ">9</a><a href="../../ir/list/index.html?page=10" class="page-num ">10</a>        <a href="../../ir/list/index.html?page=2" class="page-arrow"><img src="../../public/img/icon_page_next.svg" alt="다음"></a>    </div>
+    </div></div>
+
+<script>
+function toggleAllIR(el) {
+    document.querySelectorAll('.ir-check').forEach(function(c) { c.checked = el.checked; });
+    updateIRCount();
+}
+document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('ir-check')) {
+        updateIRCount();
+        var all = document.querySelectorAll('.ir-check');
+        var allChecked = document.querySelectorAll('.ir-check:checked');
+        document.getElementById('checkAllIR').checked = (all.length === allChecked.length && all.length > 0);
+    }
+});
+function updateIRCount() {
+    var cnt = document.querySelectorAll('.ir-check:checked').length;
+    ['irSelectedCount','irDeleteDivider','irDeleteBtn'].forEach(function(id) {
+        document.getElementById(id).classList.toggle('hidden', !cnt);
+    });
+    document.getElementById('irSelectedCount').textContent = cnt + '개 선택됨';
+}
+document.getElementById('irDeleteBtn').addEventListener('click', function() {
+    var checked = document.querySelectorAll('.ir-check:checked');
+    if (checked.length === 0) return;
+    if (!confirm(checked.length + '건의 IR자료를 삭제하시겠습니까?\n삭제된 데이터는 복구할 수 없습니다.')) return;
+    checked.forEach(function(c) { c.closest('.ir-row').remove(); });
+    document.getElementById('checkAllIR').checked = false;
+    updateIRCount();
+    alert('삭제가 완료되었습니다.');
+});
+document.querySelector('.search-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); this.closest('form').submit(); }
+});
+document.querySelector('.search-box img').addEventListener('click', function() {
+    this.closest('form').submit();
+});
+</script>
+</main><!-- /.content -->
+</div><!-- /.admin-wrap -->
+<script src="../../public/js/admin.js"></script>
+</body>
+</html>
