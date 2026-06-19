@@ -1059,6 +1059,16 @@
       boreBackDisc.position.y = MAIN_H / 2 + WALL_EXT;
       rollGroup.add(boreBackDisc);
 
+      /* bore 앞면 디스크 — 카메라쪽 내경 구멍으로 배경 비침 방지 */
+      var boreFrontCapMat = matBore.clone();
+      boreFrontCapMat.side = THREE.BackSide;
+      var boreFrontDisc = new THREE.Mesh(
+        new THREE.CircleGeometry(INNER_R + 0.001, 128), boreFrontCapMat
+      );
+      boreFrontDisc.rotation.x = Math.PI / 2;
+      boreFrontDisc.position.y = -(MAIN_H / 2 + WALL_EXT);
+      rollGroup.add(boreFrontDisc);
+
       /* 45도 챔퍼 — 내벽(INNER_R)에서 캡면으로 확장 */
       var matChamfer = matCap.clone();
       matChamfer.side = THREE.DoubleSide;
@@ -1093,7 +1103,7 @@
       /* ── 그림자 받는 바닥면 (코일과 함께 이동) ── */
       var shadowMat = new THREE.ShadowMaterial({ opacity: 0.3 });
       var shadowPlane = new THREE.Mesh(
-        new THREE.PlaneGeometry(10, 10), shadowMat
+        new THREE.PlaneGeometry(20, 20), shadowMat
       );
       shadowPlane.rotation.x = -Math.PI / 2;
       shadowPlane.position.set(0.0, -0.55, 0.0);
@@ -1339,6 +1349,7 @@
           var shadowT = Math.max(0, (et - 0.6) / 0.4);
           shadowPlane.visible = shadowT > 0.01;
           shadowMat.opacity = 0.37 * shadowT;
+          shadowPlane.position.y = -0.59;
         }
       };
 

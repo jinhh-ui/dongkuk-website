@@ -271,10 +271,10 @@
                 cardFullWidth = 320;
                 activeHalfWidth = 155;
             } else if (isTablet) {
-                // 태블릿: 카드 300px 고정 + gap 1.5625vw
+                // 태블릿: 비활성 카드 300px + gap 1.5625vw, 활성 카드 400px
                 const gap = winWidth * 0.015625;
                 cardFullWidth = 300 + gap;
-                activeHalfWidth = 150; // 300px / 2
+                activeHalfWidth = 200; // 400px / 2
             } else {
                 cardFullWidth = 528;  // 498px + 30px gap
                 activeHalfWidth = 358; // 716px / 2

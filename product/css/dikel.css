@@ -1661,15 +1661,19 @@ img.ic-download {
 
     /* ── 태블릿 스펙 서브 헤드 ── */
     .spec-ann-sub-head {
-        font-size: 16px !important;
+        font-size: 18px !important;
     }
 
     .spec-head {
-        font-size: 16px !important;
+        font-size: 18px !important;
     }
 
     .spec-ann-col .spec-head,
     .spec-ann-col.wide .spec-head {
+        font-size: 18px !important;
+    }
+
+    .spec-value {
         font-size: 16px !important;
     }
 
@@ -4987,8 +4991,8 @@ body {
     width: 100%;
     aspect-ratio: 1;
     border: 8px solid #FFFFFF;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%)
 }
 
 .img-box-side {
@@ -5335,7 +5339,7 @@ body {
 @container (min-width: 0px) {
     .battery-main-title {
         font-size: clamp(24px, 2.98cqw, 50px);
-        margin-bottom: 4.76cqw;
+        margin-bottom: 20px
     }
 
     .battery-compare {
@@ -6161,8 +6165,6 @@ body {
         width: 100vw !important;
         border-width: 6px !important;
         clip-path: inset(0 0 50% 0) !important;
-        -webkit-mask-image: none !important;
-        mask-image: none !important;
         top: 60% !important;
     }
 
