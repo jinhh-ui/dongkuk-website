@@ -755,6 +755,10 @@ img.ic-download {
         width: 23px;
         height: 46px;
     }
+
+    .battery-compare {
+        gap: 40px;
+    }
 }
 
 .umi-icon {
@@ -1298,7 +1302,7 @@ img.ic-download {
     #ps-mobile-diagram-bulk {
         background-color: #F1EDEA;
         width: 500px;
-        height: 422px;
+        height: 480px;
         margin: 0 auto;
         overflow: visible;
         position: relative;
@@ -1336,25 +1340,52 @@ img.ic-download {
     }
 
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="0"] {
-        left: 13px; top: 14px; width: 34px; height: 58px;
+        left: 13px;
+        top: 14px;
+        width: 34px;
+        height: 58px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="1"] {
-        left: 43px; top: 14px; width: 176.76px; height: 71.87px;
+        left: 43px;
+        top: 14px;
+        width: 176.76px;
+        height: 71.87px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="2"] {
-        left: 210.26px; top: 14px; width: 110px; height: 86px;
+        left: 210.26px;
+        top: 14px;
+        width: 110px;
+        height: 86px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="3"] {
-        left: 90.16px; top: 114px; width: 64.75px; height: 66px;
+        left: 90.16px;
+        top: 114px;
+        width: 64.75px;
+        height: 66px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="4"] {
-        left: 154.91px; top: 126.58px; width: 82.1px; height: 53.43px;
+        left: 154.91px;
+        top: 126.58px;
+        width: 82.1px;
+        height: 53.43px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="5"] {
-        left: 35px; top: 201px; width: 104.84px; height: 75.32px;
+        left: 35px;
+        top: 201px;
+        width: 104.84px;
+        height: 75.32px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="6"] {
-        left: 139.84px; top: 201px; width: 110.9px; height: 75.32px;
+        left: 139.84px;
+        top: 201px;
+        width: 110.9px;
+        height: 75.32px;
     }
 
     #ps-mobile-diagram-special .ps-mobile-step-label {
@@ -1362,26 +1393,47 @@ img.ic-download {
         transform: translateX(-50%);
         z-index: 20;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="0"] {
-        left: 35px; top: -6px; margin-top: 0;
+        left: 35px;
+        top: -6px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="1"] {
-        left: 131.38px; top: -6px; margin-top: 0;
+        left: 131.38px;
+        top: -6px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="2"] {
-        left: 265.26px; top: 4px; margin-top: 0;
+        left: 265.26px;
+        top: 4px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="3"] {
-        left: 112.54px; top: 103px; margin-top: 0;
+        left: 112.54px;
+        top: 103px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="4"] {
-        left: 195.96px; top: 110px; margin-top: 0;
+        left: 195.96px;
+        top: 110px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="5"] {
-        left: 92.42px; top: 199px; margin-top: 0;
+        left: 92.42px;
+        top: 199px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="6"] {
-        left: 191.29px; top: 214px; margin-top: 0;
+        left: 191.29px;
+        top: 214px;
+        margin-top: 0;
     }
 
     .ps-mobile-row {
@@ -1401,13 +1453,13 @@ img.ic-download {
     }
 
     .ps-mobile-row:nth-child(2) {
-        margin-top: 5px;
+        margin-top: 15px;
         left: 20px;
         width: calc(100% - 20px);
     }
 
     .ps-mobile-row:nth-child(3) {
-        margin-top: 5px;
+        margin-top: 30px;
         left: 16px;
         width: calc(100% - 16px);
     }
@@ -1422,7 +1474,7 @@ img.ic-download {
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="3"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="4"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="5"] {
-        margin-top: -22px;
+        margin-top: -8px;
         margin-left: 20px;
     }
 
@@ -1433,7 +1485,7 @@ img.ic-download {
 
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="6"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="7"] {
-        margin-top: -48px;
+        margin-top: -10px;
         margin-left: 16px;
     }
 
@@ -1521,20 +1573,21 @@ img.ic-download {
     }
 
     .ps-mobile-dot {
-        width: 34px;
+        flex: 1;
         height: 6px;
         border-radius: 3px;
         background: #D3D3D3;
         position: relative;
         overflow: hidden;
-        flex: none;
     }
 
     .ps-mobile-dot::after {
         content: "";
         position: absolute;
-        left: 0; top: 0;
-        height: 100%; width: 0;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
         background: #F27100;
     }
 
@@ -1606,6 +1659,28 @@ img.ic-download {
 
     .hero-text-section {
         padding: var(--section-padding-y) 5vw 0;
+    }
+
+    /* ── 태블릿 스펙 서브 헤드 ── */
+    .spec-ann-sub-head {
+        font-size: 16px !important;
+    }
+
+    .spec-head {
+        font-size: 16px !important;
+    }
+
+    .spec-ann-col .spec-head,
+    .spec-ann-col.wide .spec-head {
+        font-size: 16px !important;
+    }
+
+    .pc-br {
+        display: none;
+    }
+
+    .pi-desc br {
+        display: none;
     }
 
     /* ── 태블릿 아코디언 여백 ── */
@@ -3741,7 +3816,7 @@ img.ic-download {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: clamp(16px, 1.25vw, 24px);
     font-weight: 700;
     color: #363636;
 }
@@ -5269,11 +5344,11 @@ body {
     }
 
     .battery-compare {
-        gap: 10cqw;
+        gap: 68px;
     }
 
     .battery-sub-title {
-        font-size: clamp(28px, 2.62cqw, 44px);
+        font-size: clamp(28px, 2.62cqw, 36px);
     }
 
     .battery-sub-desc {
@@ -6641,25 +6716,9 @@ body {
     }
 }
 
-@media (min-width: 1920px) {
-    .pi-desc {
-        height: 70px;
-    }
-}
 
-@media (min-width: 1920px) {
 
-    .spec-ann-col .spec-head,
-    .spec-ann-col.wide .spec-head {
-        font-size: 24px !important;
-    }
-}
 
-@media (min-width: 1920px) {
-    .spec-ann-col .spec-value {
-        font-size: 20px !important;
-    }
-}
 
 
 
