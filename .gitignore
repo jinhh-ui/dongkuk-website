@@ -13,3 +13,6 @@ Thumbs.db
 # Node (if any)
 node_modules/
 .gemini/
+
+# Config (계정정보)
+admin/application/config/config.php
