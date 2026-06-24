@@ -16,3 +16,4 @@ node_modules/
 
 # Admin (별도 프라이빗 레포)
 admin/
+admin-preview/application/config/config.php
