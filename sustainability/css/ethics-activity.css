@@ -25,13 +25,11 @@
 /* ── 도입 섹션 ── */
 .act-intro-outer {
     position: relative;
-    min-height: 200vh;
     background: #fff;
 }
 
 .act-intro-inner {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
     background: #fff;
     overflow: visible;
@@ -171,7 +169,6 @@
 
 
     .act-intro-outer {
-        min-height: 180vh;
     }
 
     .act-intro-text-section {
@@ -191,7 +188,7 @@
     }
 
     .act-intro-overlay-text {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .act-cards-section {
@@ -238,12 +235,10 @@
 
     /* 도입 */
     .act-intro-outer {
-        min-height: 200vh;
     }
 
     .act-intro-inner {
-        position: sticky;
-        top: 0;
+        position: relative;
         padding-bottom: 40px;
     }
 

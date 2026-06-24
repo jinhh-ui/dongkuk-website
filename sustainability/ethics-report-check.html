@@ -107,7 +107,7 @@
 
         function showAlert(msg, opts) {
             opts = opts || {};
-            alertMsg.textContent = msg;
+            alertMsg.innerHTML = msg.replace(/\n/g, '<br>');
             alertBtns.innerHTML = '';
             var okBtn = document.createElement('button');
             okBtn.type = 'button';
@@ -156,8 +156,16 @@
                 return;
             }
 
-            // 결과 페이지로 이동
-            window.location.href = 'ethics-report-result.html?receipt=' + encodeURIComponent(receiptNo);
+            // 데모: 접수번호 ESG-2026-00123 + 비밀번호 test1234 일 때만 결과 이동
+            // 그 외에는 "해당하는 데이터가 없습니다." 팝업
+            var demoReceipt = 'ESG-2026-00123';
+            var demoPw = 'test1234';
+
+            if (receiptNo === demoReceipt && password === demoPw) {
+                window.location.href = 'ethics-report-result.html?receipt=' + encodeURIComponent(receiptNo);
+            } else {
+                showAlert('해당하는 데이터가 없습니다.\n접수번호와 비밀번호를 다시 확인해 주세요.');
+            }
         });
     })();
     </script>

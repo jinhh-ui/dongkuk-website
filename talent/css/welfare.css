@@ -131,7 +131,6 @@
     font-size: 36px;
     font-weight: 700;
     color: #000;
-    line-height: 54px;
     min-height: 108px;
     margin: 0;
 }
@@ -236,15 +235,18 @@
 
     .wel-card-title {
         font-size: clamp(18px, 2.5vw, 28px);
+        min-height: 48px;
+        height: 48px;
     }
 
     .wel-card-desc {
         font-size: clamp(14px, 1.8vw, 18px);
+        min-height: auto;
     }
 
     .wel-card-body {
         padding: 24px;
-        gap: 10px;
+        gap: 20px;
     }
 
     .wel-btn {
@@ -335,7 +337,6 @@
     /* GM: card title — font-size=20px, lh=30px, min-height=60px(2줄) */
     .wel-card-title {
         font-size: 20px;
-        line-height: 30px;
         min-height: 60px;
     }
 

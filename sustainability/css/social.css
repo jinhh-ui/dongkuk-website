@@ -28,13 +28,11 @@
 ══════════════════════════════════════ */
 .soc-intro-outer {
     position: relative;
-    min-height: 200vh;
     background: #fff;
 }
 
 .soc-intro-inner {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
     background: #fff;
     overflow: visible;
@@ -149,7 +147,7 @@
 }
 
 .soc-section-heading {
-    font-size: 50px;
+    font-size: clamp(30px, 2.61vw, 50px);
     font-weight: 700;
     color: #000;
     line-height: 1.4;
@@ -158,7 +156,7 @@
 }
 
 .soc-section-heading-center {
-    font-size: 50px;
+    font-size: clamp(30px, 2.61vw, 50px);
     font-weight: 700;
     color: #000;
     line-height: 1.4;
@@ -261,7 +259,7 @@
 .soc-goal-item-header {
     width: 100%;
     height: 400px;
-    border-radius: 30px;
+    border-radius: clamp(16px, 2vw, 30px);
     overflow: hidden;
     position: relative;
     padding: 40px;
@@ -308,7 +306,7 @@
 .soc-goal-action-card {
     flex: 1;
     background: #fff;
-    border-radius: 30px;
+    border-radius: clamp(16px, 2vw, 30px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -330,6 +328,7 @@
 .soc-org-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 100px;
 }
 
@@ -495,7 +494,7 @@
 }
 
 .soc-campaign-heading {
-    font-size: 50px;
+    font-size: clamp(30px, 2.61vw, 50px);
     font-weight: 700;
     color: #000;
     line-height: 1.4;
@@ -651,7 +650,7 @@
 }
 
 .soc-gallery-heading {
-    font-size: 50px;
+    font-size: clamp(30px, 2.61vw, 50px);
     font-weight: 700;
     color: #000;
     line-height: 1.4;
@@ -716,6 +715,7 @@
     inset: unset;
     position: absolute;
 }
+
 .soc-gi-inner-1 img {
     position: absolute;
     inset: 0;
@@ -734,11 +734,13 @@
     inset: unset;
     position: absolute;
 }
+
 .soc-gi-inner-2-wrap {
     position: absolute;
     inset: 0;
     overflow: hidden;
 }
+
 .soc-gi-img-2 {
     position: absolute;
     height: 100%;
@@ -757,6 +759,7 @@
     inset: unset;
     position: absolute;
 }
+
 .soc-gi-inner-3 img {
     position: absolute;
     inset: 0;
@@ -765,10 +768,11 @@
     object-fit: cover;
     max-width: none;
 }
+
 .soc-gi-gradient-3 {
     position: absolute;
     inset: 0;
-    background: linear-gradient(239.85deg, rgba(96,112,160,0.2) 1.12%, rgba(188,188,188,0.2) 83.64%);
+    background: linear-gradient(239.85deg, rgba(96, 112, 160, 0.2) 1.12%, rgba(188, 188, 188, 0.2) 83.64%);
 }
 
 /* item4: inner 640.611×711.59px, right:-48.38px top:-144.38px */
@@ -781,7 +785,8 @@
     inset: unset;
     position: absolute;
 }
-.soc-gi-inner-4 > img {
+
+.soc-gi-inner-4>img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -789,15 +794,18 @@
     object-fit: cover;
     max-width: none;
 }
+
 .soc-gi-inner-4b {
     position: absolute;
     inset: 0;
 }
+
 .soc-gi-inner-4b-wrap {
     position: absolute;
     inset: 0;
     overflow: hidden;
 }
+
 .soc-gi-img-4b1 {
     position: absolute;
     height: 100%;
@@ -806,6 +814,7 @@
     max-width: none;
     top: 0;
 }
+
 .soc-gi-img-4b2 {
     position: absolute;
     height: 100%;
@@ -933,12 +942,14 @@
     border: 1px solid #D3D3D3;
     border-radius: 16px;
     overflow: hidden;
+    background: #fff;
 }
 
 .soc-cert-card-front img {
     width: 100%;
     height: 100%;
     display: block;
+    object-fit: cover;
 }
 
 .soc-cert-caption {
@@ -980,8 +991,6 @@
 
 .soc-value-oval {
     background: #F1F3F7;
-    outline: 3px dashed #D3D3D3;
-    outline-offset: -3px;
     border-radius: 9999px;
     width: 100%;
     padding: clamp(15px, 2.09vw, 40px);
@@ -991,6 +1000,7 @@
     position: relative;
     gap: 0;
 }
+
 
 .soc-value-circle {
     width: clamp(120px, 15.625vw, 300px);
@@ -1278,6 +1288,12 @@
     flex-shrink: 0;
     padding: 8px;
     overflow: hidden;
+    transition: background-color 0.2s;
+}
+
+.soc-page-btn:hover,
+.soc-page-btn:active {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .soc-page-btn img {
@@ -1309,6 +1325,7 @@
 .soc-activity-slide {
     display: none;
 }
+
 .soc-activity-slide--active {
     display: block;
 }
@@ -1326,6 +1343,7 @@
     overflow: hidden;
     border-radius: inherit;
 }
+
 .soc-ai-crop-img {
     position: absolute;
     height: 100%;
@@ -1343,6 +1361,7 @@
     pointer-events: none;
     border-radius: inherit;
 }
+
 .soc-ai-layers .soc-activity-img {
     position: absolute;
     inset: 0;
@@ -1447,7 +1466,7 @@
 
 .soc-partner-card img {
     max-width: 60%;
-    max-height: 55%;
+    max-height: 20%;
     object-fit: contain;
 }
 
@@ -1495,13 +1514,17 @@
    반응형 - 태블릿 (768~1439px)
 ══════════════════════════════════════ */
 @media (max-width: 1439px) {
-    
-.mo-br {
+
+    .mo-br {
         display: none;
     }
 
 
 
+
+    .soc-intro-overlay-text {
+        font-size: 20px;
+    }
 
     .soc-intro-title {
         white-space: normal;
@@ -1513,9 +1536,7 @@
         height: 400px;
     }
 
-    .soc-intro-outer {
-        min-height: 150vh;
-    }
+    .soc-intro-outer {}
 
     .soc-content-section,
     .soc-content-section-gray,
@@ -1540,18 +1561,14 @@
     }
 
     .soc-section-heading,
-    .soc-section-heading-center {
-        font-size: 36px;
-    }
+    .soc-section-heading-center {}
 
     .soc-policy-row {
         flex-direction: column;
         gap: 30px;
     }
 
-    .soc-policy-left h2 {
-        font-size: 36px;
-    }
+    .soc-policy-left h2 {}
 
     .soc-policy-right {
         flex: none;
@@ -1566,6 +1583,8 @@
     .soc-goal-item-title {
         font-size: 32px;
     }
+
+
 
     .soc-goal-action-card p {
         font-size: 22px;
@@ -1627,6 +1646,35 @@
         display: none;
     }
 
+    .soc-value-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .soc-value-ellipse-wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .soc-value-oval {
+        width: fit-content;
+    }
+
+    .soc-value-arrow-wrap {
+        height: clamp(40px, 7.5vw, 106px);
+        width: auto;
+    }
+
+    .soc-value-arrow-wrap img {
+        transform: none;
+        width: auto;
+        height: 100%;
+    }
+
+    .soc-value-result {
+        width: 260px;
+    }
+
     .soc-activity-contents {
         flex-direction: column;
         gap: 40px;
@@ -1674,7 +1722,7 @@
     }
 
     .soc-org-chart {
-        overflow-x: auto;
+        max-width: 1050px;
     }
 
     .soc-org-video-box {
@@ -1720,9 +1768,7 @@
 
 
     /* ── 도입(인트로) 섹션 ── */
-    .soc-intro-outer {
-        min-height: 180vh;
-    }
+    .soc-intro-outer {}
 
     .soc-intro-inner {
         padding-bottom: 0;
@@ -1845,7 +1891,6 @@
 
     .soc-section-heading,
     .soc-section-heading-center {
-        font-size: 30px;
         margin-bottom: 24px;
     }
 
@@ -1863,9 +1908,7 @@
         gap: 20px;
     }
 
-    .soc-policy-left h2 {
-        font-size: 30px;
-    }
+    .soc-policy-left h2 {}
 
     .soc-policy-right {
         flex: none;
@@ -1918,7 +1961,6 @@
     .soc-goal-item-header {
         width: 100%;
         height: 240px;
-        border-radius: 16px;
         padding: 16px 40px 40px 16px;
     }
 
@@ -1965,7 +2007,6 @@
         width: 100%;
         height: 120px;
         flex: none;
-        border-radius: 16px;
         padding: 16px;
     }
 
@@ -2006,6 +2047,7 @@
         display: block;
         border-radius: 20px;
     }
+
     /* 360px item1 inner: 비율 유지 (874/732 × 314 ≈ 375px, 482/473 × 204 ≈ 208px) */
     .soc-gallery-item-1 .soc-gi-inner-1 {
         width: 375px;
@@ -2021,6 +2063,7 @@
         display: block;
         border-radius: 20px;
     }
+
     /* 360px item2 inner: 비율 유지 (458/354 × 152 ≈ 197px, 400/389 × 167 ≈ 172px) */
     .soc-gallery-item-2 .soc-gi-inner-2 {
         width: 197px;
@@ -2036,6 +2079,7 @@
         display: block;
         border-radius: 20px;
     }
+
     /* 360px item3 inner: 비율 유지 (896/885 × 380 ≈ 385px, 594/561 × 240 ≈ 254px) */
     .soc-gallery-item-3 .soc-gi-inner-3 {
         width: 385px;
@@ -2051,6 +2095,7 @@
         display: block;
         border-radius: 20px;
     }
+
     /* 360px item4 inner: 비율 유지 (640.6/354 × 152 ≈ 275px, 711.6/514 × 222 ≈ 307px) */
     .soc-gallery-item-4 .soc-gi-inner-4 {
         width: 275px;
@@ -2101,6 +2146,7 @@
     .soc-cert-card-front {
         width: 195.23px;
         height: 276.16px;
+        border-radius: 8px;
     }
 
     .soc-cert-card-back {
@@ -2131,7 +2177,7 @@
     /* ── 모금·봉사 활동 ── */
     /* ── 모금·봉사 활동 ── */
     .soc-activity-inner {
-        gap: 20px;
+        gap: 24px;
     }
 
     .soc-activity-img-wrap {
@@ -2156,9 +2202,8 @@
     .soc-activity-desc {
         font-size: 16px;
         width: 100%;
-        min-height: 104px;
         line-height: 1.6;
-        margin-bottom: 16px;
+        height: 104px;
     }
 
     .soc-activity-text {
@@ -2251,7 +2296,6 @@
 
     /* ── 안전 갤러리 헤딩 ── */
     .soc-gallery-heading {
-        font-size: 30px;
         text-align: center;
     }
 
@@ -2264,9 +2308,7 @@
         gap: 20px;
     }
 
-    .soc-campaign-heading {
-        font-size: 30px;
-    }
+    .soc-campaign-heading {}
 
     .soc-campaign-desc {
         font-size: 16px;
@@ -2397,6 +2439,7 @@
         padding: 24px 20px;
         gap: 0;
         min-height: auto;
+        border-radius: 16px;
     }
 
     .soc-org-video-title-area {
@@ -2670,14 +2713,14 @@
         flex-direction: row;
         align-items: center;
         background: #F1F3F7;
-        border: 2px dashed #D3D3D3;
+        border: none;
         outline: none;
         border-radius: 9999px;
         padding: 30px;
         width: auto;
         height: auto;
         gap: 0;
-        position: static;
+        position: relative;
         flex-wrap: nowrap;
     }
 
@@ -2740,8 +2783,8 @@
     .soc-value-arrow-wrap img {
         transform: rotate(-90deg);
         width: 8px;
-        height: 64px;
-        object-fit: contain;
+        height: 100px;
+        object-fit: unset;
     }
 
     /* vesica intersect: CSS overflow clip 기법 */
@@ -2789,8 +2832,8 @@
     }
 
     /* ── br 태그 제어 ── */
-    
-.mo-br {
+
+    .mo-br {
         display: inline;
     }
 }

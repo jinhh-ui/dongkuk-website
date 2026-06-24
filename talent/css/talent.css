@@ -31,13 +31,11 @@
 /* GP node 10:1277 — pt=100, pb=100, pl=30, pr=30, gap=60 */
 .tal-intro-outer {
     position: relative;
-    min-height: 200vh;
     background: #fff;
 }
 
 .tal-intro-inner {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
     background: #fff;
     overflow: visible;
@@ -109,6 +107,7 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
+    gap: 40px;
 }
 
 /* GP 창의 row — pb=80 (adds to HCP gap=80 → visual separation 160px) */
@@ -118,10 +117,11 @@
 
 
 /* ── 타이틀 (좌측 열) ── */
-/* GP node 10:1283 / 10:1313 / 10:1336 — w=738, gap=40, VERTICAL */
+/* 피그마 수정(0604): 최소 720 ~ 최대 880px, 해상도 축소 시 좌측 우선 축소 */
 .tal-talent-title {
-    flex: 0 1 738px;
-    min-width: 0;
+    flex: 1 1 880px;
+    min-width: 720px;
+    max-width: 880px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -177,10 +177,10 @@
 
 
 /* ── 카드 영역 (우측 열) ── */
-/* GP node 10:1294 / 10:1325 / 10:1347 — w=761, pt=130, gap=50 */
+/* 피그마 수정(0604): 좌측이 720px 도달 후 우측 축소 */
 .tal-cards {
     flex: 0 1 761px;
-    min-width: 0;
+    min-width: 300px;
     padding-top: 130px;
     display: flex;
     flex-direction: column;
@@ -303,7 +303,7 @@
     .tal-page-header { padding: 40px 60px 60px; }
     .tal-page-title { font-size: clamp(36px, 4.5vw, 48px); }
 
-    .tal-intro-outer { min-height: 180vh; }
+    .tal-intro-outer { }
     .tal-intro-text-section { padding: 80px 60px 40px; }
     .tal-intro-title { font-size: clamp(30px, 4.5vw, 48px); white-space: normal; }
     .tal-intro-image-section { padding: 0 60px; }
@@ -312,7 +312,8 @@
     .tal-hcp-section { padding: 80px 60px; gap: 60px; }
     .tal-talent-row--changi { padding-bottom: 60px; }
 
-    .tal-talent-title { flex: 0 1 400px; gap: 30px; }
+    .tal-talent-row { gap: 40px; flex-wrap: wrap; }
+    .tal-talent-title { flex: 1 1 400px; min-width: 400px; max-width: none; gap: 30px; }
     .tal-talent-title-top { gap: 16px; }
     .tal-talent-icon { width: 80px; height: 80px; }
     .tal-talent-en { font-size: clamp(36px, 4.8vw, 52px); }
@@ -320,7 +321,7 @@
     .tal-talent-name-row { gap: 16px; }
     .tal-talent-quote { font-size: clamp(18px, 2vw, 22px); }
 
-    .tal-cards { width: auto; flex: 1; padding-top: 80px; gap: 16px; }
+    .tal-cards { width: auto; flex: 1 1 300px; min-width: 300px; padding-top: 80px; gap: 16px; }
     .tal-card { padding: 30px; border-radius: 20px; gap: 20px; }
     .tal-card-en { font-size: clamp(20px, 2.4vw, 26px); }
     .tal-card-kr { font-size: clamp(16px, 1.8vw, 20px); }
@@ -345,8 +346,8 @@
 
     /* 도입 섹션 — 모바일에서도 sticky 인터랙션 유지 */
     /* GM node 10:1379 — pt=40, pb=40, pl=16, pr=16, gap=24 */
-    .tal-intro-outer { min-height: 200vh; }
-    .tal-intro-inner { position: sticky; top: 0; padding: 40px 16px; gap: 24px; }
+    .tal-intro-outer { }
+    .tal-intro-inner { position: relative; padding: 40px 16px; gap: 24px; }
     .tal-intro-text-section { padding: 0; }
     /* GM node 10:1380 — fontSize=24, left-align, 글자 모두 보임 */
     .tal-intro-title { font-size: 24px; text-align: center; line-height: 1.5; white-space: normal; color: #E9E9E9; display: block; height: auto; }

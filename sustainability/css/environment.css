@@ -37,13 +37,11 @@
 ══════════════════════════════════════ */
 .env-intro-outer {
     position: relative;
-    min-height: 200vh;
     background: #fff;
 }
 
 .env-intro-inner {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
     background: #fff;
     overflow: visible;
@@ -64,7 +62,7 @@
 }
 
 /* 환경경영 페이지 page-header 하단 선 제거 */
-.env-intro-outer ~ *,
+.env-intro-outer~*,
 .page-header {
     border-bottom: none !important;
 }
@@ -463,12 +461,13 @@
     display: flex;
     align-items: stretch;
     gap: 20px;
+    flex-wrap: nowrap;
 }
 
 /* 지도 카드 */
 .env-solar-map-card {
-    flex: 0 1 1118px;
-    width: 1118px;
+    flex: 1 1 auto;
+    min-width: 0;
     max-width: 1118px;
     height: 660px;
     background: #F1F3F7;
@@ -700,7 +699,7 @@
     font-size: 20px;
     font-weight: 700;
     color: #4E4E4E;
-    padding-bottom: 6px;
+    padding-bottom: 10px;
 }
 
 /* 화살표 (가로, 데스크탑/태블릿) */
@@ -723,8 +722,7 @@
 
 /* 결과 카드 */
 .env-solar-result-card {
-    flex: 1;
-    width: 100%;
+    flex: 0 0 auto;
     background: #269113;
     border-radius: 30px;
     padding: 50px;
@@ -732,7 +730,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0;
+    gap: 60px;
 }
 
 .env-solar-result-item {
@@ -780,6 +778,7 @@
     font-weight: 700;
     color: rgba(255, 255, 255, 0.85);
     margin-left: 16px;
+    white-space: nowrap;
 }
 
 /* 주석 (하단, 우측 정렬) */
@@ -876,28 +875,7 @@
 }
 
 
-/* 1635px 이하에서 태양광 인포그래픽만 세로 배치로 전환 */
-@media (max-width: 1635px) {
-    .env-solar-infographic {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .env-solar-arrow-h {
-        display: none;
-    }
-
-    .env-solar-mob-arrow {
-        display: block;
-    }
-
-    .env-solar-map-card {
-        width: 100%;
-        max-width: none;
-        flex: none;
-    }
-}
+/* 태블릿 이하에서 태양광 인포그래픽 세로 배치 — 1439px 미디어쿼리에서 처리 */
 
 
 /* ══════════════════════════════════════
@@ -917,7 +895,7 @@
     }
 
     .env-intro-overlay-text {
-        font-size: clamp(14px, 1.6vw, 22px);
+        font-size: 20px;
     }
 
     /* 환경방침 */
@@ -1187,8 +1165,8 @@
 ══════════════════════════════════════ */
 @media (max-width: 767px) {
 
-    
-.mo-br {
+
+    .mo-br {
         display: block;
     }
 
@@ -1209,7 +1187,7 @@
 
     /* 도입 */
     .env-intro-outer {
-        min-height: 180vh;
+        /* 자연 높이 — 스크롤 잠금은 JS 처리 */
     }
 
     .env-intro-inner {
@@ -1674,6 +1652,7 @@
 
     .env-solar-fc-total-unit {
         font-size: 18px;
+        padding-bottom: 6px;
     }
 
     /* 모바일 화살표 */

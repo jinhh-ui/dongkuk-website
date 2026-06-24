@@ -744,6 +744,292 @@
 
 
 /* ══════════════════════════════════════
+   파일 첨부 상태 (피그마 568-16811)
+   GP: min-h=220, bg=#F8F9FB, border-dashed, radius=10, p=24, gap=20
+══════════════════════════════════════ */
+
+/* 파일 있을 때 드롭 에리어 */
+.erf-drop-area.has-files {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 220px;
+    height: auto;
+    padding: 24px;
+    gap: 20px;
+    cursor: default;
+}
+
+/* 기본/파일 상태 토글 */
+.erf-drop-default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    flex: 1;
+}
+
+.erf-drop-files {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* GP: 헤더 — flex-row, gap=16, items-center */
+.erf-drop-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+/* GP: 모두 삭제 버튼 */
+.erf-drop-clear {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+.erf-drop-clear:hover {
+    text-decoration: underline;
+}
+
+/* GP: 세로 구분선 — w=0(border), h=16 */
+.erf-drop-divider {
+    width: 1px;
+    height: 16px;
+    background: #A7A7A7;
+    flex-shrink: 0;
+}
+
+/* GP: 카운터 — 첨부파일 N개 / 5개 */
+.erf-drop-count {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+.erf-drop-count-current {
+    font-weight: 500;
+    color: #F27100;
+}
+
+/* GP: 파일 목록 — gap=8 */
+.erf-file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* GP: 파일 행 — bg=white, radius=8, px=15, py=12, gap=24, items-center */
+.erf-file-row {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* GP: X 삭제 버튼 — 24×24, rotate(45deg) + icon */
+.erf-file-remove {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transform: rotate(45deg);
+}
+
+.erf-file-remove svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* GP: 파일명 — fs=20, fw=400, color=#4E4E4E, lh=1.6 */
+.erf-file-name {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4E4E4E;
+    line-height: 1.6;
+}
+
+/* GP: 파일 용량 — fs=16, fw=400, color=#A7A7A7 */
+.erf-file-size {
+    font-size: 16px;
+    font-weight: 400;
+    color: #A7A7A7;
+    line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════
+   비밀번호 토글 (피그마 PasswordToggle)
+   GP: 24×24, eye icon show/hide
+══════════════════════════════════════ */
+
+.erf-pw-input-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.erf-input--pw {
+    padding-right: 56px;
+}
+
+.erf-pw-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.erf-pw-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* ══════════════════════════════════════
+   Validation 에러 메시지 (피그마 568-16783)
+   GP: fs=20, fw=400, color=#F64301, lh=1.6
+══════════════════════════════════════ */
+
+.erf-field-error {
+    font-size: 20px;
+    font-weight: 400;
+    color: #F64301;
+    line-height: 1.6;
+    margin: 8px 0 0;
+    min-height: 0;
+}
+
+.erf-field-error:empty {
+    display: none;
+}
+
+/* GP: 에러 상태 인풋 — border-color=#F64301 */
+.erf-input.is-error {
+    border-color: #F64301;
+}
+
+
+/* ══════════════════════════════════════
+   시스템 알림창 (Alert popup)
+   피그마 popup_1(1버튼), popup_2(2버튼)
+   GP: w=420, radius=20, shadow=0 4px 10px rgba(0,0,0,0.08)
+══════════════════════════════════════ */
+
+/* GP: 반투명 오버레이 — bg=rgba(0,0,0,0.5) */
+.erf-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GP: 팝업 — w=420, radius=20, bg=white, shadow */
+.erf-alert-popup {
+    width: 420px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+/* GP: body — pt=60, pb=30, px=30 */
+.erf-alert-body {
+    padding: 60px 30px 30px;
+}
+
+/* GP: msg — fs=24, fw=400, color=#000, lh=1.5 */
+.erf-alert-msg {
+    font-size: 24px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* GP: btns — p=20, gap=10 */
+.erf-alert-btns {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+
+/* GP: 버튼 공통 — h=68, radius=10, fs=20, fw=700, lh=1.5 */
+.erf-alert-btn {
+    flex: 1;
+    height: 68px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.15s;
+    line-height: 1.5;
+    border: none;
+}
+
+.erf-alert-btn:hover {
+    opacity: 0.85;
+}
+
+/* GP: 확인 — bg=#F27100, color=white */
+.erf-alert-btn--ok {
+    background: #F27100;
+    color: #fff;
+}
+
+/* GP: 취소 — border=1 solid #F27100, bg=white, color=#F27100 */
+.erf-alert-btn--cancel {
+    background: #fff;
+    border: 1px solid #F27100;
+    color: #F27100;
+}
+
+/* 1버튼(full width) */
+.erf-alert-btn--full {
+    flex: 1;
+}
+/* ══════════════════════════════════════
    반응형 — 태블릿 (768px ~ 1439px)
 ══════════════════════════════════════ */
 @media (max-width: 1439px) {
@@ -1052,10 +1338,10 @@
         font-weight: 500;
     }
 
-    /* GM: email — flex-col layout */
+    /* GM: email — flex-wrap layout: 3줄 (local / @+domain / select) */
     .erf-email-wrap {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
         gap: 12px;
     }
 
@@ -1069,14 +1355,19 @@
     }
 
     .erf-at {
+        flex: 0 0 auto;
         font-size: 20px;
         color: #222;
+        align-self: flex-start;
+        line-height: 48px;
     }
 
-    /* GM: domain group after @ — flex-row, gap=12, items-start */
+    /* GM: @ + domain 한 줄, select는 다음 줄 */
     .erf-email-domain-wrap {
-        flex: none;
-        width: 100%;
+        flex: 1 1 0;
+        min-width: 0;
+        width: auto;
+        max-width: none;
         flex-direction: column;
         gap: 12px;
         height: auto;
@@ -1256,22 +1547,29 @@
         line-height: 1.6;
     }
 
-    /* GM: 알림창 모바일 */
+    /* GM: 알림창 모바일 — Figma popup_2 */
     .erf-alert-popup {
         width: calc(100% - 32px);
         max-width: 360px;
+        border-radius: 16px;
+    }
+
+    .erf-alert-body {
+        padding: 40px 20px 20px;
     }
 
     .erf-alert-msg {
-        font-size: 18px;
+        font-size: 16px;
+        line-height: 1.6;
     }
 
     .erf-alert-btns {
         padding: 16px;
+        gap: 10px;
     }
 
     .erf-alert-btn {
-        height: 56px;
+        height: 48px;
         font-size: 16px;
     }
 
@@ -1313,289 +1611,3 @@
 }
 
 
-/* ══════════════════════════════════════
-   파일 첨부 상태 (피그마 568-16811)
-   GP: min-h=220, bg=#F8F9FB, border-dashed, radius=10, p=24, gap=20
-══════════════════════════════════════ */
-
-/* 파일 있을 때 드롭 에리어 */
-.erf-drop-area.has-files {
-    align-items: flex-start;
-    justify-content: flex-start;
-    min-height: 220px;
-    height: auto;
-    padding: 24px;
-    gap: 20px;
-    cursor: default;
-}
-
-/* 기본/파일 상태 토글 */
-.erf-drop-default {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    flex: 1;
-}
-
-.erf-drop-files {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
-/* GP: 헤더 — flex-row, gap=16, items-center */
-.erf-drop-header {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 400;
-    color: #4E4E4E;
-    line-height: 1.6;
-}
-
-/* GP: 모두 삭제 버튼 */
-.erf-drop-clear {
-    background: none;
-    border: none;
-    padding: 0;
-    font-size: 20px;
-    font-weight: 400;
-    color: #4E4E4E;
-    cursor: pointer;
-    font-family: inherit;
-    line-height: 1.6;
-}
-
-.erf-drop-clear:hover {
-    text-decoration: underline;
-}
-
-/* GP: 세로 구분선 — w=0(border), h=16 */
-.erf-drop-divider {
-    width: 1px;
-    height: 16px;
-    background: #A7A7A7;
-    flex-shrink: 0;
-}
-
-/* GP: 카운터 — 첨부파일 N개 / 5개 */
-.erf-drop-count {
-    font-size: 20px;
-    font-weight: 400;
-    color: #4E4E4E;
-    line-height: 1.6;
-}
-
-.erf-drop-count-current {
-    font-weight: 500;
-    color: #F27100;
-}
-
-/* GP: 파일 목록 — gap=8 */
-.erf-file-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-/* GP: 파일 행 — bg=white, radius=8, px=15, py=12, gap=24, items-center */
-.erf-file-row {
-    background: #fff;
-    border-radius: 8px;
-    padding: 12px 15px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-/* GP: X 삭제 버튼 — 24×24, rotate(45deg) + icon */
-.erf-file-remove {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transform: rotate(45deg);
-}
-
-.erf-file-remove svg {
-    width: 24px;
-    height: 24px;
-}
-
-/* GP: 파일명 — fs=20, fw=400, color=#4E4E4E, lh=1.6 */
-.erf-file-name {
-    font-size: 20px;
-    font-weight: 400;
-    color: #4E4E4E;
-    line-height: 1.6;
-}
-
-/* GP: 파일 용량 — fs=16, fw=400, color=#A7A7A7 */
-.erf-file-size {
-    font-size: 16px;
-    font-weight: 400;
-    color: #A7A7A7;
-    line-height: 1.6;
-}
-
-
-/* ══════════════════════════════════════
-   비밀번호 토글 (피그마 PasswordToggle)
-   GP: 24×24, eye icon show/hide
-══════════════════════════════════════ */
-
-.erf-pw-input-wrap {
-    position: relative;
-    width: 100%;
-}
-
-.erf-input--pw {
-    padding-right: 56px;
-}
-
-.erf-pw-toggle {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.erf-pw-toggle svg {
-    width: 24px;
-    height: 24px;
-}
-
-
-/* ══════════════════════════════════════
-   Validation 에러 메시지 (피그마 568-16783)
-   GP: fs=20, fw=400, color=#F64301, lh=1.6
-══════════════════════════════════════ */
-
-.erf-field-error {
-    font-size: 20px;
-    font-weight: 400;
-    color: #F64301;
-    line-height: 1.6;
-    margin: 8px 0 0;
-    min-height: 0;
-}
-
-.erf-field-error:empty {
-    display: none;
-}
-
-/* GP: 에러 상태 인풋 — border-color=#F64301 */
-.erf-input.is-error {
-    border-color: #F64301;
-}
-
-
-/* ══════════════════════════════════════
-   시스템 알림창 (Alert popup)
-   피그마 popup_1(1버튼), popup_2(2버튼)
-   GP: w=420, radius=20, shadow=0 4px 10px rgba(0,0,0,0.08)
-══════════════════════════════════════ */
-
-/* GP: 반투명 오버레이 — bg=rgba(0,0,0,0.5) */
-.erf-alert-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* GP: 팝업 — w=420, radius=20, bg=white, shadow */
-.erf-alert-popup {
-    width: 420px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-}
-
-/* GP: body — pt=60, pb=30, px=30 */
-.erf-alert-body {
-    padding: 60px 30px 30px;
-}
-
-/* GP: msg — fs=24, fw=400, color=#000, lh=1.5 */
-.erf-alert-msg {
-    font-size: 24px;
-    font-weight: 400;
-    color: #000;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* GP: btns — p=20, gap=10 */
-.erf-alert-btns {
-    display: flex;
-    gap: 10px;
-    padding: 20px;
-}
-
-/* GP: 버튼 공통 — h=68, radius=10, fs=20, fw=700, lh=1.5 */
-.erf-alert-btn {
-    flex: 1;
-    height: 68px;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: inherit;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.15s;
-    line-height: 1.5;
-    border: none;
-}
-
-.erf-alert-btn:hover {
-    opacity: 0.85;
-}
-
-/* GP: 확인 — bg=#F27100, color=white */
-.erf-alert-btn--ok {
-    background: #F27100;
-    color: #fff;
-}
-
-/* GP: 취소 — border=1 solid #F27100, bg=white, color=#F27100 */
-.erf-alert-btn--cancel {
-    background: #fff;
-    border: 1px solid #F27100;
-    color: #F27100;
-}
-
-/* 1버튼(full width) */
-.erf-alert-btn--full {
-    flex: 1;
-}

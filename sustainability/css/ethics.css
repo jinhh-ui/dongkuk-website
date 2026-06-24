@@ -25,13 +25,11 @@
 /* ── 도입 섹션 (sticky scroll animation) ── */
 .eth-intro-outer {
     position: relative;
-    min-height: 200vh;
     background: #fff;
 }
 
 .eth-intro-inner {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
     background: #fff;
     overflow: visible;
@@ -218,7 +216,7 @@
     min-width: 6px;
     border-radius: 50%;
     background: #7A7A7A;
-    margin-top: 0.65em;
+    margin: 0.75vw 10px;
 }
 
 .eth-principles-footer {
@@ -452,12 +450,14 @@
 @media (max-width: 1439px) {
 
 
-    .eth-intro-outer {
-        min-height: 180vh;
-    }
+    .eth-intro-outer {}
 
     .eth-intro-text-section {
         padding: 80px 60px 40px;
+    }
+
+    .eth-intro-overlay-text {
+        font-size: 20px;
     }
 
     .eth-principles-content {
@@ -490,6 +490,10 @@
     .eth-accordion-chapter {
         font-size: 20px;
     }
+
+    .eth-accordion-header {
+        padding: 36.5px 0;
+    }
 }
 
 /* ══════════════════════════════════════
@@ -512,13 +516,10 @@
 
 
     /* 도입 */
-    .eth-intro-outer {
-        min-height: 150vh;
-    }
+    .eth-intro-outer {}
 
     .eth-intro-inner {
-        position: sticky;
-        top: 0;
+        position: relative;
         padding-bottom: 40px;
     }
 
@@ -626,7 +627,7 @@
         width: 4px;
         height: 4px;
         min-width: 4px;
-        margin-top: 0.65em;
+        margin: 10px;
     }
 
     /* 아코디언 */
@@ -733,9 +734,11 @@
     .eth-accordion-header {
         padding-right: 24px;
     }
+
     .eth-acc-list {
         gap: 12px;
     }
+
     .eth-accordion-content {
         padding: 36px 50px;
     }
@@ -746,11 +749,13 @@
 .eth-accordion-item--ch8 .eth-acc-article {
     gap: 18px;
 }
+
 .eth-accordion-item--ch7 .eth-acc-sublist,
 .eth-accordion-item--ch8 .eth-acc-sublist {
     gap: 0;
     padding-left: 1.3em;
 }
+
 .eth-accordion-item--ch7 .eth-acc-sublist li,
 .eth-accordion-item--ch8 .eth-acc-sublist li {
     margin: 0;

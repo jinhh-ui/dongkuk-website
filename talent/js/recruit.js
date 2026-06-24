@@ -1,55 +1,7 @@
 /* ══════════════════════════════════════
    채용안내 (recruit.html) — page script
+   인트로 글자 칠하기는 intro-scroll-lock.js에서 공통 처리
 ══════════════════════════════════════ */
-
-/* ── 도입 타이틀 글자 색상 전환 (스크롤 기반, talent.js 동일 패턴) ── */
-document.addEventListener('DOMContentLoaded', function () {
-    var outer = document.querySelector('.rec-intro-outer');
-    if (!outer) return;
-
-    var title = outer.querySelector('.rec-intro-title');
-    if (!title) return;
-
-    function wrapCharacters(node) {
-        if (node.nodeType === Node.TEXT_NODE) {
-            var text = node.textContent;
-            var frag = document.createDocumentFragment();
-            for (var i = 0; i < text.length; i++) {
-                var span = document.createElement('span');
-                span.className = 'char';
-                span.textContent = text[i];
-                frag.appendChild(span);
-            }
-            node.parentNode.replaceChild(frag, node);
-        } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'BR') {
-            Array.from(node.childNodes).forEach(wrapCharacters);
-        }
-    }
-    wrapCharacters(title);
-
-    var chars = title.querySelectorAll('.char');
-
-    function onScroll() {
-        var rect = outer.getBoundingClientRect();
-        var outerH = outer.offsetHeight;
-        var innerH = window.innerHeight;
-        var scrollRoom = outerH - innerH;
-        var scrolled = -rect.top;
-        var progress = Math.max(0, Math.min(1, scrolled / Math.max(scrollRoom, 1)));
-
-        var activeCount = Math.floor(progress * chars.length);
-        chars.forEach(function (c, i) {
-            if (i < activeCount) c.classList.add('active');
-        });
-
-        if (activeCount >= chars.length) {
-            window.removeEventListener('scroll', onScroll);
-        }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-});
 
 
 /* ── FAQ 탭 필터링 ── */

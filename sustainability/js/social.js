@@ -1,55 +1,7 @@
 /* ================================================================
    social.js — 사회공헌 페이지 스크립트
+   인트로 글자 칠하기는 intro-scroll-lock.js에서 공통 처리
    ================================================================ */
-
-/* ── 인트로 타이틀 글자 색상 전환 (스크롤 기반) ── */
-document.addEventListener('DOMContentLoaded', function () {
-    const outer = document.querySelector('.soc-intro-outer');
-    if (!outer) return;
-
-    const title = outer.querySelector('.soc-intro-title');
-    if (!title) return;
-
-    function wrapCharacters(node) {
-        if (node.nodeType === Node.TEXT_NODE) {
-            const text = node.textContent;
-            const frag = document.createDocumentFragment();
-            for (let i = 0; i < text.length; i++) {
-                const span = document.createElement('span');
-                span.className = 'char';
-                span.textContent = text[i];
-                frag.appendChild(span);
-            }
-            node.parentNode.replaceChild(frag, node);
-        } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'BR') {
-            Array.from(node.childNodes).forEach(wrapCharacters);
-        }
-    }
-    wrapCharacters(title);
-
-    const chars = title.querySelectorAll('.char');
-
-    function onScroll() {
-        const rect = outer.getBoundingClientRect();
-        const outerH = outer.offsetHeight;
-        const innerH = window.innerHeight;
-        const scrollRoom = outerH - innerH;
-        const scrolled = -rect.top;
-        const progress = Math.max(0, Math.min(1, scrolled / Math.max(scrollRoom, 1)));
-
-        const activeCount = Math.floor(progress * chars.length);
-        chars.forEach(function (c, i) {
-            if (i < activeCount) c.classList.add('active');
-        });
-
-        if (activeCount >= chars.length) {
-            window.removeEventListener('scroll', onScroll);
-        }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-});
 
 /* ── 모금활동 / 봉사활동 슬라이더 ── */
 document.addEventListener('DOMContentLoaded', function () {
@@ -81,4 +33,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
         updateSlider();
     });
+});
+
+/* ── 핵심가치 타원 점선 (SVG stroke-dasharray로 간격 조절) ── */
+document.querySelectorAll('.soc-value-oval').forEach(function (oval) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
+
+    var rect = document.createElementNS(ns, 'rect');
+    rect.setAttribute('fill', 'none');
+    rect.setAttribute('stroke', '#D3D3D3');
+    rect.setAttribute('stroke-width', '3');
+    rect.setAttribute('stroke-dasharray', '7 7');
+
+    svg.appendChild(rect);
+    oval.appendChild(svg);
+
+    function update() {
+        var w = oval.offsetWidth;
+        var h = oval.offsetHeight;
+        var r = Math.min(w, h) / 2;
+        svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+        rect.setAttribute('x', '1.5');
+        rect.setAttribute('y', '1.5');
+        rect.setAttribute('width', w - 3);
+        rect.setAttribute('height', h - 3);
+        rect.setAttribute('rx', r);
+        rect.setAttribute('ry', r);
+    }
+
+    update();
+    if (window.ResizeObserver) {
+        new ResizeObserver(update).observe(oval);
+    } else {
+        window.addEventListener('resize', update);
+    }
 });

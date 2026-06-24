@@ -84,12 +84,12 @@
                     <div class="err-label">첨부파일</div>
                     <div class="err-attach-list" id="resultFiles">
                         <div class="err-attach-file">
-                            <svg class="err-file-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="#7A7A7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14,2 14,8 20,8" stroke="#7A7A7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <img class="err-file-icon" src="assets/report/file.svg" alt="" width="16" height="20">
                             <span class="err-file-name">File name.jpg</span>
                             <span class="err-file-size">(2.7MB)</span>
                         </div>
                         <div class="err-attach-file">
-                            <svg class="err-file-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="#7A7A7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14,2 14,8 20,8" stroke="#7A7A7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <img class="err-file-icon" src="assets/report/file.svg" alt="" width="16" height="20">
                             <span class="err-file-name">File name.jpg</span>
                             <span class="err-file-size">(2.7MB)</span>
                         </div>
@@ -150,6 +150,20 @@
             var el = document.getElementById('resultReceiptNo');
             if (el) el.textContent = receipt;
         }
+
+        // 첨부파일 클릭 → 새 창으로 열기
+        // 데모용 URL (실제 서비스에서는 서버에서 내려온 파일 URL로 대체)
+        var demoFiles = [
+            '../assets/sustainability/img_environment_intro.jpg',
+            '../assets/sustainability/img_environment_policy.jpg'
+        ];
+
+        document.querySelectorAll('.err-attach-file').forEach(function(file, idx) {
+            file.addEventListener('click', function() {
+                var url = demoFiles[idx] || demoFiles[0];
+                window.open(url, '_blank');
+            });
+        });
     })();
     </script>
 </body>

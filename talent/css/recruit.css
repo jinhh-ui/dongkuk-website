@@ -35,13 +35,11 @@
 /* GP: w=1920, h=884, pt=100, pb=100, pl=30, pr=30, gap=60 */
 .rec-intro-outer {
     position: relative;
-    min-height: 200vh;
     background: #fff;
 }
 
 .rec-intro-inner {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
     background: #fff;
     overflow: visible;
@@ -423,7 +421,6 @@
     align-items: center;
     gap: 8px;
     padding: 30px;
-    width: 1124px;
     height: 99px;
     box-sizing: border-box;
     cursor: pointer;
@@ -588,20 +585,21 @@
     }
 
     .rec-intro-inner {
-        padding: 80px 60px 80px;
+        padding: 80px 30px 80px;
         gap: 40px;
     }
 
     .rec-intro-title {
-        font-size: 48px;
+        font-size: clamp(24px, 3.125vw, 60px);
     }
 
     .rec-intro-image-wrapper {
-        height: 420px;
+        height: clamp(300px, 35vw, 500px);
+        border-radius: 20px;
     }
 
     .rec-intro-desc {
-        font-size: clamp(16px, 2vw, 22px);
+        font-size: 20px;
         white-space: normal;
         width: 80%;
     }
@@ -623,6 +621,19 @@
 
     .rec-process-desc {
         font-size: clamp(14px, 1.8vw, 18px);
+    }
+
+    .rec-process-list {
+        max-width: 1142px;
+        margin: 0 auto;
+    }
+
+    .rec-process-card {
+        overflow: visible;
+    }
+
+    .rec-process-content {
+        overflow: visible;
     }
 
     .rec-info-label {
@@ -705,9 +716,9 @@
         font-size: 24px;
         text-align: center;
         white-space: normal;
+        word-break: keep-all;
         color: #363636;
-        height: 72px;
-        overflow: hidden;
+        height: auto;
     }
 
     .rec-intro-title .char {

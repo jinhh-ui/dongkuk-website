@@ -198,7 +198,7 @@
         </div>
 
         <!-- ④ 결과 조회용 비밀번호 -->
-        <div class="erf-item">
+        <div class="erf-item" id="passwordSection" style="display:none;">
             <div class="erf-item-header">
                 <h2 class="erf-item-title">결과 조회용 비밀번호</h2>
                 <p class="erf-required-note"><span class="erf-req-star">*</span>는 필수 입력 항목입니다.</p>
@@ -426,12 +426,30 @@
         });
 
         // ── 제보방식 라디오 전환 ──
+        var reporterInfo = document.getElementById('reporterInfo');
+        var passwordSection = document.getElementById('passwordSection');
+        var emailField = document.querySelector('.erf-field--email');
+
+        function updateReportMode(mode) {
+            if (mode === 'anon') {
+                // 익명: 이메일 숨김, 비밀번호 표시, 제보자 정보 숨김
+                reporterInfo.style.display = 'none';
+                passwordSection.style.display = '';
+            } else {
+                // 실명: 제보자 정보 표시, 비밀번호 숨김
+                reporterInfo.style.display = '';
+                passwordSection.style.display = 'none';
+            }
+        }
+
         document.querySelectorAll('input[name="reportType"]').forEach(function(radio) {
             radio.addEventListener('change', function() {
-                var info = document.getElementById('reporterInfo');
-                info.style.display = this.value === 'anon' ? 'none' : '';
+                updateReportMode(this.value);
             });
         });
+
+        // 초기 상태 (실명이 기본 checked)
+        updateReportMode(document.querySelector('input[name="reportType"]:checked').value);
 
         // ── 이메일 드롭다운 ──
         var emailSelect = document.getElementById('emailSelect');
@@ -565,11 +583,21 @@
             });
         }
 
-        // ── 비밀번호 토글 ──
-        document.querySelectorAll('.erf-pw-toggle').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var wrap = this.closest('.erf-pw-input-wrap');
-                var input = wrap.querySelector('.erf-input--pw');
+        // ── 비밀번호 토글 (1자 이상 입력 시에만 아이콘 노출) ──
+        document.querySelectorAll('.erf-pw-input-wrap').forEach(function(wrap) {
+            var input = wrap.querySelector('.erf-input--pw');
+            var toggle = wrap.querySelector('.erf-pw-toggle');
+            if (!input || !toggle) return;
+
+            // 초기: 숨김
+            toggle.style.display = 'none';
+
+            // 입력 시 토글 표시/숨김
+            input.addEventListener('input', function() {
+                toggle.style.display = this.value.length > 0 ? '' : 'none';
+            });
+
+            toggle.addEventListener('click', function() {
                 var iconHide = this.querySelector('.erf-pw-icon-hide');
                 var iconShow = this.querySelector('.erf-pw-icon-show');
                 if (input.type === 'password') {
@@ -679,24 +707,24 @@
                 return;
             }
 
-            // 피그마: 비밀번호 미입력 → "비밀번호를 입력해주세요."
-            if (!inputPw.value.trim()) {
-                showAlert('비밀번호를 입력해주세요.', { onConfirm: function() { inputPw.focus(); } });
-                return;
-            }
-            if (!validatePw()) {
-                showAlert('영문,숫자를 조합하여 6자 이상 입력해 주세요.', { onConfirm: function() { inputPw.focus(); } });
-                return;
-            }
-
-            // 피그마: 비밀번호 확인 미입력 → "비밀번호 확인을 입력해 주세요."
-            if (!inputPwConfirm.value.trim()) {
-                showAlert('비밀번호 확인을 입력해 주세요.', { onConfirm: function() { inputPwConfirm.focus(); } });
-                return;
-            }
-            if (!validatePwConfirm()) {
-                showAlert('비밀번호가 일치하지 않습니다.', { onConfirm: function() { inputPwConfirm.focus(); } });
-                return;
+            // 비밀번호 검증: 익명 제보일 때만
+            if (isAnon) {
+                if (!inputPw.value.trim()) {
+                    showAlert('비밀번호를 입력해주세요.', { onConfirm: function() { inputPw.focus(); } });
+                    return;
+                }
+                if (!validatePw()) {
+                    showAlert('영문,숫자를 조합하여 6자 이상 입력해 주세요.', { onConfirm: function() { inputPw.focus(); } });
+                    return;
+                }
+                if (!inputPwConfirm.value.trim()) {
+                    showAlert('비밀번호 확인을 입력해 주세요.', { onConfirm: function() { inputPwConfirm.focus(); } });
+                    return;
+                }
+                if (!validatePwConfirm()) {
+                    showAlert('비밀번호가 일치하지 않습니다.', { onConfirm: function() { inputPwConfirm.focus(); } });
+                    return;
+                }
             }
 
             // 피그마: 동의하기 미선택 → "개인정보 수집을 동의해 주세요."
