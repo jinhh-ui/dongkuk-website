@@ -51,6 +51,22 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 100px;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.env-intro-outer,
+.env-intro-text-section,
+.env-intro-image-section {
+    border: none !important;
+    outline: none !important;
+}
+
+/* 환경경영 페이지 page-header 하단 선 제거 */
+.env-intro-outer ~ *,
+.page-header {
+    border-bottom: none !important;
 }
 
 .env-intro-text-section {
@@ -113,7 +129,7 @@
 .env-intro-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,6 +199,16 @@
     max-width: 100%;
 }
 
+.env-policy-ceo {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: clamp(16px, 1.25vw, 24px);
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: #4E4E4E;
+    margin-top: 0;
+}
+
 .env-policy-list {
     display: flex;
     flex-direction: column;
@@ -243,7 +269,7 @@
 .env-goal-bg-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -751,8 +777,9 @@
 
 .env-solar-result-unit {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 700;
     color: rgba(255, 255, 255, 0.85);
+    margin-left: 16px;
 }
 
 /* 주석 (하단, 우측 정렬) */
@@ -1257,6 +1284,12 @@
         max-width: 100%;
     }
 
+    .env-policy-ceo {
+        font-size: 16px;
+        line-height: 160%;
+        margin-top: 0;
+    }
+
     .env-policy-list {
         max-width: 100%;
         height: auto;
@@ -1634,6 +1667,9 @@
 
     .env-solar-fc-total-label {
         font-size: 16px;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
     }
 
     .env-solar-fc-total-unit {
@@ -1690,6 +1726,7 @@
 
     .env-solar-result-unit {
         font-size: 16px;
+        margin-left: 6px;
     }
 
     .env-solar-footnote {

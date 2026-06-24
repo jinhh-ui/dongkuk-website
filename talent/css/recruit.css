@@ -785,6 +785,7 @@
         margin-left: 0 !important;
         width: 100%;
         box-sizing: border-box;
+        border-radius: 16px;
     }
 
     /* GM: icon — 32×32 */
@@ -881,16 +882,16 @@
         gap: 4px;
     }
 
-    /* GM: label — fs=20, fw=700 */
+    /* GM: label — fs=18, fw=700 */
     .rec-info-label {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 700;
         flex: none;
     }
 
-    /* GM: value — fs=20 */
+    /* GM: value — fs=18 */
     .rec-info-value {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 32px;
     }
 

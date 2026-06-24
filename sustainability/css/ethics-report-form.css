@@ -120,7 +120,7 @@
 }
 
 .erf-radio-input:checked + .erf-radio-circle::before {
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 .erf-radio-input:checked + .erf-radio-circle::after {
@@ -239,7 +239,7 @@
 }
 
 .erf-input:focus {
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 .erf-input::placeholder {
@@ -266,7 +266,7 @@
 }
 
 .erf-textarea:focus {
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 .erf-textarea::placeholder {
@@ -333,7 +333,7 @@
 }
 
 .erf-email-domain:focus {
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 /* GP: 커스텀 select — flex:1, h=60, border, radius=10, px=24 */
@@ -359,7 +359,7 @@
 }
 
 .erf-email-select:focus {
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 .erf-email-select-current {
@@ -486,7 +486,7 @@
 .erf-drop-area:hover,
 .erf-drop-area.is-over {
     background: #F0F1F3;
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 .erf-drop-icon {
@@ -701,7 +701,7 @@
 
 .erf-checkbox-input:checked + .erf-checkbox-box::before {
     background: #F27100;
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 /* GP: label/24_Bold — fs=24, fw=700, color=#000 */
@@ -957,6 +957,7 @@
     .erf-required-note {
         font-size: 14px;
         color: #222;
+        font-weight: 400;
     }
 
     /* GM: radio — flex-col, gap=20 */

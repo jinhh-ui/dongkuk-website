@@ -132,6 +132,7 @@
     font-weight: 700;
     color: #000;
     line-height: 54px;
+    min-height: 108px;
     margin: 0;
 }
 
@@ -183,6 +184,12 @@
     border: 1px solid #F27100;
     color: #F27100;
     background: transparent;
+}
+
+.wel-btn--outline:hover,
+.wel-btn--outline:active {
+    background: #F8F9FB;
+    opacity: 1;
 }
 
 /* primary: bg=#F27100, color=#fff */
@@ -325,15 +332,17 @@
         gap: 16px;
     }
 
-    /* GM: card title — font-size=20px, h=30 */
+    /* GM: card title — font-size=20px, lh=30px, min-height=60px(2줄) */
     .wel-card-title {
         font-size: 20px;
         line-height: 30px;
+        min-height: 60px;
     }
 
-    /* GM: card desc — font-size=16px */
+    /* GM: card desc — font-size=16px, lh=160% */
     .wel-card-desc {
         font-size: 16px;
+        line-height: 1.6;
         min-height: 78px;
     }
 

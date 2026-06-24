@@ -284,31 +284,42 @@
    GM frame: 568-16332
 ══════════════════════════════════════ */
 @media (max-width: 767px) {
+    /* GM: container — py=40, px=16, gap=30 */
     .erc-section {
-        padding: 0 16px 20px;
+        padding: 40px 16px;
         gap: 30px;
     }
 
+    /* GM: 아이콘 84×84 */
     .erc-icon {
         width: 84px;
         height: 84px;
     }
 
+    /* GM: 타이틀 fs=26 */
     .erc-title {
         font-size: 26px;
     }
 
+    /* GM: contents wrap gap=16 */
+    .erc-contents-wrap {
+        gap: 16px;
+    }
+
+    /* GM: 카드 p=30, radius=16 */
     .erc-card {
-        padding: 30px 16px;
+        padding: 30px;
         border-radius: 16px;
     }
 
+    /* GM: card-inner gap=6 */
     .erc-card-inner {
-        gap: 12px;
+        gap: 6px;
     }
 
+    /* GM: card row gap=12 */
     .erc-card-row {
-        gap: 16px;
+        gap: 12px;
     }
 
     .erc-card-label {
@@ -319,38 +330,57 @@
         font-size: 18px;
     }
 
+    /* GM: value group gap=10 */
+    .erc-card-value-group {
+        gap: 10px;
+    }
+
+    /* GM: 복사 아이콘 24×24 */
     .erc-copy-btn {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
     }
 
-    .erc-contents-wrap {
-        gap: 20px;
+    /* GM: desc list gap=4 */
+    .erc-desc-list {
+        gap: 4px;
     }
 
+    /* GM: desc item gap=4 */
+    .erc-desc-item {
+        gap: 4px;
+    }
+
+    /* GM: desc text fs=16 */
     .erc-desc-text {
-        font-size: 14px;
+        font-size: 16px;
     }
 
+    /* GM: dot 4×4 */
     .erc-desc-dot {
-        width: 5px;
-        height: 5px;
-        min-width: 5px;
+        width: 4px;
+        height: 4px;
+        min-width: 4px;
         margin-top: 9px;
     }
 
+    /* GM: btn section p=20, gap=10, row */
     .erc-btn-section {
-        padding: 20px 16px 0;
+        padding: 20px;
+        gap: 10px;
+        flex-direction: row;
         width: 100%;
-        flex-direction: column;
     }
 
+    /* GM: 각 버튼 flex:1, h=56, fs=16, radius=10 */
     .erc-btn-primary,
     .erc-btn-outline {
-        width: 100%;
-        max-width: 328px;
+        flex: 1;
+        width: auto;
+        max-width: none;
         height: 56px;
         font-size: 16px;
         border-radius: 10px;
+        padding: 0 8px;
     }
 }
