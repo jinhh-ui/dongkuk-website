@@ -14,5 +14,5 @@ Thumbs.db
 node_modules/
 .gemini/
 
-# Config (계정정보)
-admin/application/config/config.php
+# Admin (별도 프라이빗 레포)
+admin/
