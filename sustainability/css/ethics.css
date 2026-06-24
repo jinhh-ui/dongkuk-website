@@ -222,7 +222,7 @@
 }
 
 .eth-principles-footer {
-    font-size: 18px;
+    font-size: 24px;
     color: #4E4E4E;
     line-height: 36px;
     margin-top: 0;
@@ -232,7 +232,7 @@
 .eth-accordion-section {
     background: #fff;
     padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
-    border-top: 1px solid #e0e0e0;
+    border-top: 0;
 }
 
 .eth-accordion-inner {
@@ -513,11 +513,12 @@
 
     /* 도입 */
     .eth-intro-outer {
-        min-height: unset;
+        min-height: 150vh;
     }
 
     .eth-intro-inner {
-        position: relative;
+        position: sticky;
+        top: 0;
         padding-bottom: 40px;
     }
 
@@ -529,12 +530,12 @@
         font-size: 24px;
         line-height: 1.5;
         white-space: normal;
-        text-align: left;
-        color: #363636;
+        text-align: center;
+        color: #E9E9E9;
     }
 
     .eth-intro-title .char {
-        color: #363636;
+        color: inherit;
     }
 
     .eth-intro-image-section {
@@ -557,6 +558,8 @@
 
     .eth-intro-overlay-text--mobile {
         display: block;
+        font-size: 20px;
+        line-height: 1.5;
     }
 
     /* 윤리강령 (7가지 원칙) */
@@ -605,6 +608,10 @@
         color: #4E4E4E;
     }
 
+    .eth-principles-footer {
+        font-size: 16px;
+    }
+
     .eth-principles-list {
         gap: 4px;
     }
@@ -616,9 +623,9 @@
     }
 
     .eth-principles-list li::before {
-        width: 5px;
-        height: 5px;
-        min-width: 5px;
+        width: 4px;
+        height: 4px;
+        min-width: 4px;
         margin-top: 0.65em;
     }
 
@@ -646,12 +653,14 @@
         font-size: 16px;
         line-height: 1.6;
         max-width: 100%;
-        margin-top: 22px;
+        margin-top: 0;
     }
 
     .eth-accordion-header {
         padding: 15px 0;
-        gap: 20px;
+        gap: 8px;
+        min-height: 72px;
+        height: auto;
     }
 
     .eth-accordion-dot {
@@ -660,6 +669,7 @@
         background: transparent;
         border: 6.5px solid #D3D3D3;
         border-radius: 50%;
+        margin-left: 8px;
     }
 
     .eth-accordion-item.is-open .eth-accordion-dot {
@@ -670,21 +680,23 @@
     .eth-accordion-chapter {
         font-size: 20px;
         font-weight: 700;
+        line-height: 1.5;
     }
 
     .eth-accordion-icon {
         width: 24px;
         height: 24px;
+        margin-right: 14px;
     }
 
     .eth-icon-plus,
     .eth-icon-minus {
-        width: 24px;
-        height: 24px;
+        width: 21.72px;
+        height: 21.72px;
     }
 
     .eth-accordion-content {
-        padding: 20px 16px;
+        padding: 24px 16px;
         border-radius: 12px;
         gap: 24px;
         margin: 12px 0;
@@ -695,11 +707,11 @@
     }
 
     .eth-acc-list {
-        gap: 14px;
+        gap: 24px;
     }
 
     .eth-acc-list li {
-        font-size: 14px;
+        font-size: 16px;
         gap: 8px;
     }
 
@@ -714,4 +726,34 @@
     .eth-acc-article-desc {
         font-size: 14px;
     }
+}
+
+/* ── 1920px 이상 ── */
+@media (min-width: 1920px) {
+    .eth-accordion-header {
+        padding-right: 24px;
+    }
+    .eth-acc-list {
+        gap: 12px;
+    }
+    .eth-accordion-content {
+        padding: 36px 50px;
+    }
+}
+
+/* ── 제7장 임직원 기본윤리 / 제8장 금지 행위 전용 스타일 ── */
+.eth-accordion-item--ch7 .eth-acc-article,
+.eth-accordion-item--ch8 .eth-acc-article {
+    gap: 18px;
+}
+.eth-accordion-item--ch7 .eth-acc-sublist,
+.eth-accordion-item--ch8 .eth-acc-sublist {
+    gap: 0;
+    padding-left: 1.3em;
+}
+.eth-accordion-item--ch7 .eth-acc-sublist li,
+.eth-accordion-item--ch8 .eth-acc-sublist li {
+    margin: 0;
+    padding-left: 1.5em;
+    text-indent: -1.5em;
 }

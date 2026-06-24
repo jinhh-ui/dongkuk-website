@@ -11,10 +11,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const text = node.textContent;
             const frag = document.createDocumentFragment();
             for (let i = 0; i < text.length; i++) {
-                const span = document.createElement('span');
-                span.className = 'char';
-                span.textContent = text[i];
-                frag.appendChild(span);
+                if (text[i] === ' ') {
+                    frag.appendChild(document.createTextNode(' '));
+                } else {
+                    const span = document.createElement('span');
+                    span.className = 'char';
+                    span.textContent = text[i];
+                    frag.appendChild(span);
+                }
             }
             node.parentNode.replaceChild(frag, node);
         } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'BR') {

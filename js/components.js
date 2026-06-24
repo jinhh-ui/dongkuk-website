@@ -16,7 +16,8 @@
         location.pathname.includes('/sustainability/') ||
         location.pathname.includes('/career/') ||
         location.pathname.includes('/talent/') ||
-        location.pathname.includes('/contact/');
+        location.pathname.includes('/contact/') ||
+        location.pathname.includes('/privacy/');
     const prefix = isSubdir ? '../' : '';
 
     /* ── 고객지원 배너 ── */
@@ -71,7 +72,7 @@
             <div class="footer-bottom-info">
                 <div class="footer-info-left">
                     <div class="footer-links">
-                        <a href="javascript:void(0);">개인정보처리방침</a>
+                        <a href="${prefix}privacy/privacy-policy.html">개인정보처리방침</a>
                         <div class="bar"></div>
                         <a href="javascript:void(0);">내부정보관리규정</a>
                         <div class="bar"></div>

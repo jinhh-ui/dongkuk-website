@@ -97,7 +97,7 @@
                         <span class="erf-field-label">연락처</span><span class="erf-required">*</span>
                     </div>
                     <div class="erf-field-input-wrap">
-                        <input type="tel" class="erf-input" placeholder="-없이 연락처를 입력해주세요." autocomplete="tel" id="inputPhone">
+                        <input type="tel" class="erf-input" placeholder="-없이 연락처를 입력해주세요." autocomplete="tel" id="inputPhone" inputmode="numeric">
                     </div>
                 </div>
                 <!-- 이메일 -->
@@ -327,6 +327,43 @@
 
     <script src="../js/components.js"></script>
     <script src="../js/gnb.js"></script>
+    <script>
+    // ── 연락처 입력 필터: 숫자만 허용, 하이픈 자동 입력 없음 ──
+    (function() {
+        var phoneInput = document.getElementById('inputPhone');
+        if (!phoneInput) return;
+        phoneInput.addEventListener('input', function() {
+            var pos = this.selectionStart;
+            var prev = this.value;
+            var filtered = prev.replace(/\D/g, '');
+            if (prev !== filtered) {
+                var removed = prev.slice(0, pos).replace(/\D/g, '').length;
+                this.value = filtered;
+                this.setSelectionRange(removed, removed);
+            }
+        });
+        phoneInput.addEventListener('keydown', function(e) {
+            // 허용: 숫자(0-9), 백스페이스, 삭제, 방향키, 탭, 복사/붙여넣기 단축키
+            var allowed = [
+                'Backspace','Delete','ArrowLeft','ArrowRight','ArrowUp','ArrowDown',
+                'Tab','Home','End'
+            ];
+            if (allowed.includes(e.key)) return;
+            if ((e.ctrlKey || e.metaKey) && ['a','c','v','x'].includes(e.key.toLowerCase())) return;
+            if (!/^\d$/.test(e.key)) e.preventDefault();
+        });
+        phoneInput.addEventListener('paste', function(e) {
+            e.preventDefault();
+            var pasted = (e.clipboardData || window.clipboardData).getData('text');
+            var digits = pasted.replace(/\D/g, '');
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+            this.value = this.value.slice(0, start) + digits + this.value.slice(end);
+            var pos = start + digits.length;
+            this.setSelectionRange(pos, pos);
+        });
+    })();
+    </script>
     <script>
     (function() {
         'use strict';
@@ -675,11 +712,12 @@
             showAlert('신고 및 제보하시겠습니까?', {
                 confirm: true,
                 onConfirm: function() {
-                    // 실명/익명에 따라 파라미터 전달
-                    var type = isAnon ? 'anon' : 'real';
-                    var url = 'ethics-report-complete.html?type=' + type;
+                    // 실명/익명에 따라 별도 페이지로 이동
+                    var url;
                     if (isAnon) {
-                        url += '&pw=' + encodeURIComponent(inputPw.value);
+                        url = 'ethics-report-complete-anon.html?pw=' + encodeURIComponent(inputPw.value);
+                    } else {
+                        url = 'ethics-report-complete.html';
                     }
                     window.location.href = url;
                 }
@@ -689,8 +727,8 @@
     </script>
     <!-- ★ 임시 플로팅 내비 (나중에 삭제) ★ -->
     <div style="position:fixed;bottom:20px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:8px;">
-        <a href="ethics-report-complete.html?type=real" style="background:#F27100;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">실명 결과</a>
-        <a href="ethics-report-complete.html?type=anon" style="background:#F27100;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">익명 결과</a>
+        <a href="ethics-report-complete.html" style="background:#F27100;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">실명 결과</a>
+        <a href="ethics-report-complete-anon.html" style="background:#F27100;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">익명 결과</a>
         <a href="ethics-report-check.html" style="background:#363636;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">결과 조회</a>
         <a href="ethics-report-result.html" style="background:#1B6B93;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">결과 확인</a>
     </div>

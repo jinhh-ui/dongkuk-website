@@ -92,10 +92,20 @@
 }
 
 .soc-intro-bg-img {
+    position: absolute;
     width: 100%;
-    height: 100%;
+    height: 261.38%;
+    top: -161.32%;
+    left: 0;
+    max-width: none;
     object-fit: cover;
     display: block;
+}
+
+/* 사회공헌 페이지 1920px 크롭: h=1240px, top=-372px (컨테이너 540px 기준) */
+[data-page="social-welfare"] .soc-intro-bg-img {
+    height: 229.63%;
+    top: -68.89%;
 }
 
 .soc-intro-overlay {
@@ -363,11 +373,11 @@
     color: rgb(54, 54, 54);
 }
 
-/* 안전보건 총괄팀 — w=300, h=100, fill=rgb(242,113,0) */
+/* 안전보건 총괄팀 — w=340, h=100, fill=rgb(242,113,0) */
 .soc-org-n-hq {
     background: rgb(242, 113, 0);
     color: #fff;
-    font-size: clamp(12px, 1.429cqw, 24px);
+    font-size: clamp(12px, 1.548cqw, 26px);
 }
 
 /* 본사/포항/시흥 — w=300, h=100, fill+stroke=rgb(205,235,251) */
@@ -628,7 +638,7 @@
 ══════════════════════════════════════ */
 .soc-gallery-section {
     background: #fff;
-    padding: 100px 120px;
+    padding: 100px 0;
     overflow: hidden;
 }
 
@@ -637,6 +647,7 @@
     flex-direction: column;
     gap: 16px;
     margin-bottom: 80px;
+    padding: 0 120px;
 }
 
 .soc-gallery-heading {
@@ -687,6 +698,121 @@
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* ── 갤러리 이미지 내부 레이어 구조 (피그마 수치) ── */
+.soc-gi-inner {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* item1: inner 874×482, offset left:-71px top:-9px */
+.soc-gi-inner-1 {
+    width: 874px;
+    height: 482px;
+    left: -71px;
+    top: -9px;
+    inset: unset;
+    position: absolute;
+}
+.soc-gi-inner-1 img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: none;
+}
+
+/* item2: inner 458×400, offset left:-104px top:-11px */
+.soc-gi-inner-2 {
+    width: 458px;
+    height: 400px;
+    left: -104px;
+    top: -11px;
+    inset: unset;
+    position: absolute;
+}
+.soc-gi-inner-2-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+.soc-gi-img-2 {
+    position: absolute;
+    height: 100%;
+    left: -79.34%;
+    width: 179.27%;
+    max-width: none;
+    top: 0;
+}
+
+/* item3: inner 896×594, offset left:-11px top:-16px */
+.soc-gi-inner-3 {
+    width: 896px;
+    height: 594px;
+    left: -11px;
+    top: -16px;
+    inset: unset;
+    position: absolute;
+}
+.soc-gi-inner-3 img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: none;
+}
+.soc-gi-gradient-3 {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(239.85deg, rgba(96,112,160,0.2) 1.12%, rgba(188,188,188,0.2) 83.64%);
+}
+
+/* item4: inner 640.611×711.59px, right:-48.38px top:-144.38px */
+.soc-gi-inner-4 {
+    width: 640.611px;
+    height: 711.59px;
+    right: -48.38px;
+    top: -144.38px;
+    left: unset;
+    inset: unset;
+    position: absolute;
+}
+.soc-gi-inner-4 > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: none;
+}
+.soc-gi-inner-4b {
+    position: absolute;
+    inset: 0;
+}
+.soc-gi-inner-4b-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+.soc-gi-img-4b1 {
+    position: absolute;
+    height: 100%;
+    left: -30.85%;
+    width: 161.7%;
+    max-width: none;
+    top: 0;
+}
+.soc-gi-img-4b2 {
+    position: absolute;
+    height: 100%;
+    left: -38.55%;
+    width: 162.12%;
+    max-width: none;
+    top: 0;
 }
 
 /* img1: 732×473, rounded all corners except bottom-right */
@@ -1155,9 +1281,21 @@
 }
 
 .soc-page-btn img {
-    width: 26px;
-    height: 26px;
+    width: 23px;
+    height: 18.5px;
     display: block;
+}
+
+.soc-page-btn:disabled,
+.soc-page-btn[disabled] {
+    border-color: #A7A7A7;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.soc-page-btn:disabled img,
+.soc-page-btn[disabled] img {
+    filter: invert(69%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(75%) contrast(90%);
 }
 
 .soc-page-btn-arrow-left {
@@ -1165,6 +1303,61 @@
     align-items: center;
     justify-content: center;
     transform: rotate(180deg);
+}
+
+/* ── 슬라이더 ── */
+.soc-activity-slide {
+    display: none;
+}
+.soc-activity-slide--active {
+    display: block;
+}
+
+/* ── 이미지 레이어 (크롭/오버레이) ── */
+/* img-wrap에 position:relative 추가 */
+.soc-activity-img-wrap {
+    position: relative;
+}
+
+/* 크롭 컨테이너: absolute inset, overflow:hidden, 피그마 left:-12.55% / w:125.1% */
+.soc-ai-crop-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: inherit;
+}
+.soc-ai-crop-img {
+    position: absolute;
+    height: 100%;
+    left: -12.55%;
+    width: 125.1%;
+    max-width: none;
+    top: 0;
+    display: block;
+}
+
+/* 레이어드 이미지 컨테이너 (aria-hidden, 크롭 + 커버 레이어) */
+.soc-ai-layers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+.soc-ai-layers .soc-activity-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+/* 봉사활동 아이콘 이미지 채움 */
+.soc-volunteer-heart-inner img,
+.soc-volunteer-arc-inner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
 }
 
 /* ══════════════════════════════════════
@@ -1332,6 +1525,14 @@
     .soc-value-section,
     .soc-activity-section {
         padding: 80px 60px;
+    }
+
+    .soc-gallery-section {
+        padding: 80px 0;
+    }
+
+    .soc-gallery-header {
+        padding: 0 60px;
     }
 
     .soc-partners-section {
@@ -1520,12 +1721,10 @@
 
     /* ── 도입(인트로) 섹션 ── */
     .soc-intro-outer {
-        min-height: auto;
-        position: relative;
+        min-height: 180vh;
     }
 
     .soc-intro-inner {
-        position: static;
         padding-bottom: 0;
         flex-direction: column;
         gap: 0;
@@ -1539,12 +1738,17 @@
     .soc-intro-title {
         font-size: 24px;
         white-space: normal;
-        color: #363636;
+        color: #E9E9E9;
         text-align: center;
         line-height: 1.5;
     }
 
     .soc-intro-title .char {
+        color: inherit;
+        transition: color 0.15s ease;
+    }
+
+    .soc-intro-title .char.active {
         color: #363636;
     }
 
@@ -1566,6 +1770,13 @@
         border-radius: 16px;
     }
 
+    .soc-intro-bg-img {
+        width: 179.99%;
+        height: 100%;
+        top: 0;
+        left: -23.47%;
+    }
+
     .soc-intro-overlay-text {
         font-size: 20px;
         width: 268px;
@@ -1575,6 +1786,15 @@
 
     [data-page="social-welfare"] .soc-intro-overlay-text {
         height: 150px;
+    }
+
+    /* 사회공헌 360px: 피그마 GM_ object-cover 풀사이즈 */
+    [data-page="social-welfare"] .soc-intro-bg-img {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
     }
 
     .soc-intro-overlay-text--desktop {
@@ -1702,6 +1922,34 @@
         padding: 16px 40px 40px 16px;
     }
 
+    /* 360px 이미지 크롭 포지셔닝 (피그마 GM_ 수치) */
+    .soc-goal-item-bg {
+        object-fit: unset;
+        width: unset;
+        height: unset;
+    }
+
+    .soc-goal-item:nth-child(1) .soc-goal-item-bg {
+        width: 183.59%;
+        height: 167.27%;
+        left: -0.04%;
+        top: -23.89%;
+    }
+
+    .soc-goal-item:nth-child(2) .soc-goal-item-bg {
+        width: 230.42%;
+        height: 209.94%;
+        left: -27.4%;
+        top: -54.86%;
+    }
+
+    .soc-goal-item:nth-child(3) .soc-goal-item-bg {
+        width: 196.87%;
+        height: 151.39%;
+        left: -11.38%;
+        top: -24.23%;
+    }
+
     .soc-goal-item-title {
         font-size: 24px;
     }
@@ -1728,12 +1976,12 @@
 
     /* ── 안전 갤러리 (수평 스크롤) ── */
     .soc-gallery-section {
-        padding: 40px 0 40px 16px;
+        padding: 40px 0;
         overflow: hidden;
     }
 
     .soc-gallery-header {
-        padding-right: 16px;
+        padding: 0 16px;
         gap: 8px !important;
         margin-bottom: 0 !important;
     }
@@ -1758,6 +2006,13 @@
         display: block;
         border-radius: 20px;
     }
+    /* 360px item1 inner: 비율 유지 (874/732 × 314 ≈ 375px, 482/473 × 204 ≈ 208px) */
+    .soc-gallery-item-1 .soc-gi-inner-1 {
+        width: 375px;
+        height: 208px;
+        left: -30px;
+        top: -4px;
+    }
 
     .soc-gallery-item-2 {
         width: 152px;
@@ -1765,6 +2020,13 @@
         flex-shrink: 0;
         display: block;
         border-radius: 20px;
+    }
+    /* 360px item2 inner: 비율 유지 (458/354 × 152 ≈ 197px, 400/389 × 167 ≈ 172px) */
+    .soc-gallery-item-2 .soc-gi-inner-2 {
+        width: 197px;
+        height: 172px;
+        left: -45px;
+        top: -5px;
     }
 
     .soc-gallery-item-3 {
@@ -1774,6 +2036,13 @@
         display: block;
         border-radius: 20px;
     }
+    /* 360px item3 inner: 비율 유지 (896/885 × 380 ≈ 385px, 594/561 × 240 ≈ 254px) */
+    .soc-gallery-item-3 .soc-gi-inner-3 {
+        width: 385px;
+        height: 254px;
+        left: -5px;
+        top: -7px;
+    }
 
     .soc-gallery-item-4 {
         width: 152px;
@@ -1781,6 +2050,13 @@
         flex-shrink: 0;
         display: block;
         border-radius: 20px;
+    }
+    /* 360px item4 inner: 비율 유지 (640.6/354 × 152 ≈ 275px, 711.6/514 × 222 ≈ 307px) */
+    .soc-gallery-item-4 .soc-gi-inner-4 {
+        width: 275px;
+        height: 307px;
+        right: -21px;
+        top: -62px;
     }
 
     /* ── 인증현황 ── */
@@ -1880,7 +2156,9 @@
     .soc-activity-desc {
         font-size: 16px;
         width: 100%;
-        height: 78px;
+        min-height: 104px;
+        line-height: 1.6;
+        margin-bottom: 16px;
     }
 
     .soc-activity-text {
