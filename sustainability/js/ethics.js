@@ -58,7 +58,15 @@ document.addEventListener('DOMContentLoaded', () => {
         header.addEventListener('click', () => {
             const isOpen = item.classList.contains('is-open');
 
-            // 현재 항목 토글 (다른 항목은 유지)
+            // 다른 항목 모두 닫기
+            items.forEach(other => {
+                if (other !== item) {
+                    other.classList.remove('is-open');
+                    other.querySelector('.eth-accordion-header').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // 현재 항목 토글
             item.classList.toggle('is-open', !isOpen);
             header.setAttribute('aria-expanded', String(!isOpen));
 

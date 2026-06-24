@@ -61,9 +61,8 @@
     white-space: nowrap;
     text-align: center;
     height: 84px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    line-height: 84px;
 }
 
 .tal-intro-title .char {
@@ -344,14 +343,15 @@
     .tal-page-header { padding: 0; gap: 20px; align-items: center; }
     .tal-page-title { font-size: 30px; font-weight: 700; text-align: center; height: 54px; margin-top: 20px; margin-bottom: 30px; line-height: 1.4; padding: 0 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
 
-    /* 도입 섹션 — 모바일에서 sticky 해제, 애니메이션 없이 텍스트 바로 표시 */
+    /* 도입 섹션 — 모바일에서도 sticky 인터랙션 유지 */
     /* GM node 10:1379 — pt=40, pb=40, pl=16, pr=16, gap=24 */
-    .tal-intro-outer { min-height: unset; }
-    .tal-intro-inner { position: relative; padding: 40px 16px; gap: 24px; }
+    .tal-intro-outer { min-height: 200vh; }
+    .tal-intro-inner { position: sticky; top: 0; padding: 40px 16px; gap: 24px; }
     .tal-intro-text-section { padding: 0; }
     /* GM node 10:1380 — fontSize=24, left-align, 글자 모두 보임 */
-    .tal-intro-title { font-size: 24px; text-align: center; line-height: 1.5; white-space: normal; color: #363636; display: block; height: auto; }
-    .tal-intro-title .char { color: #363636; }
+    .tal-intro-title { font-size: 24px; text-align: center; line-height: 1.5; white-space: normal; color: #E9E9E9; display: block; height: auto; }
+    .tal-intro-title .char { color: #E9E9E9; }
+    .tal-intro-title .char.active { color: #363636; }
     .tal-intro-image-section { padding: 0; }
     /* GM node 10:1381 — w=328, h=448, radius=16 */
     .tal-intro-image-wrapper { height: 448px; border-radius: 16px; }
@@ -396,7 +396,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-end;
-        gap: 23px;
+        gap: 8px;
         height: auto;
     }
 

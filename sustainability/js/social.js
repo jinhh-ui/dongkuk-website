@@ -50,3 +50,35 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 });
+
+/* ── 모금활동 / 봉사활동 슬라이더 ── */
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.soc-activity-section').forEach(function (section) {
+        var slides = section.querySelectorAll('.soc-activity-slide');
+        var btns   = section.querySelectorAll('.soc-page-btn');
+        if (!slides.length) return;
+
+        var current = 0;
+
+        function updateSlider() {
+            slides.forEach(function (slide, i) {
+                slide.classList.toggle('soc-activity-slide--active', i === current);
+            });
+            if (btns[0]) btns[0].disabled = current === 0;
+            if (btns[1]) btns[1].disabled = current === slides.length - 1;
+        }
+
+        if (btns[0]) {
+            btns[0].addEventListener('click', function () {
+                if (current > 0) { current--; updateSlider(); }
+            });
+        }
+        if (btns[1]) {
+            btns[1].addEventListener('click', function () {
+                if (current < slides.length - 1) { current++; updateSlider(); }
+            });
+        }
+
+        updateSlider();
+    });
+});

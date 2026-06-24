@@ -51,7 +51,7 @@
         <h1>제보하기</h1>
     </section>
 
-    <!-- 접수 완료 콘텐츠 -->
+    <!-- 접수 완료 콘텐츠 (실명) -->
     <section class="erc-section">
         <div class="erc-title-group">
             <img class="erc-icon" src="../assets/common/ic_contact_complete.svg" alt="">
@@ -59,7 +59,7 @@
         </div>
 
         <div class="erc-contents-wrap">
-            <!-- 접수번호 카드 -->
+            <!-- 접수번호 카드 (실명: 접수번호만) -->
             <div class="erc-card">
                 <div class="erc-card-inner">
                     <div class="erc-card-row">
@@ -75,34 +75,14 @@
                             </button>
                         </div>
                     </div>
-                    <!-- 익명일 때만 보이는 비밀번호 행 -->
-                    <div class="erc-card-row" id="passwordRow" style="display: none;">
-                        <span class="erc-card-label">비밀번호</span>
-                        <div class="erc-card-value-group">
-                            <span class="erc-card-value" id="passwordValue">abc123</span>
-                            <button type="button" class="erc-copy-btn" data-copy="passwordValue" aria-label="비밀번호 복사">
-                                <svg viewBox="0 0 36 36" fill="none">
-                                    <rect x="11" y="4.5" width="20" height="22" rx="3" stroke="#4E4E4E" stroke-width="3" fill="none"/>
-                                    <rect x="5" y="10" width="20" height="22" rx="3" stroke="#4E4E4E" stroke-width="3" fill="#F8F9FB"/>
-                                </svg>
-                                <span class="erc-copy-tooltip">복사됨!</span>
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
 
-            <!-- 설명 -->
+            <!-- 설명 (실명) -->
             <div class="erc-desc-list">
-                <!-- 실명용 설명 -->
-                <div class="erc-desc-item" id="descReal1">
+                <div class="erc-desc-item">
                     <span class="erc-desc-dot"></span>
                     <p class="erc-desc-text">실명 제보 시 등록할 때 입력하신 <strong>이메일로 답변이 전송</strong>됩니다.</p>
-                </div>
-                <!-- 익명용 설명 -->
-                <div class="erc-desc-item" id="descAnon1" style="display: none;">
-                    <span class="erc-desc-dot"></span>
-                    <p class="erc-desc-text">익명 접수 시 <strong>접수번호</strong>와<strong> 비밀번호</strong>를 분실하면 결과를 확인할 수 없으니 반드시 별도로 기록하여 보관해 주세요.</p>
                 </div>
                 <div class="erc-desc-item">
                     <span class="erc-desc-dot"></span>
@@ -112,11 +92,9 @@
         </div>
     </section>
 
-    <!-- 버튼 섹션 -->
-    <div class="erc-btn-section" id="btnSection">
-        <!-- 실명: 홈으로 이동 1개 / 익명: 홈으로 이동 + 제보결과 확인하기 2개 -->
+    <!-- 버튼 섹션 (실명: 홈으로 이동 1개) -->
+    <div class="erc-btn-section">
         <a href="../index.html" class="erc-btn-primary">홈으로 이동</a>
-        <a href="ethics-report-check.html" class="erc-btn-outline" id="btnCheckResult" style="display: none;">제보결과 확인하기</a>
     </div>
 
     <!-- 고객지원 -->
@@ -128,29 +106,21 @@
     <!-- 상단 이동 버튼 -->
     <div id="btn-top-placeholder"></div>
 
+    <!-- ★ 임시 플로팅 내비 (나중에 삭제) ★ -->
+    <div style="position:fixed;bottom:20px;right:20px;z-index:99999;display:flex;flex-direction:column;gap:8px;">
+        <a href="ethics-report-complete.html" style="background:#363636;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">실명 결과</a>
+        <a href="ethics-report-complete-anon.html" style="background:#F27100;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">익명 결과</a>
+        <a href="ethics-report-check.html" style="background:#1B6B93;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">결과 조회</a>
+    </div>
+
     <script src="../js/components.js"></script>
     <script src="../js/gnb.js"></script>
     <script>
     (function() {
         'use strict';
-
-        // URL 파라미터로 type 결정
         var params = new URLSearchParams(window.location.search);
-        var reportType = params.get('type') || 'real'; // 'real' or 'anon'
         var receiptNum = params.get('receipt') || 'ESG-2026-00123';
-        var pw = params.get('pw') || '';
-
-        // 접수번호 세팅
         document.getElementById('receiptNumber').textContent = receiptNum;
-
-        if (reportType === 'anon') {
-            // 익명: 비밀번호 행 표시, 익명 설명 표시, 실명 설명 숨김
-            document.getElementById('passwordRow').style.display = '';
-            document.getElementById('passwordValue').textContent = 'abc123';
-            document.getElementById('descAnon1').style.display = '';
-            document.getElementById('descReal1').style.display = 'none';
-            document.getElementById('btnCheckResult').style.display = '';
-        }
 
         // 복사 기능
         document.querySelectorAll('.erc-copy-btn').forEach(function(btn) {
@@ -158,7 +128,7 @@
                 var targetId = this.getAttribute('data-copy');
                 var text = document.getElementById(targetId).textContent;
                 var tooltip = this.querySelector('.erc-copy-tooltip');
-                
+
                 if (navigator.clipboard) {
                     navigator.clipboard.writeText(text);
                 } else {

@@ -263,9 +263,9 @@
     border: 1px solid #F27100;
 }
 
-.erp-btn--outline:hover {
-    background: #F27100;
-    color: #fff;
+.erp-btn--outline:hover,
+.erp-btn--outline:active {
+    background: #F8F9FB;
 }
 
 
@@ -429,6 +429,12 @@
     .erp-info-list li {
         font-size: 15px;
         line-height: 1.6;
+    }
+
+    .erp-info-list li::before {
+        width: 4px;
+        height: 4px;
+        min-width: 4px;
     }
 
     /* 처리절차 */

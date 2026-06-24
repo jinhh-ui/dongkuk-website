@@ -257,7 +257,7 @@
 
     /* GM: btn — p=20, w=100%, radius=10, fs=16 */
     .erck-btn-section {
-        padding: 0 20px;
+        padding: 60px 20px 0;
         width: 100%;
     }
 

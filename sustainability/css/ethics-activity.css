@@ -103,7 +103,7 @@
 }
 
 .act-intro-overlay-text--mobile {
-    display: none !important;
+    display: none;
 }
 
 /* ── 카드 섹션 ── */
@@ -238,11 +238,12 @@
 
     /* 도입 */
     .act-intro-outer {
-        min-height: unset;
+        min-height: 200vh;
     }
 
     .act-intro-inner {
-        position: relative;
+        position: sticky;
+        top: 0;
         padding-bottom: 40px;
     }
 
@@ -254,11 +255,15 @@
         font-size: 24px;
         line-height: 1.5;
         white-space: normal;
-        text-align: left;
-        color: #363636;
+        text-align: center;
+        color: #E9E9E9;
     }
 
     .act-intro-title .char {
+        color: #E9E9E9;
+    }
+
+    .act-intro-title .char.active {
         color: #363636;
     }
 
@@ -267,12 +272,22 @@
     }
 
     .act-intro-image-wrapper {
-        height: 448px;
+        height: 484px;
         border-radius: 16px;
     }
 
+    .act-intro-img {
+        height: 540px;
+        object-position: 41% top;
+    }
+
+    .act-intro-overlay {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
     .act-intro-overlay-text {
-        font-size: 15px;
+        font-size: 20px;
+        line-height: 1.5;
         padding: 0 16px;
     }
 
