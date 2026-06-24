@@ -1,13 +1,13 @@
 /* ══════════════════════════════════════
-   개인정보처리방침 (privacy-policy.html)
+   내부정보관리규정 (internal-info-management.html)
    GP: 1920px / GM: 360px
-   Figma file: 9atg0Kz3RdcbBqpN2Ozdsd  Page 4
-   GP frame: 529:2021 / GM frame: 529:2293
+   Figma file: 9atg0Kz3RdcbBqpN2Ozdsd  Page 2
+   GP frame: 564:944 / GM frame: 564:1172
 ══════════════════════════════════════ */
 
 
 /* ── 페이지 헤더 ── */
-.pp-page-header {
+.iim-page-header {
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -16,14 +16,14 @@
     overflow: hidden;
 }
 
-.pp-page-title-wrap {
+.iim-page-title-wrap {
     width: 948px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.pp-page-title {
+.iim-page-title {
     font-size: 80px;
     font-weight: 700;
     color: #000;
@@ -38,7 +38,7 @@
 
 
 /* ── 컨텐츠 컨테이너 ── */
-.pp-container {
+.iim-container {
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -48,32 +48,22 @@
     box-sizing: border-box;
 }
 
-.pp-inner {
+.iim-inner {
     display: flex;
     flex-direction: column;
-    gap: 40px;
     align-items: flex-start;
-    width: 100%;
-}
-
-.pp-desc {
-    font-size: 22px;
-    font-weight: 400;
-    color: #4e4e4e;
-    line-height: 1.6;
-    margin: 0;
     width: 100%;
 }
 
 
 /* ── 아코디언 ── */
-.pp-accordion {
+.iim-accordion {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.pp-item-header {
+.iim-item-header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -86,25 +76,25 @@
     cursor: pointer;
 }
 
-.pp-item-left {
+.iim-item-left {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
 }
 
-.pp-item-icon {
+.iim-item-icon {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
     display: block;
 }
 
-.pp-item.is-open .pp-item-icon {
+.iim-item.is-open .iim-item-icon {
     filter: brightness(0) saturate(100%) invert(49%) sepia(96%) saturate(1200%) hue-rotate(10deg) brightness(103%);
 }
 
-.pp-item-title {
+.iim-item-title {
     font-size: 30px;
     font-weight: 700;
     color: #1b1b1b;
@@ -113,7 +103,7 @@
     margin: 0;
 }
 
-.pp-item-btn {
+.iim-item-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,19 +120,19 @@
     transition: transform 0.3s ease;
 }
 
-.pp-item-btn img {
+.iim-item-btn img {
     width: 33.103px;
     height: 33.103px;
     display: block;
 }
 
-.pp-item.is-open .pp-item-btn {
+.iim-item.is-open .iim-item-btn {
     transform: rotate(180deg);
 }
 
 
 /* ── 펼쳐진 컨텐츠 ── */
-.pp-item-content {
+.iim-item-content {
     display: none;
     flex-direction: column;
     align-items: flex-start;
@@ -151,11 +141,11 @@
     box-sizing: border-box;
 }
 
-.pp-item.is-open .pp-item-content {
+.iim-item.is-open .iim-item-content {
     display: flex;
 }
 
-.pp-content-box {
+.iim-content-box {
     background: #f8f9fb;
     display: flex;
     flex-direction: column;
@@ -166,190 +156,44 @@
     box-sizing: border-box;
 }
 
-.pp-content-row {
+/* 제O조(...) 제목 줄 */
+.iim-row-title {
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: 6px 30px;
-    border-radius: 16px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.pp-content-text-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-}
-
-.pp-content-text {
-    font-size: 18px;
-    font-weight: 500;
-    color: #1b1b1b;
-    line-height: 1.6;
-    flex: 1;
-    margin: 0;
-}
-
-.pp-content-label-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 30px;
-    border-radius: 16px;
-    width: 100%;
-    box-sizing: border-box;
-    gap: 16px;
-}
-
-.pp-content-label-key {
-    font-size: 18px;
-    font-weight: 400;
-    color: #1b1b1b;
-    line-height: 1.6;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.pp-content-label-val {
+.iim-row-title p {
     font-size: 18px;
     font-weight: 700;
     color: #1b1b1b;
     line-height: 1.6;
-    flex: 1;
     margin: 0;
 }
 
-.pp-content-indent-row {
+/* ①②③ 본문 묶음 */
+.iim-row-body {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 67px;
-    border-radius: 16px;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 30px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.pp-content-indent-row--px62 {
-    padding-left: 62px;
-    padding-right: 62px;
-}
-
-.pp-content-indent-text {
+.iim-text {
     font-size: 18px;
     font-weight: 500;
     color: #4e4e4e;
     line-height: 1.6;
-    flex: 1;
     margin: 0;
 }
 
-.pp-content-bullet-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 30px;
-    border-radius: 16px;
-    width: 100%;
+.iim-text--indent {
+    padding-left: 1.4em;
     box-sizing: border-box;
-    gap: 16px;
-}
-
-.pp-content-dot {
-    font-size: 18px;
-    font-weight: 500;
-    color: #1b1b1b;
-    line-height: 1.6;
-    flex-shrink: 0;
-}
-
-.pp-content-dot--circle {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #7a7a7a;
-    flex-shrink: 0;
-}
-
-.pp-content-box--gap30 {
-    gap: 30px;
-}
-
-.pp-content-box--gap10 {
-    gap: 10px;
-}
-
-.pp-item-content--py22 {
-    padding-top: 22px;
-    padding-bottom: 22px;
-}
-
-
-/* ── 테이블 ── */
-.pp-table-wrap {
-    width: 100%;
-    border-bottom: 1px solid #000;
-}
-
-.pp-table-header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.pp-table-header-cell {
-    background: #f8f9fb;
-    border-top: 1px solid #000;
-    display: flex;
-    flex: 1;
-    height: 100px;
-    align-items: center;
-    justify-content: center;
-    padding: 18px 24px;
-    box-sizing: border-box;
-}
-
-.pp-table-header-cell p {
-    font-size: 24px;
-    font-weight: 700;
-    color: #363636;
-    line-height: 1.5;
-    white-space: nowrap;
-    margin: 0;
-}
-
-.pp-table-row {
-    display: flex;
-    height: 100px;
-    align-items: center;
-    width: 100%;
-}
-
-.pp-table-cell {
-    background: #fff;
-    border-top: 1px solid #d3d3d3;
-    display: flex;
-    flex: 1;
-    height: 100px;
-    align-items: center;
-    justify-content: center;
-    padding: 18px 24px;
-    box-sizing: border-box;
-}
-
-.pp-table-cell--border-right {
-    border-right: 1px solid #d3d3d3;
-}
-
-.pp-table-cell p {
-    font-size: 20px;
-    font-weight: 400;
-    color: #363636;
-    line-height: 1.6;
-    flex: 1;
-    text-align: center;
-    margin: 0;
 }
 
 
@@ -358,34 +202,26 @@
 ══════════════════════════════════════ */
 @media (max-width: 1439px) {
 
-    .pp-page-header {
+    .iim-page-header {
         padding: 50px 40px 70px;
     }
 
-    .pp-page-title-wrap {
+    .iim-page-title-wrap {
         width: auto;
     }
 
-    .pp-page-title {
+    .iim-page-title {
         font-size: clamp(36px, 5vw, 60px);
         height: auto;
     }
 
-    .pp-container {
+    .iim-container {
         padding: 60px 40px;
     }
 
-    .pp-item-title {
+    .iim-item-title {
         font-size: clamp(20px, 2vw, 28px);
         white-space: normal;
-    }
-
-    .pp-table-header-cell p {
-        font-size: 18px;
-    }
-
-    .pp-table-cell p {
-        font-size: 16px;
     }
 }
 
@@ -397,17 +233,17 @@
 @media (max-width: 767px) {
 
     /* GM: Page Header — pb=30, gap=20 */
-    .pp-page-header {
+    .iim-page-header {
         gap: 20px;
         padding: 20px 16px 30px;
         align-items: center;
     }
 
-    .pp-page-title-wrap {
+    .iim-page-title-wrap {
         width: 328px;
     }
 
-    .pp-page-title {
+    .iim-page-title {
         font-size: 30px;
         font-weight: 700;
         height: 54px;
@@ -416,31 +252,26 @@
     }
 
     /* GM: container — px=16, py=40 */
-    .pp-container {
+    .iim-container {
         padding: 40px 16px;
         align-items: flex-start;
     }
 
-    .pp-inner {
-        gap: 30px;
+    .iim-inner {
         width: 100%;
     }
 
-    .pp-desc {
-        font-size: 16px;
-    }
-
     /* GM: item header — py=15, no fixed height */
-    .pp-item-header {
+    .iim-item-header {
         height: auto;
         padding: 15px 0;
     }
 
-    .pp-item-left {
+    .iim-item-left {
         gap: 8px;
     }
 
-    .pp-item-title {
+    .iim-item-title {
         font-size: 20px;
         font-weight: 700;
         line-height: 1.5;
@@ -449,114 +280,44 @@
     }
 
     /* GM: dropdown btn — 42×42 */
-    .pp-item-btn {
+    .iim-item-btn {
         width: 42px;
         height: 42px;
         padding: 4.594px;
         border-radius: 21.724px;
     }
 
-    .pp-item-btn img {
+    .iim-item-btn img {
         width: 21.724px;
         height: 21.724px;
     }
 
     /* GM: expanded — p=12 */
-    .pp-item-content {
+    .iim-item-content {
         padding: 12px;
     }
 
-    .pp-item-content--py22 {
-        padding: 12px;
-    }
-
-    .pp-content-box {
+    .iim-content-box {
         padding: 24px;
         border-radius: 12px;
         align-items: flex-start;
         gap: 24px;
     }
 
-    .pp-content-row {
+    .iim-row-title {
         padding: 0;
-        border-radius: 0;
     }
 
-    .pp-content-text {
+    .iim-row-title p {
         font-size: 16px;
     }
 
-    .pp-content-label-row {
+    .iim-row-body {
         padding: 0;
         gap: 4px;
-        align-items: flex-start;
     }
 
-    .pp-content-label-key {
-        font-size: 16px;
-    }
-
-    .pp-content-label-val {
-        font-size: 16px;
-    }
-
-    .pp-content-indent-row {
-        padding: 0;
-        border-radius: 0;
-    }
-
-    .pp-content-indent-row--px62 {
-        padding: 0;
-    }
-
-    .pp-content-indent-text {
-        font-size: 16px;
-    }
-
-    .pp-content-bullet-row {
-        padding: 0;
-        gap: 8px;
-        align-items: flex-start;
-    }
-
-    .pp-content-dot {
-        font-size: 16px;
-        margin-top: 0;
-        flex-shrink: 0;
-    }
-
-    .pp-content-box--gap30 {
-        gap: 24px;
-    }
-
-    .pp-content-box--gap10 {
-        gap: 24px;
-    }
-
-    /* GM: table */
-    .pp-table-header-cell {
-        height: 70px;
-        padding: 16px;
-    }
-
-    .pp-table-header-cell p {
-        font-size: 16px;
-        white-space: normal;
-        text-align: center;
-    }
-
-    .pp-table-row {
-        height: auto;
-        min-height: 70px;
-    }
-
-    .pp-table-cell {
-        height: auto;
-        min-height: 70px;
-        padding: 16px;
-    }
-
-    .pp-table-cell p {
+    .iim-text {
         font-size: 16px;
     }
 }

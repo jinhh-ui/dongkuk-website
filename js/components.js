@@ -59,12 +59,21 @@
                         <path d="M15.2715 3.95312C17.4806 3.95312 19.2715 5.74399 19.2715 7.95312V12.0479C19.2713 14.2568 17.4805 16.0479 15.2715 16.0479H4.72656C2.51754 16.0479 0.726755 14.2568 0.726562 12.0479V7.95312C0.726562 5.74399 2.51742 3.95312 4.72656 3.95312H15.2715ZM8.18652 13.1416L13.6289 9.99902L8.18652 6.85742V13.1416Z" fill="currentColor"/>
                     </svg>
                 </a>
-                <a href="#" class="footer-btn">
-                    패밀리 사이트
-                    <svg width="13.5" height="13.5" viewBox="0 0 13.5 13.5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.75 0V13.5M0 6.75H13.5" stroke="currentColor" stroke-width="1.5" />
-                    </svg>
-                </a>
+                <div class="footer-family-wrap">
+                    <button type="button" class="footer-btn footer-family-btn">
+                        패밀리 사이트
+                        <svg class="footer-family-icon" width="13.5" height="13.5" viewBox="0 0 13.5 13.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.75 0V13.5M0 6.75H13.5" stroke="currentColor" stroke-width="1.5" />
+                        </svg>
+                    </button>
+                    <div class="footer-family-popup">
+                        <a href="#" class="footer-family-item">동국S&amp;C</a>
+                        <a href="#" class="footer-family-item">동국R&amp;S</a>
+                        <a href="#" class="footer-family-item">디케이동신</a>
+                        <a href="#" class="footer-family-item">동연S&amp;T</a>
+                        <a href="#" class="footer-family-item">디케이스틸텍</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -74,7 +83,7 @@
                     <div class="footer-links">
                         <a href="${prefix}privacy/privacy-policy.html">개인정보처리방침</a>
                         <div class="bar"></div>
-                        <a href="javascript:void(0);">내부정보관리규정</a>
+                        <a href="${prefix}privacy/internal-info-management.html">내부정보관리규정</a>
                         <div class="bar"></div>
                         <a href="javascript:void(0);">02-316-7500</a>
                         <div class="bar"></div>
@@ -87,6 +96,16 @@
             </div>
         </div>
     </footer>`;
+
+        const familyWrap = document.querySelector('.footer-family-wrap');
+        const familyBtn = familyWrap.querySelector('.footer-family-btn');
+        familyBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            familyWrap.classList.toggle('is-open');
+        });
+        document.addEventListener('click', function (e) {
+            if (!familyWrap.contains(e.target)) familyWrap.classList.remove('is-open');
+        });
     }
 
     /* ── BTN TOP ── */

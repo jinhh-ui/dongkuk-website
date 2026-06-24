@@ -203,7 +203,7 @@
 }
 
 .ct-input:focus {
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 .ct-input::placeholder {
@@ -230,7 +230,7 @@
 }
 
 .ct-textarea:focus {
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 .ct-textarea::placeholder {
@@ -336,7 +336,7 @@
 }
 
 .ct-email-select:focus {
-    border-color: #F27100;
+    border-color: #1B1B1B;
 }
 
 /* 현재 선택 텍스트 */
@@ -774,7 +774,7 @@
 /* GP: h=140, pt=60, justify-center */
 .ct-btn-section {
     background: #fff;
-    padding: 60px 0 0;
+    padding: 60px 0 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1315,5 +1315,82 @@
     /* GM: 화살표 숨김 */
     .ct-support-arrow {
         display: none;
+    }
+}
+
+/* ══════════════════════════════════════
+   유효성 검사 팝업
+══════════════════════════════════════ */
+.ct-alert-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ct-alert-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 32px 32px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.ct-alert-msg {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1b1b1b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.ct-alert-btns {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.ct-alert-btn-confirm {
+    flex: 1;
+    height: 52px;
+    background: #F27100;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.ct-alert-btn-cancel {
+    flex: 1;
+    height: 52px;
+    background: #fff;
+    color: #F27100;
+    border: 1px solid #F27100;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+@media (max-width: 767px) {
+    .ct-alert-box {
+        max-width: calc(100% - 32px);
+        padding: 32px 20px 24px;
+    }
+    .ct-alert-msg {
+        font-size: 16px;
     }
 }
