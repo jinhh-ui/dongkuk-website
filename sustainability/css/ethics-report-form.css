@@ -50,7 +50,8 @@
     width: 100%;
     height: 1px;
     background: #000;
-    margin-top: -34px; /* GP: gap=16 between title text and line => total gap 50=16+34 */
+    margin-top: -34px;
+    /* GP: gap=16 between title text and line => total gap 50=16+34 */
 }
 
 /* GP: *는 필수 — fs=18, lh=1.6 */
@@ -119,11 +120,11 @@
     transition: opacity 0.15s;
 }
 
-.erf-radio-input:checked + .erf-radio-circle::before {
-    border-color: #1B1B1B;
+.erf-radio-input:checked+.erf-radio-circle::before {
+    border-color: #F27100;
 }
 
-.erf-radio-input:checked + .erf-radio-circle::after {
+.erf-radio-input:checked+.erf-radio-circle::after {
     opacity: 1;
 }
 
@@ -212,6 +213,7 @@
 /* GP: Input 래퍼 — flex:1 for name/phone = w=544(728-160-24) */
 .erf-field-input-wrap {
     width: 544px;
+    position: relative;
 }
 
 /* GP: 문의내용 Input 래퍼 — flex:1 (full width) */
@@ -559,7 +561,6 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    margin-top: -36px;
     margin-left: 184px;
     display: flex;
     flex-direction: column;
@@ -699,7 +700,7 @@
     justify-content: center;
 }
 
-.erf-checkbox-input:checked + .erf-checkbox-box::before {
+.erf-checkbox-input:checked+.erf-checkbox-box::before {
     background: #F27100;
     border-color: #1B1B1B;
 }
@@ -922,12 +923,14 @@
 ══════════════════════════════════════ */
 
 .erf-field-error {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     color: #F64301;
     line-height: 1.6;
-    margin: 8px 0 0;
-    min-height: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
 }
 
 .erf-field-error:empty {
@@ -1029,6 +1032,7 @@
 .erf-alert-btn--full {
     flex: 1;
 }
+
 /* ══════════════════════════════════════
    반응형 — 태블릿 (768px ~ 1439px)
 ══════════════════════════════════════ */
@@ -1042,7 +1046,7 @@
     }
 
     .erf-item {
-        gap: 36px;
+        gap: 45px;
     }
 
     .erf-item-line {
@@ -1165,11 +1169,14 @@
 
     .erf-pw-notes {
         margin-left: 154px;
-        margin-top: -12px;
     }
 
     .erf-pw-notes li {
         font-size: 16px;
+    }
+
+    .erf-pw-notes li::before {
+        top: 10px;
     }
 
     /* 개인정보 */
@@ -1454,7 +1461,6 @@
     /* GM: 비밀번호 안내 — fs=16, dot 4px */
     .erf-pw-notes {
         margin-left: 0;
-        margin-top: 0;
     }
 
     .erf-pw-notes li {
@@ -1606,8 +1612,6 @@
 
     /* GM: 에러 메시지 모바일 */
     .erf-field-error {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
-
-
