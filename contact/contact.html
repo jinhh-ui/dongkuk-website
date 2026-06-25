@@ -65,8 +65,8 @@
             </div>
         </div>
 
-        <!-- ② 제품 선택 -->
-        <div class="ct-item ct-item--full">
+        <!-- ② 제품 선택 ('제품 및 영업 문의' 선택 시에만 노출) -->
+        <div class="ct-item ct-item--full" id="productSection">
             <h2 class="ct-item-title">문의하실 제품을 선택해 주세요.</h2>
             <div class="ct-btn-grid ct-btn-grid--3" id="productBtns">
                 <button class="ct-btn-sel is-active" data-group="product" type="button">냉연강판</button>
@@ -85,7 +85,7 @@
                         <span class="ct-field-label">이름</span><span class="ct-required">*</span>
                     </div>
                     <div class="ct-field-input-wrap">
-                        <input type="text" class="ct-input" placeholder="이름을 입력해 주세요." autocomplete="name">
+                        <input type="text" class="ct-input" placeholder="이름을 입력해 주세요." autocomplete="name" id="inputName">
                     </div>
                 </div>
                 <!-- 연락처 -->
@@ -94,7 +94,7 @@
                         <span class="ct-field-label">연락처</span><span class="ct-required">*</span>
                     </div>
                     <div class="ct-field-input-wrap">
-                        <input type="tel" class="ct-input" placeholder="-없이 연락처를 입력해주세요." autocomplete="tel">
+                        <input type="tel" class="ct-input" placeholder="-없이 연락처를 입력해주세요." autocomplete="tel" id="inputPhone" inputmode="numeric">
                     </div>
                 </div>
                 <!-- 이메일 -->
@@ -140,7 +140,7 @@
                         <span class="ct-field-label">제목</span><span class="ct-required">*</span>
                     </div>
                     <div class="ct-field-input-wrap ct-field-input-wrap--full">
-                        <input type="text" class="ct-input" placeholder="제목을 입력해 주세요.">
+                        <input type="text" class="ct-input" placeholder="제목을 입력해 주세요." id="inputTitle">
                     </div>
                 </div>
                 <!-- 내용 -->
@@ -149,7 +149,7 @@
                         <span class="ct-field-label">내용</span><span class="ct-required">*</span>
                     </div>
                     <div class="ct-field-input-wrap ct-field-input-wrap--full">
-                        <textarea class="ct-textarea" placeholder="내용을 입력해 주세요."></textarea>
+                        <textarea class="ct-textarea" placeholder="내용을 입력해 주세요." id="inputContent"></textarea>
                     </div>
                 </div>
                 <!-- 첨부파일 -->
@@ -242,9 +242,6 @@
         <button type="button" class="ct-submit-btn">문의하기</button>
     </div>
 
-    <!-- 고객지원 플레이스홀더 -->
-    <div id="support-placeholder"></div>
-
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
@@ -254,7 +251,45 @@
     <script src="../js/components.js"></script>
     <script src="../js/gnb.js"></script>
     <script>
-    // 선택 버튼 토글
+    (function() {
+    'use strict';
+
+    /* ── 팝업 ── */
+    function showAlert(msg, opts) {
+        opts = opts || {};
+        var overlay = document.createElement('div');
+        overlay.className = 'ct-alert-overlay';
+        overlay.innerHTML =
+            '<div class="ct-alert-box">' +
+                '<p class="ct-alert-msg">' + msg + '</p>' +
+                '<div class="ct-alert-btns">' +
+                    (opts.confirm ? '<button class="ct-alert-btn-cancel" type="button">취소</button>' : '') +
+                    '<button class="ct-alert-btn-confirm" type="button">확인</button>' +
+                '</div>' +
+            '</div>';
+        document.body.appendChild(overlay);
+        overlay.querySelector('.ct-alert-btn-confirm').addEventListener('click', function() {
+            document.body.removeChild(overlay);
+            if (opts.onConfirm) opts.onConfirm();
+        });
+        if (opts.confirm) {
+            overlay.querySelector('.ct-alert-btn-cancel').addEventListener('click', function() {
+                document.body.removeChild(overlay);
+                if (opts.onCancel) opts.onCancel();
+            });
+        }
+    }
+
+    /* ── 1. 제품 선택 영역 노출 제어 ── */
+    var productSection = document.getElementById('productSection');
+    function updateProductVisibility() {
+        var active = document.querySelector('.ct-btn-sel[data-group="category"].is-active');
+        if (productSection) {
+            productSection.style.display = (active && active.textContent.trim() === '제품 및 영업 문의') ? '' : 'none';
+        }
+    }
+
+    /* ── 선택 버튼 토글 ── */
     document.querySelectorAll('.ct-btn-sel').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var group = this.getAttribute('data-group');
@@ -262,8 +297,10 @@
                 b.classList.remove('is-active');
             });
             this.classList.add('is-active');
+            if (group === 'category') updateProductVisibility();
         });
     });
+    updateProductVisibility();
 
     // 커스텀 이메일 도메인 드롭다운
     var emailSelect = document.getElementById('emailSelect');
@@ -377,11 +414,11 @@
     function addFiles(files) {
         for (var i = 0; i < files.length; i++) {
             if (uploadedFiles.length >= 5) {
-                alert('최대 5개까지 등록 가능합니다.');
+                showAlert('최대 5개까지 등록 가능합니다.');
                 break;
             }
             if (files[i].size > 3 * 1024 * 1024) {
-                alert('첨부파일 크기는 3MB를 초과할 수 없습니다.');
+                showAlert('첨부파일 크기는 3MB를 초과할 수 없습니다.');
                 continue;
             }
             uploadedFiles.push(files[i]);
@@ -412,10 +449,97 @@
         });
     }
 
-    // 문의하기 버튼 → 유효성 검사 후 완료 페이지 이동
+    /* ── 4. 연락처 숫자만 입력 ── */
+    var phoneInput = document.getElementById('inputPhone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function() {
+            var pos = this.selectionStart;
+            var prev = this.value;
+            var filtered = prev.replace(/\D/g, '');
+            if (prev !== filtered) {
+                var removed = prev.slice(0, pos).replace(/\D/g, '').length;
+                this.value = filtered;
+                this.setSelectionRange(removed, removed);
+            }
+        });
+        phoneInput.addEventListener('keydown', function(e) {
+            var allowed = ['Backspace','Delete','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Tab','Home','End'];
+            if (allowed.includes(e.key)) return;
+            if ((e.ctrlKey || e.metaKey) && ['a','c','v','x'].includes(e.key.toLowerCase())) return;
+            if (!/^\d$/.test(e.key)) e.preventDefault();
+        });
+        phoneInput.addEventListener('paste', function(e) {
+            e.preventDefault();
+            var pasted = (e.clipboardData || window.clipboardData).getData('text');
+            var digits = pasted.replace(/\D/g, '');
+            var start = this.selectionStart, end = this.selectionEnd;
+            this.value = this.value.slice(0, start) + digits + this.value.slice(end);
+            var p = start + digits.length;
+            this.setSelectionRange(p, p);
+        });
+    }
+
+    /* ── 5. 문의하기 버튼 유효성 검사 ── */
     document.querySelector('.ct-submit-btn').addEventListener('click', function() {
-        window.location.href = 'contact-complete.html';
+        var name = document.getElementById('inputName');
+        var phone = document.getElementById('inputPhone');
+        var emailLocal = document.getElementById('emailLocal');
+        var emailDomain = document.getElementById('emailDomain');
+        var title = document.getElementById('inputTitle');
+        var content = document.getElementById('inputContent');
+        var agree = document.getElementById('agreeCheck');
+
+        // 이름
+        if (!name || !name.value.trim()) {
+            showAlert('이름을 입력해 주세요.', { onConfirm: function() { if (name) name.focus(); } });
+            return;
+        }
+        // 연락처
+        if (!phone || !phone.value.trim()) {
+            showAlert('연락처를 입력해주세요.', { onConfirm: function() { if (phone) phone.focus(); } });
+            return;
+        }
+        // 이메일 로컬
+        if (!emailLocal || !emailLocal.value.trim()) {
+            showAlert('이메일을 입력해주세요.', { onConfirm: function() { if (emailLocal) emailLocal.focus(); } });
+            return;
+        }
+        // 이메일 특수문자 검사 (공백, 일부 특수문자 제외)
+        if (/[\s,;:\\<>\(\)\[\]]/.test(emailLocal.value)) {
+            showAlert('올바르지 않은 이메일 형식입니다.', { onConfirm: function() { if (emailLocal) emailLocal.focus(); } });
+            return;
+        }
+        // 도메인
+        if (!emailDomain || !emailDomain.value.trim()) {
+            showAlert('도메인을 입력해 주세요.', { onConfirm: function() { if (emailDomain) emailDomain.focus(); } });
+            return;
+        }
+        // 제목
+        if (!title || !title.value.trim()) {
+            showAlert('제목을 입력해주세요.', { onConfirm: function() { if (title) title.focus(); } });
+            return;
+        }
+        // 내용
+        if (!content || !content.value.trim()) {
+            showAlert('내용을 입력해주세요.', { onConfirm: function() { if (content) content.focus(); } });
+            return;
+        }
+        // 개인정보 동의
+        if (!agree || !agree.checked) {
+            showAlert('개인정보 수집을 동의해 주세요.', { onConfirm: function() {
+                var privacySection = document.querySelector('.ct-privacy-wrap');
+                if (privacySection) privacySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }});
+            return;
+        }
+        // 모든 검사 통과
+        showAlert('문의하시겠습니까?', {
+            confirm: true,
+            onConfirm: function() { window.location.href = 'contact-complete.html'; }
+        });
     });
+
+    })();
     </script>
 </body>
 </html>
