@@ -117,7 +117,7 @@
     border: none;
     cursor: pointer;
     box-sizing: border-box;
-    transition: transform 0.3s ease;
+    position: relative;
 }
 
 .iim-item-btn img {
@@ -126,23 +126,39 @@
     display: block;
 }
 
-.iim-item.is-open .iim-item-btn {
-    transform: rotate(180deg);
+.iim-icon-plus {
+    display: block;
+}
+
+.iim-icon-minus {
+    display: none !important;
+}
+
+.iim-item.is-open .iim-icon-plus {
+    display: none !important;
+}
+
+.iim-item.is-open .iim-icon-minus {
+    display: block !important;
 }
 
 
-/* ── 펼쳐진 컨텐츠 ── */
+/* ── 펼쳐진 컨텐츠 (슬라이드) ── */
 .iim-item-content {
-    display: none;
+    overflow: hidden;
+    max-height: 0;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px 44px;
+    padding: 0 44px;
     width: 100%;
     box-sizing: border-box;
+    transition: max-height 0.35s ease, padding 0.35s ease;
 }
 
 .iim-item.is-open .iim-item-content {
-    display: flex;
+    max-height: 3000px;
+    padding: 20px 44px;
 }
 
 .iim-content-box {
@@ -292,8 +308,13 @@
         height: 21.724px;
     }
 
-    /* GM: expanded — p=12 */
+    /* GM: 닫힘 — padding 0 (펼침 전 sliver 방지) */
     .iim-item-content {
+        padding: 0;
+    }
+
+    /* GM: 펼침 — p=12 */
+    .iim-item.is-open .iim-item-content {
         padding: 12px;
     }
 
