@@ -676,33 +676,39 @@
     display: none;
 }
 
-/* GP: 체크박스 — 36×36 outer, 24×24 inner border=1px solid #A7A7A7, radius=4 */
+/* GP: 체크박스 박스 — 36×36, border=1px solid #A7A7A7, radius=4 */
 .erf-checkbox-box {
     width: 36px;
     height: 36px;
+    border: 1px solid #A7A7A7;
+    border-radius: 4px;
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-}
-
-.erf-checkbox-box::before {
-    content: '';
-    width: 24px;
-    height: 24px;
-    border: 1px solid #A7A7A7;
-    border-radius: 4px;
-    background: #fff;
     box-sizing: border-box;
     transition: background 0.15s, border-color 0.15s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.erf-checkbox-input:checked+.erf-checkbox-box::before {
+.erf-checkbox-box::after {
+    content: '';
+    width: 10px;
+    height: 16px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) translate(-2px, -2px);
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.erf-checkbox-input:checked+.erf-checkbox-box {
     background: #F27100;
-    border-color: #1B1B1B;
+    border-color: #F27100;
+}
+
+.erf-checkbox-input:checked+.erf-checkbox-box::after {
+    opacity: 1;
 }
 
 /* GP: label/24_Bold — fs=24, fw=700, color=#000 */
@@ -1526,11 +1532,7 @@
     .erf-checkbox-box {
         width: 40px;
         height: 40px;
-    }
-
-    .erf-checkbox-box::before {
-        width: 20px;
-        height: 20px;
+        border-radius: 4px;
     }
 
     /* GM: checkbox label — fs=18, fw=700, color=#222, lh=1.6 */

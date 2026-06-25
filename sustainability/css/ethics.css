@@ -280,7 +280,7 @@
 .eth-accordion-item {}
 
 .eth-accordion-item:first-child .eth-accordion-header {
-    border-top: 1px solid #e0e0e0;
+    border-top: 0px solid #e0e0e0;
 }
 
 /* 아코디언 헤더 버튼 */

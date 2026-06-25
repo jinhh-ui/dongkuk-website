@@ -286,9 +286,9 @@
 ══════════════════════════════════════ */
 @media (max-width: 767px) {
 
-    /* GM: container — py=40, px=16, gap=30 */
+    /* GM: container — pt=30, pb=40, px=16, gap=30 */
     .erc-section {
-        padding: 40px 16px;
+        padding: 30px 16px 40px;
         gap: 30px;
     }
 
