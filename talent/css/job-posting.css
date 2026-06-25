@@ -188,6 +188,8 @@
 
 /* GP: 배지(접수마감) — bg=#D3D3D3, color=#fff */
 .job-badge--closed {
+    width: 90px;
+    height: 39px;
     background: #D3D3D3;
     color: #fff;
 }
@@ -471,6 +473,11 @@
         padding: 3px 10px;
         font-size: 16px;
         margin-bottom: 0;
+    }
+
+    .job-badge--closed {
+        width: 76px;
+        height: 32px;
     }
 
     /* GM: top row — vertical layout (배지 위, 제목 아래) */
