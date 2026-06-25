@@ -484,7 +484,6 @@
     color: #363636;
     margin: 0;
     line-height: 1.6;
-    height: 36px;
 }
 
 .rec-faq-item.is-open .rec-faq-a {
@@ -544,30 +543,28 @@
 ══════════════════════════════════════ */
 @media (max-width: 1660px) {
     .rec-process-list {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr auto 1fr;
-        gap: 30px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 30px;
     }
 
     .rec-process-card,
     .rec-process-card--final {
-        flex: none;
+        flex: 0 0 28%;
+        min-width: 0;
         max-width: none;
     }
 
     .rec-process-arrow {
+        flex: 0 0 auto;
         align-self: center;
-        justify-self: center;
+        padding: 0 clamp(16px, 2.5vw, 40px);
     }
 
     /* 3번째 화살표(행 사이) 숨김 */
     .rec-process-list> :nth-child(6) {
         display: none;
-    }
-
-    /* 2행 col 2부터 시작 → 중앙 정렬 */
-    .rec-process-list> :nth-child(7) {
-        grid-column: 2;
     }
 }
 
@@ -621,6 +618,8 @@
 
     .rec-process-desc {
         font-size: clamp(14px, 1.8vw, 18px);
+        white-space: normal;
+        word-break: keep-all;
     }
 
     .rec-process-list {
@@ -630,10 +629,16 @@
 
     .rec-process-card {
         overflow: visible;
+        min-width: 0;
     }
 
     .rec-process-content {
         overflow: visible;
+        min-width: 0;
+    }
+
+    .rec-process-arrow {
+        margin-right: clamp(8px, 1.5vw, 20px);
     }
 
     .rec-info-label {
@@ -1023,7 +1028,6 @@
         font-size: 16px;
         line-height: 1.6;
         color: #363636;
-        height: 78px;
         box-sizing: border-box;
     }
 

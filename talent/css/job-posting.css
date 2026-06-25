@@ -347,12 +347,14 @@
         width: auto;
         height: auto;
         flex-shrink: 0;
+        gap: 16px;
     }
 
     .job-row-tag {
-        width: auto;
+        flex: 1;
         white-space: nowrap;
         font-size: clamp(16px, 1.5vw, 22px);
+        text-align: center;
     }
 
     .job-row-date,
