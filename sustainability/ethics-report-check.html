@@ -128,15 +128,20 @@
         });
 
         // 비밀번호 토글
-        document.querySelectorAll('.erf-pw-toggle').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var input = document.getElementById(this.getAttribute('data-target'));
-                if (input) {
-                    input.type = input.type === 'password' ? 'text' : 'password';
-                    this.classList.toggle('is-visible');
-                }
+        var pwInput = document.getElementById('checkPassword');
+        var pwToggle = document.querySelector('.erf-pw-toggle');
+        if (pwToggle) pwToggle.style.display = 'none';
+
+        if (pwInput && pwToggle) {
+            pwInput.addEventListener('input', function() {
+                pwToggle.style.display = this.value.length > 0 ? '' : 'none';
             });
-        });
+
+            pwToggle.addEventListener('click', function() {
+                pwInput.type = pwInput.type === 'password' ? 'text' : 'password';
+                this.classList.toggle('is-visible');
+            });
+        }
 
         // 확인 버튼
         document.getElementById('checkSubmitBtn').addEventListener('click', function() {

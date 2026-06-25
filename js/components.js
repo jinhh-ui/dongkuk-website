@@ -20,12 +20,25 @@
         location.pathname.includes('/privacy/');
     const prefix = isSubdir ? '../' : '';
 
+    /* ── 섹션별 문의 카테고리 매핑 ── */
+    const path = location.pathname;
+    let catParam = '';
+    if (path.includes('/company/') || path.includes('/product/')) {
+        catParam = '?category=product';
+    } else if (path.includes('/invest/')) {
+        catParam = '?category=ir';
+    } else if (path.includes('/sustainability/')) {
+        catParam = '?category=etc';
+    } else if (path.includes('/talent/')) {
+        catParam = '?category=recruit';
+    }
+
     /* ── 고객지원 배너 ── */
     const supportEl = document.getElementById('support-placeholder');
     if (supportEl) {
         supportEl.outerHTML = `
     <section class="support-section">
-        <div class="support-banner" onclick="location.href='${prefix}contact/contact.html'" style="cursor:pointer;">
+        <div class="support-banner" onclick="location.href='${prefix}contact/contact.html${catParam}'" style="cursor:pointer;">
             <div class="support-icon"></div>
             <div class="support-content-box">
                 <div class="support-info">

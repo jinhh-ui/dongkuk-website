@@ -302,6 +302,29 @@
     });
     updateProductVisibility();
 
+    /* ── URL 파라미터로 카테고리 자동 선택 ── */
+    var urlParams = new URLSearchParams(window.location.search);
+    var catParam = urlParams.get('category');
+    if (catParam) {
+        var catMap = {
+            'product': '제품 및 영업 문의',
+            'ir': 'IR 및 투자 정보',
+            'recruit': '채용',
+            'etc': '기타'
+        };
+        var catText = catMap[catParam];
+        if (catText) {
+            var catBtns = document.querySelectorAll('.ct-btn-sel[data-group="category"]');
+            catBtns.forEach(function(btn) {
+                btn.classList.remove('is-active');
+                if (btn.textContent.trim() === catText) {
+                    btn.classList.add('is-active');
+                }
+            });
+            updateProductVisibility();
+        }
+    }
+
     // 커스텀 이메일 도메인 드롭다운
     var emailSelect = document.getElementById('emailSelect');
     var emailDomain = document.getElementById('emailDomain');
